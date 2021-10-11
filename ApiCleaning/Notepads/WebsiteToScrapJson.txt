@@ -1,0 +1,16 @@
+[
+{
+"apilink":"https://www.bitmex.com/api/v1/trade?count=200&reverse=true&symbol=XBTUSD",
+"symbol": "symbol",
+"exchange":"bitmex",
+"currency":"usd",
+"cypto":"btc"
+},
+{
+"apilink":"https://www.bitmex.com/api/v1/trade?count=200&reverse=true&symbol=XBTEUR",
+"symbol": "symbol",
+"exchange":"bitmex",
+"currency":"euro",
+"cypto":"btc"
+},
+]

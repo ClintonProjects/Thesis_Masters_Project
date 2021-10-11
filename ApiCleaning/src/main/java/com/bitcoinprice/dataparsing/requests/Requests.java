@@ -1,4 +1,4 @@
-package com.bitcoinprice.dataparsing.apicall;
+package com.bitcoinprice.dataparsing.requests;
 
 import java.io.IOException;
 import java.util.List;
@@ -13,10 +13,13 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
-import java.net.URI;
-import java.net.URISyntaxException;
 
-public class ApiCall {
+import com.neovisionaries.ws.client.WebSocket;
+import com.neovisionaries.ws.client.WebSocketAdapter;
+import com.neovisionaries.ws.client.WebSocketException;
+import com.neovisionaries.ws.client.WebSocketFactory;
+
+public class Requests {
 
 	public String getRequest(String link) throws UnsupportedOperationException, IOException {
 		// Creating a HttpClient object
@@ -26,23 +29,26 @@ public class ApiCall {
 		HttpGet httpget = new HttpGet(link);
 
 		// Printing the method used
-		System.out.println("Request Type: " + httpget.getMethod());
+		//System.out.println("Request Type: " + httpget.getMethod());
 
 		// Executing the Get request
 		HttpResponse httpresponse = httpclient.execute(httpget);
 
 		Scanner sc = new Scanner(httpresponse.getEntity().getContent());
-
 		String result = "";
 
+		// Printing the status line
+		//System.out.println(httpresponse.getStatusLine());
 		while (sc.hasNext()) {
 			result += sc.nextLine();
 		}
+
+		System.out.println(result);
+
 		return result;
 	}
 
 	public static String sendPOST(String url, List<NameValuePair> httpHeaders) throws IOException {
-
 		String result = "";
 		HttpPost post = new HttpPost(url);
 
@@ -61,6 +67,21 @@ public class ApiCall {
 		return result;
 	}
 
-	
+	public String webSocket(String link) throws WebSocketException, IOException {
+		// Connect to "wss://echo.websocket.org" and send "Hello." to it.
+		// When a response from the WebSocket server is received, the
+		// WebSocket connection is closed.
+		new WebSocketFactory().createSocket(link).addListener(new WebSocketAdapter() {
+			@Override
+			public void onTextMessage(WebSocket ws, String message) {
+				// Received a response. Print the received message.
+				System.out.println(message);
+
+				// Close the WebSocket connection.
+				ws.disconnect();
+			}
+		}).connect().sendContinuation();
+		return link;
+	}
 
 }
