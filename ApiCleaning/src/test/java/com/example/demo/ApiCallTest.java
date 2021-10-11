@@ -1,10 +1,15 @@
 package com.example.demo;
 
-import static org.junit.Assert.assertTrue;
-
 import java.io.IOException;
 
-ng site, String conversation, String link)
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import com.bitcoinprice.dataparsing.apicall.ApiCall;
+
+class apiCallTest {
+
+	public void apiTestMethod(String site, String conversation, String link)
 			throws UnsupportedOperationException, IOException {
 		System.out.println("Api Code test [" + site + "] " + conversation);
 		String TestResult = new ApiCall().getRequest(link);
@@ -56,18 +61,10 @@ ng site, String conversation, String link)
 	public void ApiTestHuobiBTCUSDT() throws IOException {
 		//// https://www.huobi.com/support/en-us/detail/900001603466
 	}
-	
+
 	@Test
-	public void FTX () {
-	//https://ftx.com/api/markets/BTC-PERP/trades?limit=100
+	public void FTX() {
+		// https://ftx.com/api/markets/BTC-PERP/trades?limit=100
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 
 }
