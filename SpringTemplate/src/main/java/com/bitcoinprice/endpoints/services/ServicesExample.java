@@ -1,4 +1,4 @@
-package com.example.services;
+package com.bitcoinprice.endpoints.services;
 
 import java.util.List;
 
@@ -6,8 +6,9 @@ import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
-import com.example.model.ExampleObject;
-import com.example.repository.ExampleRepository;
+
+import com.bitcoinprice.endpoints.model.ExampleObject;
+import com.bitcoinprice.endpoints.repository.ExampleRepository;
 
 @Service
 @ComponentScan({ "com.example", "com.example.repository" })

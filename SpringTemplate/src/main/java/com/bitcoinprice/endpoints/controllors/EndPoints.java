@@ -1,4 +1,4 @@
-package com.example.controllors;
+package com.bitcoinprice.endpoints.controllors;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.model.ExampleObject;
-import com.example.services.ServicesExample;
+import com.bitcoinprice.endpoints.model.ExampleObject;
+import com.bitcoinprice.endpoints.services.ServicesExample;
 
 @RestController
 @RequestMapping("/apis")

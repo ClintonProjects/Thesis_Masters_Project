@@ -17,7 +17,7 @@ public class NotepadTest {
 		// wrie test
 		new NotePad().writeData("TestFile", "TestFile2");
 		assertTrue(new NotePad().read("TestFile").contains("TestFile2"));
-		// wrie test
+		//rEeset the data in the file.
 		new NotePad().writeData("TestFile", "TestFile");
 	}
 

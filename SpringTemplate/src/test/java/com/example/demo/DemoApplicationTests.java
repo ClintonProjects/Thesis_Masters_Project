@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.example.repository.ExampleRepository;
+import com.bitcoinprice.endpoints.repository.ExampleRepository;
 
 @SpringBootTest
 class DemoApplicationTests {

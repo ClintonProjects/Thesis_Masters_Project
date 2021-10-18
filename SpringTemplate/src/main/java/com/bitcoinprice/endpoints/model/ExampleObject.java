@@ -1,4 +1,4 @@
-package com.example.model;
+package com.bitcoinprice.endpoints.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
