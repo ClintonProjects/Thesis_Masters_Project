@@ -11,7 +11,7 @@ import com.bitcoinprice.endpoints.model.ExampleObject;
 import com.bitcoinprice.endpoints.repository.ExampleRepository;
 
 @Service
-@ComponentScan({ "com.example", "com.example.repository" })
+@ComponentScan({ "com.bitcoinprice.endpoints", "com.bitcoinprice.endpoints.repository" })
 public class ServicesExample {
 
 	@Autowired

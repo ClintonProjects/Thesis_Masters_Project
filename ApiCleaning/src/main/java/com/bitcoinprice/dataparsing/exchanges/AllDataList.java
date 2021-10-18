@@ -21,8 +21,14 @@ public class AllDataList {
 		}
 		}
 
-	public void allApiData() throws JSONException, UnsupportedOperationException, IOException {
-		JSONArray jsonArray = new JSONArray(new NotePad().read("WebsiteToScrapJson"));
+	public void allApiData()  {
+		JSONArray jsonArray = null;
+		try {
+			jsonArray = new JSONArray(new NotePad().read("WebsiteToScrapJson"));
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		for (int i = 0; i < jsonArray.length(); i++) {
 			JSONObject JsonData = (JSONObject) jsonArray.get(i);
 			ApiExchangeToData apiExchangeToData = new ApiExchangeToData(JsonData);

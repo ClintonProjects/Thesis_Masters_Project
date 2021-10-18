@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bitcoinprice.dataparsing.exchanges.AllDataList;
 import com.bitcoinprice.endpoints.model.ExampleObject;
 import com.bitcoinprice.endpoints.services.ServicesExample;
 
@@ -21,7 +22,9 @@ public class EndPoints {
 	// http://localhost:8080/apis/getTest
 	@GetMapping("/getTest")
 	public List<ExampleObject> getAll() {
-		return servicesExample.getAll();
+		AllDataList allDataList = new AllDataList();
+		allDataList.allApiData();
+		return null;
 	}
 
 	@PostMapping("/save")

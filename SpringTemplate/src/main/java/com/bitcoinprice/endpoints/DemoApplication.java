@@ -9,7 +9,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @EnableSwagger2
 //@EnableMongoRepositories(basePackages="com.example.repository")
-@ComponentScan({ "com.example" })
+@ComponentScan({ "com.bitcoinprice.endpoints" })
 public class DemoApplication {
 
 	public static void main(String[] args) {
