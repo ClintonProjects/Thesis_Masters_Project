@@ -21,7 +21,7 @@ public class Swagger {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiDeatils())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.example"))
+                .apis(RequestHandlerSelectors.basePackage("com.bitcoinprice"))
                 .paths(PathSelectors.any())
                 .build();
     }

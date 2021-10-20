@@ -10,7 +10,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.bitcoinprice</groupId>
-	<artifactId>bitcoinprice</artifactId>
+	<artifactId>MasterProjectApiCallsAndSort</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Api and Sort</name>
 	<description>Demo project for Spring Boot</description>
@@ -113,7 +113,7 @@
 
 		<dependency>
 			<groupId>com.bitcoinprice</groupId>
-			<artifactId>Model</artifactId>
+			<artifactId>MasterProjectModel</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>

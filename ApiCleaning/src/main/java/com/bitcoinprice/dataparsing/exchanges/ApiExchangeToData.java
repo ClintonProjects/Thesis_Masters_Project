@@ -18,7 +18,6 @@ public class ApiExchangeToData {
 	protected ArrayList<ExchangeDataRecieved> exchangeDataList;
 
 	public ApiExchangeToData(JSONObject jsonData) throws JSONException, UnsupportedOperationException, IOException {
-	
 		String request = new Requests().getRequest(jsonData.getString("apilink"));
 		dataExample = new JsonConverter().stringToObjectArray(request);
 		exchangeDataList = new ArrayList<ExchangeDataRecieved>();

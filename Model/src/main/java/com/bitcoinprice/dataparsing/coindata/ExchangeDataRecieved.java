@@ -91,5 +91,9 @@ public class ExchangeDataRecieved {
 	public void setCypto(String cypto) {
 		this.cypto = cypto;
 	}
+	
+	public String toString() {
+		return exchange + " " + symbol + " " + tranactionId + " " + price + " " + size + " " + side + " " + currency + " " + cypto;
+	}
 		
 }

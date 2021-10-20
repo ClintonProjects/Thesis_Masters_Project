@@ -11,17 +11,13 @@ import com.bitcoinprice.dataparsing.requests.NotePad;
 
 public class AllDataList {
 
-	public ArrayList<ApiExchangeToData> dataList;
+	public ArrayList<ApiExchangeToData> dataList = new ArrayList<ApiExchangeToData>();
 
-	public AllDataList() {
-		try {
+	public AllDataList() throws JSONException, IOException {
 			allApiData();
-		} catch (UnsupportedOperationException | JSONException | IOException e) {
-			e.printStackTrace();
-		}
 		}
 
-	public void allApiData()  {
+	public void allApiData() throws UnsupportedOperationException, JSONException, IOException  {
 		JSONArray jsonArray = null;
 		try {
 			jsonArray = new JSONArray(new NotePad().read("WebsiteToScrapJson"));
@@ -35,4 +31,9 @@ public class AllDataList {
 			dataList.add(apiExchangeToData);
 		}
 	}
+	
+	public ArrayList<ApiExchangeToData> getDataList() {
+		return dataList;
+	}
+	
 }
