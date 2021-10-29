@@ -1,7 +1,13 @@
 package com.bitcoinprice.dataparsing.coindata;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.time.Instant;
+import java.time.LocalDateTime;
+
 public class ExchangeDataRecieved {
-	
+
+	public String apiLink;
 	public String exchange;
 	public String symbol;
 	public String tranactionId;
@@ -10,22 +16,19 @@ public class ExchangeDataRecieved {
 	public String side;
 	public String currency;
 	public String cypto;
-	
+//	public LocalDateTime timestamp;
+	public String timestamp;
+
 	public ExchangeDataRecieved() {
 		super();
 	}
 
-	public ExchangeDataRecieved(String exchange, String symbol, String tranactionId, String price, String size,
-			String side, String currency, String cypto) {
-		super();
-		this.exchange = exchange;
-		this.symbol = symbol;
-		this.tranactionId = tranactionId;
-		this.price = price;
-		this.size = size;
-		this.side = side;
-		this.currency = currency;
-		this.cypto = cypto;
+	public String getApiLink() {
+		return apiLink;
+	}
+
+	public void setApiLink(String apiLink) {
+		this.apiLink = apiLink;
 	}
 
 	public String getExchange() {
@@ -53,7 +56,7 @@ public class ExchangeDataRecieved {
 	}
 
 	public String getPrice() {
-		return price;
+		return String.valueOf(new BigDecimal(price).setScale(2, RoundingMode.HALF_EVEN).doubleValue());
 	}
 
 	public void setPrice(String price) {
@@ -92,8 +95,31 @@ public class ExchangeDataRecieved {
 		this.cypto = cypto;
 	}
 	
-	public String toString() {
-		return exchange + " " + symbol + " " + tranactionId + " " + price + " " + size + " " + side + " " + currency + " " + cypto;
+	
+
+//	public LocalDateTime getTimestamp() {
+//		return timestamp;
+//	}
+//
+//	public void setTimestamp(LocalDateTime timestamp) {
+//		this.timestamp = timestamp;
+//	}
+	
+	public Instant getTimestamp1() {
+		return Instant.parse(timestamp);
 	}
-		
+
+	public String getTimestamp() {
+		return timestamp;
+	}
+
+	public void setTimestamp(String timestamp) {
+		this.timestamp = timestamp;
+	}
+
+	public String toString() {
+		return exchange + " " + symbol + " " + tranactionId + " " + price + " " + size + " " + side + " " + currency
+				+ " " + cypto + " " + timestamp.toString();
+	}
+
 }

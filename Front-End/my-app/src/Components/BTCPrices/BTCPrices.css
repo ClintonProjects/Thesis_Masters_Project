@@ -1,0 +1,100 @@
+.bgColour {
+    background-color:  var(--secondary-bg-color);
+    padding-top: 3vh;
+}
+
+
+.filters {
+    margin-left: 20%;
+    width: 60%;
+    height: 4vh;
+    background-color:  var(--secondary-bg-color);
+    text-align: center;
+
+}
+
+.BTCPrices2 {
+    width: 100%;
+    background-color:  var(--secondary-bg-color);
+}
+
+.BTCPrices {
+    width: 100%;
+    height: 32vh;
+    background-color:  var(--secondary-bg-color);
+    min-height: 140px;
+}
+
+.LeftPad {
+    width: 20%;
+    height: 100%;
+    float: left;
+}
+
+.BTCPricesContainer {
+    height: 92.5%;
+    float: left;
+    width: 60%;
+    /* background-color: aqua; */
+}
+
+.BTCPrice1 {
+    width: 100%;
+    height: 10%;
+    float: left;
+    /* text-align: center;  */
+    /* padding-bottom: 3%; */
+}
+
+.Section {
+    height: 100%;
+    width: 16.4%;
+    float: left; 
+    text-align: center; 
+    /* text-align: center; */
+}
+
+.Headers {
+    height: 100%;
+    width: 16.66666666666667%;
+    float: left; 
+    text-align: center; 
+    /* text-align: center; */
+}
+
+.Section > p1 {
+    font-size: 0.78em;
+    color: rgb(177, 186, 211);
+    padding-left: 10%;
+    /* text-align: center; */
+    
+}
+
+.BTCPrice2 {
+    width: 100%;
+    height: 12%;
+    float: left; 
+    background-color:  var(--bg-color);
+}
+
+.BTCPrice3 {
+    width: 100%;
+    height: 12%;
+    float: left; 
+    background-color:  var(--secondary-bg-color);
+}
+
+.btcImage {
+    size: 0.5vh;
+}
+
+  
+
+@media screen and (min-width: 0px) and (max-width: 325px) {
+}
+
+@media screen and (min-width: 325px) and (max-width: 600px) {
+}
+
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+}
