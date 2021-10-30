@@ -16,8 +16,10 @@ public class RealTimeBTCData {
 	
 	public RealTimeBTCData(double currentPrice, double previousPrice) {
 		super();
-		this.currentPrice = new BigDecimal(currentPrice).setScale(2, RoundingMode.HALF_EVEN).doubleValue();
-		this.previousPrice = new BigDecimal(previousPrice).setScale(2, RoundingMode.HALF_EVEN).doubleValue();
+//		this.currentPrice = new BigDecimal(currentPrice).setScale(2, RoundingMode.DOWN).doubleValue();
+//		this.previousPrice = new BigDecimal(previousPrice).setScale(2, RoundingMode.HALF_EVEN).doubleValue();
+		this.currentPrice  = currentPrice;
+		this.previousPrice  = previousPrice;
 	}
 	
 	public double getCurrentPrice() {
@@ -34,6 +36,6 @@ public class RealTimeBTCData {
 	}
 	public double getPriceChange() {
 //		return 1;
-		return new BigDecimal((currentPrice * 100 / previousPrice) - 100).setScale(4, RoundingMode.HALF_EVEN).doubleValue();
+		return (currentPrice * 100 / previousPrice) - 100;
 	}
 }

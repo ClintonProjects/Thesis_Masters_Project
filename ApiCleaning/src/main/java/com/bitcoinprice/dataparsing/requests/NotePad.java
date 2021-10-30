@@ -22,6 +22,7 @@ public class NotePad {
 			System.out.println("An error occurred.");
 			e.printStackTrace();
 		}
+//		System.out.println(FullString);
 		return FullString;
 	}
 

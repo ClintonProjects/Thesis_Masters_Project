@@ -45,7 +45,7 @@ export default class BTCPrices extends Component {
 
 
     componentDidMount() {
-        this.interval = setInterval(() => this.getData(), 5000);
+        this.interval = setInterval(() => this.getData(), 7000);
     }
 
     BoxHeader() {
@@ -112,8 +112,8 @@ export default class BTCPrices extends Component {
                     </div>
 
                     <div className="Section">
-                        <p1>{new Date(this.state.items[inc].timestamp).getUTCDate() + "/" + new Date(this.state.items[inc].timestamp).getMonth() + "/" + new Date(this.state.items[inc].timestamp).getFullYear() + " " + 
-                        new Date(this.state.items[inc].timestamp).getHours() + ":" + new Date(this.state.items[inc].timestamp).getMinutes() + ":" + new Date(this.state.items[inc].timestamp).getSeconds()}</p1>
+                        <p1>{new Date(this.state.items[inc].timestamp).getUTCDate() + "/" + new Date(this.state.items[inc].timestamp).getMonth() + "/" + new Date(this.state.items[inc].timestamp).getFullYear() + " " +
+                            new Date(this.state.items[inc].timestamp).getHours() + ":" + new Date(this.state.items[inc].timestamp).getMinutes() + ":" + new Date(this.state.items[inc].timestamp).getSeconds()}</p1>
                     </div>
 
                     <div className="Section">
@@ -174,8 +174,38 @@ export default class BTCPrices extends Component {
                 </div>
 
 
+                <div className="BTCRealTimePricesFilter">
+                    {/* <button type="button" class="btn btn-primary btn-sm dropupbtn">Price Table Filters</button>
+                        <div class="dropup-content">
+                            <a href="#">Link 1</a>
+                            <a href="#">Link 2</a>
+                            <a href="#">Link 3</a>
+                    </div> */}
 
-
+                    <div class="dropup">
+                        <button type="button" class="btn btn-primary btn-sm dropbtn">Price Table Filters</button>
+                        <div class="dropup-content">
+                            <a>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
+                                    <label class="form-check-label" for="flexSwitchCheckChecked">Bitcoin</label>
+                                </div>
+                            </a>
+                            <a>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
+                                    <label class="form-check-label" for="flexSwitchCheckChecked">Ethereum</label>
+                                </div>
+                            </a>
+                            <a>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
+                                    <label class="form-check-label" for="flexSwitchCheckChecked">Litecoin</label>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }

@@ -12,7 +12,7 @@ import com.bitcoinprice.dataparsing.requests.NotePad;
 
 public class Main {
 
-//	public static void main(String args[]) throws Exception {
-//		System.out.println(new AllDataList().getDataList().get(0).getExchangeDataList().get(0).toString());
-//	}
+	public static void main(String args[]) throws Exception {
+		System.out.println(System.currentTimeMillis());
+	}
 }
