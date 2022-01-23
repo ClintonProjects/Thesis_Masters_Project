@@ -1,0 +1,38 @@
+[
+{
+  "timestamp": "timestamp",
+  "exchange": "Bitmex",
+  "apiLink":"wss://ws.bitmex.com/realtime?subscribe=trade:XBTUSD",
+  "currency":"usd",
+  "cypto":"btc",
+  "price": "price",
+  "side": "side",
+  "size": "homeNotional",
+  "symbol": "BTC/USD",
+  "tranactionId": "trdMatchID"
+},
+{
+  "timestamp": "timestamp",
+  "exchange": "Bitmex",
+  "apiLink":"wss://testnet.bitmex.com/realtime?subscribe=trade:XBTEUR",
+  "currency":"euro",
+  "cypto":"btc",
+  "price": "price",
+  "side": "side",
+  "size": "homeNotional",
+  "symbol": "BTC/EUR",
+  "tranactionId": "trdMatchID"
+},
+{
+  "timestamp": "time",
+  "exchange": "coinbase pro",
+  "apiLink":"wss://ws-feed.pro.coinbase.com/",
+  "currency":"EUR",
+  "cypto":"BTC",
+  "price": "price",
+  "side": "side",
+  "size": "size",
+  "symbol": "BTC/EUR",
+  "tranactionId": "trade_id"
+},
+]

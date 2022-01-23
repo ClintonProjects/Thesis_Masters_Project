@@ -1,0 +1,11 @@
+.Plan {
+    width: 100%;
+    height: 0vh;
+    background-color:  var(--secondary-bg-color);
+}
+
+.leftPad {
+    width: 22%;
+    height: 100%;
+    /* background-color: aliceblue; */
+}
