@@ -16,10 +16,25 @@ class App extends Component {
   //   };
   // }
 
+  wsTest() {
+    const ws = new WebSocket('wss://ws.bitmex.com/realtime?subscribe=trade:XBTEUR');
+
+    ws.onmessage = ({data}) =>
+    {
+      console.log('message', data);
+    };
+
+    document.querySelector.onclick = () => {
+     // ws.send('wss://ws.bitmex.com/realtime?subscribe=trade:XBTEUR');
+    }
+  }
+
+
 
   componentDidMount() {
     this.livechat();
     Analytics.functions.getIP();
+    this.wsTest();
   }
 
   livechat() {

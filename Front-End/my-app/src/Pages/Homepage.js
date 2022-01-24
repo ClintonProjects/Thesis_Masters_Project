@@ -6,6 +6,7 @@ import Text from '../Components/Text/text.js';
 import Nav from '../Components/NavigationBar/bar.js';
 import Footer from '../Components/Footer/footer.js';
 import BTCPrices from '../Components/BTCPrices/BTCPrices.js';
+import Banner from '../Components/BannerSpot/Banner.js';
 import Spacers from '../Components/Spacers/Spacer.js';
 import BTCRealTimePrices from '../Components/BTCRealTimePrices/BTCRealTimePrices.js';
 
@@ -22,8 +23,9 @@ class Homepage extends Component {
                 <Nav />
                 <TVGraph />
                 <Text/>
-                <BTCPrices />
-                <BTCRealTimePrices />
+                <Banner/>
+                {/* <BTCPrices />
+                <BTCRealTimePrices /> */}
                 <Footer />
             </div>
         );

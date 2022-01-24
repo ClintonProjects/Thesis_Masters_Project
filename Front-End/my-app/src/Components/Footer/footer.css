@@ -1,5 +1,5 @@
 .footer {
-    background-color:  var(--secondary-bg-color);
+    background-color:  var(--bg-color);
     box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 6px -1px, rgba(0, 0, 0, 0.2) 0px 4px 6px -1px;
     height: 0;
     width: 100%;
@@ -37,7 +37,7 @@
 .footer>.footercopyright {
     height: 3vh;
     width: 100%;
-    background-color:  var(--secondary-bg-color);
+    background-color:  var(--bg-color);
     box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 6px -1px, rgba(0, 0, 0, 0.2) 0px 4px 6px -1px;
     min-height: 20px;
     font-size: 0.6em;
