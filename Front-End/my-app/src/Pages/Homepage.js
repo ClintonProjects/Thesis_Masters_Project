@@ -17,15 +17,23 @@ class Homepage extends Component {
         this.state = {
         };
     }
+
+
+
+
+
+
     render() {
+
+        console.log("currency: "+ this.props.currency);
         return (
             <div className="App">
-                <Nav />
+                <Nav currency = {this.props.currency}/>
                 <TVGraph />
-                <Text/>
-                <Banner/>
-                {/* <BTCPrices />
-                <BTCRealTimePrices /> */}
+                <Text/> 
+                <BTCPrices currency = {this.props.currency}/>
+                <Banner/> 
+                {/* <BTCRealTimePrices /> */}
                 <Footer />
             </div>
         );

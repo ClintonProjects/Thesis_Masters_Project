@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 
 public class ExchangeDataRecieved {
 
+	
 	public String apiLink = "";
 	public String exchange = "";
 	public String symbol = "";

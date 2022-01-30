@@ -10,6 +10,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.socket.TextMessage;
+import org.springframework.web.socket.WebSocketMessage;
+import org.springframework.web.socket.WebSocketSession;
+import org.springframework.web.socket.handler.TextWebSocketHandler;
+
 import com.bitcoinprice.dataparsing.coindata.RealTimeBTCData;
 import com.bitcoinprice.dataparsing.coindata.ExchangeDataRecieved;
 import com.bitcoinprice.dataparsing.exchanges.AllDataList;
@@ -31,9 +36,10 @@ public class EndPoints {
 //		return null;
 	}
 
-//	@GetMapping("/getTenList")
-//	public List<ExchangeDataRecieved> saveTest() throws JSONException, IOException {
-//		return servicesExample.getTenLatestTranactions();
-//	}
+	@GetMapping("/getTenList")
+	public List<ExchangeDataRecieved> saveTest() throws JSONException, IOException {
+		return servicesExample.getTenLatestTranactions();
+	}
+
 
 }

@@ -55,15 +55,18 @@ public class ServicesExample {
 	@Bean
 	public void addWebSocketDataToDB() throws JSONException, IOException, WebSocketException {
 		// Starts the websockets:
-//		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTUSD", true);
-		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTEUR", true);
-//		customWebSocket.getWebSocket("wss://ws-feed.pro.coinbase.com/", false);
+		 customWebSocket.getWebSocket("wss://ws.feed.prime.coinbase.com", false);
+
+		//working:
+		// customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTUSD", true);
+		// customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTEUR", true);
+
 	}
 
- 	public List<ExchangeDataRecieved> getTenLatestTranactions() {
+	public List<ExchangeDataRecieved> getTenLatestTranactions() {
 		List<ExchangeDataRecieved> currentDB = bitcoinPriceData.findAll();
-		currentDB = currentDB.stream().filter(
-				/* BTC SIZE FILTER */ i -> Double.parseDouble(i.price) * Double.parseDouble(i.getSize()) > 10000)
+		currentDB = currentDB.stream()
+				.filter(/* BTC SIZE FILTER */ i -> Double.parseDouble(i.price) * Double.parseDouble(i.getSize()) > 1)
 //				.filter(i -> i.exchange.equalsIgnoreCase("coinbase pro"))
 //				.filter(i -> i.cypto.equalsIgnoreCase("LTC"))
 				.collect(Collectors.toList());
@@ -74,6 +77,42 @@ public class ServicesExample {
 			return currentDB.subList(0, currentDB.size());
 	}
 
+	// this list is are previous exchange data from the last cycle.
+	public static List<ExchangeDataRecieved> previousExchangeDataRecieved;
+	// checks if list has changed.
+	public static boolean matchingData = true;
+
+	// This method is used mainly for the websocket, it's basically just verifyes
+	// that previous list is not the same as newest list.
+	public void checkForNewEntries() {
+		matchingData = true;
+
+		if (previousExchangeDataRecieved == null) {
+			previousExchangeDataRecieved = new ArrayList<ExchangeDataRecieved>();
+			return;
+		}
+
+		// This list contains are current exchange data.
+		List<ExchangeDataRecieved> exchangeDataRecieved = getTenLatestTranactions();
+
+		if (previousExchangeDataRecieved.isEmpty()) {
+			previousExchangeDataRecieved = exchangeDataRecieved;
+			return;
+		}
+
+		// check if the 2 lists have all the same elemtns
+		for (int i = 0; i < exchangeDataRecieved.size(); i++)
+			if (!exchangeDataRecieved.get(i).getTranactionId()
+					.equals(previousExchangeDataRecieved.get(i).getTimestamp()))
+				matchingData = false;
+
+		if (!matchingData)
+			previousExchangeDataRecieved = exchangeDataRecieved;
+	}
+
+	// This is deprecated because it will replaced with another method or rewrite of
+	// this method in an comming update.
+	@Deprecated
 	public RealTimeBTCData getRealTimeBTCData() {
 		List<ExchangeDataRecieved> currentDB = bitcoinPriceData.findAll().stream()
 				.filter(/* Removes all non usd */i -> i.getCurrency().equalsIgnoreCase("usd"))

@@ -3,49 +3,49 @@ import './BTCPrices.css';
 import btc from './bitcoin-icon.png';
 import eth from './eth.png';
 import ltc from './ltc.png';
+import SockJS from "sockjs-client";
+import Stomp from "stompjs";
 
+var stompClient;
+var result;
 export default class BTCPrices extends Component {
     constructor(props) {
         super(props);
         this.state = {
             items: [{}],
-        };
+            result: null
+        }
+
         this.BoxColour = this.BoxColour.bind(this);
         this.replace = this.replace.bind(this);
+        // this.set = this.set.bind(this);
     }
 
+  connect = () => {
+    const socket = new SockJS("http://localhost:8081/simulator");
+    stompClient = Stomp.over(socket);
+    stompClient.connect({}, function (frame) {
+      console.log("Connected " + frame);
+      stompClient.subscribe("/endpoint/greeting", function (greeting) {
+            if(typeof greeting.body !== undefined)
+            result = greeting.body;
+      });
+    });
+  };
+
+    componentDidMount() {
+        this.connect();
+        this.interval = setInterval(() => this.getData(), 100);
+    }
 
 
     getData() {
-        // GET request using fetch with error handling
-        const headers = {
-            'Content-Type': 'application/json',
-            "Access-Control-Allow-Origin": "*",
+        //for currency settings.
+        console.log(this.props.currency);
+        try {
+        this.setState({ items: JSON.parse(result) })
+        } catch(err) {   //should never be called, just stop the console from being spammed if backend not on 
         }
-
-        fetch('http://localhost:8081/apis/getTenList', { headers })
-            .then(async response => {
-                const data = await response.json();
-
-                // check for error response
-                if (!response.ok) {
-                    // get error message from body or default to response statusText
-                    //   console.log("not ok");
-                    const error = (data && data.json) || response.statusText;
-                    return Promise.reject(error);
-                }
-                this.setState({ items: data })
-                // console.log(this.state.items);
-            })
-            .catch(error => {
-                this.setState({ errorMessage: error.toString() });
-                //console.error('There was an error!', error);
-            });
-    }
-
-
-    componentDidMount() {
-        this.interval = setInterval(() => this.getData(), 7000);
     }
 
     BoxHeader() {

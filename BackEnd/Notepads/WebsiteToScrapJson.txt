@@ -14,7 +14,7 @@
 {
   "timestamp": "timestamp",
   "exchange": "Bitmex",
-  "apiLink":"wss://testnet.bitmex.com/realtime?subscribe=trade:XBTEUR",
+  "apiLink":"wss://ws.bitmex.com/realtime?subscribe=trade:XBTEUR",
   "currency":"euro",
   "cypto":"btc",
   "price": "price",
@@ -26,7 +26,7 @@
 {
   "timestamp": "time",
   "exchange": "coinbase pro",
-  "apiLink":"wss://ws-feed.pro.coinbase.com/",
+  "apiLink":"wss://ws-feed.prime.coinbase.com",
   "currency":"EUR",
   "cypto":"BTC",
   "price": "price",

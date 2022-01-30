@@ -31,8 +31,6 @@ public class CustomWebSocket {
 
 	private String link;
 
-	private List<String> allTranactionsIds;
-
 	public CustomWebSocket() {
 	}
 
@@ -50,23 +48,25 @@ public class CustomWebSocket {
 			public void onTextMessage(WebSocket ws, String message)
 					throws UnsupportedOperationException, JSONException, IOException {
 				try {
-					List<String> adresses = bitcoinPriceData.findAll().stream()
+					List<String> addresses = bitcoinPriceData.findAll().stream()
 							.map(ExchangeDataRecieved::getTranactionId).collect(Collectors.toList());
-
+					System.out.println("getWeb");
 					JSONArray getNotePadData = new AllDataList().getNotePadDataJsonArray();
 					ApiExchangeToData apiExchangeToData = new ApiExchangeToData();
 					System.out.println(message);
 					apiExchangeToData.test(getNotePadData, message, link, JsonArrayRequired);
+					
+					
+					System.out.println("apiExchangeToData size: " + apiExchangeToData.getExchangeDataList().size());
 					for (int i = 0; i < apiExchangeToData.getExchangeDataList().size(); i++) {
 						//if (!adresses.contains(apiExchangeToData.getExchangeDataList().get(i).getTranactionId())) {
 							System.out.println("Saved");
 							bitcoinPriceData.save(apiExchangeToData.getExchangeDataList().get(i));
 						//}
 					}
-					System.out.println(apiExchangeToData.getExchangeDataList().size());
-					System.out.println("Ffff");
 				} catch (Exception e) {
-					System.out.println(e);
+					System.out.println("error in web hook \n" + e);
+					e.printStackTrace();
 				}
 			}
 		}).connect();

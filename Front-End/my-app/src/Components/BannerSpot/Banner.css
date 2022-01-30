@@ -1,10 +1,11 @@
-.bgColour {
+.BannerSpotHomePage {
     background-color:  var(--secondary-bg-color);
     width: 100%;
     height: 17.5vh;
+    padding-top: 3vh;
 }
 
-.btcImage {
+.BannerSpotHomePage > .btcImage {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -12,7 +13,7 @@
     padding-left: 35%;
 }
 
-.pad {
+.BannerSpotHomePage > .pad {
 height: 0%;
  width: 100%;
  background-color: green;
@@ -21,6 +22,7 @@ height: 0%;
 
 .pad > h1 {
     padding-top: 1vh;
-    font-size: 15px;
+    font-size: 0.8em;
     text-align: center;
+    text-decoration: underline;
 }

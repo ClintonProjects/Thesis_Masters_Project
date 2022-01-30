@@ -83,14 +83,19 @@ public class ApiExchangeToData {
 					boolean dataRequired = JsonArrayRequired;
 					JSONArray listOfData;
 					int loopSize = 0;
-					
+
 					if (dataRequired) {
 						// This line may need to be removed for other exchanges:
+						if (((JSONObject) dataExample.get(j)).has("data")) {
 						String wekSocketDataToString = ((JSONObject) dataExample.get(j)).getString("data");
 						// System.out.println(wekSocketDataToString);
 						listOfData = new JSONArray(wekSocketDataToString);
 						loopSize = listOfData.length();
 						System.out.println("loopSize: " + loopSize);
+						} else {
+							//for error catching
+							return;
+						}
 					} else {
 						// This line may need to be removed for other exchanges:
 						JSONObject wekSocketDataToString = ((JSONObject) dataExample.get(j));
@@ -98,40 +103,35 @@ public class ApiExchangeToData {
 						listOfData = new JSONArray("[" + wekSocketDataToString + "]");
 						loopSize = listOfData.length();
 					}
-					
-					
 
 					for (int k = 0; k < loopSize; k++) {
 
-						
-//						try {
-							JSONObject firstResult = (JSONObject) listOfData.get(k);
+						try {
+						JSONObject firstResult = (JSONObject) listOfData.get(k);
 
-							exchangeDataRecieved.setApiLink(dataConversationText.getString("apiLink"));
-							exchangeDataRecieved.setExchange(dataConversationText.getString("exchange"));
-							exchangeDataRecieved.setCypto(dataConversationText.getString("cypto").toUpperCase());
-							exchangeDataRecieved.setCurrency(dataConversationText.getString("currency").toUpperCase());
+						exchangeDataRecieved.setApiLink(dataConversationText.getString("apiLink"));
+						exchangeDataRecieved.setExchange(dataConversationText.getString("exchange"));
+						exchangeDataRecieved.setCypto(dataConversationText.getString("cypto").toUpperCase());
+						exchangeDataRecieved.setCurrency(dataConversationText.getString("currency").toUpperCase());
 
+						exchangeDataRecieved.setSide(firstResult.getString(dataConversationText.getString("side")));
+
+						if (firstResult.has(dataConversationText.getString("side")))
 							exchangeDataRecieved.setSide(firstResult.getString(dataConversationText.getString("side")));
 
-							if (firstResult.has(dataConversationText.getString("side")))
-								exchangeDataRecieved
-										.setSide(firstResult.getString(dataConversationText.getString("side")));
+						exchangeDataRecieved
+								.setTranactionId(firstResult.getString(dataConversationText.getString("tranactionId")));
+						exchangeDataRecieved.setPrice(firstResult.getString(dataConversationText.getString("price")));
+						exchangeDataRecieved.setSize(firstResult.getString(dataConversationText.getString("size")));
+						exchangeDataRecieved.setSymbol(dataConversationText.getString("symbol"));
+						exchangeDataRecieved
+								.setTimestamp(firstResult.getString(dataConversationText.getString("timestamp")));
 
-							exchangeDataRecieved.setTranactionId(
-									firstResult.getString(dataConversationText.getString("tranactionId")));
-							exchangeDataRecieved
-									.setPrice(firstResult.getString(dataConversationText.getString("price")));
-							exchangeDataRecieved.setSize(firstResult.getString(dataConversationText.getString("size")));
-							exchangeDataRecieved.setSymbol(dataConversationText.getString("symbol"));
-							exchangeDataRecieved
-									.setTimestamp(firstResult.getString(dataConversationText.getString("timestamp")));
+						exchangeDataList.add(exchangeDataRecieved);
 
-							exchangeDataList.add(exchangeDataRecieved);
-							
-//						} catch (Exception e) {
-//							System.out.println(e);
-//						}
+					} catch (Exception e) {
+						System.out.println(e);
+					}
 					}
 				}
 			}
