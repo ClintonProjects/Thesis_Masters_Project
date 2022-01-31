@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Login.css';
 import { Route, BrowserRouter as Router, Switch, Link } from "react-router-dom";
-import Hash from '../../Funuctions/Hash/Password.js';
 
 
 class loginpage extends Component {
@@ -14,48 +13,25 @@ class loginpage extends Component {
 
 
     Login() {
-        let email = "a";
-        let password= "a";
-
         const requestOptions = {
             method: "POST",
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type':'application/json',
+                'Accept': 'application/json',
                 "Access-Control-Allow-Origin": "*",
             },
-            body: JSON.stringify(
-                { 
-                "email": email, 
-                "password": password }
-                )
+            body: JSON.stringify({
+                email:document.getElementById('email').value,
+                password:document.getElementById('pass').value,
+            })
         };
 
-        fetch('http://localhost:8085/login/Login', requestOptions)
-            .then(async response => {
-                const data = await response.json();
-
-                console.log("working?");
-
-                if (!response.ok) {
-                    console.error('There was an error!', error);
-                    const error = (data && data.message) || response.statusText;
-                    return Promise.reject(error);
-                }
-            })
-            .catch(error => {
-                console.error('There was an error!', error);
-            });
+        fetch('http://localhost:8085/login/login', requestOptions)
+        .then((response) => response.json())
+        .then((messages) => {console.log("messages");
+    });
     }
     
-
-
-
-
-
-
-
-
-
     render() {
         return (
             <div class="loginbody">
@@ -71,12 +47,12 @@ class loginpage extends Component {
                                 <p>We're so excited to see you again!</p>
                                 <div class="form-group">
                                     <label class="InputEmail"><b>Email address</b></label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" />
+                                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="" />
                                 </div>
 
                                 <div class="form-group">
                                     <label for="exampleInputPassword1" class="passwordtexts"><b>Password</b></label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="" />
+                                    <input type="password" class="form-control" id='pass' placeholder="" />
                                     {/* <p1>Forgot your password?</p1> */}
                                 </div>
                                 <button type="submit" class="btn btn-primary LoginButton" onClick={this.Login}>Login</button>

@@ -33,18 +33,19 @@ public class IpContollors {
 	@Autowired
 	UserLoginService userLoginService;
 
-	@PostMapping(value = "/Login")
-	public String Login(@RequestParam("email")  String email, @RequestParam("password") String password)
+	@PostMapping(value = "/login")
+	public String Login(@RequestBody Login login)
 			throws InvalidKeyException, SignatureException, NoSuchAlgorithmException {
-		System.out.println(email + " " + password);
-		return userLoginService.Login(email, password);
+//		System.out.println(login.getEmail() + " " + login.getPassword());
+//		return userLoginService.Login(login.getEmail() , login.getPassword());
+		return "wow";
 	}
 
 	@PostMapping(value = "/Register")
-	@ResponseBody
-	 public  String RegisterUser(@RequestBody String email, @RequestBody String password)
+	 public String RegisterUser( String email, String password)
 			throws InvalidKeyException, SignatureException, NoSuchAlgorithmException {
-		System.out.println(email + " " + password);
-		return userLoginService.RegisterUser(email, password);
+		//System.out.println(email + " " + password);
+		//return userLoginService.RegisterUser(email, password);
+		return "wow";
 	}
 }

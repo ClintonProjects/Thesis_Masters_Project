@@ -40,12 +40,12 @@ public class UserLoginService {
 		Login User = UserLoginTable.findByemail(email);
 
 		if (password.equals(User.getPassword()) && email.equalsIgnoreCase(email)) {
-			System.out.println("Login Worked");
+//			System.out.println("Login Worked");
 			UserSession createUserSession = new UserSession(User.get_id());
 			SessionIdTable.insert(createUserSession);
 			return createUserSession.get_id().toString();
 		} else {
-			System.out.println("user found");
+//			System.out.println("user found");
 			return "failure";
 		}
 	}
