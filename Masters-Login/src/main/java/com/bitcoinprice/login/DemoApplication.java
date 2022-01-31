@@ -1,4 +1,4 @@
-package com.bitcoinprice.analytics;
+package com.bitcoinprice.login;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

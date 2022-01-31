@@ -1,4 +1,4 @@
-package com.bitcoinprice.analytics.swagger;
+package com.bitcoinprice.login.swagger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,6 +24,6 @@ public class Swagger {
 
 	@SuppressWarnings({ "deprecation", "unused" })
 	private ApiInfo apiDeatils() {
-		return new ApiInfo("Analytics Service", "This service is fro getting analytics.", "0.01", "", "", "", "");
+		return new ApiInfo("Login Service", "This service is for getting Login.", "0.01", "", "", "", "");
 	}
 }

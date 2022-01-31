@@ -1,4 +1,4 @@
-package com.bitcoinprice.analytics.services;
+package com.bitcoinprice.login.services;
 
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
@@ -15,9 +15,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
-import com.bitcoinprice.analytics.repository.UserLoginTable;
 import com.bitcoinprice.dataparsing.encryption.Encryption;
 import com.bitcoinprice.dataparsing.user.Login;
+import com.bitcoinprice.login.repository.UserLoginTable;
 
 @Service
 @ComponentScan({ "com.bitcoinprice", "com.bitcoinprice.repository" })
@@ -40,6 +40,4 @@ public class UserRegisterService {
 			return "login failure";
 		}
 	}
-	
-
 }

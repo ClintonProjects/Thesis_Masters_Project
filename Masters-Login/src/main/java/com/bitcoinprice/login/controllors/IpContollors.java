@@ -1,4 +1,4 @@
-package com.bitcoinprice.analytics.controllors;
+package com.bitcoinprice.login.controllors;
 
 import java.net.UnknownHostException;
 import java.security.InvalidKeyException;
@@ -18,9 +18,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import com.bitcoinprice.analytics.services.UserRegisterService;
+
 import com.bitcoinprice.dataparsing.user.Login;
-import com.bitcoinprice.analytics.services.UserLoginService;
+import com.bitcoinprice.login.services.UserLoginService;
+import com.bitcoinprice.login.services.UserRegisterService;
 
 @RestController
 @RequestMapping("/login")

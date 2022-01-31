@@ -1,4 +1,4 @@
-package com.bitcoinprice.analytics.repository;
+package com.bitcoinprice.login.repository;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
