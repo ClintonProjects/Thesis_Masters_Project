@@ -22,7 +22,7 @@ public class Swagger {
 				.apis(RequestHandlerSelectors.basePackage("com.bitcoinprice")).paths(PathSelectors.any()).build();
 	}
 
-	@SuppressWarnings({ "deprecation", "unused" })
+	@SuppressWarnings({ "deprecation" })
 	private ApiInfo apiDeatils() {
 		return new ApiInfo("Login Service", "This service is for getting Login.", "0.01", "", "", "", "");
 	}

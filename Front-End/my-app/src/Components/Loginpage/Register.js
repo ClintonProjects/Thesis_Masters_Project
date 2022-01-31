@@ -4,7 +4,7 @@ import { Route, BrowserRouter as Router, Switch, Link } from "react-router-dom";
 import Hash from '../../Funuctions/Hash/Password.js';
 
 
-class loginpage extends Component {
+class Register extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -34,7 +34,7 @@ class loginpage extends Component {
             body: JSON.stringify(data)
         };
 
-        fetch('http://localhost:8082/login/Login', requestOptions)
+        fetch('http://localhost:8085/login/Register', requestOptions)
             .then(async response => {
                 const data = await response.json();
 
@@ -71,8 +71,8 @@ class loginpage extends Component {
                         <div class="classiclogin">
                             <div class="loginform">
 
-                                <h4><b>Welcome back!</b></h4>
-                                <p>We're so excited to see you again!</p>
+                                <h4><b>Welcome!</b></h4>
+                                <p>We're so excited to have you come!</p>
                                 <div class="form-group">
                                     <label class="InputEmail"><b>Email address</b></label>
                                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" />
@@ -84,8 +84,8 @@ class loginpage extends Component {
                                     {/* <p1>Forgot your password?</p1> */}
                                 </div>
                                 <button type="submit" class="btn btn-primary LoginButton" onClick={this.Login}>Login</button>
-                                <Link to="/reister">
-                                    <p>Register</p>
+                                <Link to="/Login">
+                                    <p>Login</p>
 
                                 </Link>
                             </div>
@@ -101,4 +101,4 @@ class loginpage extends Component {
     }
 }
 
-export default loginpage;
+export default Register;

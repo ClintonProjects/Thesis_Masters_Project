@@ -3,10 +3,14 @@ package com.bitcoinprice.login.services;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SignatureException;
+import java.time.LocalDateTime;
+import java.util.List;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import com.bitcoinprice.login.repository.SessionIdTable;
@@ -18,34 +22,58 @@ import com.bitcoinprice.login.repository.UserLoginTable;
 @Service
 @ComponentScan({ "com.bitcoinprice", "com.bitcoinprice.repository" })
 public class UserLoginService {
-	
+
 	@Autowired
-	private UserLoginTable Repository;
-	
+	private UserLoginTable UserLoginTable;
+
 	@Autowired
 	private SessionIdTable SessionIdTable;
-	
-	public ObjectId Login(String email, String password) throws InvalidKeyException, SignatureException, NoSuchAlgorithmException {
+
+	public String Login(String email, String password)
+			throws InvalidKeyException, SignatureException, NoSuchAlgorithmException {
 		Encryption encrypt = new Encryption(password);
 		System.out.println(password);
 		encrypt.sha256();
 		encrypt.hmac256calculateHMAC();
 		password = encrypt.getStringToEncrypt();
-		
-		Login User = Repository.findByemail(email);
 
-		if (password.equals(User.getPassword()) && email.equalsIgnoreCase(email) ) {
+		Login User = UserLoginTable.findByemail(email);
+
+		if (password.equals(User.getPassword()) && email.equalsIgnoreCase(email)) {
 			System.out.println("Login Worked");
 			UserSession createUserSession = new UserSession(User.get_id());
 			SessionIdTable.insert(createUserSession);
-			return createUserSession.get_id();
+			return createUserSession.get_id().toString();
 		} else {
-			System.out.println("Login Failure");
-			return null;
+			System.out.println("user found");
+			return "failure";
 		}
+	}
 
+	@Scheduled(cron = "0 1 1 * * ?")
+	@Bean
+	public void updateActiveSessions() {
+		List<UserSession> createUserSession = SessionIdTable.findAll();
+		for (UserSession i : createUserSession) {
+			i.getActiveSession();
+			SessionIdTable.save(i);
+		}
 	}
 	
-	
-	
+	public String RegisterUser(String email, String password) throws InvalidKeyException, SignatureException, NoSuchAlgorithmException {
+		Encryption encrypt = new Encryption(password);
+		encrypt.sha256();
+		encrypt.hmac256calculateHMAC();
+		String encrypPassword = encrypt.getStringToEncrypt();
+
+		if (UserLoginTable.findByemail(email) == null) {
+			Login login = new Login(email, encrypPassword);			
+			UserLoginTable.insert(login);
+			return Login(email, password);
+		} else {
+			System.out.println("user found");
+			return "failure";
+		}
+	}
+
 }

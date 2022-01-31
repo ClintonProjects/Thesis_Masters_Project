@@ -30,7 +30,7 @@ class loginpage extends Component {
                 )
         };
 
-        fetch('http://localhost:8082/login/Login', requestOptions)
+        fetch('http://localhost:8085/login/Login', requestOptions)
             .then(async response => {
                 const data = await response.json();
 
@@ -80,7 +80,7 @@ class loginpage extends Component {
                                     {/* <p1>Forgot your password?</p1> */}
                                 </div>
                                 <button type="submit" class="btn btn-primary LoginButton" onClick={this.Login}>Login</button>
-                                <Link to="/reister">
+                                <Link to="/Register">
                                     <p>Register</p>
 
                                 </Link>

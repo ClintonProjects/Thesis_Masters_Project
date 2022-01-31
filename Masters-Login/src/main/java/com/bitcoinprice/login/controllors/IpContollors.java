@@ -8,9 +8,11 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,32 +29,22 @@ import com.bitcoinprice.login.services.UserRegisterService;
 @RequestMapping("/login")
 @CrossOrigin(origins = "*")
 public class IpContollors {
-	
+
 	@Autowired
 	UserLoginService userLoginService;
 
-	@Autowired
-	UserRegisterService userRegisterService;
-
-	
-//	@PostMapping(value = "/Login")
-//	@ResponseBody
-//	public void Login(@RequestBody String email, @RequestBody String password) throws InvalidKeyException, SignatureException, NoSuchAlgorithmException {
-//		System.out.println(email + " " + password);
-////		userLoginService.RegisterUser(email, password);
-//	}
-	
-	// http://localhost:8080/AnalyticsService/UserVisitedTableStore
-	@PostMapping("/Login")
-	public void saveTest(@RequestBody String email, @RequestBody String password) throws UnknownHostException {
-//		System.out.println(email + " " + password);
+	@PostMapping(value = "/Login")
+	public String Login(@RequestParam("email")  String email, @RequestParam("password") String password)
+			throws InvalidKeyException, SignatureException, NoSuchAlgorithmException {
+		System.out.println(email + " " + password);
+		return userLoginService.Login(email, password);
 	}
-	
-	
+
 	@PostMapping(value = "/Register")
 	@ResponseBody
-	public String RegisterUser(@RequestParam String email, @RequestParam String password) throws InvalidKeyException, SignatureException, NoSuchAlgorithmException {
+	 public  String RegisterUser(@RequestBody String email, @RequestBody String password)
+			throws InvalidKeyException, SignatureException, NoSuchAlgorithmException {
 		System.out.println(email + " " + password);
-		return userRegisterService.RegisterUser(email, password);
+		return userLoginService.RegisterUser(email, password);
 	}
 }

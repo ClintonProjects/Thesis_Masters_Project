@@ -55,7 +55,7 @@ public class ServicesExample {
 	@Bean
 	public void addWebSocketDataToDB() throws JSONException, IOException, WebSocketException {
 		// Starts the websockets:
-		 customWebSocket.getWebSocket("wss://ws.feed.prime.coinbase.com", false);
+		//customWebSocket.getWebSocket("wss://ws.feed.prime.coinbase.com", false);
 
 		//working:
 		// customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTUSD", true);

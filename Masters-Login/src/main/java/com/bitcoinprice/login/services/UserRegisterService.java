@@ -24,7 +24,7 @@ import com.bitcoinprice.login.repository.UserLoginTable;
 public class UserRegisterService {
 	
 	@Autowired
-	private UserLoginTable Repository;
+	private UserLoginTable UserLoginTable;
 	
 	public String RegisterUser(String email, String password) throws InvalidKeyException, SignatureException, NoSuchAlgorithmException {
 		Encryption encrypt = new Encryption(password);
@@ -32,8 +32,7 @@ public class UserRegisterService {
 		encrypt.hmac256calculateHMAC();
 		password = encrypt.getStringToEncrypt();
 		
-		Login User = Repository.findByemail(email);	
-		if (Repository.findByemail(email) != null) {
+		if (UserLoginTable.findByemail(email) != null) {
 			return "login successful";
 		} else {
 			System.out.println("user not found");

@@ -3,9 +3,11 @@ package com.bitcoinprice.dataparsing.user;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
+import javax.persistence.Column;
 import javax.persistence.Id;
 
 import org.bson.types.ObjectId;
@@ -15,7 +17,8 @@ public class UserSession {
 	@Id
 	private ObjectId _id;
 	private ObjectId userId;
-	private DateTimeFormatter time;
+	private Date time;
+	private boolean activeSession;
 
 	public UserSession() {
 	}
@@ -24,6 +27,7 @@ public class UserSession {
 		super();
 		this.userId = userId;
 		setTime();
+		getActiveSession();
 	}
 
 	public UserSession(ObjectId _id, ObjectId userId) {
@@ -48,14 +52,20 @@ public class UserSession {
 		this.userId = userId;
 	}
 
-	public DateTimeFormatter getTime() {
-		return time;
+	public void setTime() {
+		Calendar calendar = Calendar.getInstance();
+		time = calendar.getTime();
 	}
 
-	public void setTime() {
-//		SimpleDateFormat formattedDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-//		formattedDate.setTimeZone(TimeZone.getTimeZone("UTC"));
-//		return formattedDate.format(date);
+	public void getActiveSession() {
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.MONTH, 1);
+		Date curretTimeAddOneMonth = cal.getTime();
+		if (time.before(curretTimeAddOneMonth)) {
+			activeSession = true;
+		} else {
+			activeSession = false;
+		}
 	}
 
 }
