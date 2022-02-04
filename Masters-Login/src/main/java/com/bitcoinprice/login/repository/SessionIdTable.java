@@ -11,6 +11,6 @@ import com.bitcoinprice.dataparsing.user.UserSession;
 @Repository
 public interface SessionIdTable extends MongoRepository<UserSession, String> {
 	
-	public void findBy_id(ObjectId _id);
+	public UserSession findBy_id(ObjectId _id);
 	
 }

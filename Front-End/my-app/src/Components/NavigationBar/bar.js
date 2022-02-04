@@ -51,14 +51,15 @@ class Bar extends Component {
                     </div>
                 </div>
                 <div class="nav-support-button">
-                    <li class="dropdown">
+                <h1><Link to="/login">Sign Up/In</Link></h1>
+                    {/* <li class="dropdown">
                         <a href="javascript:void(0)" class="dropbtn">{this.displayFlagOnNav(this.state.flag)}</a>
                         <div class="dropdown-content">
                             <a href="#"><img src={globe} alt="HeadImage" class="euflag" onClick={(e) => this.toggleFlag('All')}/> All</a>
                             <a href="#"><img src={eu} alt="HeadImage" class="euflag" onClick={(e) => this.toggleFlag('EU')}/> Euro</a>
                             <a href="#"><img src={usa} alt="HeadImage" class="euflag" onClick={(e) => this.toggleFlag('USA')}/> USD</a>
                         </div>
-                    </li>
+                    </li> */}
                 </div>
             </div>
         );

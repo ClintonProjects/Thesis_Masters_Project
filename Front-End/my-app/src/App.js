@@ -8,6 +8,7 @@ import Homepage from "./Pages/Homepage.js";
 import Login from "./Pages/Login.js";
 import AdminPannel from "./Pages/AdminPannel.js";
 import Register from "./Pages/Register.js";
+import VerifyUserLogin from "./Funuctions/HttpRequests/VerifyUserLogin.js"
 // import SockJS from "sockjs-client";
 // import Stomp from "stompjs";
 
@@ -27,6 +28,7 @@ class App extends Component {
     // this.livechat();
     // Analytics.functions.getIP(); 
     // this.connect();
+    // VerifyUserLogin.functions.verify();
   }
 
 

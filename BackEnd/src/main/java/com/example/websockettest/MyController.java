@@ -31,11 +31,11 @@ public class MyController {
 	@Autowired
 	private ServicesExample servicesExample;
 
-//	@Scheduled(fixedRate = 100)
-//	public void scheduledUpdate() {
-//		System.out.println("scheduled");
-//		servicesExample.checkForNewEntries();
-//		this.template.convertAndSend("/endpoint/greeting", ServicesExample.previousExchangeDataRecieved);
-//	}
+	@Scheduled(fixedRate = 100)
+	public void scheduledUpdate() {
+		System.out.println("scheduled");
+		servicesExample.checkForNewEntries();
+		this.template.convertAndSend("/endpoint/greeting", ServicesExample.previousExchangeDataRecieved);
+	}
 
 }

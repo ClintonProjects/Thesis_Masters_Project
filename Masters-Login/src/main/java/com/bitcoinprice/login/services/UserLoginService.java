@@ -39,14 +39,14 @@ public class UserLoginService {
 
 		Login User = UserLoginTable.findByemail(email);
 
-		if (password.equals(User.getPassword()) && email.equalsIgnoreCase(email)) {
+		if (User != null && password.equals(User.getPassword()) && email.equalsIgnoreCase(email)) {
 //			System.out.println("Login Worked");
 			UserSession createUserSession = new UserSession(User.get_id());
 			SessionIdTable.insert(createUserSession);
 			return createUserSession.get_id().toString();
 		} else {
 //			System.out.println("user found");
-			return "failure";
+			return "";
 		}
 	}
 
@@ -55,25 +55,46 @@ public class UserLoginService {
 	public void updateActiveSessions() {
 		List<UserSession> createUserSession = SessionIdTable.findAll();
 		for (UserSession i : createUserSession) {
-			i.getActiveSession();
+			i.updateActiveSession();
 			SessionIdTable.save(i);
 		}
 	}
-	
-	public String RegisterUser(String email, String password) throws InvalidKeyException, SignatureException, NoSuchAlgorithmException {
+
+	public String RegisterUser(String email, String password)
+			throws InvalidKeyException, SignatureException, NoSuchAlgorithmException {
 		Encryption encrypt = new Encryption(password);
 		encrypt.sha256();
 		encrypt.hmac256calculateHMAC();
 		String encrypPassword = encrypt.getStringToEncrypt();
 
 		if (UserLoginTable.findByemail(email) == null) {
-			Login login = new Login(email, encrypPassword);			
+			Login login = new Login(email, encrypPassword);
 			UserLoginTable.insert(login);
 			return Login(email, password);
 		} else {
 			System.out.println("user found");
-			return "failure";
+			return "";
 		}
+	}
+
+	public String getEmailBySessionId(ObjectId sessionIdObj) {
+		List<UserSession> createUserSession = SessionIdTable.findAll();
+		for (UserSession i : createUserSession) {
+			if (i.get_id().equals(sessionIdObj)) {
+				System.out.println("Match");
+
+			}
+		}
+		return null;
+	}
+
+	public boolean getSessionActive(String sessionIdObj) {
+		ObjectId objId = new ObjectId(sessionIdObj);
+		UserSession createUserSession = SessionIdTable.findBy_id(objId);
+		if (createUserSession != null)
+			return createUserSession.isActiveSession();
+		else
+			return false;
 	}
 
 }

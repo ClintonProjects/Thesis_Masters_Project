@@ -58,8 +58,8 @@ public class ServicesExample {
 		//customWebSocket.getWebSocket("wss://ws.feed.prime.coinbase.com", false);
 
 		//working:
-		// customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTUSD", true);
-		// customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTEUR", true);
+		 customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTUSD", true);
+		 customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTEUR", true);
 
 	}
 

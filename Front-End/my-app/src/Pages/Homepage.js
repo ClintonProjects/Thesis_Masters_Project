@@ -31,7 +31,7 @@ class Homepage extends Component {
                 <Nav currency = {this.props.currency}/>
                 <TVGraph />
                 <Text/> 
-                <BTCPrices currency = {this.props.currency}/>
+                {/* <BTCPrices currency = {this.props.currency}/> */}
                 <Banner/> 
                 {/* <BTCRealTimePrices /> */}
                 <Footer />

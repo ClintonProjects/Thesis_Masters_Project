@@ -27,7 +27,7 @@ public class UserSession {
 		super();
 		this.userId = userId;
 		setTime();
-		getActiveSession();
+		updateActiveSession();
 	}
 
 	public UserSession(ObjectId _id, ObjectId userId) {
@@ -57,7 +57,25 @@ public class UserSession {
 		time = calendar.getTime();
 	}
 
-	public void getActiveSession() {
+	public Date getTime() {
+		return time;
+	}
+
+	public void setTime(Date time) {
+		this.time = time;
+	}
+
+	public void setActiveSession(boolean activeSession) {
+		this.activeSession = activeSession;
+	}
+	
+	
+
+	public boolean isActiveSession() {
+		return activeSession;
+	}
+
+	public void updateActiveSession() {
 		Calendar cal = Calendar.getInstance();
 		cal.add(Calendar.MONTH, 1);
 		Date curretTimeAddOneMonth = cal.getTime();

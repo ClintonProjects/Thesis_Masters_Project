@@ -15,6 +15,11 @@
     text-align: center;
 }
 
+.nav-support-button > h1 {
+    padding-top: 15%;
+    font-size: 1em;
+}
+
 .smallspace {
     height: 100%;
     width: 27.5%;
