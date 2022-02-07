@@ -1,6 +1,8 @@
 class VerifyUserLogin {
 }
 
+var result = false;
+
 VerifyUserLogin.verify = function () {
     const requestOptions = {
         method: "GET",
@@ -13,9 +15,11 @@ VerifyUserLogin.verify = function () {
         fetch('http://localhost:8085/login/session/' + localStorage.getItem('SessionId'), requestOptions)
             .then((response) => response.json())
             .then((messages) => {
-                 console.log(messages.response);
-                 return messages.response;
-            });
+                result = messages.response;
+            }).catch(error => {
+                console.error('There was an error!', error);
+            });;
+            return result;
 }
 
 

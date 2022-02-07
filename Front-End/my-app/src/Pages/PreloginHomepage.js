@@ -11,20 +11,14 @@ import Spacers from '../Components/Spacers/Spacer.js';
 import BTCRealTimePrices from '../Components/BTCRealTimePrices/BTCRealTimePrices.js';
 
 
-class Homepage extends Component {
+class PreloginHomepage extends Component {
     constructor(props) {
         super(props);
         this.state = {
         };
     }
 
-
-
-
-
-
     render() {
-
         console.log("currency: "+ this.props.currency);
         return (
             <div className="App">
@@ -40,4 +34,4 @@ class Homepage extends Component {
     }
 }
 
-export default Homepage;
+export default PreloginHomepage;

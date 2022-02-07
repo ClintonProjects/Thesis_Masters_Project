@@ -4,7 +4,8 @@ import Footer from './Components/Footer/footer.js';
 import Analytics from './Funuctions/InformationGather/Ipgrab.js';
 import React, { Component, PropTypes } from 'react';
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
-import Homepage from "./Pages/Homepage.js";
+import PreHomepage from "./Pages/PreloginHomepage.js";
+import PostHomepage from "./Pages/PostloginHomepage.js";
 import Login from "./Pages/Login.js";
 import AdminPannel from "./Pages/AdminPannel.js";
 import Register from "./Pages/Register.js";
@@ -21,6 +22,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      userActive: false,
     };
   }
 
@@ -28,7 +30,7 @@ class App extends Component {
     // this.livechat();
     // Analytics.functions.getIP(); 
     // this.connect();
-    // VerifyUserLogin.functions.verify();
+    this.setState({ userActive: VerifyUserLogin.functions.verify() });
   }
 
 
@@ -69,13 +71,15 @@ class App extends Component {
         <div>
           {/* <Nav /> */}
           <Switch>
-            <Route path="/login" component={Login}/>
+            <Route path="/login" component={Login} />
             {/* <Route path="/"  component={Homepage} render={(currency) => (
             <Homepage currency={currency}/>
             )} /> */}
-
-           <Route exact path="/" render={(props) => <Homepage currency={currency} {...props} /> } />
-
+            {this.state.userActive ?
+              <Route exact path="/" render={(props) => <PreHomepage currency={currency} {...props} />} />
+              : 
+              <Route exact path="/" render={(props) => <PostHomepage userActive={this.state.userActive} {...props} />} />
+            }
             <Route path="/admin" exact component={AdminPannel} />
             <Route path="/register" exact component={Register} />
           </Switch>
