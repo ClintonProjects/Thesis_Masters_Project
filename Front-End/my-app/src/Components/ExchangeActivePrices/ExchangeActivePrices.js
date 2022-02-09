@@ -1,40 +1,12 @@
 import './ExchangeActivePrices.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrademark } from '@fortawesome/free-solid-svg-icons';
+import coinbaseLogo from './Coinbase.png';
+import bainceLogo from './binance.png';
+import bitmexLogo from './bitmex-logo.png';
 
 
-function componentDidMount() {
-    this.interval = setInterval(() => this.getData(), 7000);
-}
 
-
-function getData() {
-    // GET request using fetch with error handling
-    const headers = {
-        'Content-Type': 'application/json',
-        "Access-Control-Allow-Origin": "*",
-
-    }
-    fetch('http://localhost:8081/apis/btcprice', { headers })
-        .then(async response => {
-            const data = await response.json();
-
-            // check for error response
-            if (!response.ok) {
-                // get error message from body or default to response statusText
-     //           console.log("not ok");
-                const error = (data && data.message) || response.statusText;
-                return Promise.reject(error);
-            }
-   //         console.log("ok");
-            this.setState({ items: data })
-            // console.log(this.state.items);
-        })
-        .catch(error => {
-            this.setState({ errorMessage: error.toString() });
- //           console.error('There was an error!', error);
-        });
-}
 
 
 function App() {
@@ -42,8 +14,33 @@ function App() {
         <div class="ExchangeActivePrices">
             <div class="inside">
                 <div class="coinbase">
-
+                <div class="exchangeLogo">
+                <img class="coinbaseImg" src={coinbaseLogo} width="50%" height="50%"/>
                 </div>
+                <div class="exchangeText">
+                <h1>$43,000</h1>
+                </div>
+                </div>
+
+                <div class="coinbase">
+                <div class="exchangeLogo">
+                <img class="coinbaseImg" src={bainceLogo} width="50%" height="50%"/>
+                </div>
+                <div class="exchangeText">
+                <h1>$43,000</h1>
+                </div>
+                </div>
+
+
+                <div class="coinbase">
+                <div class="exchangeLogo">
+                <img class="coinbaseImg" src={bitmexLogo} width="50%" height="50%"/>
+                </div>
+                <div class="exchangeText">
+                <h1>$43,000</h1>
+                </div>
+                </div>
+            
             </div>
         </div>
     );

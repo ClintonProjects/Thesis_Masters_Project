@@ -6,6 +6,7 @@ import Footer from '../Components/Footer/footer.js';
 import BTCPrices from '../Components/BTCPrices/BTCPrices.js';
 import BTCRealTimePrices from '../Components/BTCRealTimePrices/BTCRealTimePrices.js';
 import ExchangeActivePrices from '../Components/ExchangeActivePrices/ExchangeActivePrices.js';
+import BitcoinRealTimePrice from '../Components/BTCRealTimePrices/BTCRealTimePrices.js'
 
 
 class PostloginHomepage extends Component {
@@ -22,6 +23,7 @@ class PostloginHomepage extends Component {
                 <Nav currency = {this.props.currency}/>
                 <TVGraph />
                 <ExchangeActivePrices/>
+                {/* <BitcoinRealTimePrice/> */}
                 <BTCPrices/>
                 <Footer />
             </div>

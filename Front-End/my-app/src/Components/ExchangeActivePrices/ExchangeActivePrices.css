@@ -1,22 +1,49 @@
 .ExchangeActivePrices {
     background-color:  var(--bg-color);
     box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 6px -1px, rgba(0, 0, 0, 0.2) 0px 4px 6px -1px;
-    height: 10vh;
+    height: 15vh;
     width: 100%;
     padding-top: 0.5vh;
-    padding-bottom: 0.5vh;
+    /* padding-bottom: 0.5vh; */
+    padding-top: 1vh;
 }
 
 .ExchangeActivePrices > .inside {
-    background-color: red;
+    /* background-color: red; */
     width: 60%;
-    margin-left: 21.8%;
+    margin-left: 23.8%;
     height: 100%;
 }
 
 .ExchangeActivePrices > .inside > .coinbase {
-        width: 50%;
+        width: 30%;
         height: 100%;
-        background-color: aqua;
+        /* background-color: aqua; */
+        float: left;
+}
+ 
+.ExchangeActivePrices > .inside > .coinbase > .exchangeLogo {
+    /* background-color: green; */
+    width: 40%;
+    height: 100%;
+    float: left;
 }
 
+.ExchangeActivePrices > .inside > .coinbase > .exchangeText {
+    /* background-color: green; */
+    width: 60%;
+    height: 100%;
+    float: left;
+}
+
+.ExchangeActivePrices > .inside > .coinbase > .exchangeLogo > .coinbaseImg {
+    margin-top: 20%;
+    margin-left: 45%;
+}
+
+
+.ExchangeActivePrices > .inside > .coinbase > .exchangeText > h1 {
+    margin-top: 18%;
+    font-size: 1.5em;
+    /* margin-left: 15%; */
+}
