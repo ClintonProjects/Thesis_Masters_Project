@@ -5,6 +5,7 @@ import eth from './eth.png';
 import ltc from './ltc.png';
 import SockJS from "sockjs-client";
 import Stomp from "stompjs";
+// import ProgressBar from 'react-bootstrap/ProgressBar'
 
 var stompClient;
 var result;
@@ -21,17 +22,17 @@ export default class BTCPrices extends Component {
         // this.set = this.set.bind(this);
     }
 
-  connect = () => {
-    const socket = new SockJS("http://localhost:8081/simulator");
-    stompClient = Stomp.over(socket);
-    stompClient.connect({}, function (frame) {
-      console.log("Connected " + frame);
-      stompClient.subscribe("/endpoint/greeting", function (greeting) {
-            if(typeof greeting.body !== undefined)
-            result = greeting.body;
-      });
-    });
-  };
+    connect = () => {
+        const socket = new SockJS("http://localhost:8081/simulator");
+        stompClient = Stomp.over(socket);
+        stompClient.connect({}, function (frame) {
+            console.log("Connected " + frame);
+            stompClient.subscribe("/endpoint/greeting", function (greeting) {
+                if (typeof greeting.body !== undefined)
+                    result = greeting.body;
+            });
+        });
+    };
 
     componentDidMount() {
         this.connect();
@@ -41,10 +42,10 @@ export default class BTCPrices extends Component {
 
     getData() {
         //for currency settings.
-        console.log(this.props.currency);
+        // console.log(this.props.currency);
         try {
-        this.setState({ items: JSON.parse(result) })
-        } catch(err) {   //should never be called, just stop the console from being spammed if backend not on 
+            this.setState({ items: JSON.parse(result) })
+        } catch (err) {   //should never be called, just stop the console from being spammed if backend not on 
         }
     }
 
@@ -153,6 +154,8 @@ export default class BTCPrices extends Component {
     render() {
         return (
             <div className="bgColour">
+
+
                 <div className="BTCPrices2">
                     <div className="filters">
                         {this.BoxHeader()}

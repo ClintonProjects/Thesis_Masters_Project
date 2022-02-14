@@ -28,7 +28,8 @@ class loginpage extends Component {
 
 
 
-    Login() {
+    async Login() {
+        console.log("Login");
         sessionId = "";
         const requestOptions = {
             method: "POST",
@@ -43,19 +44,18 @@ class loginpage extends Component {
                 // password:document.getElementById('pass').value,
             })
         };
-        try {
-            fetch('http://localhost:8085/login/login', requestOptions)
-                .then((response) => response.json())
-                .then((messages) => {
-                    localStorage.setItem('SessionId',messages.id);
-                });
-            if (localStorage.getItem('SessionId') !== "") {
-                if (this.state.rememberMe)
+        await fetch('http://localhost:8085/login/login', requestOptions)
+            .then((response) => response.json())
+            .then((messages) => {
+                console.log(messages.id);
+                localStorage.setItem('SessionId', messages.id);
+            });
+        if (localStorage.getItem('SessionId') !== "") {
+            if (this.state.rememberMe)
                 localStorage.setItem('Login email', document.getElementById('email').value);
-                else localStorage.setItem('Login email', '');
-                window.location.href = "http://localhost:3000/";
-            }
-        } catch (e) { }
+            else localStorage.removeItem('Login email');
+            window.location.href = "http://localhost:3000/";
+        }
     }
 
     render() {

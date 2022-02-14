@@ -3,7 +3,7 @@ import '../App.css';
 import TVGraph from '../Components/TVGraph/TVGraph.js';
 import Quote from '../Components/Quote/Quote.js';
 import Text from '../Components/Text/text.js';
-import Nav from '../Components/NavigationBar/bar.js';
+import Nav from '../Components/NavigationBar/bar2.js';
 import Footer from '../Components/Footer/footer.js';
 import BTCPrices from '../Components/BTCPrices/BTCPrices.js';
 import Banner from '../Components/BannerSpot/Banner.js';

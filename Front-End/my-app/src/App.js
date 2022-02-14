@@ -2,7 +2,7 @@ import './App.css';
 import Nav from './Components/NavigationBar/bar.js';
 import Footer from './Components/Footer/footer.js';
 import Analytics from './Funuctions/InformationGather/Ipgrab.js';
-import React, { Component, PropTypes } from 'react';
+import React, { Component, PropTypes, useEffect, useState } from 'react';
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import PreHomepage from "./Pages/PreloginHomepage.js";
 import PostHomepage from "./Pages/PostloginHomepage.js";
@@ -24,15 +24,21 @@ class App extends Component {
     this.state = {
       userActive: false,
     };
+
+    this.isVerifyUserSignedIn = this.isVerifyUserSignedIn.bind(this);
   }
 
   componentDidMount() {
     // this.livechat();
     // Analytics.functions.getIP(); 
     // this.connect();
-    this.setState({ userActive: VerifyUserLogin.functions.verify() });
+    this.isVerifyUserSignedIn();
   }
+  // Similar to componentDidMount and componentDidUpdate:
 
+  handleStatusChange(satus) {
+    this.isVerifyUserSignedIn();
+  }
 
 
   // connect = () => {
@@ -61,29 +67,29 @@ class App extends Component {
     })();;
   }
 
+  isVerifyUserSignedIn() {
+    console.log("id is checked " + this.state.userActive + " " + localStorage.getItem('SessionId'));
+    if (!localStorage.getItem('SessionId') || localStorage.getItem('SessionId').length === 0)
+      this.setState({ userActive: true });
+    else
+      this.setState({ userActive: false });
+  }
 
 
 
   render() {
     return (
-
       <Router>
         <div>
           {/* <Nav /> */}
           <Switch>
             <Route path="/login" component={Login} />
-            {/* <Route path="/"  component={Homepage} render={(currency) => (
-            <Homepage currency={currency}/>
-            )} /> */}
             {this.state.userActive ?
-              <Route exact path="/" render={(props) => <PreHomepage currency={currency} {...props} />} />
-              : 
-              <Route exact path="/" render={(props) => <PostHomepage userActive={this.state.userActive} {...props} />} />
-            }
+              <Route exact path="/" render={(props) => <PreHomepage userActive={this.state.userActive} {...props} />} />
+              : <Route exact path="/" render={(props) => <PostHomepage userActive={this.state.userActive} {...props} />} />}
             <Route path="/admin" exact component={AdminPannel} />
             <Route path="/register" exact component={Register} />
           </Switch>
-          {/* <Footer /> */}
         </div>
       </Router>
 

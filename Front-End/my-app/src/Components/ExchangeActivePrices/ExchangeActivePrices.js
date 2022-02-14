@@ -11,36 +11,23 @@ import bitmexLogo from './bitmex-logo.png';
 
 function App() {
     return (
-        <div class="ExchangeActivePrices">
-            <div class="inside">
-                <div class="coinbase">
-                <div class="exchangeLogo">
-                <img class="coinbaseImg" src={coinbaseLogo} width="50%" height="50%"/>
-                </div>
-                <div class="exchangeText">
-                <h1>$43,000</h1>
-                </div>
-                </div>
+        <div class="activeExchanges">
+            <div class="container">
+                <div class="row py-2">
+                    {/* Blank Space, easier then using margin */}
+                    <div class="col-2" />
+                    <div class="col-3 text-start">
+                        <h3>  <img src={coinbaseLogo} class="cbImage" /> $43,000</h3>
+                    </div>
 
-                <div class="coinbase">
-                <div class="exchangeLogo">
-                <img class="coinbaseImg" src={bainceLogo} width="50%" height="50%"/>
-                </div>
-                <div class="exchangeText">
-                <h1>$43,000</h1>
-                </div>
-                </div>
+                    <div class="col-2 text-start">
+                        <h3>  <img src={bainceLogo} class="cbImage" /> $43,000</h3>
+                    </div>
 
-
-                <div class="coinbase">
-                <div class="exchangeLogo">
-                <img class="coinbaseImg" src={bitmexLogo} width="50%" height="50%"/>
+                    <div class="col-3  text-end">
+                        <h3>  <img src={bitmexLogo} class="cbImage" /> $43,000</h3>
+                    </div>
                 </div>
-                <div class="exchangeText">
-                <h1>$43,000</h1>
-                </div>
-                </div>
-            
             </div>
         </div>
     );

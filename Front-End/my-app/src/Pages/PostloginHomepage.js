@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import '../App.css';
 import TVGraph from '../Components/TVGraph/TVGraph.js';
-import Nav from '../Components/NavigationBar/bar.js';
+import Nav2 from '../Components/NavigationBar/bar2.js';
 import Footer from '../Components/Footer/footer.js';
 import BTCPrices from '../Components/BTCPrices/BTCPrices.js';
 import BTCRealTimePrices from '../Components/BTCRealTimePrices/BTCRealTimePrices.js';
 import ExchangeActivePrices from '../Components/ExchangeActivePrices/ExchangeActivePrices.js';
 import BitcoinRealTimePrice from '../Components/BTCRealTimePrices/BTCRealTimePrices.js'
-
+import BuySellBar from '../Components/BuySellBar/BuySellBar';
 
 class PostloginHomepage extends Component {
     constructor(props) {
@@ -17,14 +17,15 @@ class PostloginHomepage extends Component {
     }
 
     render() {
-        console.log("currency: "+ this.props.currency);
+        console.log("currency: " + this.props.currency);
         return (
             <div className="App">
-                <Nav currency = {this.props.currency}/>
+                <Nav2 currency={this.props.currency} />
                 <TVGraph />
-                <ExchangeActivePrices/>
+                <BuySellBar />
+                <ExchangeActivePrices />
                 {/* <BitcoinRealTimePrice/> */}
-                <BTCPrices/>
+                <BTCPrices />
                 <Footer />
             </div>
         );

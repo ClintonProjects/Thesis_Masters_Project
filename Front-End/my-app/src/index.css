@@ -12,11 +12,14 @@ html, body, :root, .App {
 }
 
 * {
- /* outline-style: solid;
-  outline-color: coral;  */
+
+  /* outline-style: solid;
+  outline-color: coral; */
+
+
   /* position: fixed; */
 
-    text-decoration: none;
+  text-decoration: none;
   font-family: Georgia, serif;
 }
 
@@ -32,6 +35,10 @@ html, body, :root, .App {
   box-shadow: 0 0.5vh 0.5vh rgba(38, 45, 49, 0.8);
   position: relative;
   opacity: 1;
+}
+
+.height-30 {
+  height: 30%;
 }
 
 a:link {

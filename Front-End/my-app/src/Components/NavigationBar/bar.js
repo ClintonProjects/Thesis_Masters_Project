@@ -41,7 +41,7 @@ class Bar extends Component {
 
     render() {
         return (
-            <div className="navigationbar">
+            <div className="nav-colour">
                 <div className="smallspace" />
                 <div className="LeftOfNav">
                     <div class="nav-brand">

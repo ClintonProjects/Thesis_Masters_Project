@@ -55,12 +55,35 @@ public class ServicesExample {
 	@Bean
 	public void addWebSocketDataToDB() throws JSONException, IOException, WebSocketException {
 		// Starts the websockets:
-		//customWebSocket.getWebSocket("wss://ws.feed.prime.coinbase.com", false);
+		// customWebSocket.getWebSocket("wss://ws.feed.prime.coinbase.com", false);
 
-		//working:
-		 customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTUSD", true);
-		 customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTEUR", true);
+		// working:
+		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTUSD", true);
+		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTEUR", true);
 
+	}
+
+	public Double buySellBar() {
+		List<ExchangeDataRecieved> currentDB = bitcoinPriceData.findAll().stream().collect(Collectors.toList());
+		List<ExchangeDataRecieved> previousMinList = new ArrayList<ExchangeDataRecieved>();
+
+		LocalDateTime now = LocalDateTime.ofInstant(Instant.now(), ZoneOffset.UTC);
+		LocalDateTime minAgo = now.minus(1, ChronoUnit.MINUTES);
+
+		for (ExchangeDataRecieved i : currentDB) {
+			Instant instant = Instant.parse(i.getTimestamp());
+			LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, ZoneOffset.UTC);
+
+			if (Duration.between(localDateTime, minAgo).toSeconds() <= 60)
+				previousMinList.add(i);
+		}
+
+		long buyCount = previousMinList.stream().filter(i -> i.getSide().equals("Buy")).count();
+		long totalCount = previousMinList.size();
+		
+		return new Double((buyCount * 100.0f) / totalCount);
+		
+		
 	}
 
 	public List<ExchangeDataRecieved> getTenLatestTranactions() {

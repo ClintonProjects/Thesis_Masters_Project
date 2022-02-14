@@ -1,8 +1,15 @@
-.navigationbar {
-    width: 100%;
-    height: 4vh;
+/* bootstrap fix for nav bar */
+.mss {
+    margin-left: (1rem * 3) !important;
+}
+
+/* Old nav code */
+
+.nav-colour {
+    /* width: 100%;
+    height: 4vh; */
     background-color: var(--bg-color);
-    min-height: 35px;
+    /* min-height: 35px; */
     /* position: fixed; */
 }
 
@@ -268,3 +275,6 @@ li {
 @media screen and (min-width: 1200px) and (max-width: 1500px) {}
 
 @media screen and (min-width: 1500px) and (max-width: 1900px) {}
+
+
+

@@ -62,41 +62,25 @@ class Register extends Component {
 
     render() {
         return (
-            <div class="loginbody">
-                <div class="SideSpacer" />
-
-                <div class="mainbody">
-                    <div class="TopSpacer" />
-                    <div class="Loginbox">
-                        <div class="classiclogin">
-                            <div class="loginform">
-
-                                <h4><b>Welcome!</b></h4>
-                                <p>We're so excited to have you come!</p>
-                                <div class="form-group">
-                                    <label class="InputEmail"><b>Email address</b></label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" />
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1" class="passwordtexts"><b>Password</b></label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="" />
-                                    {/* <p1>Forgot your password?</p1> */}
-                                </div>
-                                <button type="submit" class="btn btn-primary LoginButton" onClick={this.Login}>Login</button>
-                                <Link to="/Login">
-                                    <p>Login</p>
-
-                                </Link>
-                            </div>
-                        </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        1 of 5
+                    </div>
+                    <div class="col">
+                        2 of 5
+                    </div>
+                    <div class="col">
+                        3 of 5
+                    </div>
+                    <div class="col">
+                        4 of 5
+                    </div>
+                    <div class="col">
+                        5 of 5
                     </div>
                 </div>
-                <div class="SideSpacer" />
             </div>
-
-
-
         );
     }
 }

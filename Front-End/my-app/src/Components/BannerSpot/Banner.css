@@ -1,28 +1,11 @@
 .BannerSpotHomePage {
     background-color:  var(--secondary-bg-color);
     width: 100%;
-    height: 22.5vh;
-    padding-top: 3vh;
-}
-
-.BannerSpotHomePage > .btcImage {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    float: left;
-    padding-left: 30%;
-}
-
-.BannerSpotHomePage > .pad {
-height: 0%;
- width: 100%;
- background-color: green;
- float: left;
-}
-
-.pad > h1 {
+    height: 17vh;
     padding-top: 1vh;
-    font-size: 0.8em;
+}
+
+.textUnderBanner {
     text-align: center;
-    text-decoration: underline;
+    font-size: 1em;
 }
