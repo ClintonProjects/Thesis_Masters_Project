@@ -47,10 +47,10 @@ export default class BuySellBar extends Component {
                         {/* Blank Space, easier then using margin */}
                         <div class="col-2" />
                         <div class="col-4 text-start">
-                            <h3>Buy: {result}</h3>
+                            <h3>Buy: {result - 0}%</h3>
                         </div>
                         <div class="col-4 text-end">
-                            <h3>Sell:  {100 - result}</h3>
+                            <h3>Sell:  {100 - result}%</h3>
                         </div>
                         {/* Blank Space, easier then using margin */}
                         <div class="col-1" />

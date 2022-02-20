@@ -31,7 +31,7 @@ public class MyController {
 	@Autowired
 	private ServicesExample servicesExample;
 
-//	@Scheduled(fixedRate = 100)
+	@Scheduled(fixedRate = 100)
 	public void scheduledUpdate() {
 //		System.out.println("scheduled");
 		servicesExample.checkForNewEntries();
@@ -39,9 +39,18 @@ public class MyController {
 	}
 
 	@Scheduled(fixedRate = 100)
-	public void test() {
-//		System.out.println(servicesExample.buySellBar());
+	public void BuyandSellBarPercentage() {
 		this.template.convertAndSend("/endpoint/wow", servicesExample.buySellBar());
 	}
-
+	
+	public void exchangesActivePrice() {
+		this.template.convertAndSend("/endpoint/coinbaseprice", servicesExample.buySellBar());
+	}
 }
+	
+	
+	
+	
+	
+	
+	

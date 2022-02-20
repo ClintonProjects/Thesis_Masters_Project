@@ -60,6 +60,9 @@ public class ServicesExample {
 		// working:
 		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTUSD", true);
 		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTEUR", true);
+		
+		
+		
 
 	}
 

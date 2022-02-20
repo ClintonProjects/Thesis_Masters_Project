@@ -39,6 +39,8 @@ class Bar extends Component {
     toggleFlag(flag) {
         console.log('Update flag = ' + flag);
         this.state.flag = flag;
+        //this.setState({ flag : newFlag })
+
         //this.props.currency = flag;
     }
 
