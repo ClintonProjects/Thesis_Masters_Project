@@ -26,7 +26,7 @@
 {
   "timestamp": "time",
   "exchange": "coinbase pro",
-  "apiLink":"wss://ws-feed.prime.coinbase.com",
+  "apiLink":"wss://ws-feed.pro.coinbase.com/",
   "currency":"EUR",
   "cypto":"BTC",
   "price": "price",

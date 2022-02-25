@@ -41,7 +41,7 @@ public class CustomWebSocket {
 	}
 
 //	@PostConstruct
-	public void getWebSocket(String link, boolean JsonArrayRequired) throws WebSocketException, IOException {
+	public void getWebSocket(String link, boolean JsonArrayRequired, String message) throws WebSocketException, IOException {
 		System.out.println("getWeb");
 		new WebSocketFactory().createSocket(link).addListener(new WebSocketAdapter() {
 			@Override
@@ -69,7 +69,7 @@ public class CustomWebSocket {
 					e.printStackTrace();
 				}
 			}
-		}).connect();
+		}).connect().sendText(message);
 	}
 
 }

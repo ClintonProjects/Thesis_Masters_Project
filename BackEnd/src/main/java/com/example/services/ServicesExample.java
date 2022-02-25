@@ -55,11 +55,13 @@ public class ServicesExample {
 	@Bean
 	public void addWebSocketDataToDB() throws JSONException, IOException, WebSocketException {
 		// Starts the websockets:
-		// customWebSocket.getWebSocket("wss://ws.feed.prime.coinbase.com", false);
-
+		//note: for self https://docs.binance.org/api-reference/dex-api/ws-connection.html
 		// working:
-		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTUSD", true);
-		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTEUR", true);
+		//coinbase:
+		customWebSocket.getWebSocket("wss://ws-feed.pro.coinbase.com/", false, "{\"type\": \"subscribe\", \"channels\": [{\"name\":\"matches\",\"product_ids\":[\"ETH-USD\"]}]}");
+		//bitmex
+//		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTUSD", true, "");
+//		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTEUR", true, "");
 		
 		
 		
