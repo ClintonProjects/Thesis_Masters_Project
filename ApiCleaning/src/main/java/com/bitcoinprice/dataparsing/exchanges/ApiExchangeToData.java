@@ -25,6 +25,7 @@ public class ApiExchangeToData {
 	protected ArrayList<ExchangeDataRecieved> exchangeDataList;
 
 	public ApiExchangeToData() {
+		Integer x = Integer.MAX_VALUE;
 	}
 
 	@Deprecated
@@ -111,9 +112,17 @@ public class ApiExchangeToData {
 
 						exchangeDataRecieved.setApiLink(dataConversationText.getString("apiLink"));
 						exchangeDataRecieved.setExchange(dataConversationText.getString("exchange"));
+						
+						if (firstResult.has("product_id") && firstResult.get("product_id").toString().split("-").length == 2)
+						exchangeDataRecieved.setCypto(firstResult.get("product_id").toString().split("-")[0]);
+						else
 						exchangeDataRecieved.setCypto(dataConversationText.getString("cypto").toUpperCase());
-						exchangeDataRecieved.setCurrency(dataConversationText.getString("currency").toUpperCase());
-
+						
+						if (!firstResult.has("product_id") && firstResult.get("product_id").toString().split("-").length != 2) {
+							exchangeDataRecieved.setCurrency(dataConversationText.getString("currency").toUpperCase());
+						} else exchangeDataRecieved.setCurrency(firstResult.get("product_id").toString().split("-")[1]);
+						
+						
 						exchangeDataRecieved.setSide(firstResult.getString(dataConversationText.getString("side")));
 
 						if (firstResult.has(dataConversationText.getString("side")))

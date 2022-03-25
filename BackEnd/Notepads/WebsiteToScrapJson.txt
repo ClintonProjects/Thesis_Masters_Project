@@ -24,6 +24,42 @@
   "tranactionId": "trdMatchID"
 },
 {
+  "timestamp": "timestamp",
+  "exchange": "Bitmex",
+  "apiLink":"wss://ws.bitmex.com/realtime?subscribe=trade:ETHUSD",
+  "currency":"usd",
+  "cypto":"eth",
+  "price": "price",
+  "side": "side",
+  "size": "homeNotional",
+  "symbol": "BTC/USD",
+  "tranactionId": "trdMatchID"
+},
+{
+  "timestamp": "timestamp",
+  "exchange": "Bitmex",
+  "apiLink":"wss://ws.bitmex.com/realtime?subscribe=trade:ETHEUR",
+  "currency":"euro",
+  "cypto":"eth",
+  "price": "price",
+  "side": "side",
+  "size": "homeNotional",
+  "symbol": "BTC/EUR",
+  "tranactionId": "trdMatchID"
+},
+{
+  "timestamp": "timestamp",
+  "exchange": "Bitmex",
+  "apiLink":"wss://ws.bitmex.com/realtime?subscribe=trade:LTCUSD",
+  "currency":"usd",
+  "cypto":"ltc",
+  "price": "price",
+  "side": "side",
+  "size": "homeNotional",
+  "symbol": "BTC/EUR",
+  "tranactionId": "trdMatchID"
+},
+{
   "timestamp": "time",
   "exchange": "coinbase pro",
   "apiLink":"wss://ws-feed.pro.coinbase.com/",

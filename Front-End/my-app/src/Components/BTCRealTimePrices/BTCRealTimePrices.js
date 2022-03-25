@@ -31,17 +31,17 @@ class BTCRealTimePrices extends Component {
                 // check for error response
                 if (!response.ok) {
                     // get error message from body or default to response statusText
-         //           console.log("not ok");
+                    //           console.log("not ok");
                     const error = (data && data.message) || response.statusText;
                     return Promise.reject(error);
                 }
-       //         console.log("ok");
+                //         console.log("ok");
                 this.setState({ items: data })
                 // console.log(this.state.items);
             })
             .catch(error => {
                 this.setState({ errorMessage: error.toString() });
-     //           console.error('There was an error!', error);
+                //           console.error('There was an error!', error);
             });
     }
 

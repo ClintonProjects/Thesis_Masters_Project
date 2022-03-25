@@ -58,14 +58,12 @@ public class ServicesExample {
 		//note: for self https://docs.binance.org/api-reference/dex-api/ws-connection.html
 		// working:
 		//coinbase:
-		customWebSocket.getWebSocket("wss://ws-feed.pro.coinbase.com/", false, "{\"type\": \"subscribe\", \"channels\": [{\"name\":\"matches\",\"product_ids\":[\"ETH-USD\"]}]}");
+		//customWebSocket.getWebSocket("wss://ws-feed.pro.coinbase.com/", false, "{\"type\": \"subscribe\", \"channels\": [{\"name\":\"matches\",\"product_ids\":[\"BTC-USD\", \"BTC-GBP\" , \"BTC-EUR\", \"ETH-GBP\" , \"ETH-USD\"  , \"LTC-USD\" , \"LTC-EUR\"]}]}");
 		//bitmex
-//		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTUSD", true, "");
-//		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTEUR", true, "");
-		
-		
-		
-
+		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTUSD", true, "");
+		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTEUR", true, "");
+		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:ETHUSD", true, "");
+		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:LTCUSD", true, "");
 	}
 
 	public Double buySellBar() {
@@ -83,12 +81,17 @@ public class ServicesExample {
 				previousMinList.add(i);
 		}
 
-		long buyCount = previousMinList.stream().filter(i -> i.getSide().equals("Buy")).count();
+		long buyCount = previousMinList.stream().filter(i -> i.getSide().equalsIgnoreCase("Buy")).count();
 		long totalCount = previousMinList.size();
-		
+			
 		return new Double((buyCount * 100.0f) / totalCount);
-		
-		
+	}
+	
+	
+	public List<ExchangeDataRecieved> getAllTranactions() {
+		List<ExchangeDataRecieved> currentDB = bitcoinPriceData.findAll();
+		currentDB.sort(Comparator.comparing(ExchangeDataRecieved::getTimestamp1).reversed());
+		return currentDB;
 	}
 
 	public List<ExchangeDataRecieved> getTenLatestTranactions() {

@@ -37,8 +37,8 @@ public class EndPoints {
 	}
 
 	@GetMapping("/getTenList")
-	public List<ExchangeDataRecieved> saveTest() throws JSONException, IOException {
-		return servicesExample.getTenLatestTranactions();
+	public List<ExchangeDataRecieved> getExchngeData() throws JSONException, IOException {
+		return servicesExample.getAllTranactions();
 	}
 
 
