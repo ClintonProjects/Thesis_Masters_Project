@@ -28,14 +28,28 @@ export default class BTCPrices extends Component {
         stompClient.connect({}, function (frame) {
             console.log("Connected " + frame);
             stompClient.subscribe("/endpoint/greeting", function (greeting) {
-                if (typeof greeting.body !== undefined)
+                if (typeof greeting.body !== undefined) {
                     result = greeting.body;
+                }
             });
         });
     };
 
+
+    removeFromArray = function (array, value) {
+        var idx = array.indexOf(value);
+        if (idx !== -1) {
+            array.splice(idx, 1);
+        }
+        return array;
+    }
+
     componentDidMount() {
         this.connect();
+        // for (var i = 0; i < result.lenght; i++) {
+        //     if (i.cypto == "ETH")
+        //         result = this.removeFromArray(result, result[i]);
+        // }
         this.interval = setInterval(() => this.getData(), 100);
     }
 

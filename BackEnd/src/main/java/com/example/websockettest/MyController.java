@@ -40,6 +40,7 @@ public class MyController {
 
 	@Scheduled(fixedRate = 100)
 	public void BuyandSellBarPercentage() {
+		System.out.println(servicesExample.buySellBar());
 		this.template.convertAndSend("/endpoint/wow", servicesExample.buySellBar());
 	}
 	
