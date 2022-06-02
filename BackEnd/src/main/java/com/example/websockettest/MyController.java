@@ -31,16 +31,17 @@ public class MyController {
 	@Autowired
 	private ServicesExample servicesExample;
 
-	@Scheduled(fixedRate = 100)
+//	@Scheduled(fixedRate = 100)
 	public void scheduledUpdate() {
 //		System.out.println("scheduled");
 		servicesExample.checkForNewEntries();
 		this.template.convertAndSend("/endpoint/greeting", ServicesExample.previousExchangeDataRecieved);
 	}
 
-	@Scheduled(fixedRate = 100)
+//	@Scheduled(fixedRate = 100)
 	public void BuyandSellBarPercentage() {
-		System.out.println(servicesExample.buySellBar());
+		//This is for live buy and sell bar
+//		System.out.println(servicesExample.buySellBar());
 		this.template.convertAndSend("/endpoint/wow", servicesExample.buySellBar());
 	}
 	

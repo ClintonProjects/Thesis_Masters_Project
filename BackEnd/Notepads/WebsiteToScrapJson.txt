@@ -1,3 +1,4 @@
+
 [
 {
   "timestamp": "timestamp",
@@ -15,7 +16,7 @@
   "timestamp": "timestamp",
   "exchange": "Bitmex",
   "apiLink":"wss://ws.bitmex.com/realtime?subscribe=trade:XBTEUR",
-  "currency":"euro",
+  "currency":"EUR",
   "cypto":"btc",
   "price": "price",
   "side": "side",
@@ -39,7 +40,7 @@
   "timestamp": "timestamp",
   "exchange": "Bitmex",
   "apiLink":"wss://ws.bitmex.com/realtime?subscribe=trade:ETHEUR",
-  "currency":"euro",
+  "currency":"EUR",
   "cypto":"eth",
   "price": "price",
   "side": "side",
@@ -56,7 +57,7 @@
   "price": "price",
   "side": "side",
   "size": "homeNotional",
-  "symbol": "BTC/EUR",
+  "symbol": "BTC/USD",
   "tranactionId": "trdMatchID"
 },
 {
@@ -69,6 +70,102 @@
   "side": "side",
   "size": "size",
   "symbol": "BTC/EUR",
+  "tranactionId": "trade_id"
+},
+{
+  "timestamp": "setbycode",
+  "exchange": "binance",
+  "apiLink":"wss://stream.binance.com:9443/ws/ethusdt@kline_1m",
+  "currency":"USD",
+  "cypto":"BTC",
+  "price": "p",
+  "side": "m",
+  "size": "q",
+  "symbol": "USDT/BTC",
+  "tranactionId": "trade_id"
+},
+{
+  "timestamp": "setbycode",
+  "exchange": "binance",
+  "apiLink":"wss://stream.binance.com:9443/ws/ethusdt@kline_1m",
+  "currency":"USD",
+  "cypto":"ETH",
+  "price": "p",
+  "side": "m",
+  "size": "q",
+  "symbol": "USDT/ETH",
+  "tranactionId": "trade_id"
+},
+{
+  "timestamp": "setbycode",
+  "exchange": "binance",
+  "apiLink":"wss://stream.binance.com:9443/ws/ethusdt@kline_1m",
+  "currency":"USD",
+  "cypto":"LTC",
+  "price": "p",
+  "side": "m",
+  "size": "q",
+  "symbol": "USDT/LTC",
+  "tranactionId": "trade_id"
+},
+{
+  "timestamp": "setbycode",
+  "exchange": "binance",
+  "apiLink":"wss://stream.binance.com:9443/ws/ethusdt@kline_1m",
+  "currency":"EUR",
+  "cypto":"BTC",
+  "price": "p",
+  "side": "m",
+  "size": "q",
+  "symbol": "EUR/BTC",
+  "tranactionId": "trade_id"
+},
+{
+  "timestamp": "setbycode",
+  "exchange": "binance",
+  "apiLink":"wss://stream.binance.com:9443/ws/ethusdt@kline_1m",
+  "currency":"EUR",
+  "cypto":"LTC",
+  "price": "p",
+  "side": "m",
+  "size": "q",
+  "symbol": "EUR/LTC",
+  "tranactionId": "trade_id"
+},
+{
+  "timestamp": "setbycode",
+  "exchange": "binance",
+  "apiLink":"wss://stream.binance.com:9443/ws/ethusdt@kline_1m",
+  "currency":"GBP",
+  "cypto":"BTC",
+  "price": "p",
+  "side": "m",
+  "size": "q",
+  "symbol": "GBP/BTC",
+  "tranactionId": "trade_id"
+},
+{
+  "timestamp": "setbycode",
+  "exchange": "binance",
+  "apiLink":"wss://stream.binance.com:9443/ws/ethusdt@kline_1m",
+  "currency":"GBP",
+  "cypto":"LTC",
+  "price": "p",
+  "side": "m",
+  "size": "q",
+  "symbol": "GBP/LTC",
+  "tranactionId": "trade_id"
+},
+{
+  "timestamp": "setbycode",
+  "exchange": "binance",
+  "apiLink":"wss://stream.binance.com:9443/ws/ethusdt@kline_1m",
+  "currency":"GBP",
+  "cypto":"ETH",
+  "price": "p",
+  "side": "m",
+  "size": "q",
+  "symbol": "GBP/ETH",
   "tranactionId": "trade_id"
 },
 ]

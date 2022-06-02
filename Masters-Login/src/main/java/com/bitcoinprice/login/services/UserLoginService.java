@@ -51,8 +51,9 @@ public class UserLoginService {
 	}
 
 //	@Scheduled(cron = "0 1 1 * * ?")
-//	@Bean
+	@Bean
 	public void updateActiveSessions() {
+		System.out.println("ran");
 		List<UserSession> createUserSession = SessionIdTable.findAll();
 		for (UserSession i : createUserSession) {
 			i.updateActiveSession();

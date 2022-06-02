@@ -54,7 +54,7 @@ public class CustomWebSocket {
 					JSONArray getNotePadData = new AllDataList().getNotePadDataJsonArray();
 					ApiExchangeToData apiExchangeToData = new ApiExchangeToData();
 					System.out.println(message);
-					apiExchangeToData.test(getNotePadData, message, link, JsonArrayRequired);
+					apiExchangeToData.BitmexAndCoinbase(getNotePadData, message, link, JsonArrayRequired);
 					
 					
 					System.out.println("apiExchangeToData size: " + apiExchangeToData.getExchangeDataList().size());

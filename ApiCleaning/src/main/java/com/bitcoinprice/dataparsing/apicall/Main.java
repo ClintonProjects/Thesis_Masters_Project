@@ -1,35 +1,22 @@
 package com.bitcoinprice.dataparsing.apicall;
 
-import java.util.ArrayList;
+import org.apache.http.HttpEntity;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
 
-import com.bitcoinprice.dataparsing.exchanges.AllDataList;
-import com.bitcoinprice.dataparsing.exchanges.ApiExchangeToData;
-import com.bitcoinprice.dataparsing.requests.NotePad;
-import com.bitcoinprice.dataparsing.requests.Requests;
-import com.neovisionaries.ws.client.*;
+import com.bitcoinprice.dataparsing.exchanges.Currency;
+
+import java.io.IOException;
+import okhttp3.*;
+
 public class Main {
 
-	public static void main(String[] args) throws Exception
-    {
-        // Connect to "wss://echo.websocket.org" and send "Hello." to it.
-        // When a response from the WebSocket server is received, the
-        // WebSocket connection is closed.
-        new WebSocketFactory()
-            .createSocket("wss://testnet.bitmex.com/realtime?subscribe=trade:XBTUSD")
-            .addListener(new WebSocketAdapter() {
-                @Override
-                public void onTextMessage(WebSocket ws, String message) {
-                    // Received a response. Print the received message.
-                    System.out.println(message);
-
-                    // Close the WebSocket connection.
-//                    ws.disconnect();
-                }
-            })
-            .connect();
-    }
+	 public static void main(String[] args) throws Exception {
+		 new Currency().getCurrencyValues();
+	 }
 }

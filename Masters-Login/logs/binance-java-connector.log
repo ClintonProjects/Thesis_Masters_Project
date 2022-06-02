@@ -1,0 +1,352 @@
+2022-06-02 02:47:08.191[1654134428191] | INFO  | main       | c.bitcoinprice.login.DemoApplication - Starting DemoApplication using Java 16.0.1 on Clinton with PID 23600 (C:\Users\Clinton\Documents\GitHub\MastersProject\Masters-Login\target\classes started by Clinton in C:\Users\Clinton\Documents\GitHub\MastersProject\Masters-Login)
+2022-06-02 02:47:08.195[1654134428195] | INFO  | main       | c.bitcoinprice.login.DemoApplication - No active profile set, falling back to default profiles: default
+2022-06-02 02:47:09.335[1654134429335] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-06-02 02:47:09.422[1654134429422] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 79 ms. Found 2 MongoDB repository interfaces.
+2022-06-02 02:47:10.134[1654134430134] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 8085 (http)
+2022-06-02 02:47:10.147[1654134430147] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8085"]
+2022-06-02 02:47:10.148[1654134430148] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2022-06-02 02:47:10.148[1654134430148] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-06-02 02:47:10.272[1654134430272] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
+2022-06-02 02:47:10.272[1654134430272] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2000 ms
+2022-06-02 02:47:10.460[1654134430460] | INFO  | main       | org.mongodb.driver.cluster           - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-06-02 02:47:10.565[1654134430565] | INFO  | cluster-ClusterId{value='6298169ea2b17b2abb0a469f', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:1, serverValue:927}] to localhost:27017
+2022-06-02 02:47:10.565[1654134430565] | INFO  | cluster-rtt-ClusterId{value='6298169ea2b17b2abb0a469f', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:2, serverValue:926}] to localhost:27017
+2022-06-02 02:47:10.566[1654134430566] | INFO  | cluster-ClusterId{value='6298169ea2b17b2abb0a469f', description='null'}-localhost:27017 | org.mongodb.driver.cluster           - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=30894300}
+2022-06-02 02:47:11.483[1654134431483] | INFO  | main       | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:3, serverValue:928}] to localhost:27017
+2022-06-02 02:47:11.719[1654134431719] | INFO  | main       | s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-06-02 02:47:11.994[1654134431994] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8085"]
+2022-06-02 02:47:12.074[1654134432074] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port(s): 8085 (http) with context path ''
+2022-06-02 02:47:12.075[1654134432075] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2022-06-02 02:47:12.106[1654134432106] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2022-06-02 02:47:12.148[1654134432148] | INFO  | main       | s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2022-06-02 02:47:12.343[1654134432343] | INFO  | main       | c.bitcoinprice.login.DemoApplication - Started DemoApplication in 4.636 seconds (JVM running for 5.384)
+2022-06-02 02:47:31.365[1654134451365] | INFO  | main       | c.bitcoinprice.login.DemoApplication - Starting DemoApplication using Java 16.0.1 on Clinton with PID 13012 (C:\Users\Clinton\Documents\GitHub\MastersProject\Masters-Login\target\classes started by Clinton in C:\Users\Clinton\Documents\GitHub\MastersProject\Masters-Login)
+2022-06-02 02:47:31.369[1654134451369] | INFO  | main       | c.bitcoinprice.login.DemoApplication - No active profile set, falling back to default profiles: default
+2022-06-02 02:47:32.444[1654134452444] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-06-02 02:47:32.518[1654134452518] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 69 ms. Found 2 MongoDB repository interfaces.
+2022-06-02 02:47:33.176[1654134453176] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 8085 (http)
+2022-06-02 02:47:33.191[1654134453191] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8085"]
+2022-06-02 02:47:33.191[1654134453191] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2022-06-02 02:47:33.191[1654134453191] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-06-02 02:47:33.327[1654134453327] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
+2022-06-02 02:47:33.327[1654134453327] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1882 ms
+2022-06-02 02:47:33.533[1654134453533] | INFO  | main       | org.mongodb.driver.cluster           - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-06-02 02:47:33.627[1654134453627] | INFO  | cluster-ClusterId{value='629816b556d1e1596e0e07bf', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:2, serverValue:936}] to localhost:27017
+2022-06-02 02:47:33.627[1654134453627] | INFO  | cluster-rtt-ClusterId{value='629816b556d1e1596e0e07bf', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:1, serverValue:935}] to localhost:27017
+2022-06-02 02:47:33.627[1654134453627] | INFO  | cluster-ClusterId{value='629816b556d1e1596e0e07bf', description='null'}-localhost:27017 | org.mongodb.driver.cluster           - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=31624900}
+2022-06-02 02:47:34.484[1654134454484] | INFO  | main       | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:3, serverValue:937}] to localhost:27017
+2022-06-02 02:47:34.685[1654134454685] | INFO  | main       | s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-06-02 02:47:34.943[1654134454943] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8085"]
+2022-06-02 02:47:35.002[1654134455002] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port(s): 8085 (http) with context path ''
+2022-06-02 02:47:35.004[1654134455004] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2022-06-02 02:47:35.034[1654134455034] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2022-06-02 02:47:35.071[1654134455071] | INFO  | main       | s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2022-06-02 02:47:35.261[1654134455261] | INFO  | main       | c.bitcoinprice.login.DemoApplication - Started DemoApplication in 4.389 seconds (JVM running for 5.123)
+2022-06-02 02:48:16.875[1654134496875] | INFO  | main       | c.bitcoinprice.login.DemoApplication - Starting DemoApplication using Java 16.0.1 on Clinton with PID 9936 (C:\Users\Clinton\Documents\GitHub\MastersProject\Masters-Login\target\classes started by Clinton in C:\Users\Clinton\Documents\GitHub\MastersProject\Masters-Login)
+2022-06-02 02:48:16.880[1654134496880] | INFO  | main       | c.bitcoinprice.login.DemoApplication - No active profile set, falling back to default profiles: default
+2022-06-02 02:48:17.938[1654134497938] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-06-02 02:48:18.016[1654134498016] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 71 ms. Found 2 MongoDB repository interfaces.
+2022-06-02 02:48:18.696[1654134498696] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 8085 (http)
+2022-06-02 02:48:18.709[1654134498709] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8085"]
+2022-06-02 02:48:18.709[1654134498709] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2022-06-02 02:48:18.710[1654134498710] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-06-02 02:48:18.845[1654134498845] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
+2022-06-02 02:48:18.845[1654134498845] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1890 ms
+2022-06-02 02:48:19.028[1654134499028] | INFO  | main       | org.mongodb.driver.cluster           - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-06-02 02:48:19.115[1654134499115] | INFO  | cluster-rtt-ClusterId{value='629816e301911f68064d8af5', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:1, serverValue:948}] to localhost:27017
+2022-06-02 02:48:19.115[1654134499115] | INFO  | cluster-ClusterId{value='629816e301911f68064d8af5', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:2, serverValue:947}] to localhost:27017
+2022-06-02 02:48:19.116[1654134499116] | INFO  | cluster-ClusterId{value='629816e301911f68064d8af5', description='null'}-localhost:27017 | org.mongodb.driver.cluster           - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=29876500}
+2022-06-02 02:48:19.949[1654134499949] | INFO  | main       | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:3, serverValue:949}] to localhost:27017
+2022-06-02 02:48:20.180[1654134500180] | INFO  | main       | s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-06-02 02:48:20.454[1654134500454] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8085"]
+2022-06-02 02:48:20.520[1654134500520] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port(s): 8085 (http) with context path ''
+2022-06-02 02:48:20.521[1654134500521] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2022-06-02 02:48:20.551[1654134500551] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2022-06-02 02:48:20.593[1654134500593] | INFO  | main       | s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2022-06-02 02:48:20.773[1654134500773] | INFO  | main       | c.bitcoinprice.login.DemoApplication - Started DemoApplication in 4.372 seconds (JVM running for 5.092)
+2022-06-02 02:48:42.376[1654134522376] | INFO  | main       | c.bitcoinprice.login.DemoApplication - Starting DemoApplication using Java 16.0.1 on Clinton with PID 20808 (C:\Users\Clinton\Documents\GitHub\MastersProject\Masters-Login\target\classes started by Clinton in C:\Users\Clinton\Documents\GitHub\MastersProject\Masters-Login)
+2022-06-02 02:48:42.381[1654134522381] | INFO  | main       | c.bitcoinprice.login.DemoApplication - No active profile set, falling back to default profiles: default
+2022-06-02 02:48:43.489[1654134523489] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-06-02 02:48:43.565[1654134523565] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 70 ms. Found 2 MongoDB repository interfaces.
+2022-06-02 02:48:44.248[1654134524248] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 8085 (http)
+2022-06-02 02:48:44.261[1654134524261] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8085"]
+2022-06-02 02:48:44.262[1654134524262] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2022-06-02 02:48:44.262[1654134524262] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-06-02 02:48:44.381[1654134524381] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
+2022-06-02 02:48:44.382[1654134524382] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1914 ms
+2022-06-02 02:48:44.564[1654134524564] | INFO  | main       | org.mongodb.driver.cluster           - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-06-02 02:48:44.668[1654134524668] | INFO  | cluster-ClusterId{value='629816fc33144a4b4e31b3da', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:1, serverValue:956}] to localhost:27017
+2022-06-02 02:48:44.668[1654134524668] | INFO  | cluster-rtt-ClusterId{value='629816fc33144a4b4e31b3da', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:2, serverValue:955}] to localhost:27017
+2022-06-02 02:48:44.668[1654134524668] | INFO  | cluster-ClusterId{value='629816fc33144a4b4e31b3da', description='null'}-localhost:27017 | org.mongodb.driver.cluster           - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=30433600}
+2022-06-02 02:48:45.501[1654134525501] | INFO  | main       | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:3, serverValue:957}] to localhost:27017
+2022-06-02 02:48:45.735[1654134525735] | INFO  | main       | s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-06-02 02:48:46.052[1654134526052] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8085"]
+2022-06-02 02:48:46.124[1654134526124] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port(s): 8085 (http) with context path ''
+2022-06-02 02:48:46.125[1654134526125] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2022-06-02 02:48:46.160[1654134526160] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2022-06-02 02:48:46.207[1654134526207] | INFO  | main       | s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2022-06-02 02:48:46.422[1654134526422] | INFO  | main       | c.bitcoinprice.login.DemoApplication - Started DemoApplication in 4.533 seconds (JVM running for 5.259)
+2022-06-02 02:52:28.399[1654134748399] | INFO  | main       | c.bitcoinprice.login.DemoApplication - Starting DemoApplication using Java 16.0.1 on Clinton with PID 27380 (C:\Users\Clinton\Documents\GitHub\MastersProject\Masters-Login\target\classes started by Clinton in C:\Users\Clinton\Documents\GitHub\MastersProject\Masters-Login)
+2022-06-02 02:52:28.403[1654134748403] | INFO  | main       | c.bitcoinprice.login.DemoApplication - No active profile set, falling back to default profiles: default
+2022-06-02 02:52:29.422[1654134749422] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-06-02 02:52:29.495[1654134749495] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 68 ms. Found 2 MongoDB repository interfaces.
+2022-06-02 02:52:30.129[1654134750129] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 8085 (http)
+2022-06-02 02:52:30.140[1654134750140] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8085"]
+2022-06-02 02:52:30.141[1654134750141] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2022-06-02 02:52:30.141[1654134750141] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-06-02 02:52:30.260[1654134750260] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
+2022-06-02 02:52:30.260[1654134750260] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1781 ms
+2022-06-02 02:52:30.433[1654134750433] | INFO  | main       | org.mongodb.driver.cluster           - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-06-02 02:52:30.526[1654134750526] | INFO  | cluster-ClusterId{value='629817de9839c536d75609c5', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:1, serverValue:961}] to localhost:27017
+2022-06-02 02:52:30.526[1654134750526] | INFO  | cluster-rtt-ClusterId{value='629817de9839c536d75609c5', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:2, serverValue:960}] to localhost:27017
+2022-06-02 02:52:30.526[1654134750526] | INFO  | cluster-ClusterId{value='629817de9839c536d75609c5', description='null'}-localhost:27017 | org.mongodb.driver.cluster           - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=26920800}
+2022-06-02 02:52:31.304[1654134751304] | INFO  | main       | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:3, serverValue:962}] to localhost:27017
+2022-06-02 02:52:31.530[1654134751530] | INFO  | main       | s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-06-02 02:52:31.781[1654134751781] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8085"]
+2022-06-02 02:52:31.850[1654134751850] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port(s): 8085 (http) with context path ''
+2022-06-02 02:52:31.852[1654134751852] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2022-06-02 02:52:31.881[1654134751881] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2022-06-02 02:52:31.921[1654134751921] | INFO  | main       | s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2022-06-02 02:52:32.127[1654134752127] | INFO  | main       | c.bitcoinprice.login.DemoApplication - Started DemoApplication in 4.196 seconds (JVM running for 4.889)
+2022-06-02 02:53:31.070[1654134811070] | INFO  | main       | c.bitcoinprice.login.DemoApplication - Starting DemoApplication using Java 16.0.1 on Clinton with PID 27280 (C:\Users\Clinton\Documents\GitHub\MastersProject\Masters-Login\target\classes started by Clinton in C:\Users\Clinton\Documents\GitHub\MastersProject\Masters-Login)
+2022-06-02 02:53:31.073[1654134811073] | INFO  | main       | c.bitcoinprice.login.DemoApplication - No active profile set, falling back to default profiles: default
+2022-06-02 02:53:32.094[1654134812094] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-06-02 02:53:32.171[1654134812171] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 70 ms. Found 2 MongoDB repository interfaces.
+2022-06-02 02:53:32.833[1654134812833] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 8085 (http)
+2022-06-02 02:53:32.845[1654134812845] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8085"]
+2022-06-02 02:53:32.846[1654134812846] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2022-06-02 02:53:32.846[1654134812846] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-06-02 02:53:32.976[1654134812976] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
+2022-06-02 02:53:32.976[1654134812976] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1830 ms
+2022-06-02 02:53:33.171[1654134813171] | INFO  | main       | org.mongodb.driver.cluster           - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-06-02 02:53:33.255[1654134813255] | INFO  | cluster-ClusterId{value='6298181d74bff55ef4f12c6d', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:2, serverValue:964}] to localhost:27017
+2022-06-02 02:53:33.255[1654134813255] | INFO  | cluster-rtt-ClusterId{value='6298181d74bff55ef4f12c6d', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:1, serverValue:963}] to localhost:27017
+2022-06-02 02:53:33.255[1654134813255] | INFO  | cluster-ClusterId{value='6298181d74bff55ef4f12c6d', description='null'}-localhost:27017 | org.mongodb.driver.cluster           - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=27250800}
+2022-06-02 02:53:34.016[1654134814016] | INFO  | main       | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:3, serverValue:965}] to localhost:27017
+2022-06-02 02:53:34.222[1654134814222] | INFO  | main       | s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-06-02 02:53:34.487[1654134814487] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8085"]
+2022-06-02 02:53:34.551[1654134814551] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port(s): 8085 (http) with context path ''
+2022-06-02 02:53:34.552[1654134814552] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2022-06-02 02:53:34.582[1654134814582] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2022-06-02 02:53:34.622[1654134814622] | INFO  | main       | s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2022-06-02 02:53:34.818[1654134814818] | INFO  | main       | c.bitcoinprice.login.DemoApplication - Started DemoApplication in 4.221 seconds (JVM running for 4.926)
+2022-06-02 02:54:12.429[1654134852429] | INFO  | main       | c.bitcoinprice.login.DemoApplication - Starting DemoApplication using Java 16.0.1 on Clinton with PID 5972 (C:\Users\Clinton\Documents\GitHub\MastersProject\Masters-Login\target\classes started by Clinton in C:\Users\Clinton\Documents\GitHub\MastersProject\Masters-Login)
+2022-06-02 02:54:12.433[1654134852433] | INFO  | main       | c.bitcoinprice.login.DemoApplication - No active profile set, falling back to default profiles: default
+2022-06-02 02:54:13.454[1654134853454] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-06-02 02:54:13.532[1654134853532] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 72 ms. Found 2 MongoDB repository interfaces.
+2022-06-02 02:54:14.213[1654134854213] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 8085 (http)
+2022-06-02 02:54:14.225[1654134854225] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8085"]
+2022-06-02 02:54:14.226[1654134854226] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2022-06-02 02:54:14.226[1654134854226] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-06-02 02:54:14.347[1654134854347] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
+2022-06-02 02:54:14.347[1654134854347] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1843 ms
+2022-06-02 02:54:14.526[1654134854526] | INFO  | main       | org.mongodb.driver.cluster           - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-06-02 02:54:14.628[1654134854628] | INFO  | cluster-rtt-ClusterId{value='629818463bf7a05fe3889927', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:2, serverValue:970}] to localhost:27017
+2022-06-02 02:54:14.628[1654134854628] | INFO  | cluster-ClusterId{value='629818463bf7a05fe3889927', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:1, serverValue:971}] to localhost:27017
+2022-06-02 02:54:14.628[1654134854628] | INFO  | cluster-ClusterId{value='629818463bf7a05fe3889927', description='null'}-localhost:27017 | org.mongodb.driver.cluster           - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=31338900}
+2022-06-02 02:54:15.413[1654134855413] | INFO  | main       | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:3, serverValue:972}] to localhost:27017
+2022-06-02 02:54:15.609[1654134855609] | INFO  | main       | s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-06-02 02:54:15.862[1654134855862] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8085"]
+2022-06-02 02:54:15.924[1654134855924] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port(s): 8085 (http) with context path ''
+2022-06-02 02:54:15.926[1654134855926] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2022-06-02 02:54:15.952[1654134855952] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2022-06-02 02:54:15.991[1654134855991] | INFO  | main       | s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2022-06-02 02:54:16.181[1654134856181] | INFO  | main       | c.bitcoinprice.login.DemoApplication - Started DemoApplication in 4.222 seconds (JVM running for 4.935)
+2022-06-02 02:55:03.555[1654134903555] | INFO  | main       | c.bitcoinprice.login.DemoApplication - Starting DemoApplication using Java 16.0.1 on Clinton with PID 27532 (C:\Users\Clinton\Documents\GitHub\MastersProject\Masters-Login\target\classes started by Clinton in C:\Users\Clinton\Documents\GitHub\MastersProject\Masters-Login)
+2022-06-02 02:55:03.559[1654134903559] | INFO  | main       | c.bitcoinprice.login.DemoApplication - No active profile set, falling back to default profiles: default
+2022-06-02 02:55:04.616[1654134904616] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-06-02 02:55:04.688[1654134904688] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 67 ms. Found 2 MongoDB repository interfaces.
+2022-06-02 02:55:05.342[1654134905342] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 8085 (http)
+2022-06-02 02:55:05.355[1654134905355] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8085"]
+2022-06-02 02:55:05.355[1654134905355] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2022-06-02 02:55:05.356[1654134905356] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-06-02 02:55:05.479[1654134905479] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
+2022-06-02 02:55:05.480[1654134905480] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1848 ms
+2022-06-02 02:55:05.655[1654134905655] | INFO  | main       | org.mongodb.driver.cluster           - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-06-02 02:55:05.756[1654134905756] | INFO  | cluster-rtt-ClusterId{value='62981879ea51300467a1b8d3', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:2, serverValue:974}] to localhost:27017
+2022-06-02 02:55:05.756[1654134905756] | INFO  | cluster-ClusterId{value='62981879ea51300467a1b8d3', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:1, serverValue:973}] to localhost:27017
+2022-06-02 02:55:05.757[1654134905757] | INFO  | cluster-ClusterId{value='62981879ea51300467a1b8d3', description='null'}-localhost:27017 | org.mongodb.driver.cluster           - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=27992800}
+2022-06-02 02:55:06.513[1654134906513] | INFO  | main       | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:3, serverValue:975}] to localhost:27017
+2022-06-02 02:55:06.715[1654134906715] | INFO  | main       | s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-06-02 02:55:06.970[1654134906970] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8085"]
+2022-06-02 02:55:07.036[1654134907036] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port(s): 8085 (http) with context path ''
+2022-06-02 02:55:07.037[1654134907037] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2022-06-02 02:55:07.065[1654134907065] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2022-06-02 02:55:07.106[1654134907106] | INFO  | main       | s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2022-06-02 02:55:07.314[1654134907314] | INFO  | main       | c.bitcoinprice.login.DemoApplication - Started DemoApplication in 4.226 seconds (JVM running for 4.939)
+2022-06-02 02:55:29.134[1654134929134] | INFO  | main       | c.bitcoinprice.login.DemoApplication - Starting DemoApplication using Java 16.0.1 on Clinton with PID 21528 (C:\Users\Clinton\Documents\GitHub\MastersProject\Masters-Login\target\classes started by Clinton in C:\Users\Clinton\Documents\GitHub\MastersProject\Masters-Login)
+2022-06-02 02:55:29.138[1654134929138] | INFO  | main       | c.bitcoinprice.login.DemoApplication - No active profile set, falling back to default profiles: default
+2022-06-02 02:55:30.193[1654134930193] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-06-02 02:55:30.294[1654134930294] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 95 ms. Found 2 MongoDB repository interfaces.
+2022-06-02 02:55:30.948[1654134930948] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 8085 (http)
+2022-06-02 02:55:30.963[1654134930963] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8085"]
+2022-06-02 02:55:30.964[1654134930964] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2022-06-02 02:55:30.964[1654134930964] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-06-02 02:55:31.085[1654134931085] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
+2022-06-02 02:55:31.085[1654134931085] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1872 ms
+2022-06-02 02:55:31.263[1654134931263] | INFO  | main       | org.mongodb.driver.cluster           - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-06-02 02:55:31.342[1654134931342] | INFO  | cluster-rtt-ClusterId{value='62981893f76d5c62286783e5', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:1, serverValue:976}] to localhost:27017
+2022-06-02 02:55:31.342[1654134931342] | INFO  | cluster-ClusterId{value='62981893f76d5c62286783e5', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:2, serverValue:977}] to localhost:27017
+2022-06-02 02:55:31.342[1654134931342] | INFO  | cluster-ClusterId{value='62981893f76d5c62286783e5', description='null'}-localhost:27017 | org.mongodb.driver.cluster           - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=25894300}
+2022-06-02 02:55:32.139[1654134932139] | INFO  | main       | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:3, serverValue:978}] to localhost:27017
+2022-06-02 02:55:32.338[1654134932338] | INFO  | main       | s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-06-02 02:55:32.603[1654134932603] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8085"]
+2022-06-02 02:55:32.667[1654134932667] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port(s): 8085 (http) with context path ''
+2022-06-02 02:55:32.668[1654134932668] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2022-06-02 02:55:32.694[1654134932694] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2022-06-02 02:55:32.739[1654134932739] | INFO  | main       | s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2022-06-02 02:55:32.911[1654134932911] | INFO  | main       | c.bitcoinprice.login.DemoApplication - Started DemoApplication in 4.273 seconds (JVM running for 5.007)
+2022-06-02 02:56:19.079[1654134979079] | INFO  | main       | c.bitcoinprice.login.DemoApplication - Starting DemoApplication using Java 16.0.1 on Clinton with PID 16252 (C:\Users\Clinton\Documents\GitHub\MastersProject\Masters-Login\target\classes started by Clinton in C:\Users\Clinton\Documents\GitHub\MastersProject\Masters-Login)
+2022-06-02 02:56:19.083[1654134979083] | INFO  | main       | c.bitcoinprice.login.DemoApplication - No active profile set, falling back to default profiles: default
+2022-06-02 02:56:20.125[1654134980125] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-06-02 02:56:20.198[1654134980198] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 66 ms. Found 2 MongoDB repository interfaces.
+2022-06-02 02:56:20.840[1654134980840] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 8085 (http)
+2022-06-02 02:56:20.854[1654134980854] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8085"]
+2022-06-02 02:56:20.854[1654134980854] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2022-06-02 02:56:20.855[1654134980855] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-06-02 02:56:20.972[1654134980972] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
+2022-06-02 02:56:20.972[1654134980972] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1810 ms
+2022-06-02 02:56:21.142[1654134981142] | INFO  | main       | org.mongodb.driver.cluster           - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-06-02 02:56:21.239[1654134981239] | INFO  | cluster-ClusterId{value='629818c5e6eb0567ca75f53c', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:2, serverValue:980}] to localhost:27017
+2022-06-02 02:56:21.239[1654134981239] | INFO  | cluster-rtt-ClusterId{value='629818c5e6eb0567ca75f53c', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:1, serverValue:979}] to localhost:27017
+2022-06-02 02:56:21.240[1654134981240] | INFO  | cluster-ClusterId{value='629818c5e6eb0567ca75f53c', description='null'}-localhost:27017 | org.mongodb.driver.cluster           - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=29842300}
+2022-06-02 02:56:22.028[1654134982028] | INFO  | main       | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:3, serverValue:981}] to localhost:27017
+2022-06-02 02:56:22.249[1654134982249] | INFO  | main       | s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-06-02 02:56:22.511[1654134982511] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8085"]
+2022-06-02 02:56:22.582[1654134982582] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port(s): 8085 (http) with context path ''
+2022-06-02 02:56:22.583[1654134982583] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2022-06-02 02:56:22.610[1654134982610] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2022-06-02 02:56:22.649[1654134982649] | INFO  | main       | s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2022-06-02 02:56:22.843[1654134982843] | INFO  | main       | c.bitcoinprice.login.DemoApplication - Started DemoApplication in 4.258 seconds (JVM running for 4.969)
+2022-06-02 02:56:59.977[1654135019977] | INFO  | main       | c.bitcoinprice.login.DemoApplication - Starting DemoApplication using Java 16.0.1 on Clinton with PID 8372 (C:\Users\Clinton\Documents\GitHub\MastersProject\Masters-Login\target\classes started by Clinton in C:\Users\Clinton\Documents\GitHub\MastersProject\Masters-Login)
+2022-06-02 02:56:59.981[1654135019981] | INFO  | main       | c.bitcoinprice.login.DemoApplication - No active profile set, falling back to default profiles: default
+2022-06-02 02:57:01.093[1654135021093] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-06-02 02:57:01.170[1654135021170] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 70 ms. Found 2 MongoDB repository interfaces.
+2022-06-02 02:57:01.829[1654135021829] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 8085 (http)
+2022-06-02 02:57:01.841[1654135021841] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8085"]
+2022-06-02 02:57:01.841[1654135021841] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2022-06-02 02:57:01.842[1654135021842] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-06-02 02:57:01.970[1654135021970] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
+2022-06-02 02:57:01.970[1654135021970] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1902 ms
+2022-06-02 02:57:02.142[1654135022142] | INFO  | main       | org.mongodb.driver.cluster           - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-06-02 02:57:02.220[1654135022220] | INFO  | cluster-ClusterId{value='629818ee0988c9610a7e74a8', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:2, serverValue:982}] to localhost:27017
+2022-06-02 02:57:02.220[1654135022220] | INFO  | cluster-rtt-ClusterId{value='629818ee0988c9610a7e74a8', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:1, serverValue:983}] to localhost:27017
+2022-06-02 02:57:02.220[1654135022220] | INFO  | cluster-ClusterId{value='629818ee0988c9610a7e74a8', description='null'}-localhost:27017 | org.mongodb.driver.cluster           - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=24029000}
+2022-06-02 02:57:02.992[1654135022992] | INFO  | main       | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:3, serverValue:984}] to localhost:27017
+2022-06-02 02:57:03.193[1654135023193] | INFO  | main       | s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-06-02 02:57:03.456[1654135023456] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8085"]
+2022-06-02 02:57:03.515[1654135023515] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port(s): 8085 (http) with context path ''
+2022-06-02 02:57:03.516[1654135023516] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2022-06-02 02:57:03.542[1654135023542] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2022-06-02 02:57:03.582[1654135023582] | INFO  | main       | s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2022-06-02 02:57:03.773[1654135023773] | INFO  | main       | c.bitcoinprice.login.DemoApplication - Started DemoApplication in 4.288 seconds (JVM running for 4.997)
+2022-06-02 02:57:32.460[1654135052460] | INFO  | main       | c.bitcoinprice.login.DemoApplication - Starting DemoApplication using Java 16.0.1 on Clinton with PID 26084 (C:\Users\Clinton\Documents\GitHub\MastersProject\Masters-Login\target\classes started by Clinton in C:\Users\Clinton\Documents\GitHub\MastersProject\Masters-Login)
+2022-06-02 02:57:32.464[1654135052464] | INFO  | main       | c.bitcoinprice.login.DemoApplication - No active profile set, falling back to default profiles: default
+2022-06-02 02:57:33.582[1654135053582] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-06-02 02:57:33.660[1654135053660] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 71 ms. Found 2 MongoDB repository interfaces.
+2022-06-02 02:57:34.349[1654135054349] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 8085 (http)
+2022-06-02 02:57:34.362[1654135054362] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8085"]
+2022-06-02 02:57:34.362[1654135054362] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2022-06-02 02:57:34.363[1654135054363] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-06-02 02:57:34.490[1654135054490] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
+2022-06-02 02:57:34.490[1654135054490] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1950 ms
+2022-06-02 02:57:34.673[1654135054673] | INFO  | main       | org.mongodb.driver.cluster           - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-06-02 02:57:34.772[1654135054772] | INFO  | cluster-ClusterId{value='6298190e74b0f57bdd1f340e', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:1, serverValue:986}] to localhost:27017
+2022-06-02 02:57:34.772[1654135054772] | INFO  | cluster-rtt-ClusterId{value='6298190e74b0f57bdd1f340e', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:2, serverValue:985}] to localhost:27017
+2022-06-02 02:57:34.772[1654135054772] | INFO  | cluster-ClusterId{value='6298190e74b0f57bdd1f340e', description='null'}-localhost:27017 | org.mongodb.driver.cluster           - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=29006800}
+2022-06-02 02:57:35.641[1654135055641] | INFO  | main       | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:3, serverValue:987}] to localhost:27017
+2022-06-02 02:57:35.863[1654135055863] | INFO  | main       | s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-06-02 02:57:36.159[1654135056159] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8085"]
+2022-06-02 02:57:36.223[1654135056223] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port(s): 8085 (http) with context path ''
+2022-06-02 02:57:36.225[1654135056225] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2022-06-02 02:57:36.250[1654135056250] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2022-06-02 02:57:36.301[1654135056301] | INFO  | main       | s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2022-06-02 02:57:36.548[1654135056548] | INFO  | main       | c.bitcoinprice.login.DemoApplication - Started DemoApplication in 4.587 seconds (JVM running for 5.32)
+2022-06-02 02:58:16.915[1654135096915] | INFO  | main       | c.bitcoinprice.login.DemoApplication - Starting DemoApplication using Java 16.0.1 on Clinton with PID 20316 (C:\Users\Clinton\Documents\GitHub\MastersProject\Masters-Login\target\classes started by Clinton in C:\Users\Clinton\Documents\GitHub\MastersProject\Masters-Login)
+2022-06-02 02:58:16.918[1654135096918] | INFO  | main       | c.bitcoinprice.login.DemoApplication - No active profile set, falling back to default profiles: default
+2022-06-02 02:58:17.944[1654135097944] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-06-02 02:58:18.024[1654135098024] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 73 ms. Found 2 MongoDB repository interfaces.
+2022-06-02 02:58:18.692[1654135098692] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 8085 (http)
+2022-06-02 02:58:18.704[1654135098704] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8085"]
+2022-06-02 02:58:18.705[1654135098705] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2022-06-02 02:58:18.705[1654135098705] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-06-02 02:58:18.830[1654135098830] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
+2022-06-02 02:58:18.831[1654135098831] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1841 ms
+2022-06-02 02:58:19.010[1654135099010] | INFO  | main       | org.mongodb.driver.cluster           - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-06-02 02:58:19.113[1654135099113] | INFO  | cluster-rtt-ClusterId{value='6298193b9c29c201e5fc2193', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:2, serverValue:989}] to localhost:27017
+2022-06-02 02:58:19.113[1654135099113] | INFO  | cluster-ClusterId{value='6298193b9c29c201e5fc2193', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:1, serverValue:988}] to localhost:27017
+2022-06-02 02:58:19.113[1654135099113] | INFO  | cluster-ClusterId{value='6298193b9c29c201e5fc2193', description='null'}-localhost:27017 | org.mongodb.driver.cluster           - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=31094400}
+2022-06-02 02:58:19.872[1654135099872] | INFO  | main       | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:3, serverValue:990}] to localhost:27017
+2022-06-02 02:58:20.088[1654135100088] | INFO  | main       | s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-06-02 02:58:20.347[1654135100347] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8085"]
+2022-06-02 02:58:20.410[1654135100410] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port(s): 8085 (http) with context path ''
+2022-06-02 02:58:20.411[1654135100411] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2022-06-02 02:58:20.435[1654135100435] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2022-06-02 02:58:20.468[1654135100468] | INFO  | main       | s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2022-06-02 02:58:20.648[1654135100648] | INFO  | main       | c.bitcoinprice.login.DemoApplication - Started DemoApplication in 4.193 seconds (JVM running for 4.889)
+2022-06-02 02:58:39.370[1654135119370] | INFO  | main       | c.bitcoinprice.login.DemoApplication - Starting DemoApplication using Java 16.0.1 on Clinton with PID 21740 (C:\Users\Clinton\Documents\GitHub\MastersProject\Masters-Login\target\classes started by Clinton in C:\Users\Clinton\Documents\GitHub\MastersProject\Masters-Login)
+2022-06-02 02:58:39.374[1654135119374] | INFO  | main       | c.bitcoinprice.login.DemoApplication - No active profile set, falling back to default profiles: default
+2022-06-02 02:58:40.411[1654135120411] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-06-02 02:58:40.485[1654135120485] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 68 ms. Found 2 MongoDB repository interfaces.
+2022-06-02 02:58:41.142[1654135121142] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 8085 (http)
+2022-06-02 02:58:41.155[1654135121155] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8085"]
+2022-06-02 02:58:41.155[1654135121155] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2022-06-02 02:58:41.156[1654135121156] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-06-02 02:58:41.279[1654135121279] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
+2022-06-02 02:58:41.279[1654135121279] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1833 ms
+2022-06-02 02:58:41.462[1654135121462] | INFO  | main       | org.mongodb.driver.cluster           - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-06-02 02:58:41.562[1654135121562] | INFO  | cluster-rtt-ClusterId{value='62981951f3bd7d6e35f9fc1f', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:1, serverValue:992}] to localhost:27017
+2022-06-02 02:58:41.562[1654135121562] | INFO  | cluster-ClusterId{value='62981951f3bd7d6e35f9fc1f', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:2, serverValue:991}] to localhost:27017
+2022-06-02 02:58:41.562[1654135121562] | INFO  | cluster-ClusterId{value='62981951f3bd7d6e35f9fc1f', description='null'}-localhost:27017 | org.mongodb.driver.cluster           - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=31012200}
+2022-06-02 02:58:42.323[1654135122323] | INFO  | main       | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:3, serverValue:993}] to localhost:27017
+2022-06-02 02:58:42.526[1654135122526] | INFO  | main       | s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-06-02 02:58:42.779[1654135122779] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8085"]
+2022-06-02 02:58:42.842[1654135122842] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port(s): 8085 (http) with context path ''
+2022-06-02 02:58:42.843[1654135122843] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2022-06-02 02:58:42.868[1654135122868] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2022-06-02 02:58:42.916[1654135122916] | INFO  | main       | s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2022-06-02 02:58:43.109[1654135123109] | INFO  | main       | c.bitcoinprice.login.DemoApplication - Started DemoApplication in 4.214 seconds (JVM running for 4.927)
+2022-06-02 03:00:15.151[1654135215151] | INFO  | main       | c.bitcoinprice.login.DemoApplication - Starting DemoApplication using Java 16.0.1 on Clinton with PID 12436 (C:\Users\Clinton\Documents\GitHub\MastersProject\Masters-Login\target\classes started by Clinton in C:\Users\Clinton\Documents\GitHub\MastersProject\Masters-Login)
+2022-06-02 03:00:15.155[1654135215155] | INFO  | main       | c.bitcoinprice.login.DemoApplication - No active profile set, falling back to default profiles: default
+2022-06-02 03:00:16.162[1654135216162] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-06-02 03:00:16.237[1654135216237] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 68 ms. Found 2 MongoDB repository interfaces.
+2022-06-02 03:00:16.873[1654135216873] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 8085 (http)
+2022-06-02 03:00:16.885[1654135216885] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8085"]
+2022-06-02 03:00:16.886[1654135216886] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2022-06-02 03:00:16.886[1654135216886] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-06-02 03:00:17.014[1654135217014] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
+2022-06-02 03:00:17.014[1654135217014] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1789 ms
+2022-06-02 03:00:17.182[1654135217182] | INFO  | main       | org.mongodb.driver.cluster           - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-06-02 03:00:17.259[1654135217259] | INFO  | cluster-rtt-ClusterId{value='629819b1d8993a11f63ac630', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:1, serverValue:995}] to localhost:27017
+2022-06-02 03:00:17.259[1654135217259] | INFO  | cluster-ClusterId{value='629819b1d8993a11f63ac630', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:2, serverValue:994}] to localhost:27017
+2022-06-02 03:00:17.259[1654135217259] | INFO  | cluster-ClusterId{value='629819b1d8993a11f63ac630', description='null'}-localhost:27017 | org.mongodb.driver.cluster           - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=22928200}
+2022-06-02 03:00:17.990[1654135217990] | INFO  | main       | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:3, serverValue:996}] to localhost:27017
+2022-06-02 03:00:18.194[1654135218194] | INFO  | main       | s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-06-02 03:00:18.442[1654135218442] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8085"]
+2022-06-02 03:00:18.503[1654135218503] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port(s): 8085 (http) with context path ''
+2022-06-02 03:00:18.504[1654135218504] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2022-06-02 03:00:18.527[1654135218527] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2022-06-02 03:00:18.567[1654135218567] | INFO  | main       | s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2022-06-02 03:00:18.749[1654135218749] | INFO  | main       | c.bitcoinprice.login.DemoApplication - Started DemoApplication in 4.066 seconds (JVM running for 4.777)
+2022-06-02 12:02:47.405[1654167767405] | INFO  | main       | c.bitcoinprice.login.DemoApplication - Starting DemoApplication using Java 16.0.1 on Clinton with PID 22128 (C:\Users\Clinton\Documents\GitHub\MastersProject\Masters-Login\target\classes started by Clinton in C:\Users\Clinton\Documents\GitHub\MastersProject\Masters-Login)
+2022-06-02 12:02:47.410[1654167767410] | INFO  | main       | c.bitcoinprice.login.DemoApplication - No active profile set, falling back to default profiles: default
+2022-06-02 12:02:48.603[1654167768603] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-06-02 12:02:48.680[1654167768680] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 70 ms. Found 2 MongoDB repository interfaces.
+2022-06-02 12:02:49.336[1654167769336] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 8085 (http)
+2022-06-02 12:02:49.348[1654167769348] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8085"]
+2022-06-02 12:02:49.349[1654167769349] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2022-06-02 12:02:49.349[1654167769349] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-06-02 12:02:49.469[1654167769469] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
+2022-06-02 12:02:49.469[1654167769469] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1951 ms
+2022-06-02 12:02:49.642[1654167769642] | INFO  | main       | org.mongodb.driver.cluster           - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-06-02 12:02:49.744[1654167769744] | INFO  | cluster-rtt-ClusterId{value='629898d9c5e0445e9d652524', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:2, serverValue:1023}] to localhost:27017
+2022-06-02 12:02:49.744[1654167769744] | INFO  | cluster-ClusterId{value='629898d9c5e0445e9d652524', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:1, serverValue:1022}] to localhost:27017
+2022-06-02 12:02:49.745[1654167769745] | INFO  | cluster-ClusterId{value='629898d9c5e0445e9d652524', description='null'}-localhost:27017 | org.mongodb.driver.cluster           - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=28633600}
+2022-06-02 12:02:50.555[1654167770555] | INFO  | main       | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:3, serverValue:1024}] to localhost:27017
+2022-06-02 12:02:50.772[1654167770772] | INFO  | main       | s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-06-02 12:02:51.040[1654167771040] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8085"]
+2022-06-02 12:02:51.101[1654167771101] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port(s): 8085 (http) with context path ''
+2022-06-02 12:02:51.103[1654167771103] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2022-06-02 12:02:51.133[1654167771133] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2022-06-02 12:02:51.174[1654167771174] | INFO  | main       | s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2022-06-02 12:02:51.357[1654167771357] | INFO  | main       | c.bitcoinprice.login.DemoApplication - Started DemoApplication in 4.478 seconds (JVM running for 14.465)

@@ -17,6 +17,8 @@ import com.neovisionaries.ws.client.WebSocketFactory;
 
 public class Requests {
 
+	
+	@Deprecated //honestly can't remember what this does, think it does post request and prints
 	public String getRequest(String link) throws UnsupportedOperationException, IOException {
 		URL url = new URL(link);
 		URLConnection connection = url.openConnection();

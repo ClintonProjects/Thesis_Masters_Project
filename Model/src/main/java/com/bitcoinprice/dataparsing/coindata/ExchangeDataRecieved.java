@@ -2,6 +2,7 @@ package com.bitcoinprice.dataparsing.coindata;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.time.Instant;
 import java.time.LocalDateTime;
 
@@ -19,6 +20,9 @@ public class ExchangeDataRecieved {
 	public String cypto = "";
 //	public LocalDateTime timestamp;
 	public String timestamp = "";
+	public String priceInUSD = "";
+	public String priceInEUR = "";
+	public String priceInGBP = "";
 
 	public ExchangeDataRecieved() {
 		super();
@@ -61,7 +65,8 @@ public class ExchangeDataRecieved {
 	}
 
 	public void setPrice(String price) {
-		this.price = price;
+		DecimalFormat df2 = new DecimalFormat("#.00");
+		this.price = df2.format(Double.valueOf(price));
 	}
 
 	public String getSize() {
@@ -114,6 +119,30 @@ public class ExchangeDataRecieved {
 
 	public void setTimestamp(String timestamp) {
 		this.timestamp = timestamp;
+	}
+	
+	public String getPriceInUSD() {
+		return priceInUSD;
+	}
+
+	public void setPriceInUSD(String priceInUSD) {
+		this.priceInUSD = priceInUSD;
+	}
+
+	public String getPriceInEUR() {
+		return priceInEUR;
+	}
+
+	public void setPriceInEUR(String priceInEUR) {
+		this.priceInEUR = priceInEUR;
+	}
+
+	public String getPriceInGBP() {
+		return priceInGBP;
+	}
+
+	public void setPriceInGBP(String priceInGBP) {
+		this.priceInGBP = priceInGBP;
 	}
 
 	public String toString() {

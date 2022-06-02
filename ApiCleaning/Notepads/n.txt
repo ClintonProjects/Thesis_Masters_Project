@@ -107,5 +107,17 @@
   "symbol": "ETH/EUR",
   "tranactionId": "trade_id"
 },
+{
+  "timestamp": "time",
+  "exchange": "binance",
+  "apiLink":"wss://stream.binance.com:9443/ws/ethusdt@kline_1m",
+  "currency":"USDT",
+  "cypto":"ETH",
+  "price": "price",
+  "side": "side",
+  "size": "size",
+  "symbol": "ETH/EUR",
+  "tranactionId": "trade_id"
+},
 
 ]

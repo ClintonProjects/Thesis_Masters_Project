@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -58,7 +60,7 @@ public class ApiExchangeToData {
 		}
 	}
 
-	public void test(JSONArray getNotePadData, String apiData, String link, boolean JsonArrayRequired)
+	public void BitmexAndCoinbase(JSONArray getNotePadData, String apiData, String link, boolean JsonArrayRequired)
 			throws JSONException, UnsupportedOperationException, IOException {
 
 		// Json data from websocket.
@@ -73,11 +75,8 @@ public class ApiExchangeToData {
 			String apiLinkFromNotepad = String.valueOf(dataConversationText.get("apiLink"));
 
 			if (!link.equalsIgnoreCase(apiLinkFromNotepad))
-
 				continue;
-
 			else {
-
 				for (int j = 0; j < dataExample.length(); j++) {
 					ExchangeDataRecieved exchangeDataRecieved = new ExchangeDataRecieved();
 
@@ -88,13 +87,13 @@ public class ApiExchangeToData {
 					if (dataRequired) {
 						// This line may need to be removed for other exchanges:
 						if (((JSONObject) dataExample.get(j)).has("data")) {
-						String wekSocketDataToString = ((JSONObject) dataExample.get(j)).getString("data");
-						// System.out.println(wekSocketDataToString);
-						listOfData = new JSONArray(wekSocketDataToString);
-						loopSize = listOfData.length();
-						System.out.println("loopSize: " + loopSize);
+							String wekSocketDataToString = ((JSONObject) dataExample.get(j)).getString("data");
+							// System.out.println(wekSocketDataToString);
+							listOfData = new JSONArray(wekSocketDataToString);
+							loopSize = listOfData.length();
+							// System.out.println("loopSize: " + loopSize);
 						} else {
-							//for error catching
+							// for error catching
 							return;
 						}
 					} else {
@@ -108,44 +107,112 @@ public class ApiExchangeToData {
 					for (int k = 0; k < loopSize; k++) {
 
 						try {
-						JSONObject firstResult = (JSONObject) listOfData.get(k);
+							JSONObject firstResult = (JSONObject) listOfData.get(k);
 
-						exchangeDataRecieved.setApiLink(dataConversationText.getString("apiLink"));
-						exchangeDataRecieved.setExchange(dataConversationText.getString("exchange"));
-						
-						if (firstResult.has("product_id") && firstResult.get("product_id").toString().split("-").length == 2)
-						exchangeDataRecieved.setCypto(firstResult.get("product_id").toString().split("-")[0]);
-						else
-						exchangeDataRecieved.setCypto(dataConversationText.getString("cypto").toUpperCase());
-						
-						if (!firstResult.has("product_id") && firstResult.get("product_id").toString().split("-").length != 2) {
-							exchangeDataRecieved.setCurrency(dataConversationText.getString("currency").toUpperCase());
-						} else exchangeDataRecieved.setCurrency(firstResult.get("product_id").toString().split("-")[1]);
-						
-						
-						exchangeDataRecieved.setSide(firstResult.getString(dataConversationText.getString("side")));
+							exchangeDataRecieved.setApiLink(dataConversationText.getString("apiLink"));
+							exchangeDataRecieved.setExchange(dataConversationText.getString("exchange"));
 
-						if (firstResult.has(dataConversationText.getString("side")))
-							exchangeDataRecieved.setSide(firstResult.getString(dataConversationText.getString("side")));
+							if (firstResult.has("product_id")) {
+								exchangeDataRecieved.setCypto(firstResult.get("product_id").toString().split("-")[0]);
+								exchangeDataRecieved
+										.setCurrency(firstResult.get("product_id").toString().split("-")[1]);
+								exchangeDataRecieved
+										.setSide(firstResult.getString(dataConversationText.getString("side")));
+								exchangeDataRecieved.setSymbol(firstResult.get("product_id").toString().split("-")[0]
+										+ "/" + firstResult.get("product_id").toString().split("-")[1]);
+							} else {
+								exchangeDataRecieved.setCypto(dataConversationText.getString("cypto").toUpperCase());
+								exchangeDataRecieved
+										.setCurrency(dataConversationText.getString("currency").toUpperCase());
+								exchangeDataRecieved.setSymbol(dataConversationText.getString("cypto").toUpperCase()
+										+ "/" + dataConversationText.getString("currency").toUpperCase());
+							}
 
-						exchangeDataRecieved
-								.setTranactionId(firstResult.getString(dataConversationText.getString("tranactionId")));
-						exchangeDataRecieved.setPrice(firstResult.getString(dataConversationText.getString("price")));
-						exchangeDataRecieved.setSize(firstResult.getString(dataConversationText.getString("size")));
-						exchangeDataRecieved.setSymbol(dataConversationText.getString("symbol"));
-						exchangeDataRecieved
-								.setTimestamp(firstResult.getString(dataConversationText.getString("timestamp")));
+							if (firstResult.has(dataConversationText.getString("side")))
+								exchangeDataRecieved
+										.setSide(firstResult.getString(dataConversationText.getString("side")));
 
-						exchangeDataList.add(exchangeDataRecieved);
+							exchangeDataRecieved.setTranactionId(
+									firstResult.getString(dataConversationText.getString("tranactionId")));
+							exchangeDataRecieved
+									.setPrice(firstResult.getString(dataConversationText.getString("price")));
+							exchangeDataRecieved.setSize(firstResult.getString(dataConversationText.getString("size")));
 
-					} catch (Exception e) {
-						System.out.println(e);
-					}
+							if (!dataConversationText.getString("timestamp").equals("setbycode"))
+								exchangeDataRecieved.setTimestamp(
+										firstResult.getString(dataConversationText.getString("timestamp")));
+
+							if (dataConversationText.getString("timestamp").equals("setbycode")) {
+								Calendar calendar = Calendar.getInstance();
+								Date time = calendar.getTime();
+								exchangeDataRecieved.setTimestamp(time.toGMTString());
+							}
+							
+							//the return, returns the updated currency
+							exchangeDataRecieved = new Currency().convertExchangeData(exchangeDataRecieved);
+							exchangeDataList.add(exchangeDataRecieved);
+
+						} catch (Exception e) {
+							System.out.println(e);
+						}
 					}
 				}
 			}
 		}
 	}
+
+	public ExchangeDataRecieved storeBainaceData(String data, int dataPos) throws Exception {
+		System.out.println(data);
+
+		try {
+			// turns the data into easy way to handle it
+			dataExample = new JsonConverter().stringToObjectArray("[" + data + "]");
+			String wekSocketDataToString = ((JSONObject) dataExample.get(0)).toString();
+			JSONArray listOfData = new JSONArray("[" + wekSocketDataToString + "]");
+			JSONObject firstResult = (JSONObject) listOfData.get(0);
+
+			ExchangeDataRecieved exchangeDataRecieved = new ExchangeDataRecieved();
+
+			JSONArray getNotePadData = new AllDataList().getNotePadDataJsonArray();
+			JSONObject dataConversationText = (JSONObject) getNotePadData.get(dataPos);
+
+			// sets the data to be stored.
+			exchangeDataRecieved.setApiLink(dataConversationText.getString("apiLink"));
+			exchangeDataRecieved.setExchange(dataConversationText.getString("exchange"));
+			exchangeDataRecieved.setCypto(dataConversationText.getString("cypto").toUpperCase());
+			exchangeDataRecieved.setCurrency(dataConversationText.getString("currency").toUpperCase());
+			exchangeDataRecieved.setPrice(firstResult.getString(dataConversationText.getString("price")));
+			exchangeDataRecieved.setSymbol(dataConversationText.getString("symbol"));
+			exchangeDataRecieved.setSize(firstResult.getString(dataConversationText.getString("size")));
+			String side = firstResult.getString(dataConversationText.getString("side"));
+			exchangeDataRecieved.setSide(side.equals("true") ? "buy" : "sell");
+			Instant instant = Instant.now();
+			exchangeDataRecieved.setTimestamp(instant.toString());
+
+			//the return, returns the updated currency
+			return new Currency().convertExchangeData(exchangeDataRecieved);
+
+		} catch (JSONException | IOException e) {
+			// if an error caught end the method.
+			e.printStackTrace();
+		}
+
+		throw new Exception("invaild value entered");
+	}
+
+//	{
+//		  "e": "trade",     // Event type
+//		  "E": 123456789,   // Event time
+//		  "s": "BNBBTC",    // Symbol
+//		  "t": 12345,       // Trade ID
+//		  "p": "0.001",     // Price
+//		  "q": "100",       // Quantity
+//		  "b": 88,          // Buyer order ID
+//		  "a": 50,          // Seller order ID
+//		  "T": 123456785,   // Trade time
+//		  "m": true,        // Is the buyer the market maker?
+//		  "M": true         // Ignore
+//		}
 
 	public JSONArray getDataExample() {
 		return dataExample;

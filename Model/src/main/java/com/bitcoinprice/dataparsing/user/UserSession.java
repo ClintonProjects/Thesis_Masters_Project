@@ -68,8 +68,6 @@ public class UserSession {
 	public void setActiveSession(boolean activeSession) {
 		this.activeSession = activeSession;
 	}
-	
-	
 
 	public boolean isActiveSession() {
 		return activeSession;
@@ -79,11 +77,18 @@ public class UserSession {
 		Calendar cal = Calendar.getInstance();
 		cal.add(Calendar.MONTH, 1);
 		Date curretTimeAddOneMonth = cal.getTime();
-		if (time.before(curretTimeAddOneMonth)) {
-			activeSession = true;
-		} else {
-			activeSession = false;
-		}
+		
+		System.out.println(Calendar.getInstance().getTime());
+		System.out.println(curretTimeAddOneMonth);
+		
+	
+		
+		
+		if (Calendar.getInstance().getTime().after(curretTimeAddOneMonth))
+		setActiveSession(false);
+		else 
+		//in case of error cases
+		setActiveSession(true);
 	}
 
 }
