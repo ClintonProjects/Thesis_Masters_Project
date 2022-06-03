@@ -19,6 +19,7 @@ public class Encryption {
 
 	public void sha256() {
 		try {
+			System.out.println(stringToEncrypt);
 			final MessageDigest digest = MessageDigest.getInstance("SHA-256");
 			final byte[] hash = digest.digest(stringToEncrypt.getBytes("UTF-8"));
 			final StringBuilder hexString = new StringBuilder();

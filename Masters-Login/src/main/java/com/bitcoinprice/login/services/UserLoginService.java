@@ -10,6 +10,8 @@ import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -32,7 +34,7 @@ public class UserLoginService {
 	public String Login(String email, String password)
 			throws InvalidKeyException, SignatureException, NoSuchAlgorithmException {
 		Encryption encrypt = new Encryption(password);
-		System.out.println(password);
+		//System.out.println(password);
 		encrypt.sha256();
 		encrypt.hmac256calculateHMAC();
 		password = encrypt.getStringToEncrypt();
@@ -63,18 +65,19 @@ public class UserLoginService {
 
 	public String RegisterUser(String email, String password)
 			throws InvalidKeyException, SignatureException, NoSuchAlgorithmException {
+		System.out.println(email + " " + password);
 		Encryption encrypt = new Encryption(password);
 		encrypt.sha256();
 		encrypt.hmac256calculateHMAC();
-		String encrypPassword = encrypt.getStringToEncrypt();
+		password = encrypt.getStringToEncrypt();
 
 		if (UserLoginTable.findByemail(email) == null) {
-			Login login = new Login(email, encrypPassword);
+			Login login = new Login(email, password);
 			UserLoginTable.insert(login);
-			return Login(email, password);
+			return "worked";
 		} else {
 			System.out.println("user found");
-			return "";
+			return "error";
 		}
 	}
 
@@ -83,7 +86,6 @@ public class UserLoginService {
 		for (UserSession i : createUserSession) {
 			if (i.get_id().equals(sessionIdObj)) {
 				System.out.println("Match");
-
 			}
 		}
 		return null;

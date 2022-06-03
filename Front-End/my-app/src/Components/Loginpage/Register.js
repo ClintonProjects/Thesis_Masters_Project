@@ -8,48 +8,39 @@ class Register extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            attempts: 0,
         };
         this.Login = this.Login.bind(this);
     }
 
-
-    Login() {
-        console.log("wow");
-        var email = document.getElementById('exampleInputEmail1').value;
-        var password = document.getElementById('exampleInputPassword1').value;
-
-        let data = {
-            username: email,
-            password: password,
-        };
-
-
-
+    async Login() {
+        console.log("Login");
+        var sessionId = "";
         const requestOptions = {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
                 "Access-Control-Allow-Origin": "*",
             },
-            body: JSON.stringify(data)
+
+            body: JSON.stringify({
+                email: document.getElementById('email').value,
+                password: document.getElementById('pass').value
+            })
         };
 
-        fetch('http://localhost:8085/login/Register', requestOptions)
-            .then(async response => {
-                const data = await response.json();
-
-                console.log("working?");
-
-                if (!response.ok) {
-                    console.error('There was an error!', error);
-                    const error = (data && data.message) || response.statusText;
-                    return Promise.reject(error);
-                }
-            })
-            .catch(error => {
-                this.setState({ errorMessage: error.toString() });
+        await fetch('http://localhost:8085/login/Register', requestOptions)
+            .then((response) => response.json())
+            .then((messages) => {
+                localStorage.setItem('SessionId', messages.id);
+                window.location.href = "http://localhost:3000/";
+            }).catch(error => {
                 console.error('There was an error!', error);
+                this.setState({ attempts: this.state.attempts+1});
+                console.log(this.state.attempts);
             });
+
+        console.log("ran");
     }
 
     render() {
@@ -75,6 +66,7 @@ class Register extends Component {
                                     <input type="checkbox" onClick={this.rememberMeOnChange} />
                                     Remember my email
                                 </label> */}
+                                {this.state.attempts > 0 ? "User found or password or email is already found" : ""}
                                 <button type="submit" class="btn btn-primary LoginButton" onClick={this.Login}>Login</button>
                                 <Link to="/Login">
                                     <p>Sign in</p>

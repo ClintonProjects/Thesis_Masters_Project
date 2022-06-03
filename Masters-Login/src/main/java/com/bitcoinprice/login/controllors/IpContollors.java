@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,7 +22,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.NoHandlerFoundException;
 
 import com.bitcoinprice.dataparsing.user.Login;
 import com.bitcoinprice.login.services.UserLoginService;
@@ -46,22 +50,20 @@ public class IpContollors {
 	}
 
 	@PostMapping(value = "/Register")
-	public String RegisterUser(String email, String password)
+	public Object RegisterUser(@RequestBody Login login)
 			throws InvalidKeyException, SignatureException, NoSuchAlgorithmException {
-		// System.out.println(email + " " + password);
-		// return userLoginService.RegisterUser(email, password);
-		return "wow";
+		String result = userLoginService.RegisterUser(login.getEmail(), login.getPassword());
+		if (result.equals("error"))
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+		return new response(userLoginService.Login(login.getEmail(), login.getPassword()));
 	}
-	
-	
+
 	@GetMapping("/session/{id}")
 	@ResponseBody
 	public response getFooById(@PathVariable String id) {
-	    return new response(userLoginService.getSessionActive(id));
+		return new response(userLoginService.getSessionActive(id));
 	}
-	
-	
-	
+
 }
 
 class response {
@@ -71,12 +73,10 @@ class response {
 	response(String id) {
 		this.id = id;
 	}
-	
+
 	response(boolean session) {
 		this.session = session;
 	}
-	
-	
 
 	public boolean isSession() {
 		return session;
