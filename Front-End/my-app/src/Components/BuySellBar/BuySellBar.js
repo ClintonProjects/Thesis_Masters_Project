@@ -17,7 +17,7 @@ export default class BuySellBar extends Component {
         stompClient = Stomp.over(socket);
         stompClient.connect({}, function (frame) {
             console.log("Connected " + frame);
-            stompClient.subscribe("/endpoint/wow/id=1", function (greeting) {
+            stompClient.subscribe("/endpoint/wow", function (greeting) {
                 if (typeof greeting.body !== undefined)
                     result = Math.round(greeting.body * 100) / 100;
             });
@@ -59,7 +59,8 @@ export default class BuySellBar extends Component {
                         <div class="col-2" />
                         <div class="col-8">
                             <ProgressBar>
-                                <ProgressBar striped variant="success" now={result} key={1} />
+                                 {/* 0.1 to fix bug were the bar wasn't filling */}
+                                <ProgressBar striped variant="success" now={result + 0.1} key={1} />
                                 <ProgressBar variant="danger" now={100 - result} key={2} />
                             </ProgressBar>
                         </div>

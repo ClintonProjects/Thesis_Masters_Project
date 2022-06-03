@@ -57,12 +57,12 @@ public class ServicesExample {
 		
 		System.out.println("ran");
 		// coinbase:
-//		customWebSocket.getWebSocket("wss://ws-feed.pro.coinbase.com/", false,
-//				"{\"type\": \"subscribe\", \"channels\": [{\"name\":\"matches\",\"product_ids\":[\"BTC-USD\", \"BTC-GBP\" , \"BTC-EUR\", \"ETH-GBP\" , \"ETH-USD\"  , \"LTC-USD\" , \"LTC-EUR\"]}]}");
-//		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTUSD", true, "");
-//		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTEUR", true, "");
-//		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:ETHUSD", true, "");
-//		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:LTCUSD", true, "");
+		customWebSocket.getWebSocket("wss://ws-feed.pro.coinbase.com/", false,
+				"{\"type\": \"subscribe\", \"channels\": [{\"name\":\"matches\",\"product_ids\":[\"BTC-USD\", \"BTC-GBP\" , \"BTC-EUR\", \"ETH-GBP\" , \"ETH-USD\"  , \"LTC-USD\" , \"LTC-EUR\"]}]}");
+		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTUSD", true, "");
+		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTEUR", true, "");
+		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:ETHUSD", true, "");
+		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:LTCUSD", true, "");
 		bainaceWebsocket.getData(6, "btcusdt");
 		bainaceWebsocket.getData(7, "ethusdt");
 		bainaceWebsocket.getData(8, "ltcusdt");
