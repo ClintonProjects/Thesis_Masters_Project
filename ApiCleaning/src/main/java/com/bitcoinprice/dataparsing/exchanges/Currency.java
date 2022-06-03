@@ -63,11 +63,9 @@ public class Currency {
 
 		// rounding down to 2 dec places
 		DecimalFormat df2 = new DecimalFormat("#.00");
-
 		exchangeDataRecieved.setPriceInUSD("$" + String.valueOf(df2.format(currentPrice * usdMul)));
 		exchangeDataRecieved.setPriceInEUR("€" + String.valueOf(df2.format(currentPrice * eurMul)));
 		exchangeDataRecieved.setPriceInGBP("£" + String.valueOf(df2.format(currentPrice * gbpMul)));
-
 		return exchangeDataRecieved;
 	}
 

@@ -52,43 +52,38 @@ class Register extends Component {
             });
     }
 
-
-
-
-
-
-
-
-
     render() {
         return (
-            <div class="container">
-<form>
-
-<h3>Log in</h3>
-
-<div className="form-group">
-    <label>Email</label>
-    <input type="email" className="form-control" placeholder="Enter email" />
-</div>
-
-<div className="form-group">
-    <label>Password</label>
-    <input type="password" className="form-control" placeholder="Enter password" />
-</div>
-
-<div className="form-group">
-    <div className="custom-control custom-checkbox">
-        <input type="checkbox" className="custom-control-input" id="customCheck1" />
-        <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
-    </div>
-</div>
-
-<button type="submit" className="btn btn-dark btn-lg btn-block">Sign in</button>
-<p className="forgot-password text-right">
-    Forgot <a href="#">password?</a>
-</p>
-</form>
+            <div class="loginbody center1">
+                <div class="mainbody ">
+                    <div class="Loginbox">
+                        <div class="classiclogin">
+                            <div class="loginform ">
+                                <h4><b>Welcome back!</b></h4>
+                                <p>We're so excited for you to sign up!</p>
+                                <div class="form-group">
+                                    <label class="InputEmail"><b>Email address</b></label>
+                                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email" />
+                                    {/* value={this.userEmail} */}
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1" class="passwordtexts"><b>Password</b></label>
+                                    <input type="password" class="form-control" id='pass' placeholder="Password" />
+                                    {/* <p1>Forgot your password?</p1> */}
+                                </div>
+                                {/* <label>
+                                    <input type="checkbox" onClick={this.rememberMeOnChange} />
+                                    Remember my email
+                                </label> */}
+                                <button type="submit" class="btn btn-primary LoginButton" onClick={this.Login}>Login</button>
+                                <Link to="/Login">
+                                    <p>Sign in</p>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* <div class="SideSpacer" /> */}
             </div>
         );
     }

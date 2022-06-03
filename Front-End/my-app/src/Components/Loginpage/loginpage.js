@@ -60,14 +60,11 @@ class loginpage extends Component {
 
     render() {
         return (
-            <div class="loginbody">
-                <div class="SideSpacer" />
-
-                <div class="mainbody">
-                    <div class="TopSpacer" />
+            <div class="loginbody center1">
+                <div class="mainbody ">
                     <div class="Loginbox">
                         <div class="classiclogin">
-                            <div class="loginform">
+                            <div class="loginform ">
 
                                 <h4><b>Welcome back!</b></h4>
                                 <p>We're so excited to see you again!</p>

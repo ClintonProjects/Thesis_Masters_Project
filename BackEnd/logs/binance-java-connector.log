@@ -1,539 +1,345 @@
-2022-06-02 02:25:53.663[1654133153663] | INFO  | main       | com.example.DemoApplication          - Starting DemoApplication using Java 16.0.1 on Clinton with PID 17580 (C:\Users\Clinton\Documents\GitHub\MastersProject\BackEnd\target\classes started by Clinton in C:\Users\Clinton\Documents\GitHub\MastersProject\BackEnd)
-2022-06-02 02:25:53.669[1654133153669] | INFO  | main       | com.example.DemoApplication          - No active profile set, falling back to default profiles: default
-2022-06-02 02:25:54.840[1654133154840] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2022-06-02 02:25:54.916[1654133154916] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 70 ms. Found 1 MongoDB repository interfaces.
-2022-06-02 02:25:55.636[1654133155636] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 8081 (http)
-2022-06-02 02:25:55.649[1654133155649] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8081"]
-2022-06-02 02:25:55.650[1654133155650] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
-2022-06-02 02:25:55.650[1654133155650] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.52]
-2022-06-02 02:25:55.784[1654133155784] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
-2022-06-02 02:25:55.785[1654133155785] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2037 ms
-2022-06-02 02:25:55.986[1654133155986] | INFO  | main       | org.mongodb.driver.cluster           - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2022-06-02 02:25:56.108[1654133156108] | INFO  | cluster-rtt-ClusterId{value='629811a37265a52633ffd6d4', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:2, serverValue:814}] to localhost:27017
-2022-06-02 02:25:56.108[1654133156108] | INFO  | cluster-ClusterId{value='629811a37265a52633ffd6d4', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:1, serverValue:815}] to localhost:27017
-2022-06-02 02:25:56.109[1654133156109] | INFO  | cluster-ClusterId{value='629811a37265a52633ffd6d4', description='null'}-localhost:27017 | org.mongodb.driver.cluster           - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=40302200}
-2022-06-02 02:25:57.050[1654133157050] | INFO  | main       | s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-06-02 02:25:57.126[1654133157126] | TRACE | main       | o.s.w.s.s.s.WebSocketHandlerMapping  - Mapped [/simulator] onto org.springframework.web.socket.server.support.WebSocketHttpRequestHandler@d4ecdb0
-2022-06-02 02:25:57.126[1654133157126] | TRACE | main       | o.s.w.s.s.s.WebSocketHandlerMapping  - Mapped [/simulator/**] onto org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@79b8ecb
-2022-06-02 02:25:57.127[1654133157127] | DEBUG | main       | o.s.w.s.s.s.WebSocketHandlerMapping  - Patterns [/simulator, /simulator/**] in 'stompWebSocketHandlerMapping'
-2022-06-02 02:25:57.157[1654133157157] | TRACE | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - Looking for @MessageExceptionHandler mappings: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1a9c38eb, started on Thu Jun 02 02:25:53 BST 2022
-2022-06-02 02:25:57.172[1654133157172] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+2022-06-03 01:29:19.438[1654216159438] | INFO  | main       | com.example.DemoApplication          - Starting DemoApplication using Java 16.0.1 on Clinton with PID 2304 (C:\Users\Clinton\Documents\GitHub\MastersProject\BackEnd\target\classes started by Clinton in C:\Users\Clinton\Documents\GitHub\MastersProject\BackEnd)
+2022-06-03 01:29:19.445[1654216159445] | INFO  | main       | com.example.DemoApplication          - No active profile set, falling back to default profiles: default
+2022-06-03 01:29:20.769[1654216160769] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-06-03 01:29:20.873[1654216160873] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 96 ms. Found 1 MongoDB repository interfaces.
+2022-06-03 01:29:21.717[1654216161717] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 8081 (http)
+2022-06-03 01:29:21.730[1654216161730] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8081"]
+2022-06-03 01:29:21.730[1654216161730] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2022-06-03 01:29:21.731[1654216161731] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-06-03 01:29:21.876[1654216161876] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
+2022-06-03 01:29:21.876[1654216161876] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2327 ms
+2022-06-03 01:29:22.102[1654216162102] | INFO  | main       | org.mongodb.driver.cluster           - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-06-03 01:29:22.222[1654216162222] | INFO  | cluster-rtt-ClusterId{value='629955e26b529575e3f92b1c', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:2, serverValue:1058}] to localhost:27017
+2022-06-03 01:29:22.222[1654216162222] | INFO  | cluster-ClusterId{value='629955e26b529575e3f92b1c', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:1, serverValue:1059}] to localhost:27017
+2022-06-03 01:29:22.223[1654216162223] | INFO  | cluster-ClusterId{value='629955e26b529575e3f92b1c', description='null'}-localhost:27017 | org.mongodb.driver.cluster           - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=35148800}
+2022-06-03 01:29:23.148[1654216163148] | INFO  | main       | s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-06-03 01:29:23.220[1654216163220] | TRACE | main       | o.s.w.s.s.s.WebSocketHandlerMapping  - Mapped [/simulator] onto org.springframework.web.socket.server.support.WebSocketHttpRequestHandler@592cb470
+2022-06-03 01:29:23.220[1654216163220] | TRACE | main       | o.s.w.s.s.s.WebSocketHandlerMapping  - Mapped [/simulator/**] onto org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@40017e98
+2022-06-03 01:29:23.220[1654216163220] | DEBUG | main       | o.s.w.s.s.s.WebSocketHandlerMapping  - Patterns [/simulator, /simulator/**] in 'stompWebSocketHandlerMapping'
+2022-06-03 01:29:23.266[1654216163266] | TRACE | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - Looking for @MessageExceptionHandler mappings: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1a9c38eb, started on Fri Jun 03 01:29:19 BST 2022
+2022-06-03 01:29:23.289[1654216163289] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
 	c.e.c.EndPoints:
 	
-2022-06-02 02:25:57.178[1654133157178] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+2022-06-03 01:29:23.296[1654216163296] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
 	c.e.w.MyController:
 	{[MESSAGE],[/hello]}: getCurrentLocation()
-2022-06-02 02:25:57.179[1654133157179] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+2022-06-03 01:29:23.297[1654216163297] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
 	s.d.s.w.ApiResourceController:
 	
-2022-06-02 02:25:57.180[1654133157180] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+2022-06-03 01:29:23.298[1654216163298] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
 	o.s.b.a.w.s.e.BasicErrorController:
 	
-2022-06-02 02:25:57.960[1654133157960] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8081"]
-2022-06-02 02:25:58.045[1654133158045] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port(s): 8081 (http) with context path ''
-2022-06-02 02:25:58.046[1654133158046] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
-2022-06-02 02:25:58.091[1654133158091] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
-2022-06-02 02:25:58.146[1654133158146] | INFO  | main       | s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
-2022-06-02 02:25:58.348[1654133158348] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientOutboundChannel added SubProtocolWebSocketHandler[StompSubProtocolHandler[v10.stomp, v11.stomp, v12.stomp]]
-2022-06-02 02:25:58.348[1654133158348] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientInboundChannel added WebSocketAnnotationMethodMessageHandler[prefixes=[/app/]]
-2022-06-02 02:25:58.348[1654133158348] | INFO  | main       | o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
-2022-06-02 02:25:58.348[1654133158348] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientInboundChannel added SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@720ffab4]
-2022-06-02 02:25:58.348[1654133158348] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - brokerChannel added SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@720ffab4]
-2022-06-02 02:25:58.349[1654133158349] | INFO  | main       | o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@720ffab4]]
-2022-06-02 02:25:58.349[1654133158349] | INFO  | main       | o.s.m.s.b.SimpleBrokerMessageHandler - Started.
-2022-06-02 02:25:58.349[1654133158349] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientInboundChannel added UserDestinationMessageHandler[DefaultUserDestinationResolver[prefix=/user/]]
-2022-06-02 02:25:58.349[1654133158349] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - brokerChannel added UserDestinationMessageHandler[DefaultUserDestinationResolver[prefix=/user/]]
-2022-06-02 02:25:58.364[1654133158364] | INFO  | main       | com.example.DemoApplication          - Started DemoApplication in 5.201 seconds (JVM running for 5.932)
-2022-06-02 02:25:58.454[1654133158454] | INFO  | MessageBroker-1 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:3, serverValue:816}] to localhost:27017
-2022-06-02 02:28:48.923[1654133328923] | INFO  | main       | com.example.DemoApplication          - Starting DemoApplication using Java 16.0.1 on Clinton with PID 26284 (C:\Users\Clinton\Documents\GitHub\MastersProject\BackEnd\target\classes started by Clinton in C:\Users\Clinton\Documents\GitHub\MastersProject\BackEnd)
-2022-06-02 02:28:48.929[1654133328929] | INFO  | main       | com.example.DemoApplication          - No active profile set, falling back to default profiles: default
-2022-06-02 02:28:50.044[1654133330044] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2022-06-02 02:28:50.122[1654133330122] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 71 ms. Found 1 MongoDB repository interfaces.
-2022-06-02 02:28:50.818[1654133330818] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 8081 (http)
-2022-06-02 02:28:50.833[1654133330833] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8081"]
-2022-06-02 02:28:50.833[1654133330833] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
-2022-06-02 02:28:50.833[1654133330833] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.52]
-2022-06-02 02:28:50.950[1654133330950] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
-2022-06-02 02:28:50.950[1654133330950] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1942 ms
-2022-06-02 02:28:51.142[1654133331142] | INFO  | main       | org.mongodb.driver.cluster           - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2022-06-02 02:28:51.244[1654133331244] | INFO  | cluster-ClusterId{value='6298125305c2bc1d43a57ebc', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:1, serverValue:818}] to localhost:27017
-2022-06-02 02:28:51.244[1654133331244] | INFO  | cluster-rtt-ClusterId{value='6298125305c2bc1d43a57ebc', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:2, serverValue:817}] to localhost:27017
-2022-06-02 02:28:51.245[1654133331245] | INFO  | cluster-ClusterId{value='6298125305c2bc1d43a57ebc', description='null'}-localhost:27017 | org.mongodb.driver.cluster           - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=33326200}
-2022-06-02 02:28:52.100[1654133332100] | INFO  | main       | s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-06-02 02:28:52.177[1654133332177] | TRACE | main       | o.s.w.s.s.s.WebSocketHandlerMapping  - Mapped [/simulator] onto org.springframework.web.socket.server.support.WebSocketHttpRequestHandler@2dd8a273
-2022-06-02 02:28:52.178[1654133332178] | TRACE | main       | o.s.w.s.s.s.WebSocketHandlerMapping  - Mapped [/simulator/**] onto org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@2beee3e8
-2022-06-02 02:28:52.178[1654133332178] | DEBUG | main       | o.s.w.s.s.s.WebSocketHandlerMapping  - Patterns [/simulator, /simulator/**] in 'stompWebSocketHandlerMapping'
-2022-06-02 02:28:52.214[1654133332214] | TRACE | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - Looking for @MessageExceptionHandler mappings: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1a9c38eb, started on Thu Jun 02 02:28:49 BST 2022
-2022-06-02 02:28:52.231[1654133332231] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+2022-06-03 01:29:24.272[1654216164272] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8081"]
+2022-06-03 01:29:24.426[1654216164426] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port(s): 8081 (http) with context path ''
+2022-06-03 01:29:24.428[1654216164428] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2022-06-03 01:29:24.464[1654216164464] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2022-06-03 01:29:24.519[1654216164519] | INFO  | main       | s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2022-06-03 01:29:24.742[1654216164742] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientOutboundChannel added SubProtocolWebSocketHandler[StompSubProtocolHandler[v10.stomp, v11.stomp, v12.stomp]]
+2022-06-03 01:29:24.742[1654216164742] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientInboundChannel added WebSocketAnnotationMethodMessageHandler[prefixes=[/app/]]
+2022-06-03 01:29:24.742[1654216164742] | INFO  | main       | o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+2022-06-03 01:29:24.742[1654216164742] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientInboundChannel added SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@621a387f]
+2022-06-03 01:29:24.742[1654216164742] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - brokerChannel added SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@621a387f]
+2022-06-03 01:29:24.742[1654216164742] | INFO  | main       | o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@621a387f]]
+2022-06-03 01:29:24.743[1654216164743] | INFO  | main       | o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+2022-06-03 01:29:24.743[1654216164743] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientInboundChannel added UserDestinationMessageHandler[DefaultUserDestinationResolver[prefix=/user/]]
+2022-06-03 01:29:24.743[1654216164743] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - brokerChannel added UserDestinationMessageHandler[DefaultUserDestinationResolver[prefix=/user/]]
+2022-06-03 01:29:24.762[1654216164762] | INFO  | main       | com.example.DemoApplication          - Started DemoApplication in 5.879 seconds (JVM running for 15.138)
+2022-06-03 01:30:21.464[1654216221464] | INFO  | http-nio-8081-exec-1 | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-06-03 01:30:21.465[1654216221465] | INFO  | http-nio-8081-exec-1 | o.s.web.servlet.DispatcherServlet    - Initializing Servlet 'dispatcherServlet'
+2022-06-03 01:30:21.466[1654216221466] | INFO  | http-nio-8081-exec-1 | o.s.web.servlet.DispatcherServlet    - Completed initialization in 1 ms
+2022-06-03 01:30:21.489[1654216221489] | TRACE | http-nio-8081-exec-1 | o.s.w.s.s.s.WebSocketHandlerMapping  - Mapped to HandlerExecutionChain with [org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@40017e98] and 1 interceptors
+2022-06-03 01:30:21.502[1654216221502] | DEBUG | http-nio-8081-exec-1 | o.s.w.s.s.t.h.DefaultSockJsService   - Processing transport request: GET http://localhost:8081/simulator/info?t=1654216221372
+2022-06-03 01:30:21.515[1654216221515] | TRACE | http-nio-8081-exec-2 | o.s.w.s.s.s.WebSocketHandlerMapping  - Mapped to HandlerExecutionChain with [org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@40017e98] and 1 interceptors
+2022-06-03 01:30:21.516[1654216221516] | DEBUG | http-nio-8081-exec-2 | o.s.w.s.s.t.h.DefaultSockJsService   - Processing transport request: GET http://localhost:8081/simulator/info?t=1654216221372
+2022-06-03 01:30:21.619[1654216221619] | TRACE | http-nio-8081-exec-3 | o.s.w.s.s.s.WebSocketHandlerMapping  - Mapped to HandlerExecutionChain with [org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@40017e98] and 1 interceptors
+2022-06-03 01:30:21.621[1654216221621] | DEBUG | http-nio-8081-exec-3 | o.s.w.s.s.t.h.DefaultSockJsService   - Processing transport request: GET http://localhost:8081/simulator/962/ndzbnve3/websocket
+2022-06-03 01:30:21.626[1654216221626] | TRACE | http-nio-8081-exec-3 | o.s.w.s.s.s.DefaultHandshakeHandler  - Processing request http://localhost:8081/simulator/962/ndzbnve3/websocket with headers=[host:"localhost:8081", connection:"Upgrade", pragma:"no-cache", cache-control:"no-cache", user-agent:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36", upgrade:"websocket", origin:"http://localhost:3000", sec-websocket-version:"13", accept-encoding:"gzip, deflate, br", accept-language:"en-US,en;q=0.9", cookie:"_ga=GA1.1.386009030.1643049971; __tawkuuid=e::localhost::XAljZQwlNaBWnM/RPLHYQbS6meKB93tVcBR25ETuNsjuDbtuLZnP+iq4aCdiwwkJ::2; _gid=GA1.1.421232009.1654167715; _gat_gtag_UA_121653011_1=1", sec-gpc:"1", sec-websocket-key:"fXkzyvKXlqW/l5k16b93IA==", sec-websocket-extensions:"permessage-deflate; client_max_window_bits"]
+2022-06-03 01:30:21.627[1654216221627] | TRACE | http-nio-8081-exec-3 | o.s.w.s.s.s.DefaultHandshakeHandler  - Upgrading to WebSocket, subProtocol=null, extensions=[]
+2022-06-03 01:30:21.671[1654216221671] | TRACE | http-nio-8081-exec-4 | o.s.w.s.s.s.WebSocketHandlerMapping  - Mapped to HandlerExecutionChain with [org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@40017e98] and 1 interceptors
+2022-06-03 01:30:21.672[1654216221672] | DEBUG | http-nio-8081-exec-4 | o.s.w.s.s.t.h.DefaultSockJsService   - Processing transport request: GET http://localhost:8081/simulator/669/4mgwc0ue/websocket
+2022-06-03 01:30:21.673[1654216221673] | TRACE | http-nio-8081-exec-4 | o.s.w.s.s.s.DefaultHandshakeHandler  - Processing request http://localhost:8081/simulator/669/4mgwc0ue/websocket with headers=[host:"localhost:8081", connection:"Upgrade", pragma:"no-cache", cache-control:"no-cache", user-agent:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36", upgrade:"websocket", origin:"http://localhost:3000", sec-websocket-version:"13", accept-encoding:"gzip, deflate, br", accept-language:"en-US,en;q=0.9", cookie:"_ga=GA1.1.386009030.1643049971; __tawkuuid=e::localhost::XAljZQwlNaBWnM/RPLHYQbS6meKB93tVcBR25ETuNsjuDbtuLZnP+iq4aCdiwwkJ::2; _gid=GA1.1.421232009.1654167715; _gat_gtag_UA_121653011_1=1", sec-gpc:"1", sec-websocket-key:"tOD//3zPyYcMtj/Jh8Y96w==", sec-websocket-extensions:"permessage-deflate; client_max_window_bits"]
+2022-06-03 01:30:21.673[1654216221673] | TRACE | http-nio-8081-exec-4 | o.s.w.s.s.s.DefaultHandshakeHandler  - Upgrading to WebSocket, subProtocol=null, extensions=[]
+2022-06-03 01:30:21.674[1654216221674] | DEBUG | http-nio-8081-exec-3 | o.s.w.s.h.LoggingWebSocketHandlerDecorator - New WebSocketServerSockJsSession[id=ndzbnve3]
+2022-06-03 01:30:21.675[1654216221675] | DEBUG | http-nio-8081-exec-4 | o.s.w.s.h.LoggingWebSocketHandlerDecorator - New WebSocketServerSockJsSession[id=4mgwc0ue]
+2022-06-03 01:30:21.679[1654216221679] | TRACE | http-nio-8081-exec-3 | o.s.w.s.a.NativeWebSocketSession     - Sending TextMessage payload=[o], byteCount=1, last=true], StandardWebSocketSession[id=4069609b-486e-0201-c9f9-ce4a6cf1889b, uri=ws://localhost:8081/simulator/962/ndzbnve3/websocket]
+2022-06-03 01:30:21.679[1654216221679] | TRACE | http-nio-8081-exec-4 | o.s.w.s.a.NativeWebSocketSession     - Sending TextMessage payload=[o], byteCount=1, last=true], StandardWebSocketSession[id=1c01190e-7ed3-257b-8950-ba492d989272, uri=ws://localhost:8081/simulator/669/4mgwc0ue/websocket]
+2022-06-03 01:30:21.683[1654216221683] | TRACE | http-nio-8081-exec-3 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Scheduled heartbeat in session ndzbnve3
+2022-06-03 01:30:21.683[1654216221683] | TRACE | http-nio-8081-exec-4 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Scheduled heartbeat in session 4mgwc0ue
+2022-06-03 01:30:21.699[1654216221699] | TRACE | http-nio-8081-exec-4 | o.s.w.s.h.LoggingWebSocketHandlerDecorator - Handling TextMessage payload=[CONNECT
+ac..], byteCount=56, last=true] in WebSocketServerSockJsSession[id=4mgwc0ue]
+2022-06-03 01:30:21.699[1654216221699] | TRACE | http-nio-8081-exec-3 | o.s.w.s.h.LoggingWebSocketHandlerDecorator - Handling TextMessage payload=[CONNECT
+ac..], byteCount=56, last=true] in WebSocketServerSockJsSession[id=ndzbnve3]
+2022-06-03 01:30:21.704[1654216221704] | TRACE | http-nio-8081-exec-3 | o.s.m.simp.stomp.StompDecoder        - Decoded CONNECT {accept-version=[1.1,1.0], heart-beat=[10000,10000]} session=null
+2022-06-03 01:30:21.704[1654216221704] | TRACE | http-nio-8081-exec-4 | o.s.m.simp.stomp.StompDecoder        - Decoded CONNECT {accept-version=[1.1,1.0], heart-beat=[10000,10000]} session=null
+2022-06-03 01:30:21.705[1654216221705] | TRACE | http-nio-8081-exec-4 | o.s.w.s.m.StompSubProtocolHandler    - From client: CONNECT session=4mgwc0ue
+2022-06-03 01:30:21.705[1654216221705] | TRACE | http-nio-8081-exec-3 | o.s.w.s.m.StompSubProtocolHandler    - From client: CONNECT session=ndzbnve3
+2022-06-03 01:30:21.707[1654216221707] | DEBUG | clientInboundChannel-4 | o.s.m.s.b.SimpleBrokerMessageHandler - Processing CONNECT session=ndzbnve3
+2022-06-03 01:30:21.707[1654216221707] | DEBUG | clientInboundChannel-3 | o.s.m.s.b.SimpleBrokerMessageHandler - Processing CONNECT session=4mgwc0ue
+2022-06-03 01:30:21.710[1654216221710] | TRACE | clientOutboundChannel-1 | o.s.m.simp.stomp.StompEncoder        - Encoding STOMP CONNECTED, headers={version=[1.1], heart-beat=[0,0]}
+2022-06-03 01:30:21.710[1654216221710] | TRACE | clientOutboundChannel-2 | o.s.m.simp.stomp.StompEncoder        - Encoding STOMP CONNECTED, headers={version=[1.1], heart-beat=[0,0]}
+2022-06-03 01:30:21.711[1654216221711] | TRACE | clientOutboundChannel-2 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Cancelling heartbeat in session 4mgwc0ue
+2022-06-03 01:30:21.711[1654216221711] | TRACE | clientOutboundChannel-1 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Cancelling heartbeat in session ndzbnve3
+2022-06-03 01:30:21.711[1654216221711] | TRACE | clientOutboundChannel-2 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Preparing to write SockJsFrame content='a["CONNECTED\nversion:1.1\nheart-beat:0,0\n\n\u0000"]'
+2022-06-03 01:30:21.711[1654216221711] | TRACE | clientOutboundChannel-1 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Preparing to write SockJsFrame content='a["CONNECTED\nversion:1.1\nheart-beat:0,0\n\n\u0000"]'
+2022-06-03 01:30:21.711[1654216221711] | TRACE | clientOutboundChannel-2 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Writing SockJsFrame content='a["CONNECTED\nversion:1.1\nheart-beat:0,0\n\n\u0000"]'
+2022-06-03 01:30:21.711[1654216221711] | TRACE | clientOutboundChannel-1 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Writing SockJsFrame content='a["CONNECTED\nversion:1.1\nheart-beat:0,0\n\n\u0000"]'
+2022-06-03 01:30:21.711[1654216221711] | TRACE | clientOutboundChannel-2 | o.s.w.s.a.NativeWebSocketSession     - Sending TextMessage payload=[a["CONNECT..], byteCount=53, last=true], StandardWebSocketSession[id=1c01190e-7ed3-257b-8950-ba492d989272, uri=ws://localhost:8081/simulator/669/4mgwc0ue/websocket]
+2022-06-03 01:30:21.711[1654216221711] | TRACE | clientOutboundChannel-1 | o.s.w.s.a.NativeWebSocketSession     - Sending TextMessage payload=[a["CONNECT..], byteCount=53, last=true], StandardWebSocketSession[id=4069609b-486e-0201-c9f9-ce4a6cf1889b, uri=ws://localhost:8081/simulator/962/ndzbnve3/websocket]
+2022-06-03 01:30:21.711[1654216221711] | TRACE | clientOutboundChannel-2 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Scheduled heartbeat in session 4mgwc0ue
+2022-06-03 01:30:21.712[1654216221712] | TRACE | clientOutboundChannel-1 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Scheduled heartbeat in session ndzbnve3
+2022-06-03 01:30:21.714[1654216221714] | TRACE | http-nio-8081-exec-5 | o.s.w.s.h.LoggingWebSocketHandlerDecorator - Handling TextMessage payload=[SUBSCRIBE
+..], byteCount=47, last=true] in WebSocketServerSockJsSession[id=ndzbnve3]
+2022-06-03 01:30:21.714[1654216221714] | TRACE | http-nio-8081-exec-6 | o.s.w.s.h.LoggingWebSocketHandlerDecorator - Handling TextMessage payload=[SUBSCRIBE
+..], byteCount=52, last=true] in WebSocketServerSockJsSession[id=4mgwc0ue]
+2022-06-03 01:30:21.714[1654216221714] | TRACE | http-nio-8081-exec-5 | o.s.m.simp.stomp.StompDecoder        - Decoded SUBSCRIBE {id=[sub-0], destination=[/endpoint/wow]} session=null
+2022-06-03 01:30:21.714[1654216221714] | TRACE | http-nio-8081-exec-6 | o.s.m.simp.stomp.StompDecoder        - Decoded SUBSCRIBE {id=[sub-0], destination=[/endpoint/greeting]} session=null
+2022-06-03 01:30:21.714[1654216221714] | TRACE | http-nio-8081-exec-5 | o.s.w.s.m.StompSubProtocolHandler    - From client: SUBSCRIBE /endpoint/wow id=sub-0 session=ndzbnve3
+2022-06-03 01:30:21.714[1654216221714] | TRACE | http-nio-8081-exec-6 | o.s.w.s.m.StompSubProtocolHandler    - From client: SUBSCRIBE /endpoint/greeting id=sub-0 session=4mgwc0ue
+2022-06-03 01:30:21.715[1654216221715] | DEBUG | clientInboundChannel-9 | o.s.m.s.b.SimpleBrokerMessageHandler - Processing SUBSCRIBE /endpoint/greeting id=sub-0 session=4mgwc0ue
+2022-06-03 01:30:21.715[1654216221715] | DEBUG | clientInboundChannel-10 | o.s.m.s.b.SimpleBrokerMessageHandler - Processing SUBSCRIBE /endpoint/wow id=sub-0 session=ndzbnve3
+2022-06-03 01:30:22.923[1654216222923] | DEBUG | http-nio-8081-exec-8 | o.s.w.s.h.LoggingWebSocketHandlerDecorator - WebSocketServerSockJsSession[id=4mgwc0ue] closed with CloseStatus[code=1000, reason=null]
+2022-06-03 01:30:22.923[1654216222923] | DEBUG | http-nio-8081-exec-7 | o.s.w.s.h.LoggingWebSocketHandlerDecorator - WebSocketServerSockJsSession[id=ndzbnve3] closed with CloseStatus[code=1000, reason=null]
+2022-06-03 01:30:22.923[1654216222923] | DEBUG | http-nio-8081-exec-8 | o.s.w.s.m.SubProtocolWebSocketHandler - Clearing session 4mgwc0ue
+2022-06-03 01:30:22.923[1654216222923] | DEBUG | http-nio-8081-exec-7 | o.s.w.s.m.SubProtocolWebSocketHandler - Clearing session ndzbnve3
+2022-06-03 01:30:22.924[1654216222924] | DEBUG | clientInboundChannel-16 | o.s.m.s.b.SimpleBrokerMessageHandler - Processing DISCONNECT session=4mgwc0ue
+2022-06-03 01:30:22.924[1654216222924] | DEBUG | clientInboundChannel-15 | o.s.m.s.b.SimpleBrokerMessageHandler - Processing DISCONNECT session=ndzbnve3
+2022-06-03 01:30:22.926[1654216222926] | DEBUG | clientOutboundChannel-3 | o.s.w.s.m.SubProtocolWebSocketHandler - No session for GenericMessage [payload=byte[0], headers={simpMessageType=DISCONNECT_ACK, simpDisconnectMessage=GenericMessage [payload=byte[0], headers={simpMessageType=DISCONNECT, stompCommand=DISCONNECT, simpSessionAttributes={org.springframework.messaging.simp.SimpAttributes.COMPLETED=true}, simpSessionId=4mgwc0ue}], simpSessionId=4mgwc0ue}]
+2022-06-03 01:30:22.926[1654216222926] | DEBUG | clientOutboundChannel-4 | o.s.w.s.m.SubProtocolWebSocketHandler - No session for GenericMessage [payload=byte[0], headers={simpMessageType=DISCONNECT_ACK, simpDisconnectMessage=GenericMessage [payload=byte[0], headers={simpMessageType=DISCONNECT, stompCommand=DISCONNECT, simpSessionAttributes={org.springframework.messaging.simp.SimpAttributes.COMPLETED=true}, simpSessionId=ndzbnve3}], simpSessionId=ndzbnve3}]
+2022-06-03 01:30:23.245[1654216223245] | INFO  | MessageBroker-1 | o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 2 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(2)-CONNECTED(2)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 18, active threads = 0, queued tasks = 0, completed tasks = 18], outboundChannel[pool size = 4, active threads = 0, queued tasks = 0, completed tasks = 4], sockJsScheduler[pool size = 7, active threads = 1, queued tasks = 1, completed tasks = 1]
+2022-06-03 01:30:31.624[1654216231624] | DEBUG | MessageBroker-4 | o.s.w.s.s.t.h.DefaultSockJsService   - Closed 2 sessions: [4mgwc0ue, ndzbnve3]
+2022-06-03 01:30:39.166[1654216239166] | TRACE | http-nio-8081-exec-9 | o.s.w.s.s.s.WebSocketHandlerMapping  - Mapped to HandlerExecutionChain with [org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@40017e98] and 1 interceptors
+2022-06-03 01:30:39.166[1654216239166] | TRACE | http-nio-8081-exec-10 | o.s.w.s.s.s.WebSocketHandlerMapping  - Mapped to HandlerExecutionChain with [org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@40017e98] and 1 interceptors
+2022-06-03 01:30:39.166[1654216239166] | DEBUG | http-nio-8081-exec-9 | o.s.w.s.s.t.h.DefaultSockJsService   - Processing transport request: GET http://localhost:8081/simulator/info?t=1654216239160
+2022-06-03 01:30:39.167[1654216239167] | DEBUG | http-nio-8081-exec-10 | o.s.w.s.s.t.h.DefaultSockJsService   - Processing transport request: GET http://localhost:8081/simulator/info?t=1654216239161
+2022-06-03 01:30:39.229[1654216239229] | TRACE | http-nio-8081-exec-1 | o.s.w.s.s.s.WebSocketHandlerMapping  - Mapped to HandlerExecutionChain with [org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@40017e98] and 1 interceptors
+2022-06-03 01:30:39.230[1654216239230] | DEBUG | http-nio-8081-exec-1 | o.s.w.s.s.t.h.DefaultSockJsService   - Processing transport request: GET http://localhost:8081/simulator/139/exhrtoli/websocket
+2022-06-03 01:30:39.230[1654216239230] | TRACE | http-nio-8081-exec-1 | o.s.w.s.s.s.DefaultHandshakeHandler  - Processing request http://localhost:8081/simulator/139/exhrtoli/websocket with headers=[host:"localhost:8081", connection:"Upgrade", pragma:"no-cache", cache-control:"no-cache", user-agent:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36", upgrade:"websocket", origin:"http://localhost:3000", sec-websocket-version:"13", accept-encoding:"gzip, deflate, br", accept-language:"en-US,en;q=0.9", cookie:"_ga=GA1.1.386009030.1643049971; __tawkuuid=e::localhost::XAljZQwlNaBWnM/RPLHYQbS6meKB93tVcBR25ETuNsjuDbtuLZnP+iq4aCdiwwkJ::2; _gid=GA1.1.421232009.1654167715; _gat_gtag_UA_121653011_1=1", sec-gpc:"1", sec-websocket-key:"rn8bgWDMDoumgu+QxunhrQ==", sec-websocket-extensions:"permessage-deflate; client_max_window_bits"]
+2022-06-03 01:30:39.231[1654216239231] | TRACE | http-nio-8081-exec-1 | o.s.w.s.s.s.DefaultHandshakeHandler  - Upgrading to WebSocket, subProtocol=null, extensions=[]
+2022-06-03 01:30:39.233[1654216239233] | DEBUG | http-nio-8081-exec-1 | o.s.w.s.h.LoggingWebSocketHandlerDecorator - New WebSocketServerSockJsSession[id=exhrtoli]
+2022-06-03 01:30:39.233[1654216239233] | TRACE | http-nio-8081-exec-1 | o.s.w.s.a.NativeWebSocketSession     - Sending TextMessage payload=[o], byteCount=1, last=true], StandardWebSocketSession[id=0e48806e-79d4-6580-4b22-242498cd46db, uri=ws://localhost:8081/simulator/139/exhrtoli/websocket]
+2022-06-03 01:30:39.234[1654216239234] | TRACE | http-nio-8081-exec-1 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Scheduled heartbeat in session exhrtoli
+2022-06-03 01:30:39.247[1654216239247] | TRACE | http-nio-8081-exec-2 | o.s.w.s.h.LoggingWebSocketHandlerDecorator - Handling TextMessage payload=[CONNECT
+ac..], byteCount=56, last=true] in WebSocketServerSockJsSession[id=exhrtoli]
+2022-06-03 01:30:39.248[1654216239248] | TRACE | http-nio-8081-exec-2 | o.s.m.simp.stomp.StompDecoder        - Decoded CONNECT {accept-version=[1.1,1.0], heart-beat=[10000,10000]} session=null
+2022-06-03 01:30:39.248[1654216239248] | TRACE | http-nio-8081-exec-2 | o.s.w.s.m.StompSubProtocolHandler    - From client: CONNECT session=exhrtoli
+2022-06-03 01:30:39.249[1654216239249] | DEBUG | clientInboundChannel-20 | o.s.m.s.b.SimpleBrokerMessageHandler - Processing CONNECT session=exhrtoli
+2022-06-03 01:30:39.249[1654216239249] | TRACE | http-nio-8081-exec-4 | o.s.w.s.s.s.WebSocketHandlerMapping  - Mapped to HandlerExecutionChain with [org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@40017e98] and 1 interceptors
+2022-06-03 01:30:39.250[1654216239250] | DEBUG | http-nio-8081-exec-4 | o.s.w.s.s.t.h.DefaultSockJsService   - Processing transport request: GET http://localhost:8081/simulator/623/ioaiv4qv/websocket
+2022-06-03 01:30:39.250[1654216239250] | TRACE | clientOutboundChannel-5 | o.s.m.simp.stomp.StompEncoder        - Encoding STOMP CONNECTED, headers={version=[1.1], heart-beat=[0,0]}
+2022-06-03 01:30:39.250[1654216239250] | TRACE | clientOutboundChannel-5 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Cancelling heartbeat in session exhrtoli
+2022-06-03 01:30:39.251[1654216239251] | TRACE | http-nio-8081-exec-4 | o.s.w.s.s.s.DefaultHandshakeHandler  - Processing request http://localhost:8081/simulator/623/ioaiv4qv/websocket with headers=[host:"localhost:8081", connection:"Upgrade", pragma:"no-cache", cache-control:"no-cache", user-agent:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36", upgrade:"websocket", origin:"http://localhost:3000", sec-websocket-version:"13", accept-encoding:"gzip, deflate, br", accept-language:"en-US,en;q=0.9", cookie:"_ga=GA1.1.386009030.1643049971; __tawkuuid=e::localhost::XAljZQwlNaBWnM/RPLHYQbS6meKB93tVcBR25ETuNsjuDbtuLZnP+iq4aCdiwwkJ::2; _gid=GA1.1.421232009.1654167715; _gat_gtag_UA_121653011_1=1", sec-gpc:"1", sec-websocket-key:"K/dsj7fee6rmT3oZIfYdVw==", sec-websocket-extensions:"permessage-deflate; client_max_window_bits"]
+2022-06-03 01:30:39.251[1654216239251] | TRACE | clientOutboundChannel-5 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Preparing to write SockJsFrame content='a["CONNECTED\nversion:1.1\nheart-beat:0,0\n\n\u0000"]'
+2022-06-03 01:30:39.251[1654216239251] | TRACE | http-nio-8081-exec-4 | o.s.w.s.s.s.DefaultHandshakeHandler  - Upgrading to WebSocket, subProtocol=null, extensions=[]
+2022-06-03 01:30:39.251[1654216239251] | TRACE | clientOutboundChannel-5 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Writing SockJsFrame content='a["CONNECTED\nversion:1.1\nheart-beat:0,0\n\n\u0000"]'
+2022-06-03 01:30:39.251[1654216239251] | TRACE | clientOutboundChannel-5 | o.s.w.s.a.NativeWebSocketSession     - Sending TextMessage payload=[a["CONNECT..], byteCount=53, last=true], StandardWebSocketSession[id=0e48806e-79d4-6580-4b22-242498cd46db, uri=ws://localhost:8081/simulator/139/exhrtoli/websocket]
+2022-06-03 01:30:39.252[1654216239252] | TRACE | clientOutboundChannel-5 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Scheduled heartbeat in session exhrtoli
+2022-06-03 01:30:39.253[1654216239253] | DEBUG | http-nio-8081-exec-4 | o.s.w.s.h.LoggingWebSocketHandlerDecorator - New WebSocketServerSockJsSession[id=ioaiv4qv]
+2022-06-03 01:30:39.253[1654216239253] | TRACE | http-nio-8081-exec-4 | o.s.w.s.a.NativeWebSocketSession     - Sending TextMessage payload=[o], byteCount=1, last=true], StandardWebSocketSession[id=1caac745-6db7-dac4-338d-cf9cd2e5ef17, uri=ws://localhost:8081/simulator/623/ioaiv4qv/websocket]
+2022-06-03 01:30:39.253[1654216239253] | TRACE | http-nio-8081-exec-3 | o.s.w.s.h.LoggingWebSocketHandlerDecorator - Handling TextMessage payload=[SUBSCRIBE
+..], byteCount=47, last=true] in WebSocketServerSockJsSession[id=exhrtoli]
+2022-06-03 01:30:39.254[1654216239254] | TRACE | http-nio-8081-exec-3 | o.s.m.simp.stomp.StompDecoder        - Decoded SUBSCRIBE {id=[sub-0], destination=[/endpoint/wow]} session=null
+2022-06-03 01:30:39.254[1654216239254] | TRACE | http-nio-8081-exec-3 | o.s.w.s.m.StompSubProtocolHandler    - From client: SUBSCRIBE /endpoint/wow id=sub-0 session=exhrtoli
+2022-06-03 01:30:39.254[1654216239254] | TRACE | http-nio-8081-exec-4 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Scheduled heartbeat in session ioaiv4qv
+2022-06-03 01:30:39.255[1654216239255] | DEBUG | clientInboundChannel-23 | o.s.m.s.b.SimpleBrokerMessageHandler - Processing SUBSCRIBE /endpoint/wow id=sub-0 session=exhrtoli
+2022-06-03 01:30:39.307[1654216239307] | TRACE | http-nio-8081-exec-5 | o.s.w.s.h.LoggingWebSocketHandlerDecorator - Handling TextMessage payload=[CONNECT
+ac..], byteCount=56, last=true] in WebSocketServerSockJsSession[id=ioaiv4qv]
+2022-06-03 01:30:39.307[1654216239307] | TRACE | http-nio-8081-exec-5 | o.s.m.simp.stomp.StompDecoder        - Decoded CONNECT {accept-version=[1.1,1.0], heart-beat=[10000,10000]} session=null
+2022-06-03 01:30:39.307[1654216239307] | TRACE | http-nio-8081-exec-5 | o.s.w.s.m.StompSubProtocolHandler    - From client: CONNECT session=ioaiv4qv
+2022-06-03 01:30:39.308[1654216239308] | DEBUG | clientInboundChannel-26 | o.s.m.s.b.SimpleBrokerMessageHandler - Processing CONNECT session=ioaiv4qv
+2022-06-03 01:30:39.308[1654216239308] | TRACE | clientOutboundChannel-6 | o.s.m.simp.stomp.StompEncoder        - Encoding STOMP CONNECTED, headers={version=[1.1], heart-beat=[0,0]}
+2022-06-03 01:30:39.308[1654216239308] | TRACE | clientOutboundChannel-6 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Cancelling heartbeat in session ioaiv4qv
+2022-06-03 01:30:39.308[1654216239308] | TRACE | clientOutboundChannel-6 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Preparing to write SockJsFrame content='a["CONNECTED\nversion:1.1\nheart-beat:0,0\n\n\u0000"]'
+2022-06-03 01:30:39.308[1654216239308] | TRACE | clientOutboundChannel-6 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Writing SockJsFrame content='a["CONNECTED\nversion:1.1\nheart-beat:0,0\n\n\u0000"]'
+2022-06-03 01:30:39.308[1654216239308] | TRACE | clientOutboundChannel-6 | o.s.w.s.a.NativeWebSocketSession     - Sending TextMessage payload=[a["CONNECT..], byteCount=53, last=true], StandardWebSocketSession[id=1caac745-6db7-dac4-338d-cf9cd2e5ef17, uri=ws://localhost:8081/simulator/623/ioaiv4qv/websocket]
+2022-06-03 01:30:39.309[1654216239309] | TRACE | clientOutboundChannel-6 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Scheduled heartbeat in session ioaiv4qv
+2022-06-03 01:30:39.310[1654216239310] | TRACE | http-nio-8081-exec-6 | o.s.w.s.h.LoggingWebSocketHandlerDecorator - Handling TextMessage payload=[SUBSCRIBE
+..], byteCount=52, last=true] in WebSocketServerSockJsSession[id=ioaiv4qv]
+2022-06-03 01:30:39.310[1654216239310] | TRACE | http-nio-8081-exec-6 | o.s.m.simp.stomp.StompDecoder        - Decoded SUBSCRIBE {id=[sub-0], destination=[/endpoint/greeting]} session=null
+2022-06-03 01:30:39.310[1654216239310] | TRACE | http-nio-8081-exec-6 | o.s.w.s.m.StompSubProtocolHandler    - From client: SUBSCRIBE /endpoint/greeting id=sub-0 session=ioaiv4qv
+2022-06-03 01:30:39.310[1654216239310] | DEBUG | clientInboundChannel-29 | o.s.m.s.b.SimpleBrokerMessageHandler - Processing SUBSCRIBE /endpoint/greeting id=sub-0 session=ioaiv4qv
+2022-06-03 01:31:04.255[1654216264255] | TRACE | MessageBroker-6 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Preparing to write SockJsFrame content='h'
+2022-06-03 01:31:04.255[1654216264255] | TRACE | MessageBroker-6 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Writing SockJsFrame content='h'
+2022-06-03 01:31:04.255[1654216264255] | TRACE | MessageBroker-6 | o.s.w.s.a.NativeWebSocketSession     - Sending TextMessage payload=[h], byteCount=1, last=true], StandardWebSocketSession[id=0e48806e-79d4-6580-4b22-242498cd46db, uri=ws://localhost:8081/simulator/139/exhrtoli/websocket]
+2022-06-03 01:31:04.255[1654216264255] | TRACE | MessageBroker-6 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Cancelling heartbeat in session exhrtoli
+2022-06-03 01:31:04.255[1654216264255] | TRACE | MessageBroker-6 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Scheduled heartbeat in session exhrtoli
+2022-06-03 01:31:04.318[1654216264318] | TRACE | MessageBroker-10 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Preparing to write SockJsFrame content='h'
+2022-06-03 01:31:04.318[1654216264318] | TRACE | MessageBroker-10 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Writing SockJsFrame content='h'
+2022-06-03 01:31:04.318[1654216264318] | TRACE | MessageBroker-10 | o.s.w.s.a.NativeWebSocketSession     - Sending TextMessage payload=[h], byteCount=1, last=true], StandardWebSocketSession[id=1caac745-6db7-dac4-338d-cf9cd2e5ef17, uri=ws://localhost:8081/simulator/623/ioaiv4qv/websocket]
+2022-06-03 01:31:04.318[1654216264318] | TRACE | MessageBroker-10 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Cancelling heartbeat in session ioaiv4qv
+2022-06-03 01:31:04.318[1654216264318] | TRACE | MessageBroker-10 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Scheduled heartbeat in session ioaiv4qv
+2022-06-03 01:31:05.516[1654216265516] | DEBUG | http-nio-8081-exec-7 | o.s.w.s.h.LoggingWebSocketHandlerDecorator - WebSocketServerSockJsSession[id=ioaiv4qv] closed with CloseStatus[code=1000, reason=null]
+2022-06-03 01:31:05.516[1654216265516] | DEBUG | http-nio-8081-exec-8 | o.s.w.s.h.LoggingWebSocketHandlerDecorator - WebSocketServerSockJsSession[id=exhrtoli] closed with CloseStatus[code=1000, reason=null]
+2022-06-03 01:31:05.516[1654216265516] | DEBUG | http-nio-8081-exec-8 | o.s.w.s.m.SubProtocolWebSocketHandler - Clearing session exhrtoli
+2022-06-03 01:31:05.516[1654216265516] | DEBUG | http-nio-8081-exec-7 | o.s.w.s.m.SubProtocolWebSocketHandler - Clearing session ioaiv4qv
+2022-06-03 01:31:05.517[1654216265517] | DEBUG | clientInboundChannel-1 | o.s.m.s.b.SimpleBrokerMessageHandler - Processing DISCONNECT session=ioaiv4qv
+2022-06-03 01:31:05.517[1654216265517] | DEBUG | clientInboundChannel-32 | o.s.m.s.b.SimpleBrokerMessageHandler - Processing DISCONNECT session=exhrtoli
+2022-06-03 01:31:05.517[1654216265517] | DEBUG | clientOutboundChannel-8 | o.s.w.s.m.SubProtocolWebSocketHandler - No session for GenericMessage [payload=byte[0], headers={simpMessageType=DISCONNECT_ACK, simpDisconnectMessage=GenericMessage [payload=byte[0], headers={simpMessageType=DISCONNECT, stompCommand=DISCONNECT, simpSessionAttributes={org.springframework.messaging.simp.SimpAttributes.COMPLETED=true}, simpSessionId=exhrtoli}], simpSessionId=exhrtoli}]
+2022-06-03 01:31:05.517[1654216265517] | DEBUG | clientOutboundChannel-7 | o.s.w.s.m.SubProtocolWebSocketHandler - No session for GenericMessage [payload=byte[0], headers={simpMessageType=DISCONNECT_ACK, simpDisconnectMessage=GenericMessage [payload=byte[0], headers={simpMessageType=DISCONNECT, stompCommand=DISCONNECT, simpSessionAttributes={org.springframework.messaging.simp.SimpAttributes.COMPLETED=true}, simpSessionId=ioaiv4qv}], simpSessionId=ioaiv4qv}]
+2022-06-03 01:31:06.301[1654216266301] | TRACE | http-nio-8081-exec-9 | o.s.w.s.s.s.WebSocketHandlerMapping  - Mapped to HandlerExecutionChain with [org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@40017e98] and 1 interceptors
+2022-06-03 01:31:06.301[1654216266301] | DEBUG | http-nio-8081-exec-9 | o.s.w.s.s.t.h.DefaultSockJsService   - Processing transport request: GET http://localhost:8081/simulator/info?t=1654216266296
+2022-06-03 01:31:06.304[1654216266304] | TRACE | http-nio-8081-exec-10 | o.s.w.s.s.s.WebSocketHandlerMapping  - Mapped to HandlerExecutionChain with [org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@40017e98] and 1 interceptors
+2022-06-03 01:31:06.304[1654216266304] | DEBUG | http-nio-8081-exec-10 | o.s.w.s.s.t.h.DefaultSockJsService   - Processing transport request: GET http://localhost:8081/simulator/info?t=1654216266296
+2022-06-03 01:31:06.334[1654216266334] | TRACE | http-nio-8081-exec-1 | o.s.w.s.s.s.WebSocketHandlerMapping  - Mapped to HandlerExecutionChain with [org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@40017e98] and 1 interceptors
+2022-06-03 01:31:06.335[1654216266335] | DEBUG | http-nio-8081-exec-1 | o.s.w.s.s.t.h.DefaultSockJsService   - Processing transport request: GET http://localhost:8081/simulator/000/qjqbiphz/websocket
+2022-06-03 01:31:06.335[1654216266335] | TRACE | http-nio-8081-exec-1 | o.s.w.s.s.s.DefaultHandshakeHandler  - Processing request http://localhost:8081/simulator/000/qjqbiphz/websocket with headers=[host:"localhost:8081", connection:"Upgrade", pragma:"no-cache", cache-control:"no-cache", user-agent:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36", upgrade:"websocket", origin:"http://localhost:3000", sec-websocket-version:"13", accept-encoding:"gzip, deflate, br", accept-language:"en-US,en;q=0.9", cookie:"_ga=GA1.1.386009030.1643049971; __tawkuuid=e::localhost::XAljZQwlNaBWnM/RPLHYQbS6meKB93tVcBR25ETuNsjuDbtuLZnP+iq4aCdiwwkJ::2; _gid=GA1.1.421232009.1654167715; _gat_gtag_UA_121653011_1=1", sec-gpc:"1", sec-websocket-key:"CUXIX4bi+KHOtVpN1C7BvA==", sec-websocket-extensions:"permessage-deflate; client_max_window_bits"]
+2022-06-03 01:31:06.335[1654216266335] | TRACE | http-nio-8081-exec-1 | o.s.w.s.s.s.DefaultHandshakeHandler  - Upgrading to WebSocket, subProtocol=null, extensions=[]
+2022-06-03 01:31:06.337[1654216266337] | DEBUG | http-nio-8081-exec-1 | o.s.w.s.h.LoggingWebSocketHandlerDecorator - New WebSocketServerSockJsSession[id=qjqbiphz]
+2022-06-03 01:31:06.338[1654216266338] | TRACE | http-nio-8081-exec-1 | o.s.w.s.a.NativeWebSocketSession     - Sending TextMessage payload=[o], byteCount=1, last=true], StandardWebSocketSession[id=6971a58f-3ce9-6de2-a9ce-835e8dd61b2b, uri=ws://localhost:8081/simulator/000/qjqbiphz/websocket]
+2022-06-03 01:31:06.338[1654216266338] | TRACE | http-nio-8081-exec-1 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Scheduled heartbeat in session qjqbiphz
+2022-06-03 01:31:06.352[1654216266352] | TRACE | http-nio-8081-exec-2 | o.s.w.s.s.s.WebSocketHandlerMapping  - Mapped to HandlerExecutionChain with [org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@40017e98] and 1 interceptors
+2022-06-03 01:31:06.352[1654216266352] | DEBUG | http-nio-8081-exec-2 | o.s.w.s.s.t.h.DefaultSockJsService   - Processing transport request: GET http://localhost:8081/simulator/853/1oz2r4cj/websocket
+2022-06-03 01:31:06.352[1654216266352] | TRACE | http-nio-8081-exec-2 | o.s.w.s.s.s.DefaultHandshakeHandler  - Processing request http://localhost:8081/simulator/853/1oz2r4cj/websocket with headers=[host:"localhost:8081", connection:"Upgrade", pragma:"no-cache", cache-control:"no-cache", user-agent:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36", upgrade:"websocket", origin:"http://localhost:3000", sec-websocket-version:"13", accept-encoding:"gzip, deflate, br", accept-language:"en-US,en;q=0.9", cookie:"_ga=GA1.1.386009030.1643049971; __tawkuuid=e::localhost::XAljZQwlNaBWnM/RPLHYQbS6meKB93tVcBR25ETuNsjuDbtuLZnP+iq4aCdiwwkJ::2; _gid=GA1.1.421232009.1654167715; _gat_gtag_UA_121653011_1=1", sec-gpc:"1", sec-websocket-key:"tBEDitBB7aDZZiX50juUmQ==", sec-websocket-extensions:"permessage-deflate; client_max_window_bits"]
+2022-06-03 01:31:06.352[1654216266352] | TRACE | http-nio-8081-exec-2 | o.s.w.s.s.s.DefaultHandshakeHandler  - Upgrading to WebSocket, subProtocol=null, extensions=[]
+2022-06-03 01:31:06.354[1654216266354] | DEBUG | http-nio-8081-exec-2 | o.s.w.s.h.LoggingWebSocketHandlerDecorator - New WebSocketServerSockJsSession[id=1oz2r4cj]
+2022-06-03 01:31:06.354[1654216266354] | TRACE | http-nio-8081-exec-2 | o.s.w.s.a.NativeWebSocketSession     - Sending TextMessage payload=[o], byteCount=1, last=true], StandardWebSocketSession[id=96655151-08b3-cd41-5f8b-63ddc1782910, uri=ws://localhost:8081/simulator/853/1oz2r4cj/websocket]
+2022-06-03 01:31:06.355[1654216266355] | TRACE | http-nio-8081-exec-2 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Scheduled heartbeat in session 1oz2r4cj
+2022-06-03 01:31:06.382[1654216266382] | TRACE | http-nio-8081-exec-4 | o.s.w.s.h.LoggingWebSocketHandlerDecorator - Handling TextMessage payload=[CONNECT
+ac..], byteCount=56, last=true] in WebSocketServerSockJsSession[id=qjqbiphz]
+2022-06-03 01:31:06.382[1654216266382] | TRACE | http-nio-8081-exec-3 | o.s.w.s.h.LoggingWebSocketHandlerDecorator - Handling TextMessage payload=[CONNECT
+ac..], byteCount=56, last=true] in WebSocketServerSockJsSession[id=1oz2r4cj]
+2022-06-03 01:31:06.382[1654216266382] | TRACE | http-nio-8081-exec-4 | o.s.m.simp.stomp.StompDecoder        - Decoded CONNECT {accept-version=[1.1,1.0], heart-beat=[10000,10000]} session=null
+2022-06-03 01:31:06.382[1654216266382] | TRACE | http-nio-8081-exec-3 | o.s.m.simp.stomp.StompDecoder        - Decoded CONNECT {accept-version=[1.1,1.0], heart-beat=[10000,10000]} session=null
+2022-06-03 01:31:06.382[1654216266382] | TRACE | http-nio-8081-exec-3 | o.s.w.s.m.StompSubProtocolHandler    - From client: CONNECT session=1oz2r4cj
+2022-06-03 01:31:06.382[1654216266382] | TRACE | http-nio-8081-exec-4 | o.s.w.s.m.StompSubProtocolHandler    - From client: CONNECT session=qjqbiphz
+2022-06-03 01:31:06.382[1654216266382] | DEBUG | clientInboundChannel-4 | o.s.m.s.b.SimpleBrokerMessageHandler - Processing CONNECT session=1oz2r4cj
+2022-06-03 01:31:06.382[1654216266382] | DEBUG | clientInboundChannel-3 | o.s.m.s.b.SimpleBrokerMessageHandler - Processing CONNECT session=qjqbiphz
+2022-06-03 01:31:06.383[1654216266383] | TRACE | clientOutboundChannel-10 | o.s.m.simp.stomp.StompEncoder        - Encoding STOMP CONNECTED, headers={version=[1.1], heart-beat=[0,0]}
+2022-06-03 01:31:06.383[1654216266383] | TRACE | clientOutboundChannel-9 | o.s.m.simp.stomp.StompEncoder        - Encoding STOMP CONNECTED, headers={version=[1.1], heart-beat=[0,0]}
+2022-06-03 01:31:06.383[1654216266383] | TRACE | clientOutboundChannel-10 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Cancelling heartbeat in session qjqbiphz
+2022-06-03 01:31:06.383[1654216266383] | TRACE | clientOutboundChannel-9 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Cancelling heartbeat in session 1oz2r4cj
+2022-06-03 01:31:06.383[1654216266383] | TRACE | clientOutboundChannel-10 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Preparing to write SockJsFrame content='a["CONNECTED\nversion:1.1\nheart-beat:0,0\n\n\u0000"]'
+2022-06-03 01:31:06.383[1654216266383] | TRACE | clientOutboundChannel-9 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Preparing to write SockJsFrame content='a["CONNECTED\nversion:1.1\nheart-beat:0,0\n\n\u0000"]'
+2022-06-03 01:31:06.383[1654216266383] | TRACE | clientOutboundChannel-9 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Writing SockJsFrame content='a["CONNECTED\nversion:1.1\nheart-beat:0,0\n\n\u0000"]'
+2022-06-03 01:31:06.383[1654216266383] | TRACE | clientOutboundChannel-10 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Writing SockJsFrame content='a["CONNECTED\nversion:1.1\nheart-beat:0,0\n\n\u0000"]'
+2022-06-03 01:31:06.383[1654216266383] | TRACE | clientOutboundChannel-9 | o.s.w.s.a.NativeWebSocketSession     - Sending TextMessage payload=[a["CONNECT..], byteCount=53, last=true], StandardWebSocketSession[id=96655151-08b3-cd41-5f8b-63ddc1782910, uri=ws://localhost:8081/simulator/853/1oz2r4cj/websocket]
+2022-06-03 01:31:06.383[1654216266383] | TRACE | clientOutboundChannel-10 | o.s.w.s.a.NativeWebSocketSession     - Sending TextMessage payload=[a["CONNECT..], byteCount=53, last=true], StandardWebSocketSession[id=6971a58f-3ce9-6de2-a9ce-835e8dd61b2b, uri=ws://localhost:8081/simulator/000/qjqbiphz/websocket]
+2022-06-03 01:31:06.384[1654216266384] | TRACE | clientOutboundChannel-10 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Scheduled heartbeat in session qjqbiphz
+2022-06-03 01:31:06.384[1654216266384] | TRACE | clientOutboundChannel-9 | o.s.w.s.s.t.s.WebSocketServerSockJsSession - Scheduled heartbeat in session 1oz2r4cj
+2022-06-03 01:31:06.387[1654216266387] | TRACE | http-nio-8081-exec-6 | o.s.w.s.h.LoggingWebSocketHandlerDecorator - Handling TextMessage payload=[SUBSCRIBE
+..], byteCount=52, last=true] in WebSocketServerSockJsSession[id=1oz2r4cj]
+2022-06-03 01:31:06.387[1654216266387] | TRACE | http-nio-8081-exec-5 | o.s.w.s.h.LoggingWebSocketHandlerDecorator - Handling TextMessage payload=[SUBSCRIBE
+..], byteCount=47, last=true] in WebSocketServerSockJsSession[id=qjqbiphz]
+2022-06-03 01:31:06.387[1654216266387] | TRACE | http-nio-8081-exec-6 | o.s.m.simp.stomp.StompDecoder        - Decoded SUBSCRIBE {id=[sub-0], destination=[/endpoint/greeting]} session=null
+2022-06-03 01:31:06.387[1654216266387] | TRACE | http-nio-8081-exec-5 | o.s.m.simp.stomp.StompDecoder        - Decoded SUBSCRIBE {id=[sub-0], destination=[/endpoint/wow]} session=null
+2022-06-03 01:31:06.387[1654216266387] | TRACE | http-nio-8081-exec-6 | o.s.w.s.m.StompSubProtocolHandler    - From client: SUBSCRIBE /endpoint/greeting id=sub-0 session=1oz2r4cj
+2022-06-03 01:31:06.387[1654216266387] | TRACE | http-nio-8081-exec-5 | o.s.w.s.m.StompSubProtocolHandler    - From client: SUBSCRIBE /endpoint/wow id=sub-0 session=qjqbiphz
+2022-06-03 01:31:06.387[1654216266387] | DEBUG | clientInboundChannel-9 | o.s.m.s.b.SimpleBrokerMessageHandler - Processing SUBSCRIBE /endpoint/greeting id=sub-0 session=1oz2r4cj
+2022-06-03 01:31:06.387[1654216266387] | DEBUG | clientInboundChannel-10 | o.s.m.s.b.SimpleBrokerMessageHandler - Processing SUBSCRIBE /endpoint/wow id=sub-0 session=qjqbiphz
+2022-06-03 01:31:11.631[1654216271631] | DEBUG | MessageBroker-12 | o.s.w.s.s.t.h.DefaultSockJsService   - Closed 2 sessions: [exhrtoli, ioaiv4qv]
+2022-06-03 01:38:51.591[1654216731591] | INFO  | main       | com.example.DemoApplication          - Starting DemoApplication using Java 16.0.1 on Clinton with PID 12936 (C:\Users\Clinton\Documents\GitHub\MastersProject\BackEnd\target\classes started by Clinton in C:\Users\Clinton\Documents\GitHub\MastersProject\BackEnd)
+2022-06-03 01:38:51.597[1654216731597] | INFO  | main       | com.example.DemoApplication          - No active profile set, falling back to default profiles: default
+2022-06-03 01:38:52.737[1654216732737] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-06-03 01:38:52.812[1654216732812] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 69 ms. Found 1 MongoDB repository interfaces.
+2022-06-03 01:38:53.515[1654216733515] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 8081 (http)
+2022-06-03 01:38:53.527[1654216733527] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8081"]
+2022-06-03 01:38:53.527[1654216733527] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2022-06-03 01:38:53.527[1654216733527] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-06-03 01:38:53.643[1654216733643] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
+2022-06-03 01:38:53.643[1654216733643] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1971 ms
+2022-06-03 01:38:53.816[1654216733816] | INFO  | main       | org.mongodb.driver.cluster           - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-06-03 01:38:53.896[1654216733896] | INFO  | cluster-ClusterId{value='6299581d2acb22449e33e820', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:2, serverValue:1115}] to localhost:27017
+2022-06-03 01:38:53.896[1654216733896] | INFO  | cluster-rtt-ClusterId{value='6299581d2acb22449e33e820', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:1, serverValue:1114}] to localhost:27017
+2022-06-03 01:38:53.897[1654216733897] | INFO  | cluster-ClusterId{value='6299581d2acb22449e33e820', description='null'}-localhost:27017 | org.mongodb.driver.cluster           - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=25604800}
+2022-06-03 01:38:54.296[1654216734296] | WARN  | main       | o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'myController' defined in file [C:\Users\Clinton\Documents\GitHub\MastersProject\BackEnd\target\classes\com\example\websockettest\MyController.class]: Initialization of bean failed; nested exception is java.lang.IllegalStateException: Encountered invalid @Scheduled method 'BuyandSellBarPercentage': Only no-arg methods may be annotated with @Scheduled
+2022-06-03 01:38:54.303[1654216734303] | INFO  | main       | o.a.catalina.core.StandardService    - Stopping service [Tomcat]
+2022-06-03 01:38:54.318[1654216734318] | INFO  | main       | o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-06-03 01:38:54.338[1654216734338] | ERROR | main       | o.s.boot.SpringApplication           - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'myController' defined in file [C:\Users\Clinton\Documents\GitHub\MastersProject\BackEnd\target\classes\com\example\websockettest\MyController.class]: Initialization of bean failed; nested exception is java.lang.IllegalStateException: Encountered invalid @Scheduled method 'BuyandSellBarPercentage': Only no-arg methods may be annotated with @Scheduled
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:610)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:338)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1332)
+	at com.example.DemoApplication.main(DemoApplication.java:17)
+Caused by: java.lang.IllegalStateException: Encountered invalid @Scheduled method 'BuyandSellBarPercentage': Only no-arg methods may be annotated with @Scheduled
+	at org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor.processScheduled(ScheduledAnnotationBeanPostProcessor.java:511)
+	at org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor.lambda$null$1(ScheduledAnnotationBeanPostProcessor.java:374)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor.lambda$postProcessAfterInitialization$2(ScheduledAnnotationBeanPostProcessor.java:374)
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:723)
+	at org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor.postProcessAfterInitialization(ScheduledAnnotationBeanPostProcessor.java:373)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsAfterInitialization(AbstractAutowireCapableBeanFactory.java:437)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1790)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:602)
+	... 15 common frames omitted
+2022-06-03 01:39:40.912[1654216780912] | INFO  | main       | com.example.DemoApplication          - Starting DemoApplication using Java 16.0.1 on Clinton with PID 16744 (C:\Users\Clinton\Documents\GitHub\MastersProject\BackEnd\target\classes started by Clinton in C:\Users\Clinton\Documents\GitHub\MastersProject\BackEnd)
+2022-06-03 01:39:40.918[1654216780918] | INFO  | main       | com.example.DemoApplication          - No active profile set, falling back to default profiles: default
+2022-06-03 01:39:42.040[1654216782040] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-06-03 01:39:42.112[1654216782112] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 68 ms. Found 1 MongoDB repository interfaces.
+2022-06-03 01:39:42.827[1654216782827] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 8081 (http)
+2022-06-03 01:39:42.839[1654216782839] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8081"]
+2022-06-03 01:39:42.839[1654216782839] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
+2022-06-03 01:39:42.839[1654216782839] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-06-03 01:39:42.954[1654216782954] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
+2022-06-03 01:39:42.954[1654216782954] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1961 ms
+2022-06-03 01:39:43.137[1654216783137] | INFO  | main       | org.mongodb.driver.cluster           - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-06-03 01:39:43.244[1654216783244] | INFO  | cluster-ClusterId{value='6299584f6b8a9e496bcfffdf', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:2, serverValue:1116}] to localhost:27017
+2022-06-03 01:39:43.244[1654216783244] | INFO  | cluster-rtt-ClusterId{value='6299584f6b8a9e496bcfffdf', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:1, serverValue:1117}] to localhost:27017
+2022-06-03 01:39:43.245[1654216783245] | INFO  | cluster-ClusterId{value='6299584f6b8a9e496bcfffdf', description='null'}-localhost:27017 | org.mongodb.driver.cluster           - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=37901000}
+2022-06-03 01:39:44.356[1654216784356] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 1] Connecting to stream.binance.com/ws/btcusdt@trade
+2022-06-03 01:39:44.371[1654216784371] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 2] Connecting to stream.binance.com/ws/ethusdt@trade
+2022-06-03 01:39:44.373[1654216784373] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 3] Connecting to stream.binance.com/ws/ltcusdt@trade
+2022-06-03 01:39:44.375[1654216784375] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 4] Connecting to stream.binance.com/ws/btceur@trade
+2022-06-03 01:39:44.376[1654216784376] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 5] Connecting to stream.binance.com/ws/ltceur@trade
+2022-06-03 01:39:44.378[1654216784378] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 6] Connecting to stream.binance.com/ws/btcgbp@trade
+2022-06-03 01:39:44.379[1654216784379] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 7] Connecting to stream.binance.com/ws/ltcgbp@trade
+2022-06-03 01:39:44.380[1654216784380] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 8] Connecting to stream.binance.com/ws/ethgbp@trade
+2022-06-03 01:39:44.402[1654216784402] | INFO  | main       | s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-06-03 01:39:44.472[1654216784472] | TRACE | main       | o.s.w.s.s.s.WebSocketHandlerMapping  - Mapped [/simulator] onto org.springframework.web.socket.server.support.WebSocketHttpRequestHandler@3a48c398
+2022-06-03 01:39:44.473[1654216784473] | TRACE | main       | o.s.w.s.s.s.WebSocketHandlerMapping  - Mapped [/simulator/**] onto org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@b2da3a5
+2022-06-03 01:39:44.473[1654216784473] | DEBUG | main       | o.s.w.s.s.s.WebSocketHandlerMapping  - Patterns [/simulator, /simulator/**] in 'stompWebSocketHandlerMapping'
+2022-06-03 01:39:44.501[1654216784501] | TRACE | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - Looking for @MessageExceptionHandler mappings: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1a9c38eb, started on Fri Jun 03 01:39:40 BST 2022
+2022-06-03 01:39:44.519[1654216784519] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
 	c.e.c.EndPoints:
 	
-2022-06-02 02:28:52.237[1654133332237] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+2022-06-03 01:39:44.527[1654216784527] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
 	c.e.w.MyController:
 	{[MESSAGE],[/hello]}: getCurrentLocation()
-2022-06-02 02:28:52.238[1654133332238] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+2022-06-03 01:39:44.528[1654216784528] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
 	s.d.s.w.ApiResourceController:
 	
-2022-06-02 02:28:52.239[1654133332239] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+2022-06-03 01:39:44.529[1654216784529] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
 	o.s.b.a.w.s.e.BasicErrorController:
 	
-2022-06-02 02:28:53.001[1654133333001] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8081"]
-2022-06-02 02:28:53.087[1654133333087] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port(s): 8081 (http) with context path ''
-2022-06-02 02:28:53.089[1654133333089] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
-2022-06-02 02:28:53.140[1654133333140] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
-2022-06-02 02:28:53.200[1654133333200] | INFO  | main       | s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
-2022-06-02 02:28:53.382[1654133333382] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientOutboundChannel added SubProtocolWebSocketHandler[StompSubProtocolHandler[v10.stomp, v11.stomp, v12.stomp]]
-2022-06-02 02:28:53.382[1654133333382] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientInboundChannel added WebSocketAnnotationMethodMessageHandler[prefixes=[/app/]]
-2022-06-02 02:28:53.383[1654133333383] | INFO  | main       | o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
-2022-06-02 02:28:53.383[1654133333383] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientInboundChannel added SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@74f89bad]
-2022-06-02 02:28:53.383[1654133333383] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - brokerChannel added SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@74f89bad]
-2022-06-02 02:28:53.383[1654133333383] | INFO  | main       | o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@74f89bad]]
-2022-06-02 02:28:53.383[1654133333383] | INFO  | main       | o.s.m.s.b.SimpleBrokerMessageHandler - Started.
-2022-06-02 02:28:53.383[1654133333383] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientInboundChannel added UserDestinationMessageHandler[DefaultUserDestinationResolver[prefix=/user/]]
-2022-06-02 02:28:53.383[1654133333383] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - brokerChannel added UserDestinationMessageHandler[DefaultUserDestinationResolver[prefix=/user/]]
-2022-06-02 02:28:53.396[1654133333396] | INFO  | main       | com.example.DemoApplication          - Started DemoApplication in 4.964 seconds (JVM running for 5.698)
-2022-06-02 02:28:53.500[1654133333500] | INFO  | MessageBroker-1 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:3, serverValue:819}] to localhost:27017
-2022-06-02 02:29:46.348[1654133386348] | INFO  | main       | com.example.DemoApplication          - Starting DemoApplication using Java 16.0.1 on Clinton with PID 20752 (C:\Users\Clinton\Documents\GitHub\MastersProject\BackEnd\target\classes started by Clinton in C:\Users\Clinton\Documents\GitHub\MastersProject\BackEnd)
-2022-06-02 02:29:46.353[1654133386353] | INFO  | main       | com.example.DemoApplication          - No active profile set, falling back to default profiles: default
-2022-06-02 02:29:47.461[1654133387461] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2022-06-02 02:29:47.535[1654133387535] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 69 ms. Found 1 MongoDB repository interfaces.
-2022-06-02 02:29:48.222[1654133388222] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 8081 (http)
-2022-06-02 02:29:48.235[1654133388235] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8081"]
-2022-06-02 02:29:48.236[1654133388236] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
-2022-06-02 02:29:48.236[1654133388236] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.52]
-2022-06-02 02:29:48.350[1654133388350] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
-2022-06-02 02:29:48.351[1654133388351] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1923 ms
-2022-06-02 02:29:48.530[1654133388530] | INFO  | main       | org.mongodb.driver.cluster           - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2022-06-02 02:29:48.631[1654133388631] | INFO  | cluster-rtt-ClusterId{value='6298128c87bbf9313b2969bc', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:2, serverValue:821}] to localhost:27017
-2022-06-02 02:29:48.631[1654133388631] | INFO  | cluster-ClusterId{value='6298128c87bbf9313b2969bc', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:1, serverValue:820}] to localhost:27017
-2022-06-02 02:29:48.632[1654133388632] | INFO  | cluster-ClusterId{value='6298128c87bbf9313b2969bc', description='null'}-localhost:27017 | org.mongodb.driver.cluster           - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=33120900}
-2022-06-02 02:29:49.456[1654133389456] | INFO  | main       | s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-06-02 02:29:49.532[1654133389532] | TRACE | main       | o.s.w.s.s.s.WebSocketHandlerMapping  - Mapped [/simulator] onto org.springframework.web.socket.server.support.WebSocketHttpRequestHandler@2dd8a273
-2022-06-02 02:29:49.532[1654133389532] | TRACE | main       | o.s.w.s.s.s.WebSocketHandlerMapping  - Mapped [/simulator/**] onto org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@2beee3e8
-2022-06-02 02:29:49.532[1654133389532] | DEBUG | main       | o.s.w.s.s.s.WebSocketHandlerMapping  - Patterns [/simulator, /simulator/**] in 'stompWebSocketHandlerMapping'
-2022-06-02 02:29:49.563[1654133389563] | TRACE | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - Looking for @MessageExceptionHandler mappings: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1a9c38eb, started on Thu Jun 02 02:29:46 BST 2022
-2022-06-02 02:29:49.579[1654133389579] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
-	c.e.c.EndPoints:
-	
-2022-06-02 02:29:49.584[1654133389584] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
-	c.e.w.MyController:
-	{[MESSAGE],[/hello]}: getCurrentLocation()
-2022-06-02 02:29:49.585[1654133389585] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
-	s.d.s.w.ApiResourceController:
-	
-2022-06-02 02:29:49.586[1654133389586] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
-	o.s.b.a.w.s.e.BasicErrorController:
-	
-2022-06-02 02:29:50.341[1654133390341] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8081"]
-2022-06-02 02:29:50.427[1654133390427] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port(s): 8081 (http) with context path ''
-2022-06-02 02:29:50.429[1654133390429] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
-2022-06-02 02:29:50.462[1654133390462] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
-2022-06-02 02:29:50.511[1654133390511] | INFO  | main       | s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
-2022-06-02 02:29:50.697[1654133390697] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientOutboundChannel added SubProtocolWebSocketHandler[StompSubProtocolHandler[v10.stomp, v11.stomp, v12.stomp]]
-2022-06-02 02:29:50.697[1654133390697] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientInboundChannel added WebSocketAnnotationMethodMessageHandler[prefixes=[/app/]]
-2022-06-02 02:29:50.698[1654133390698] | INFO  | main       | o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
-2022-06-02 02:29:50.698[1654133390698] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientInboundChannel added SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@74f89bad]
-2022-06-02 02:29:50.698[1654133390698] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - brokerChannel added SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@74f89bad]
-2022-06-02 02:29:50.698[1654133390698] | INFO  | main       | o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@74f89bad]]
-2022-06-02 02:29:50.698[1654133390698] | INFO  | main       | o.s.m.s.b.SimpleBrokerMessageHandler - Started.
-2022-06-02 02:29:50.698[1654133390698] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientInboundChannel added UserDestinationMessageHandler[DefaultUserDestinationResolver[prefix=/user/]]
-2022-06-02 02:29:50.698[1654133390698] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - brokerChannel added UserDestinationMessageHandler[DefaultUserDestinationResolver[prefix=/user/]]
-2022-06-02 02:29:50.714[1654133390714] | INFO  | main       | com.example.DemoApplication          - Started DemoApplication in 4.863 seconds (JVM running for 5.588)
-2022-06-02 02:29:52.332[1654133392332] | INFO  | MessageBroker-1 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:3, serverValue:822}] to localhost:27017
-2022-06-02 02:33:17.745[1654133597745] | INFO  | main       | com.example.DemoApplication          - Starting DemoApplication using Java 16.0.1 on Clinton with PID 26468 (C:\Users\Clinton\Documents\GitHub\MastersProject\BackEnd\target\classes started by Clinton in C:\Users\Clinton\Documents\GitHub\MastersProject\BackEnd)
-2022-06-02 02:33:17.750[1654133597750] | INFO  | main       | com.example.DemoApplication          - No active profile set, falling back to default profiles: default
-2022-06-02 02:33:18.863[1654133598863] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2022-06-02 02:33:18.940[1654133598940] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 71 ms. Found 1 MongoDB repository interfaces.
-2022-06-02 02:33:19.615[1654133599615] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 8081 (http)
-2022-06-02 02:33:19.628[1654133599628] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8081"]
-2022-06-02 02:33:19.628[1654133599628] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
-2022-06-02 02:33:19.628[1654133599628] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.52]
-2022-06-02 02:33:19.740[1654133599740] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
-2022-06-02 02:33:19.740[1654133599740] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1918 ms
-2022-06-02 02:33:19.914[1654133599914] | INFO  | main       | org.mongodb.driver.cluster           - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2022-06-02 02:33:20.013[1654133600013] | INFO  | cluster-ClusterId{value='6298135f2bc54b108f78e20b', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:1, serverValue:824}] to localhost:27017
-2022-06-02 02:33:20.013[1654133600013] | INFO  | cluster-rtt-ClusterId{value='6298135f2bc54b108f78e20b', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:2, serverValue:823}] to localhost:27017
-2022-06-02 02:33:20.013[1654133600013] | INFO  | cluster-ClusterId{value='6298135f2bc54b108f78e20b', description='null'}-localhost:27017 | org.mongodb.driver.cluster           - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=31938300}
-2022-06-02 02:33:20.836[1654133600836] | INFO  | main       | s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-06-02 02:33:20.915[1654133600915] | TRACE | main       | o.s.w.s.s.s.WebSocketHandlerMapping  - Mapped [/simulator] onto org.springframework.web.socket.server.support.WebSocketHttpRequestHandler@5bd3ca3c
-2022-06-02 02:33:20.915[1654133600915] | TRACE | main       | o.s.w.s.s.s.WebSocketHandlerMapping  - Mapped [/simulator/**] onto org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@495da9a7
-2022-06-02 02:33:20.915[1654133600915] | DEBUG | main       | o.s.w.s.s.s.WebSocketHandlerMapping  - Patterns [/simulator, /simulator/**] in 'stompWebSocketHandlerMapping'
-2022-06-02 02:33:20.945[1654133600945] | TRACE | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - Looking for @MessageExceptionHandler mappings: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1a9c38eb, started on Thu Jun 02 02:33:17 BST 2022
-2022-06-02 02:33:20.961[1654133600961] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
-	c.e.c.EndPoints:
-	
-2022-06-02 02:33:20.966[1654133600966] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
-	c.e.w.MyController:
-	{[MESSAGE],[/hello]}: getCurrentLocation()
-2022-06-02 02:33:20.967[1654133600967] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
-	s.d.s.w.ApiResourceController:
-	
-2022-06-02 02:33:20.968[1654133600968] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
-	o.s.b.a.w.s.e.BasicErrorController:
-	
-2022-06-02 02:33:21.675[1654133601675] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8081"]
-2022-06-02 02:33:21.762[1654133601762] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port(s): 8081 (http) with context path ''
-2022-06-02 02:33:21.763[1654133601763] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
-2022-06-02 02:33:21.812[1654133601812] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
-2022-06-02 02:33:21.867[1654133601867] | INFO  | main       | s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
-2022-06-02 02:33:22.075[1654133602075] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientOutboundChannel added SubProtocolWebSocketHandler[StompSubProtocolHandler[v10.stomp, v11.stomp, v12.stomp]]
-2022-06-02 02:33:22.075[1654133602075] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientInboundChannel added WebSocketAnnotationMethodMessageHandler[prefixes=[/app/]]
-2022-06-02 02:33:22.075[1654133602075] | INFO  | main       | o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
-2022-06-02 02:33:22.075[1654133602075] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientInboundChannel added SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@74450c9b]
-2022-06-02 02:33:22.075[1654133602075] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - brokerChannel added SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@74450c9b]
-2022-06-02 02:33:22.075[1654133602075] | INFO  | main       | o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@74450c9b]]
-2022-06-02 02:33:22.076[1654133602076] | INFO  | main       | o.s.m.s.b.SimpleBrokerMessageHandler - Started.
-2022-06-02 02:33:22.076[1654133602076] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientInboundChannel added UserDestinationMessageHandler[DefaultUserDestinationResolver[prefix=/user/]]
-2022-06-02 02:33:22.076[1654133602076] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - brokerChannel added UserDestinationMessageHandler[DefaultUserDestinationResolver[prefix=/user/]]
-2022-06-02 02:33:22.090[1654133602090] | INFO  | main       | com.example.DemoApplication          - Started DemoApplication in 4.828 seconds (JVM running for 5.549)
-2022-06-02 02:33:40.896[1654133620896] | INFO  | main       | com.example.DemoApplication          - Starting DemoApplication using Java 16.0.1 on Clinton with PID 24684 (C:\Users\Clinton\Documents\GitHub\MastersProject\BackEnd\target\classes started by Clinton in C:\Users\Clinton\Documents\GitHub\MastersProject\BackEnd)
-2022-06-02 02:33:40.900[1654133620900] | INFO  | main       | com.example.DemoApplication          - No active profile set, falling back to default profiles: default
-2022-06-02 02:33:41.969[1654133621969] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2022-06-02 02:33:42.037[1654133622037] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 64 ms. Found 1 MongoDB repository interfaces.
-2022-06-02 02:33:42.722[1654133622722] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 8081 (http)
-2022-06-02 02:33:42.734[1654133622734] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8081"]
-2022-06-02 02:33:42.734[1654133622734] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
-2022-06-02 02:33:42.734[1654133622734] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.52]
-2022-06-02 02:33:42.847[1654133622847] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
-2022-06-02 02:33:42.847[1654133622847] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1876 ms
-2022-06-02 02:33:43.022[1654133623022] | INFO  | main       | org.mongodb.driver.cluster           - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2022-06-02 02:33:43.127[1654133623127] | INFO  | cluster-rtt-ClusterId{value='62981377c6a5ad5365eb5bb6', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:2, serverValue:825}] to localhost:27017
-2022-06-02 02:33:43.127[1654133623127] | INFO  | cluster-ClusterId{value='62981377c6a5ad5365eb5bb6', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:1, serverValue:826}] to localhost:27017
-2022-06-02 02:33:43.128[1654133623128] | INFO  | cluster-ClusterId{value='62981377c6a5ad5365eb5bb6', description='null'}-localhost:27017 | org.mongodb.driver.cluster           - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=37229200}
-2022-06-02 02:33:44.959[1654133624959] | INFO  | ReadingThread | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:3, serverValue:827}] to localhost:27017
-2022-06-02 02:33:45.060[1654133625060] | INFO  | ReadingThread | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:4, serverValue:828}] to localhost:27017
-2022-06-02 02:33:45.420[1654133625420] | INFO  | ReadingThread | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:5, serverValue:829}] to localhost:27017
-2022-06-02 02:33:45.842[1654133625842] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 1] Connecting to stream.binance.com/ws/btcusdt@trade
-2022-06-02 02:33:45.864[1654133625864] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 2] Connecting to stream.binance.com/ws/ethusdt@trade
-2022-06-02 02:33:45.866[1654133625866] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 3] Connecting to stream.binance.com/ws/ltcusdt@trade
-2022-06-02 02:33:45.868[1654133625868] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 4] Connecting to stream.binance.com/ws/btceur@trade
-2022-06-02 02:33:45.870[1654133625870] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 5] Connecting to stream.binance.com/ws/ltceur@trade
-2022-06-02 02:33:45.873[1654133625873] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 6] Connecting to stream.binance.com/ws/btcgbp@trade
-2022-06-02 02:33:45.875[1654133625875] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 7] Connecting to stream.binance.com/ws/ltcgbp@trade
-2022-06-02 02:33:45.877[1654133625877] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 8] Connecting to stream.binance.com/ws/ethgbp@trade
-2022-06-02 02:33:45.962[1654133625962] | INFO  | main       | s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-06-02 02:33:46.077[1654133626077] | TRACE | main       | o.s.w.s.s.s.WebSocketHandlerMapping  - Mapped [/simulator] onto org.springframework.web.socket.server.support.WebSocketHttpRequestHandler@300aa927
-2022-06-02 02:33:46.078[1654133626078] | TRACE | main       | o.s.w.s.s.s.WebSocketHandlerMapping  - Mapped [/simulator/**] onto org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@2b62475a
-2022-06-02 02:33:46.078[1654133626078] | DEBUG | main       | o.s.w.s.s.s.WebSocketHandlerMapping  - Patterns [/simulator, /simulator/**] in 'stompWebSocketHandlerMapping'
-2022-06-02 02:33:46.124[1654133626124] | TRACE | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - Looking for @MessageExceptionHandler mappings: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1a9c38eb, started on Thu Jun 02 02:33:40 BST 2022
-2022-06-02 02:33:46.158[1654133626158] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
-	c.e.c.EndPoints:
-	
-2022-06-02 02:33:46.166[1654133626166] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
-	c.e.w.MyController:
-	{[MESSAGE],[/hello]}: getCurrentLocation()
-2022-06-02 02:33:46.167[1654133626167] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
-	s.d.s.w.ApiResourceController:
-	
-2022-06-02 02:33:46.168[1654133626168] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
-	o.s.b.a.w.s.e.BasicErrorController:
-	
-2022-06-02 02:33:47.180[1654133627180] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8081"]
-2022-06-02 02:33:47.225[1654133627225] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port(s): 8081 (http) with context path ''
-2022-06-02 02:33:47.227[1654133627227] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
-2022-06-02 02:33:47.276[1654133627276] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
-2022-06-02 02:33:47.340[1654133627340] | INFO  | ReadingThread | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:6, serverValue:830}] to localhost:27017
-2022-06-02 02:33:47.346[1654133627346] | INFO  | main       | s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
-2022-06-02 02:33:47.367[1654133627367] | INFO  | ReadingThread | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:7, serverValue:831}] to localhost:27017
-2022-06-02 02:33:47.620[1654133627620] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientOutboundChannel added SubProtocolWebSocketHandler[StompSubProtocolHandler[v10.stomp, v11.stomp, v12.stomp]]
-2022-06-02 02:33:47.620[1654133627620] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientInboundChannel added WebSocketAnnotationMethodMessageHandler[prefixes=[/app/]]
-2022-06-02 02:33:47.620[1654133627620] | INFO  | main       | o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
-2022-06-02 02:33:47.621[1654133627621] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientInboundChannel added SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@5cb6abc8]
-2022-06-02 02:33:47.621[1654133627621] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - brokerChannel added SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@5cb6abc8]
-2022-06-02 02:33:47.621[1654133627621] | INFO  | main       | o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@5cb6abc8]]
-2022-06-02 02:33:47.622[1654133627622] | INFO  | main       | o.s.m.s.b.SimpleBrokerMessageHandler - Started.
-2022-06-02 02:33:47.622[1654133627622] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientInboundChannel added UserDestinationMessageHandler[DefaultUserDestinationResolver[prefix=/user/]]
-2022-06-02 02:33:47.622[1654133627622] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - brokerChannel added UserDestinationMessageHandler[DefaultUserDestinationResolver[prefix=/user/]]
-2022-06-02 02:33:47.633[1654133627633] | INFO  | main       | com.example.DemoApplication          - Started DemoApplication in 7.254 seconds (JVM running for 7.975)
-2022-06-02 02:33:47.738[1654133627738] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 8] Connected to Server
-2022-06-02 02:33:47.738[1654133627738] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 7] Connected to Server
-2022-06-02 02:33:47.758[1654133627758] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 2] Connected to Server
-2022-06-02 02:33:47.758[1654133627758] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 6] Connected to Server
-2022-06-02 02:33:47.783[1654133627783] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 5] Connected to Server
-2022-06-02 02:33:47.797[1654133627797] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 1] Connected to Server
-2022-06-02 02:33:47.816[1654133627816] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 4] Connected to Server
-2022-06-02 02:33:47.823[1654133627823] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 3] Connected to Server
-2022-06-02 02:38:38.116[1654133918116] | INFO  | main       | com.example.DemoApplication          - Starting DemoApplication using Java 16.0.1 on Clinton with PID 2036 (C:\Users\Clinton\Documents\GitHub\MastersProject\BackEnd\target\classes started by Clinton in C:\Users\Clinton\Documents\GitHub\MastersProject\BackEnd)
-2022-06-02 02:38:38.119[1654133918119] | INFO  | main       | com.example.DemoApplication          - No active profile set, falling back to default profiles: default
-2022-06-02 02:38:39.229[1654133919229] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2022-06-02 02:38:39.303[1654133919303] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 68 ms. Found 1 MongoDB repository interfaces.
-2022-06-02 02:38:40.006[1654133920006] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 8081 (http)
-2022-06-02 02:38:40.018[1654133920018] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8081"]
-2022-06-02 02:38:40.019[1654133920019] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
-2022-06-02 02:38:40.019[1654133920019] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.52]
-2022-06-02 02:38:40.133[1654133920133] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
-2022-06-02 02:38:40.133[1654133920133] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1934 ms
-2022-06-02 02:38:40.317[1654133920317] | INFO  | main       | org.mongodb.driver.cluster           - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2022-06-02 02:38:40.425[1654133920425] | INFO  | cluster-ClusterId{value='629814a0043e0b36c2a2c767', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:1, serverValue:892}] to localhost:27017
-2022-06-02 02:38:40.425[1654133920425] | INFO  | cluster-rtt-ClusterId{value='629814a0043e0b36c2a2c767', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:2, serverValue:891}] to localhost:27017
-2022-06-02 02:38:40.425[1654133920425] | INFO  | cluster-ClusterId{value='629814a0043e0b36c2a2c767', description='null'}-localhost:27017 | org.mongodb.driver.cluster           - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=38507800}
-2022-06-02 02:38:42.237[1654133922237] | INFO  | ReadingThread | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:3, serverValue:893}] to localhost:27017
-2022-06-02 02:38:42.311[1654133922311] | INFO  | ReadingThread | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:4, serverValue:894}] to localhost:27017
-2022-06-02 02:38:42.948[1654133922948] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 1] Connecting to stream.binance.com/ws/btcusdt@trade
-2022-06-02 02:38:42.963[1654133922963] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 2] Connecting to stream.binance.com/ws/ethusdt@trade
-2022-06-02 02:38:42.965[1654133922965] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 3] Connecting to stream.binance.com/ws/ltcusdt@trade
-2022-06-02 02:38:42.967[1654133922967] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 4] Connecting to stream.binance.com/ws/btceur@trade
-2022-06-02 02:38:42.969[1654133922969] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 5] Connecting to stream.binance.com/ws/ltceur@trade
-2022-06-02 02:38:42.972[1654133922972] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 6] Connecting to stream.binance.com/ws/btcgbp@trade
-2022-06-02 02:38:42.974[1654133922974] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 7] Connecting to stream.binance.com/ws/ltcgbp@trade
-2022-06-02 02:38:42.976[1654133922976] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 8] Connecting to stream.binance.com/ws/ethgbp@trade
-2022-06-02 02:38:43.009[1654133923009] | INFO  | main       | s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-06-02 02:38:43.108[1654133923108] | TRACE | main       | o.s.w.s.s.s.WebSocketHandlerMapping  - Mapped [/simulator] onto org.springframework.web.socket.server.support.WebSocketHttpRequestHandler@1f4dd016
-2022-06-02 02:38:43.108[1654133923108] | TRACE | main       | o.s.w.s.s.s.WebSocketHandlerMapping  - Mapped [/simulator/**] onto org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@f0c1ae1
-2022-06-02 02:38:43.109[1654133923109] | DEBUG | main       | o.s.w.s.s.s.WebSocketHandlerMapping  - Patterns [/simulator, /simulator/**] in 'stompWebSocketHandlerMapping'
-2022-06-02 02:38:43.157[1654133923157] | TRACE | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - Looking for @MessageExceptionHandler mappings: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1a9c38eb, started on Thu Jun 02 02:38:38 BST 2022
-2022-06-02 02:38:43.180[1654133923180] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
-	c.e.c.EndPoints:
-	
-2022-06-02 02:38:43.189[1654133923189] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
-	c.e.w.MyController:
-	{[MESSAGE],[/hello]}: getCurrentLocation()
-2022-06-02 02:38:43.190[1654133923190] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
-	s.d.s.w.ApiResourceController:
-	
-2022-06-02 02:38:43.191[1654133923191] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
-	o.s.b.a.w.s.e.BasicErrorController:
-	
-2022-06-02 02:38:44.116[1654133924116] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8081"]
-2022-06-02 02:38:44.159[1654133924159] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port(s): 8081 (http) with context path ''
-2022-06-02 02:38:44.160[1654133924160] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
-2022-06-02 02:38:44.215[1654133924215] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
-2022-06-02 02:38:44.286[1654133924286] | INFO  | main       | s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
-2022-06-02 02:38:44.552[1654133924552] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientOutboundChannel added SubProtocolWebSocketHandler[StompSubProtocolHandler[v10.stomp, v11.stomp, v12.stomp]]
-2022-06-02 02:38:44.552[1654133924552] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientInboundChannel added WebSocketAnnotationMethodMessageHandler[prefixes=[/app/]]
-2022-06-02 02:38:44.553[1654133924553] | INFO  | main       | o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
-2022-06-02 02:38:44.553[1654133924553] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientInboundChannel added SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@34e4fb39]
-2022-06-02 02:38:44.553[1654133924553] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - brokerChannel added SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@34e4fb39]
-2022-06-02 02:38:44.553[1654133924553] | INFO  | main       | o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@34e4fb39]]
-2022-06-02 02:38:44.554[1654133924554] | INFO  | main       | o.s.m.s.b.SimpleBrokerMessageHandler - Started.
-2022-06-02 02:38:44.554[1654133924554] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientInboundChannel added UserDestinationMessageHandler[DefaultUserDestinationResolver[prefix=/user/]]
-2022-06-02 02:38:44.554[1654133924554] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - brokerChannel added UserDestinationMessageHandler[DefaultUserDestinationResolver[prefix=/user/]]
-2022-06-02 02:38:44.569[1654133924569] | INFO  | main       | com.example.DemoApplication          - Started DemoApplication in 6.956 seconds (JVM running for 7.716)
-2022-06-02 02:38:44.720[1654133924720] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 3] Connected to Server
-2022-06-02 02:38:44.720[1654133924720] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 7] Connected to Server
-2022-06-02 02:38:44.720[1654133924720] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 4] Connected to Server
-2022-06-02 02:38:44.736[1654133924736] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 6] Connected to Server
-2022-06-02 02:38:44.737[1654133924737] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 1] Connected to Server
-2022-06-02 02:38:44.741[1654133924741] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 8] Connected to Server
-2022-06-02 02:38:44.749[1654133924749] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 5] Connected to Server
-2022-06-02 02:38:44.792[1654133924792] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 2] Connected to Server
-2022-06-02 02:38:44.818[1654133924818] | INFO  | ReadingThread | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:5, serverValue:895}] to localhost:27017
-2022-06-02 02:38:44.830[1654133924830] | INFO  | ReadingThread | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:6, serverValue:896}] to localhost:27017
-2022-06-02 02:38:52.630[1654133932630] | INFO  | ReadingThread | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:7, serverValue:897}] to localhost:27017
-2022-06-02 02:39:43.147[1654133983147] | INFO  | MessageBroker-2 | o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 3, active threads = 1, queued tasks = 1, completed tasks = 1]
-2022-06-02 02:40:21.461[1654134021461] | INFO  | main       | com.example.DemoApplication          - Starting DemoApplication using Java 16.0.1 on Clinton with PID 10144 (C:\Users\Clinton\Documents\GitHub\MastersProject\BackEnd\target\classes started by Clinton in C:\Users\Clinton\Documents\GitHub\MastersProject\BackEnd)
-2022-06-02 02:40:21.468[1654134021468] | INFO  | main       | com.example.DemoApplication          - No active profile set, falling back to default profiles: default
-2022-06-02 02:40:22.590[1654134022590] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2022-06-02 02:40:22.662[1654134022662] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 66 ms. Found 1 MongoDB repository interfaces.
-2022-06-02 02:40:23.392[1654134023392] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 8081 (http)
-2022-06-02 02:40:23.405[1654134023405] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8081"]
-2022-06-02 02:40:23.406[1654134023406] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
-2022-06-02 02:40:23.406[1654134023406] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.52]
-2022-06-02 02:40:23.522[1654134023522] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
-2022-06-02 02:40:23.522[1654134023522] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1978 ms
-2022-06-02 02:40:23.720[1654134023720] | INFO  | main       | org.mongodb.driver.cluster           - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2022-06-02 02:40:23.862[1654134023862] | INFO  | cluster-ClusterId{value='62981507e23c676358c3b9b6', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:1, serverValue:904}] to localhost:27017
-2022-06-02 02:40:23.862[1654134023862] | INFO  | cluster-rtt-ClusterId{value='62981507e23c676358c3b9b6', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:2, serverValue:905}] to localhost:27017
-2022-06-02 02:40:23.863[1654134023863] | INFO  | cluster-ClusterId{value='62981507e23c676358c3b9b6', description='null'}-localhost:27017 | org.mongodb.driver.cluster           - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=61641200}
-2022-06-02 02:40:25.913[1654134025913] | INFO  | ReadingThread | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:3, serverValue:906}] to localhost:27017
-2022-06-02 02:40:26.002[1654134026002] | INFO  | ReadingThread | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:4, serverValue:907}] to localhost:27017
-2022-06-02 02:40:26.217[1654134026217] | INFO  | ReadingThread | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:5, serverValue:908}] to localhost:27017
-2022-06-02 02:40:26.651[1654134026651] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 1] Connecting to stream.binance.com/ws/btcusdt@trade
-2022-06-02 02:40:26.680[1654134026680] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 2] Connecting to stream.binance.com/ws/ethusdt@trade
-2022-06-02 02:40:26.682[1654134026682] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 3] Connecting to stream.binance.com/ws/ltcusdt@trade
-2022-06-02 02:40:26.685[1654134026685] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 4] Connecting to stream.binance.com/ws/btceur@trade
-2022-06-02 02:40:26.687[1654134026687] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 5] Connecting to stream.binance.com/ws/ltceur@trade
-2022-06-02 02:40:26.689[1654134026689] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 6] Connecting to stream.binance.com/ws/btcgbp@trade
-2022-06-02 02:40:26.695[1654134026695] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 7] Connecting to stream.binance.com/ws/ltcgbp@trade
-2022-06-02 02:40:26.697[1654134026697] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 8] Connecting to stream.binance.com/ws/ethgbp@trade
-2022-06-02 02:40:26.733[1654134026733] | INFO  | main       | s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-06-02 02:40:26.832[1654134026832] | TRACE | main       | o.s.w.s.s.s.WebSocketHandlerMapping  - Mapped [/simulator] onto org.springframework.web.socket.server.support.WebSocketHttpRequestHandler@199806aa
-2022-06-02 02:40:26.832[1654134026832] | TRACE | main       | o.s.w.s.s.s.WebSocketHandlerMapping  - Mapped [/simulator/**] onto org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@6487f7f8
-2022-06-02 02:40:26.833[1654134026833] | DEBUG | main       | o.s.w.s.s.s.WebSocketHandlerMapping  - Patterns [/simulator, /simulator/**] in 'stompWebSocketHandlerMapping'
-2022-06-02 02:40:26.878[1654134026878] | TRACE | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - Looking for @MessageExceptionHandler mappings: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1a9c38eb, started on Thu Jun 02 02:40:21 BST 2022
-2022-06-02 02:40:26.903[1654134026903] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
-	c.e.c.EndPoints:
-	
-2022-06-02 02:40:26.918[1654134026918] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
-	c.e.w.MyController:
-	{[MESSAGE],[/hello]}: getCurrentLocation()
-2022-06-02 02:40:26.919[1654134026919] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
-	s.d.s.w.ApiResourceController:
-	
-2022-06-02 02:40:26.921[1654134026921] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
-	o.s.b.a.w.s.e.BasicErrorController:
-	
-2022-06-02 02:40:27.308[1654134027308] | INFO  | ReadingThread | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:6, serverValue:909}] to localhost:27017
-2022-06-02 02:40:27.324[1654134027324] | INFO  | ReadingThread | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:7, serverValue:910}] to localhost:27017
-2022-06-02 02:40:27.959[1654134027959] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8081"]
-2022-06-02 02:40:28.023[1654134028023] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port(s): 8081 (http) with context path ''
-2022-06-02 02:40:28.025[1654134028025] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
-2022-06-02 02:40:28.079[1654134028079] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
-2022-06-02 02:40:28.145[1654134028145] | INFO  | main       | s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
-2022-06-02 02:40:28.374[1654134028374] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientOutboundChannel added SubProtocolWebSocketHandler[StompSubProtocolHandler[v10.stomp, v11.stomp, v12.stomp]]
-2022-06-02 02:40:28.375[1654134028375] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientInboundChannel added WebSocketAnnotationMethodMessageHandler[prefixes=[/app/]]
-2022-06-02 02:40:28.375[1654134028375] | INFO  | main       | o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
-2022-06-02 02:40:28.375[1654134028375] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientInboundChannel added SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@20e48e63]
-2022-06-02 02:40:28.375[1654134028375] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - brokerChannel added SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@20e48e63]
-2022-06-02 02:40:28.375[1654134028375] | INFO  | main       | o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@20e48e63]]
-2022-06-02 02:40:28.375[1654134028375] | INFO  | main       | o.s.m.s.b.SimpleBrokerMessageHandler - Started.
-2022-06-02 02:40:28.376[1654134028376] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientInboundChannel added UserDestinationMessageHandler[DefaultUserDestinationResolver[prefix=/user/]]
-2022-06-02 02:40:28.376[1654134028376] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - brokerChannel added UserDestinationMessageHandler[DefaultUserDestinationResolver[prefix=/user/]]
-2022-06-02 02:40:28.388[1654134028388] | INFO  | main       | com.example.DemoApplication          - Started DemoApplication in 7.435 seconds (JVM running for 8.174)
-2022-06-02 02:40:28.430[1654134028430] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 3] Connected to Server
-2022-06-02 02:40:28.439[1654134028439] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 1] Connected to Server
-2022-06-02 02:40:28.456[1654134028456] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 4] Connected to Server
-2022-06-02 02:40:28.482[1654134028482] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 5] Connected to Server
-2022-06-02 02:40:28.497[1654134028497] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 7] Connected to Server
-2022-06-02 02:40:28.510[1654134028510] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 6] Connected to Server
-2022-06-02 02:40:28.511[1654134028511] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 8] Connected to Server
-2022-06-02 02:40:28.520[1654134028520] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 2] Connected to Server
-2022-06-02 02:46:52.357[1654134412357] | INFO  | main       | com.example.DemoApplication          - Starting DemoApplication using Java 16.0.1 on Clinton with PID 21832 (C:\Users\Clinton\Documents\GitHub\MastersProject\BackEnd\target\classes started by Clinton in C:\Users\Clinton\Documents\GitHub\MastersProject\BackEnd)
-2022-06-02 02:46:52.361[1654134412361] | INFO  | main       | com.example.DemoApplication          - No active profile set, falling back to default profiles: default
-2022-06-02 02:46:53.493[1654134413493] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2022-06-02 02:46:53.565[1654134413565] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 67 ms. Found 1 MongoDB repository interfaces.
-2022-06-02 02:46:54.261[1654134414261] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 8081 (http)
-2022-06-02 02:46:54.273[1654134414273] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8081"]
-2022-06-02 02:46:54.274[1654134414274] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
-2022-06-02 02:46:54.274[1654134414274] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.52]
-2022-06-02 02:46:54.386[1654134414386] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
-2022-06-02 02:46:54.387[1654134414387] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1953 ms
-2022-06-02 02:46:54.559[1654134414559] | INFO  | main       | org.mongodb.driver.cluster           - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2022-06-02 02:46:54.659[1654134414659] | INFO  | cluster-rtt-ClusterId{value='6298168e6df2392b0d9cc5a2', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:2, serverValue:921}] to localhost:27017
-2022-06-02 02:46:54.659[1654134414659] | INFO  | cluster-ClusterId{value='6298168e6df2392b0d9cc5a2', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:1, serverValue:920}] to localhost:27017
-2022-06-02 02:46:54.660[1654134414660] | INFO  | cluster-ClusterId{value='6298168e6df2392b0d9cc5a2', description='null'}-localhost:27017 | org.mongodb.driver.cluster           - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=34709400}
-2022-06-02 02:46:56.571[1654134416571] | INFO  | ReadingThread | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:3, serverValue:922}] to localhost:27017
-2022-06-02 02:46:56.862[1654134416862] | INFO  | ReadingThread | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:4, serverValue:923}] to localhost:27017
-2022-06-02 02:46:56.885[1654134416885] | INFO  | ReadingThread | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:5, serverValue:924}] to localhost:27017
-2022-06-02 02:46:57.313[1654134417313] | INFO  | ReadingThread | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:6, serverValue:925}] to localhost:27017
-2022-06-02 02:46:57.416[1654134417416] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 1] Connecting to stream.binance.com/ws/btcusdt@trade
-2022-06-02 02:46:57.439[1654134417439] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 2] Connecting to stream.binance.com/ws/ethusdt@trade
-2022-06-02 02:46:57.441[1654134417441] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 3] Connecting to stream.binance.com/ws/ltcusdt@trade
-2022-06-02 02:46:57.443[1654134417443] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 4] Connecting to stream.binance.com/ws/btceur@trade
-2022-06-02 02:46:57.445[1654134417445] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 5] Connecting to stream.binance.com/ws/ltceur@trade
-2022-06-02 02:46:57.447[1654134417447] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 6] Connecting to stream.binance.com/ws/btcgbp@trade
-2022-06-02 02:46:57.449[1654134417449] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 7] Connecting to stream.binance.com/ws/ltcgbp@trade
-2022-06-02 02:46:57.451[1654134417451] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 8] Connecting to stream.binance.com/ws/ethgbp@trade
-2022-06-02 02:46:57.491[1654134417491] | INFO  | main       | s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-06-02 02:46:57.570[1654134417570] | TRACE | main       | o.s.w.s.s.s.WebSocketHandlerMapping  - Mapped [/simulator] onto org.springframework.web.socket.server.support.WebSocketHttpRequestHandler@300aa927
-2022-06-02 02:46:57.570[1654134417570] | TRACE | main       | o.s.w.s.s.s.WebSocketHandlerMapping  - Mapped [/simulator/**] onto org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@2b62475a
-2022-06-02 02:46:57.570[1654134417570] | DEBUG | main       | o.s.w.s.s.s.WebSocketHandlerMapping  - Patterns [/simulator, /simulator/**] in 'stompWebSocketHandlerMapping'
-2022-06-02 02:46:57.607[1654134417607] | TRACE | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - Looking for @MessageExceptionHandler mappings: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1a9c38eb, started on Thu Jun 02 02:46:52 BST 2022
-2022-06-02 02:46:57.631[1654134417631] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
-	c.e.c.EndPoints:
-	
-2022-06-02 02:46:57.638[1654134417638] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
-	c.e.w.MyController:
-	{[MESSAGE],[/hello]}: getCurrentLocation()
-2022-06-02 02:46:57.639[1654134417639] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
-	s.d.s.w.ApiResourceController:
-	
-2022-06-02 02:46:57.641[1654134417641] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
-	o.s.b.a.w.s.e.BasicErrorController:
-	
-2022-06-02 02:46:58.806[1654134418806] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8081"]
-2022-06-02 02:46:58.856[1654134418856] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port(s): 8081 (http) with context path ''
-2022-06-02 02:46:58.858[1654134418858] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
-2022-06-02 02:46:58.907[1654134418907] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
-2022-06-02 02:46:58.976[1654134418976] | INFO  | main       | s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
-2022-06-02 02:46:59.220[1654134419220] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 2] Connected to Server
-2022-06-02 02:46:59.235[1654134419235] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientOutboundChannel added SubProtocolWebSocketHandler[StompSubProtocolHandler[v10.stomp, v11.stomp, v12.stomp]]
-2022-06-02 02:46:59.236[1654134419236] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientInboundChannel added WebSocketAnnotationMethodMessageHandler[prefixes=[/app/]]
-2022-06-02 02:46:59.236[1654134419236] | INFO  | main       | o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
-2022-06-02 02:46:59.237[1654134419237] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientInboundChannel added SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@6d7677d8]
-2022-06-02 02:46:59.237[1654134419237] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - brokerChannel added SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@6d7677d8]
-2022-06-02 02:46:59.237[1654134419237] | INFO  | main       | o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@6d7677d8]]
-2022-06-02 02:46:59.238[1654134419238] | INFO  | main       | o.s.m.s.b.SimpleBrokerMessageHandler - Started.
-2022-06-02 02:46:59.238[1654134419238] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientInboundChannel added UserDestinationMessageHandler[DefaultUserDestinationResolver[prefix=/user/]]
-2022-06-02 02:46:59.238[1654134419238] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - brokerChannel added UserDestinationMessageHandler[DefaultUserDestinationResolver[prefix=/user/]]
-2022-06-02 02:46:59.238[1654134419238] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 5] Connected to Server
-2022-06-02 02:46:59.238[1654134419238] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 7] Connected to Server
-2022-06-02 02:46:59.248[1654134419248] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 1] Connected to Server
-2022-06-02 02:46:59.248[1654134419248] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 8] Connected to Server
-2022-06-02 16:27:19.371[1654183639371] | INFO  | main       | com.example.DemoApplication          - Starting DemoApplication using Java 16.0.1 on Clinton with PID 26504 (C:\Users\Clinton\Documents\GitHub\MastersProject\BackEnd\target\classes started by Clinton in C:\Users\Clinton\Documents\GitHub\MastersProject\BackEnd)
-2022-06-02 16:27:19.374[1654183639374] | INFO  | main       | com.example.DemoApplication          - No active profile set, falling back to default profiles: default
-2022-06-02 16:27:20.575[1654183640575] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2022-06-02 16:27:20.656[1654183640656] | INFO  | main       | o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 74 ms. Found 1 MongoDB repository interfaces.
-2022-06-02 16:27:21.412[1654183641412] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat initialized with port(s): 8081 (http)
-2022-06-02 16:27:21.426[1654183641426] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Initializing ProtocolHandler ["http-nio-8081"]
-2022-06-02 16:27:21.427[1654183641427] | INFO  | main       | o.a.catalina.core.StandardService    - Starting service [Tomcat]
-2022-06-02 16:27:21.427[1654183641427] | INFO  | main       | o.a.catalina.core.StandardEngine     - Starting Servlet engine: [Apache Tomcat/9.0.52]
-2022-06-02 16:27:21.550[1654183641550] | INFO  | main       | o.a.c.c.C.[Tomcat].[localhost].[/]   - Initializing Spring embedded WebApplicationContext
-2022-06-02 16:27:21.550[1654183641550] | INFO  | main       | o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2087 ms
-2022-06-02 16:27:21.737[1654183641737] | INFO  | main       | org.mongodb.driver.cluster           - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2022-06-02 16:27:21.822[1654183641822] | INFO  | cluster-rtt-ClusterId{value='6298d6d9ea6bfc37703958c9', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:1, serverValue:1036}] to localhost:27017
-2022-06-02 16:27:21.822[1654183641822] | INFO  | cluster-ClusterId{value='6298d6d9ea6bfc37703958c9', description='null'}-localhost:27017 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:2, serverValue:1037}] to localhost:27017
-2022-06-02 16:27:21.822[1654183641822] | INFO  | cluster-ClusterId{value='6298d6d9ea6bfc37703958c9', description='null'}-localhost:27017 | org.mongodb.driver.cluster           - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=27303000}
-2022-06-02 16:27:23.912[1654183643912] | INFO  | ReadingThread | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:3, serverValue:1038}] to localhost:27017
-2022-06-02 16:27:24.069[1654183644069] | INFO  | ReadingThread | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:4, serverValue:1039}] to localhost:27017
-2022-06-02 16:27:24.735[1654183644735] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 1] Connecting to stream.binance.com/ws/btcusdt@trade
-2022-06-02 16:27:24.744[1654183644744] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 2] Connecting to stream.binance.com/ws/ethusdt@trade
-2022-06-02 16:27:24.745[1654183644745] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 3] Connecting to stream.binance.com/ws/ltcusdt@trade
-2022-06-02 16:27:24.746[1654183644746] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 4] Connecting to stream.binance.com/ws/btceur@trade
-2022-06-02 16:27:24.746[1654183644746] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 5] Connecting to stream.binance.com/ws/ltceur@trade
-2022-06-02 16:27:24.746[1654183644746] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 6] Connecting to stream.binance.com/ws/btcgbp@trade
-2022-06-02 16:27:24.747[1654183644747] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 7] Connecting to stream.binance.com/ws/ltcgbp@trade
-2022-06-02 16:27:24.747[1654183644747] | INFO  | main       | c.b.c.c.utils.WebSocketConnection    - [Connection 8] Connecting to stream.binance.com/ws/ethgbp@trade
-2022-06-02 16:27:24.767[1654183644767] | INFO  | main       | s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-06-02 16:27:24.831[1654183644831] | TRACE | main       | o.s.w.s.s.s.WebSocketHandlerMapping  - Mapped [/simulator] onto org.springframework.web.socket.server.support.WebSocketHttpRequestHandler@5cd71ee2
-2022-06-02 16:27:24.831[1654183644831] | TRACE | main       | o.s.w.s.s.s.WebSocketHandlerMapping  - Mapped [/simulator/**] onto org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler@410f53b2
-2022-06-02 16:27:24.831[1654183644831] | DEBUG | main       | o.s.w.s.s.s.WebSocketHandlerMapping  - Patterns [/simulator, /simulator/**] in 'stompWebSocketHandlerMapping'
-2022-06-02 16:27:24.858[1654183644858] | TRACE | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - Looking for @MessageExceptionHandler mappings: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1a9c38eb, started on Thu Jun 02 16:27:19 BST 2022
-2022-06-02 16:27:24.876[1654183644876] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
-	c.e.c.EndPoints:
-	
-2022-06-02 16:27:24.882[1654183644882] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
-	c.e.w.MyController:
-	{[MESSAGE],[/hello]}: getCurrentLocation()
-2022-06-02 16:27:24.883[1654183644883] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
-	s.d.s.w.ApiResourceController:
-	
-2022-06-02 16:27:24.884[1654183644884] | DEBUG | main       | o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
-	o.s.b.a.w.s.e.BasicErrorController:
-	
-2022-06-02 16:27:25.899[1654183645899] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8081"]
-2022-06-02 16:27:25.977[1654183645977] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port(s): 8081 (http) with context path ''
-2022-06-02 16:27:25.979[1654183645979] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
-2022-06-02 16:27:26.063[1654183646063] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
-2022-06-02 16:27:26.158[1654183646158] | INFO  | main       | s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
-2022-06-02 16:27:26.463[1654183646463] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientOutboundChannel added SubProtocolWebSocketHandler[StompSubProtocolHandler[v10.stomp, v11.stomp, v12.stomp]]
-2022-06-02 16:27:26.464[1654183646464] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientInboundChannel added WebSocketAnnotationMethodMessageHandler[prefixes=[/app/]]
-2022-06-02 16:27:26.464[1654183646464] | INFO  | main       | o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
-2022-06-02 16:27:26.464[1654183646464] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientInboundChannel added SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@3731e8b6]
-2022-06-02 16:27:26.464[1654183646464] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - brokerChannel added SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@3731e8b6]
-2022-06-02 16:27:26.464[1654183646464] | INFO  | main       | o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@3731e8b6]]
-2022-06-02 16:27:26.465[1654183646465] | INFO  | main       | o.s.m.s.b.SimpleBrokerMessageHandler - Started.
-2022-06-02 16:27:26.466[1654183646466] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientInboundChannel added UserDestinationMessageHandler[DefaultUserDestinationResolver[prefix=/user/]]
-2022-06-02 16:27:26.466[1654183646466] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - brokerChannel added UserDestinationMessageHandler[DefaultUserDestinationResolver[prefix=/user/]]
-2022-06-02 16:27:26.483[1654183646483] | INFO  | main       | com.example.DemoApplication          - Started DemoApplication in 7.623 seconds (JVM running for 9.015)
-2022-06-02 16:27:26.508[1654183646508] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 8] Connected to Server
-2022-06-02 16:27:26.508[1654183646508] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 3] Connected to Server
-2022-06-02 16:27:26.537[1654183646537] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 7] Connected to Server
-2022-06-02 16:27:26.551[1654183646551] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 6] Connected to Server
-2022-06-02 16:27:26.559[1654183646559] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 5] Connected to Server
-2022-06-02 16:27:26.560[1654183646560] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 4] Connected to Server
-2022-06-02 16:27:26.586[1654183646586] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 2] Connected to Server
-2022-06-02 16:27:26.611[1654183646611] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 1] Connected to Server
-2022-06-02 16:27:27.252[1654183647252] | ERROR | MessageBroker-1 | o.s.s.s.TaskUtils$LoggingErrorHandler - Unexpected error occurred in scheduled task
-org.apache.http.client.ClientProtocolException: Unexpected response status: 503
-	at com.bitcoinprice.dataparsing.requests.GetRequest.lambda$0(GetRequest.java:25)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:223)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:165)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:140)
-	at com.bitcoinprice.dataparsing.requests.GetRequest.sendGET(GetRequest.java:28)
-	at com.bitcoinprice.dataparsing.exchanges.Currency.getCurrencyValues(Currency.java:26)
-	at com.example.services.CurrencyService.scheduledUpdate(CurrencyService.java:23)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
-	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
-	at java.base/java.lang.Thread.run(Thread.java:831)
-2022-06-02 16:27:27.275[1654183647275] | INFO  | ReadingThread | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:6, serverValue:1049}] to localhost:27017
-2022-06-02 16:27:27.275[1654183647275] | INFO  | OkHttp https://stream.binance.com:9443/... | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:5, serverValue:1048}] to localhost:27017
-2022-06-02 16:27:27.278[1654183647278] | INFO  | OkHttp https://stream.binance.com:9443/... | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:7, serverValue:1050}] to localhost:27017
+2022-06-03 01:39:45.438[1654216785438] | INFO  | main       | o.a.coyote.http11.Http11NioProtocol  - Starting ProtocolHandler ["http-nio-8081"]
+2022-06-03 01:39:45.477[1654216785477] | INFO  | main       | o.s.b.w.e.tomcat.TomcatWebServer     - Tomcat started on port(s): 8081 (http) with context path ''
+2022-06-03 01:39:45.478[1654216785478] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2022-06-03 01:39:45.515[1654216785515] | INFO  | main       | s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2022-06-03 01:39:45.569[1654216785569] | INFO  | main       | s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2022-06-03 01:39:45.763[1654216785763] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientOutboundChannel added SubProtocolWebSocketHandler[StompSubProtocolHandler[v10.stomp, v11.stomp, v12.stomp]]
+2022-06-03 01:39:45.763[1654216785763] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientInboundChannel added WebSocketAnnotationMethodMessageHandler[prefixes=[/app/]]
+2022-06-03 01:39:45.763[1654216785763] | INFO  | main       | o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+2022-06-03 01:39:45.763[1654216785763] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientInboundChannel added SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@1e9d721]
+2022-06-03 01:39:45.763[1654216785763] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - brokerChannel added SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@1e9d721]
+2022-06-03 01:39:45.764[1654216785764] | INFO  | main       | o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@1e9d721]]
+2022-06-03 01:39:45.764[1654216785764] | INFO  | main       | o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+2022-06-03 01:39:45.764[1654216785764] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - clientInboundChannel added UserDestinationMessageHandler[DefaultUserDestinationResolver[prefix=/user/]]
+2022-06-03 01:39:45.764[1654216785764] | DEBUG | main       | o.s.m.s.ExecutorSubscribableChannel  - brokerChannel added UserDestinationMessageHandler[DefaultUserDestinationResolver[prefix=/user/]]
+2022-06-03 01:39:45.778[1654216785778] | INFO  | main       | com.example.DemoApplication          - Started DemoApplication in 5.361 seconds (JVM running for 6.089)
+2022-06-03 01:39:45.844[1654216785844] | INFO  | MessageBroker-1 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:3, serverValue:1118}] to localhost:27017
+2022-06-03 01:39:45.889[1654216785889] | DEBUG | MessageBroker-1 | o.s.m.s.b.SimpleBrokerMessageHandler - Processing MESSAGE destination=/endpoint/wow session=null payload="NaN"
+2022-06-03 01:39:46.283[1654216786283] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 4] Connected to Server
+2022-06-03 01:39:46.292[1654216786292] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 5] Connected to Server
+2022-06-03 01:39:46.305[1654216786305] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 3] Connected to Server
+2022-06-03 01:39:46.310[1654216786310] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 7] Connected to Server
+2022-06-03 01:39:46.330[1654216786330] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 8] Connected to Server
+2022-06-03 01:39:46.344[1654216786344] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 1] Connected to Server
+2022-06-03 01:39:46.358[1654216786358] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 6] Connected to Server
+2022-06-03 01:39:46.377[1654216786377] | INFO  | OkHttp https://stream.binance.com:9443/... | c.b.c.c.utils.WebSocketConnection    - [Connection 2] Connected to Server
+2022-06-03 01:39:46.769[1654216786769] | INFO  | OkHttp https://stream.binance.com:9443/... | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:4, serverValue:1119}] to localhost:27017
+2022-06-03 01:39:46.790[1654216786790] | INFO  | MessageBroker-2 | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:5, serverValue:1120}] to localhost:27017
+2022-06-03 01:39:46.791[1654216786791] | DEBUG | MessageBroker-2 | o.s.m.s.b.SimpleBrokerMessageHandler - Processing MESSAGE destination=/endpoint/wow session=null payload="NaN"
+2022-06-03 01:39:47.800[1654216787800] | DEBUG | MessageBroker-3 | o.s.m.s.b.SimpleBrokerMessageHandler - Processing MESSAGE destination=/endpoint/wow session=null payload=80.0
+2022-06-03 01:39:48.790[1654216788790] | DEBUG | MessageBroker-2 | o.s.m.s.b.SimpleBrokerMessageHandler - Processing MESSAGE destination=/endpoint/wow session=null payload=56.818180084228516

@@ -17,7 +17,7 @@ export default class BuySellBar extends Component {
         stompClient = Stomp.over(socket);
         stompClient.connect({}, function (frame) {
             console.log("Connected " + frame);
-            stompClient.subscribe("/endpoint/wow", function (greeting) {
+            stompClient.subscribe("/endpoint/wow/id=1", function (greeting) {
                 if (typeof greeting.body !== undefined)
                     result = Math.round(greeting.body * 100) / 100;
             });

@@ -4,9 +4,20 @@
     height: 0;
     width: 100%;
     padding-top: 1vh;
-    padding-bottom: 1vh;
+    padding-bottom: 4vh;
+    /* position: fixed; */
+    bottom: 0;
 }
-
+/* .footer {
+    background-color:  var(--bg-color);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 6px -1px, rgba(0, 0, 0, 0.2) 0px 4px 6px -1px;
+    height: 0;
+    width: 100%;
+    padding-top: 1vh;
+    padding-bottom: 3vh;
+    bottom: 0%;
+    position: fixed;
+} */
 .footer>.footertop {
     height: 100%;
     width: 100%;

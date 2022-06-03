@@ -190,7 +190,7 @@ public class ApiExchangeToData {
 			exchangeDataRecieved.setTimestamp(instant.toString());
 
 			//the return, returns the updated currency
-			return new Currency().convertExchangeData(exchangeDataRecieved);
+			return exchangeDataRecieved;
 
 		} catch (JSONException | IOException e) {
 			// if an error caught end the method.
