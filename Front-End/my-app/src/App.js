@@ -29,9 +29,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // this.livechat();
+    this.livechat();
     // Analytics.functions.getIP(); 
-    // this.connect();
     this.isVerifyUserSignedIn();
   }
   // Similar to componentDidMount and componentDidUpdate:
