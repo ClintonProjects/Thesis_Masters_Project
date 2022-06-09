@@ -15,6 +15,7 @@ class loginpage extends Component {
         this.Login = this.Login.bind(this);
         this.rememberMeOnChange = this.rememberMeOnChange.bind(this);
         this.userEmail = this.userEmail(this);
+        // this.guest = this.guest(this);
     }
 
 
@@ -25,6 +26,11 @@ class loginpage extends Component {
     userEmail() {
         return localStorage.getItem('Login email');
     }
+
+    guest () {
+        localStorage.setItem('SessionId', "guest");
+        window.location.href = "http://localhost:3000/";
+    };
 
 
 
@@ -80,13 +86,18 @@ class loginpage extends Component {
                                     {/* <p1>Forgot your password?</p1> */}
                                 </div>
                                 <label>
-                                    <input type="checkbox" onClick={this.rememberMeOnChange} />
-                                    Remember my email
+                                    {/* <div> <input type="checkbox" onClick={this.rememberMeOnChange} />
+                                    Remember my email</div> */}
                                 </label>
                                 <button type="submit" class="btn btn-primary LoginButton" onClick={this.Login}>Login</button>
+                                <Link onClick={ this.guest}>click here to login as guest</Link>
                                 <Link to="/Register">
                                     <p>Register</p>
                                 </Link>
+                                <p>
+                               
+                                </p>
+
                             </div>
                         </div>
                     </div>

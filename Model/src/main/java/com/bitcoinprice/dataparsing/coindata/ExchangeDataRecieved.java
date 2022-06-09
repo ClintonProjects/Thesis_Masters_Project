@@ -6,9 +6,14 @@ import java.text.DecimalFormat;
 import java.time.Instant;
 import java.time.LocalDateTime;
 
+import javax.persistence.Id;
+
+import org.bson.types.ObjectId;
+
 public class ExchangeDataRecieved {
 
-	
+	@Id
+	private ObjectId _id;
 	public String apiLink = "";
 	public String exchange = "";
 	public String symbol = "";
@@ -23,6 +28,17 @@ public class ExchangeDataRecieved {
 	public String priceInUSD = "";
 	public String priceInEUR = "";
 	public String priceInGBP = "";
+	
+	
+	
+
+	public ObjectId get_id() {
+		return _id;
+	}
+
+	public void set_id(ObjectId _id) {
+		this._id = _id;
+	}
 
 	public ExchangeDataRecieved() {
 		super();

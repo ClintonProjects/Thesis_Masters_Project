@@ -11,7 +11,7 @@ import com.example.model.ExampleObject;
 @Repository
 @Transactional
 public interface BitcoinPriceData  extends MongoRepository<ExchangeDataRecieved, ExchangeDataRecieved> {
-
+ 
 	void save(String i);
 	public List<ExchangeDataRecieved> findAll();
 	

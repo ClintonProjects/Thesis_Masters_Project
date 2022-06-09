@@ -14,7 +14,7 @@
 }
 
 .BTCPrices2 {
-    width: 100%;
+    /* width: 100%; */
     background-color:  var(--secondary-bg-color);
 }
 
@@ -92,6 +92,17 @@
     text-align: center;
     padding-bottom: 2vh;
 }
+
+.filterTable {
+    background-color: green;
+    width: 10%;
+    text-align: center;
+}
+
+.alignbuttons {
+    padding-left: 20vw;
+}
+
 
 .dropbtn {
     color: white;

@@ -162,7 +162,7 @@ public class ApiExchangeToData {
 	}
 
 	public ExchangeDataRecieved storeBainaceData(String data, int dataPos) throws Exception {
-		System.out.println(data);
+//		System.out.println(data);
 
 		try {
 			// turns the data into easy way to handle it
@@ -190,7 +190,7 @@ public class ApiExchangeToData {
 			exchangeDataRecieved.setTimestamp(instant.toString());
 
 			//the return, returns the updated currency
-			return exchangeDataRecieved;
+			return  new Currency().convertExchangeData(exchangeDataRecieved);
 
 		} catch (JSONException | IOException e) {
 			// if an error caught end the method.

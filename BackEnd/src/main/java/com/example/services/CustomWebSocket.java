@@ -42,7 +42,7 @@ public class CustomWebSocket {
 
 //	@PostConstruct
 	public void getWebSocket(String link, boolean JsonArrayRequired, String message) throws WebSocketException, IOException {
-		System.out.println("getWeb");
+//		System.out.println("getWeb");
 		new WebSocketFactory().createSocket(link).addListener(new WebSocketAdapter() {
 			@Override
 			public void onTextMessage(WebSocket ws, String message)
@@ -50,17 +50,17 @@ public class CustomWebSocket {
 				try {
 					List<String> addresses = bitcoinPriceData.findAll().stream()
 							.map(ExchangeDataRecieved::getTranactionId).collect(Collectors.toList());
-					System.out.println("getWeb");
+//					System.out.println("getWeb");
 					JSONArray getNotePadData = new AllDataList().getNotePadDataJsonArray();
 					ApiExchangeToData apiExchangeToData = new ApiExchangeToData();
-					System.out.println(message);
+//					System.out.println(message);
 					apiExchangeToData.BitmexAndCoinbase(getNotePadData, message, link, JsonArrayRequired);
 					
 					
-					System.out.println("apiExchangeToData size: " + apiExchangeToData.getExchangeDataList().size());
+			//		System.out.println("apiExchangeToData size: " + apiExchangeToData.getExchangeDataList().size());
 					for (int i = 0; i < apiExchangeToData.getExchangeDataList().size(); i++) {
 						//if (!adresses.contains(apiExchangeToData.getExchangeDataList().get(i).getTranactionId())) {
-							System.out.println("Saved");
+//							System.out.println("Saved");
 							bitcoinPriceData.save(apiExchangeToData.getExchangeDataList().get(i));
 						//}
 					}

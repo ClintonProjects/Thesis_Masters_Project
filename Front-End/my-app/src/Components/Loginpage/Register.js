@@ -13,6 +13,11 @@ class Register extends Component {
         this.Login = this.Login.bind(this);
     }
 
+    guest () {
+        localStorage.setItem('SessionId', "guest");
+        window.location.href = "http://localhost:3000/";
+    };
+
     async Login() {
         console.log("Login");
         var sessionId = "";
@@ -68,6 +73,7 @@ class Register extends Component {
                                 </label> */}
                                 {this.state.attempts > 0 ? "User found or password or email is already found" : ""}
                                 <button type="submit" class="btn btn-primary LoginButton" onClick={this.Login}>Login</button>
+                                <Link onClick={ this.guest}>click here to login as guest</Link>
                                 <Link to="/Login">
                                     <p>Sign in</p>
                                 </Link>

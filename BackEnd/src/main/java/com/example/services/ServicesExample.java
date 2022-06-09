@@ -15,6 +15,8 @@ import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import com.bitcoinprice.dataparsing.coindata.ExchangeDataRecieved;
@@ -54,11 +56,8 @@ public class ServicesExample {
 
 	@Bean
 	public void addWebSocketDataToDB() throws JSONException, IOException, WebSocketException {
-		
-		System.out.println("ran");
-		// coinbase:
 		customWebSocket.getWebSocket("wss://ws-feed.pro.coinbase.com/", false,
-				"{\"type\": \"subscribe\", \"channels\": [{\"name\":\"matches\",\"product_ids\":[\"BTC-USD\", \"BTC-GBP\" , \"BTC-EUR\", \"ETH-GBP\" , \"ETH-USD\"  , \"LTC-USD\" , \"LTC-EUR\"]}]}");
+				"{\"type\": \"subscribe\", \"channels\": [{\"name\":\"matches\",\"product_ids\":[\"BTC-USD\", \"BTC-GBP\" , \"BTC-EUR\", \"ETH-GBP\" , \"ETH-USD\"  ,  \"ETH-EUR\"  , \"LTC-USD\" , \"LTC-GBP\" , \"LTC-EUR\"]}]}");
 		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTUSD", true, "");
 		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTEUR", true, "");
 		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:ETHUSD", true, "");
@@ -66,15 +65,17 @@ public class ServicesExample {
 		bainaceWebsocket.getData(6, "btcusdt");
 		bainaceWebsocket.getData(7, "ethusdt");
 		bainaceWebsocket.getData(8, "ltcusdt");
-	    bainaceWebsocket.getData(9, "btceur");
-		bainaceWebsocket.getData(10, "ltceur");
-		bainaceWebsocket.getData(11, "btcgbp");
-		bainaceWebsocket.getData(12, "ltcgbp");
-		bainaceWebsocket.getData(13, "ethgbp");
+		bainaceWebsocket.getData(9, "btceur");
+		bainaceWebsocket.getData(10, "etheur");
+		bainaceWebsocket.getData(11, "ltceur");
+		bainaceWebsocket.getData(12, "btcgbp");
+		bainaceWebsocket.getData(13, "ltcgbp");
+		bainaceWebsocket.getData(14, "ethgbp");
 	}
 
 	public Double buySellBar() {
 		List<ExchangeDataRecieved> currentDB = bitcoinPriceData.findAll().stream().collect(Collectors.toList());
+
 		List<ExchangeDataRecieved> previousMinList = new ArrayList<ExchangeDataRecieved>();
 
 		LocalDateTime now = LocalDateTime.ofInstant(Instant.now(), ZoneOffset.UTC);
@@ -133,7 +134,7 @@ public class ServicesExample {
 					.filter(j -> j.getCurrency().equalsIgnoreCase(i.getCurrency())
 							&& j.getExchange().equalsIgnoreCase(i.getExchange())
 							&& j.getCypto().equalsIgnoreCase(i.getCypto()))
-					.limit(10).collect(Collectors.toList()));
+					.limit(5000).collect(Collectors.toList()));
 		}
 
 		resultList.sort(Comparator.comparing(ExchangeDataRecieved::getTimestamp1).reversed());
@@ -155,7 +156,7 @@ public class ServicesExample {
 	public void checkForNewEntries() {
 		matchingData = true;
 
-		//set the list incase it's the first run, stop bugs in other parts of the code.
+		// set the list incase it's the first run, stop bugs in other parts of the code.
 		if (previousExchangeDataRecieved == null) {
 			previousExchangeDataRecieved = new ArrayList<ExchangeDataRecieved>();
 			return;
@@ -169,14 +170,19 @@ public class ServicesExample {
 			return;
 		}
 
-		// check if the 2 lists have all the same elemtns
-		for (int i = 0; i < previousExchangeDataRecieved.size(); i++)
-			if (!exchangeDataRecieved.get(i).getTranactionId()
-					.equals(previousExchangeDataRecieved.get(i).getTimestamp()))
-				matchingData = false;
-
-		if (!matchingData)
+		if (exchangeDataRecieved.size() != previousExchangeDataRecieved.size()) {
 			previousExchangeDataRecieved = exchangeDataRecieved;
+			return;
+		}
+		
+		// check if the 2 lists have all the same elemtns
+		for (int i = 0; i < previousExchangeDataRecieved.size(); i++) {
+			if (!exchangeDataRecieved.get(i).getTranactionId()
+					.equals(previousExchangeDataRecieved.get(i).getTranactionId())) {
+				previousExchangeDataRecieved = exchangeDataRecieved;
+				return;
+			}
+		}
 	}
 
 	// This is deprecated because it will replaced with another method or rewrite of
@@ -193,7 +199,7 @@ public class ServicesExample {
 		LocalDateTime now = LocalDateTime.ofInstant(Instant.now(), ZoneOffset.UTC);
 		LocalDateTime minAgo = now.minus(1, ChronoUnit.MINUTES);
 		LocalDateTime TwoMinAgo = now.minus(2, ChronoUnit.MINUTES);
-		
+
 		for (ExchangeDataRecieved i : currentDB) {
 			Instant instant = Instant.parse(i.getTimestamp());
 			LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, ZoneOffset.UTC);
@@ -214,5 +220,23 @@ public class ServicesExample {
 
 		return realTimeBTCData;
 	}
+
+	public void dropData() {
+		LocalDateTime now = LocalDateTime.ofInstant(Instant.now(), ZoneOffset.UTC);
+		List<ExchangeDataRecieved> resultToClear = bitcoinPriceData.findAll().stream().filter(
+				i -> Duration.between(LocalDateTime.ofInstant(i.getTimestamp1(), ZoneOffset.UTC), now).toMinutes() > 3)
+				.collect(Collectors.toList());
+		bitcoinPriceData.deleteAll(resultToClear);
+	}
+	
+	@Async
+	@Scheduled(fixedRate = 1000 * 125)
+	public void scheduledUpdate() throws Exception {
+		//drops the db
+		dropData();
+	}
+	
+	
+	//drop table
 
 }

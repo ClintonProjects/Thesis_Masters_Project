@@ -85,13 +85,13 @@ class Bar extends Component {
                     <div class="float-end">
                         <NavDropdown
                             id="nav-dropdown-dark-example"
-                            title={this.displayFlagOnNav(this.state.flag)}
+                            title="Account"
                             menuVariant="dark"
                             align="end">
-                            <NavDropdown.Item onClick={(e) => this.toggleFlag('All')}><img src={globe} alt="HeadImage" class="euflag" /> All</NavDropdown.Item>
+                            {/* <NavDropdown.Item onClick={(e) => this.toggleFlag('All')}><img src={globe} alt="HeadImage" class="euflag" /> All</NavDropdown.Item>
                             <NavDropdown.Item onClick={(e) => this.toggleFlag('EU')}><img src={eu} alt="HeadImage" class="euflag" /> Euro</NavDropdown.Item>
                             <NavDropdown.Item onClick={(e) => this.toggleFlag('USA')}><img src={usa} alt="HeadImage" class="euflag" /> USD</NavDropdown.Item>
-                            <NavDropdown.Divider />
+                            <NavDropdown.Divider /> */}
                             {!this.state.userActive ? <NavDropdown.Item onClick={(e) => this.redriectToPage('/Register')}>
                                 <FontAwesomeIcon icon={faUser} />
                                 &nbsp; Register

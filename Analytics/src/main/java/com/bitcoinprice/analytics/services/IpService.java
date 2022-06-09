@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import com.bitcoinprice.analytics.localmodel.UserIPInformation;
@@ -22,7 +23,7 @@ public class IpService {
 
 	@Autowired
 	private IpRepository exampleRepository;
-
+	
 	public void saveIp(Map<String, String> jsonJavaRootObject2) throws UnknownHostException {
 		// Gets the IPS from the map.
 		String ipv4 = jsonJavaRootObject2.getOrDefault("ipv4", "");

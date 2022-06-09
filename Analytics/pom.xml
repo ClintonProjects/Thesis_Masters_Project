@@ -51,6 +51,12 @@
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>com.bitcoinprice</groupId>
+			<artifactId>MasterProjectModel</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
 
 
 		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->

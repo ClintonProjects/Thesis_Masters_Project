@@ -8,6 +8,9 @@ public class RealTimeBTCData {
 	public double currentPrice;
 	public double previousPrice;
 	public double priceChange;
+	public long totalBuys;
+	public long totalSells;
+	
 	
 	
 	public RealTimeBTCData() {
@@ -16,10 +19,16 @@ public class RealTimeBTCData {
 	
 	public RealTimeBTCData(double currentPrice, double previousPrice) {
 		super();
-//		this.currentPrice = new BigDecimal(currentPrice).setScale(2, RoundingMode.DOWN).doubleValue();
-//		this.previousPrice = new BigDecimal(previousPrice).setScale(2, RoundingMode.HALF_EVEN).doubleValue();
 		this.currentPrice  = currentPrice;
 		this.previousPrice  = previousPrice;
+		setRealTimePriceChange();
+	}
+	
+	
+	public RealTimeBTCData(double currentPrice, double previousPrice, long totalBuys, long totalSells) {
+		this(currentPrice, previousPrice);
+		this.totalBuys = totalBuys;
+		this.totalSells = totalSells;
 	}
 	
 	public double getCurrentPrice() {
@@ -31,6 +40,11 @@ public class RealTimeBTCData {
 	public double getPreviousPrice() {
 		return previousPrice;
 	}
+	
+	public void setRealTimePriceChange() {
+		this.priceChange = (currentPrice * 100 / previousPrice) - 100;
+	}
+	
 	public void setPreviousPrice(double previousPrice) {
 		this.previousPrice = previousPrice;
 	}
@@ -38,4 +52,26 @@ public class RealTimeBTCData {
 //		return 1;
 		return (currentPrice * 100 / previousPrice) - 100;
 	}
+
+	public long getTotalBuys() {
+		return totalBuys;
+	}
+
+	public void setTotalBuys(long totalBuys) {
+		this.totalBuys = totalBuys;
+	}
+
+	public long getTotalSells() {
+		return totalSells;
+	}
+
+	public void setTotalSells(long totalSells) {
+		this.totalSells = totalSells;
+	}
+
+	public void setPriceChange(double priceChange) {
+		this.priceChange = priceChange;
+	}
+	
+	
 }
