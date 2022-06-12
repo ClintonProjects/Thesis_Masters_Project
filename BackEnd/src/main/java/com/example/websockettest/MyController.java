@@ -38,7 +38,7 @@ public class MyController {
 		this.template.convertAndSend("/endpoint/greeting", ServicesExample.previousExchangeDataRecieved);
 	}
 
-//	@Scheduled(fixedRate = 1000)
+//	@Scheduled(fixedRate = 100)
 	public void BuyandSellBarPercentage() {
 		//This is for live buy and sell bar
 //		System.out.println(servicesExample.buySellBar());
@@ -46,8 +46,19 @@ public class MyController {
 	}
 	
 	public void exchangesActivePrice() {
+		//I have no idea what this does.
 		this.template.convertAndSend("/endpoint/coinbaseprice", servicesExample.buySellBar());
 	}
+	
+//	@Scheduled(fixedRate = 100)
+	public void getExchangeData() {
+		//Send back all the exchange data.
+		this.template.convertAndSend("/endpoint/getExchangeData", servicesExample.getRealTimeBTCData());
+	}
+	
+	
+	
+	
 }
 	
 	

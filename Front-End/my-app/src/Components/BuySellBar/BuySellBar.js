@@ -13,10 +13,10 @@ export default class BuySellBar extends Component {
     }
 
     connect = () => {
-        const socket = new SockJS("http://localhost:8081/simulator");
+        const socket = new SockJS("http://localhost:8080/simulator");
         stompClient = Stomp.over(socket);
         stompClient.connect({}, function (frame) {
-            console.log("Connected " + frame);
+            // console.log("Connected " + frame);
             stompClient.subscribe("/endpoint/wow", function (greeting) {
                 if (typeof greeting.body !== undefined)
                     result = Math.round(greeting.body * 100) / 100;

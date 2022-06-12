@@ -75,7 +75,6 @@ public class ServicesExample {
 
 	public Double buySellBar() {
 		List<ExchangeDataRecieved> currentDB = bitcoinPriceData.findAll().stream().collect(Collectors.toList());
-
 		List<ExchangeDataRecieved> previousMinList = new ArrayList<ExchangeDataRecieved>();
 
 		LocalDateTime now = LocalDateTime.ofInstant(Instant.now(), ZoneOffset.UTC);

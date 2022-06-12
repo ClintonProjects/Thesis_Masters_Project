@@ -9,6 +9,7 @@ import bitmex from './bitmex.png';
 import SockJS from "sockjs-client";
 import Stomp from "stompjs";
 import { TextField, validator } from 'react-textfield';
+import { Navbar, Nav, NavDropdown, Form, FormControl, Button, Container, Dropdown, DropdownButton } from 'react-bootstrap'
 
 var stompClient;
 var result;
@@ -21,22 +22,27 @@ export default class BTCPrices extends Component {
             btcFilter: false,
             ethFilter: false,
             ltcFilter: false,
+            exchange: "",
             cointype: "all".toUpperCase(),
             filterAmountByCurrency: 0,
             filterAmountByCoinSize: 0,
+
         }
 
         this.BoxColour = this.BoxColour.bind(this);
         this.replace = this.replace.bind(this);
         this.setCoinFilter = this.setCoinFilter.bind(this);
+        this.currSymbol = this.currSymbol.bind(this);
+        this.setCurrency = this.setCurrency.bind(this);
+        this.setExchange = this.setExchange.bind(this);
         // this.set = this.set.bind(this);
     }
 
     connect = () => {
-        const socket = new SockJS("http://localhost:8081/simulator");
+        const socket = new SockJS("http://localhost:8080/simulator");
         stompClient = Stomp.over(socket);
         stompClient.connect({}, function (frame) {
-            console.log("Connected " + frame);
+            // console.log("Connected " + frame);
             stompClient.subscribe("/endpoint/greeting", function (greeting) {
                 if (typeof greeting.body !== undefined) {
                     result = greeting.body;
@@ -82,6 +88,10 @@ export default class BTCPrices extends Component {
                 this.setState({ items: this.state.items.filter(i => i.currency.toUpperCase() == "EUR") })
             if (this.state.cointype == "GBP".toUpperCase())
                 this.setState({ items: this.state.items.filter(i => i.currency.toUpperCase() == "GBP") })
+            if (this.state.exchange == "Bitmex".toUpperCase())
+                this.setState({ items: this.state.items.filter(i => i.exchange.toUpperCase() == "Bitmex".toUpperCase()) })
+
+
 
             // this.setState({ items: this.state.items.filter(i => i.price > this.state.filterAmountByCurrency) })
             // this.setState({ items: this.state.items.filter(i => i.size > this.state.filterAmountByCoinSize) })
@@ -98,7 +108,16 @@ export default class BTCPrices extends Component {
     }
 
 
-    currency(type) {
+
+    setExchange(exchange) {
+        this.setState({ exchange: exchange.toUpperCase() });
+    }
+
+    setCurrency(currency) {
+        this.setState({ cointype: currency.toUpperCase() });
+    }
+
+    currency() {
         //displays only currencies in these types
         if (this.this.state.cointype == "usd") this.setState({ cointype: "usd" });
         else if (this.this.state.cointype == "eur") this.setState({ cointype: "eur" });
@@ -106,25 +125,38 @@ export default class BTCPrices extends Component {
         else this.setState({ cointype: "all" });
     }
 
-    displayCurrency(obj) {
+    covertCurrency(obj) {
         //converts all entries to another currenies, this needs to be added to state, it's not fully implemeneted.
-        var coin = "eur".toUpperCase();
+        var coin = "dgdfgdfg".toUpperCase();
         if (coin == "usd".toUpperCase()) return obj.priceInUSD;
         if (coin == "eur".toUpperCase()) return obj.priceInEUR;
         if (coin == "gbp".toUpperCase()) return obj.priceInGBP;
         //return normal type.
-        return obj.price;
+        return this.currSymbol(obj) + obj.price;
     }
 
+
+    displayValue(obj) {
+        var coin = "dsggdfgdfg".toUpperCase();
+        if (coin == "usd".toUpperCase()) return "$" + (obj.size * obj.priceInUSD.substring(1)).toFixed(2);
+        if (coin == "eur".toUpperCase()) return "€" + (obj.size * obj.priceInUSD.substring(1)).toFixed(2);
+        if (coin == "gbp".toUpperCase()) return "£" + (obj.size * obj.priceInUSD.substring(1)).toFixed(2);
+        return this.currSymbol(obj) + (obj.size * obj.price).toFixed(2);
+    }
+
+
+    currSymbol(obj) {
+        if (obj.currency == "gbp".toUpperCase())
+            return "£";
+        if (obj.currency == "eur".toUpperCase())
+            return "€";
+        if (obj.currency == "usd".toUpperCase())
+            return "$";
+    }
 
     setAmoutFilterByCurrency(num) {
         this.setState({ filtfilterAmountByCurrencyerAmount: num });
     }
-
-
-    // setAmoutFilterByCoinSize(num) {
-    //     this.setState({ filterAmountByCoinSize : num });
-    // }
 
     replace(inc) {
         if (this.state.items[inc].cypto.toUpperCase() == "BTC")
@@ -136,7 +168,7 @@ export default class BTCPrices extends Component {
     }
 
     replaceExchange(inc) {
-        if (this.state.items[inc].exchange.toUpperCase() == "COINBASE")
+        if (this.state.items[inc].exchange.toUpperCase() == "COINBASE PRO")
             return (<p1><img src={coinbase} alt="HeadImage" className="btcImage" />Coinbase</p1>)
         if (this.state.items[inc].exchange.toUpperCase() == "binance".toUpperCase())
             return (<p1><img src={binance} alt="HeadImage" className="btcImage" />Binance</p1>)
@@ -155,13 +187,13 @@ export default class BTCPrices extends Component {
                         {this.replaceExchange(inc)}
                     </div>
                     <div class="col-2">
-                        {(this.state.items[inc].size * this.state.items[inc].price).toFixed(2)}
+                        {this.displayValue(this.state.items[inc])}
                     </div>
                     <div class="col-1">
                         {this.state.items[inc].size}
                     </div>
                     <div class="col-2">
-                        {this.displayCurrency(this.state.items[inc])}
+                        {this.covertCurrency(this.state.items[inc])}
                     </div>
                     <div class="col-1">
                         {this.state.items[inc].side.toUpperCase()}
@@ -205,7 +237,7 @@ export default class BTCPrices extends Component {
         return (
             <div class="bgColour py-3">
                 <div class="container ">
-                    <div class="row text-center py-3">
+                    <div class="row text-center py-1">
                         <div class="col-2">
                             <p1>Symbol</p1>
                         </div>
@@ -240,6 +272,58 @@ export default class BTCPrices extends Component {
                     {this.BoxColour(8)}
                     {this.BoxColour(9)}
                     {this.BoxColour(10)}
+                </div>
+
+                <div class="text-center py-3">
+
+
+                    <Dropdown className="d-inline mx-2">
+
+                        <Dropdown.Toggle
+                            id="dropdown-autoclose-true"
+                            variant="secondary"
+                            menuVariant="dark">
+                            Show trades in market only
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu>
+                            <Dropdown.Item onClick={() => this.setCurrency("all")}>All</Dropdown.Item>
+                            <Dropdown.Item onClick={() => this.setCurrency("usd")}>USA (USDT,USD, ETC)</Dropdown.Item>
+                            <Dropdown.Item onClick={() => this.setCurrency("eur")}>EUR</Dropdown.Item>
+                            <Dropdown.Item onClick={() => this.setCurrency("gbp")}>GBP</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
+
+                    <Dropdown className="d-inline mx-2">
+                        <Dropdown.Toggle
+                            id="dropdown-autoclose-true"
+                            variant="secondary"
+                            menuVariant="dark">
+                            Currency Convert
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            <Dropdown.Item onClick={() => this.setCurrency("all")}>All Currency</Dropdown.Item>
+                            <Dropdown.Item onClick={() => this.setCurrency("usd")}>USD</Dropdown.Item>
+                            <Dropdown.Item onClick={() => this.setCurrency("eur")}>EUR</Dropdown.Item>
+                            <Dropdown.Item onClick={() => this.setCurrency("gbp")}>GBP</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
+
+                    <Dropdown className="d-inline mx-2" >
+                        <Dropdown.Toggle
+                            variant="secondary"
+                            menuVariant="dark"
+                            id="dropdown-autoclose-true">
+                            Exchange Filter
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu >
+                            <Dropdown.Item href="#">No Filter</Dropdown.Item>
+                            <Dropdown.Item href="#"><p1><img src={coinbase} alt="HeadImage" className="btcImage" />Coinbase</p1></Dropdown.Item>
+                            <Dropdown.Item href="#"><p1><img src={binance} alt="HeadImage" className="btcImage" />Binance</p1></Dropdown.Item>
+                            <Dropdown.Item href="#"><p1><img src={bitmex} alt="HeadImage" className="btcImage" />Bitmex</p1></Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
+
                 </div>
             </div>
         );

@@ -1,102 +1,126 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import './BTCRealTimePrices.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog, faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import coinbaseLogo from './Coinbase.png';
+import bainceLogo from './binance.png';
+import bitmexLogo from './bitmex-logo.png';
+import './ExchangeActivePrices.css';
+import SockJS from "sockjs-client";
+import Stomp from "stompjs";
+import btc from './bitcoin-icon.png';
+import eth from './eth.png';
+import ltc from './ltc.png';
 
+var stompClient;
+var result;
 class BTCRealTimePrices extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            items: "",
+            items: {},
         };
         this.priceColour = this.priceColour.bind(this);
+        this.data = this.data.bind(this);
     }
 
     componentDidMount() {
-        this.interval = setInterval(() => this.getData(), 7000);
+        this.connect();
+        this.interval = setInterval(() => this.getData(), 100);
     }
-
 
     getData() {
-        // GET request using fetch with error handling
-        const headers = {
-            'Content-Type': 'application/json',
-            "Access-Control-Allow-Origin": "*",
-
+        try {
+            this.setState({ items: JSON.parse(result) });
+            // console.log(this.state.items.currentPrice);
+        } catch (err) {   //should never be called, just stop the console from being spammed if backend not on 
         }
-        fetch('http://localhost:8081/apis/btcprice', { headers })
-            .then(async response => {
-                const data = await response.json();
-
-                // check for error response
-                if (!response.ok) {
-                    // get error message from body or default to response statusText
-                    //           console.log("not ok");
-                    const error = (data && data.message) || response.statusText;
-                    return Promise.reject(error);
-                }
-                //         console.log("ok");
-                this.setState({ items: data })
-                // console.log(this.state.items);
-            })
-            .catch(error => {
-                this.setState({ errorMessage: error.toString() });
-                //           console.error('There was an error!', error);
-            });
     }
+
+    connect = () => {
+        const socket = new SockJS("http://localhost:8080/simulator");
+        stompClient = Stomp.over(socket);
+        stompClient.connect({}, function (frame) {
+            // console.log("Connected " + frame);
+            stompClient.subscribe("/endpoint/getExchangeData", function (greeting) {
+                if (typeof greeting.body !== undefined) {
+                    result = greeting.body;
+                    // console.log("websocket result: " + result);
+                }
+            });
+        });
+    };
 
 
     priceColour() {
         if (this.state.items.priceChange >= 0) {
-            return (<h2 className="greenTextColour">${this.state.items.currentPrice}</h2>)
+            return (<h2 className="greenTextColour">${(this.state.items.currentPrice).toFixed(2)}</h2>)
         } else if (this.state.items.priceChange < 0) {
-            return (<h2 className="redTextColour">${this.state.items.currentPrice}</h2>)
+            return (<h2 className="redTextColour">${(this.state.items.currentPrice).toFixed(2)}</h2>)
         }
 
     }
 
     percentageColour() {
         if (this.state.items.priceChange >= 0) {
-            console.log("price change " + this.state.items.priceChange);
-            return (<h2 className="greenTextColour">{this.state.items.priceChange}% <FontAwesomeIcon icon={faArrowUp} /></h2>)
+            // console.log("price change " + this.state.items.priceChange);
+            return (<h2 className="greenTextColour">{this.state.items.priceChange.toFixed(2)}% <FontAwesomeIcon icon={faArrowUp} /></h2>)
         } else if (this.state.items.priceChange < 0) {
-            return (<h2 className="redTextColour">{this.state.items.priceChange}% <FontAwesomeIcon icon={faArrowDown} /></h2>)
+            return (<h2 className="redTextColour">{this.state.items.priceChange.toFixed(2)}% <FontAwesomeIcon icon={faArrowDown} /></h2>)
         }
     }
 
 
+    data(image, exchange) {
+        return (
+            <div class="row">
+                {/* Blank Space, easier then using margin */}
+                <div class="col-3"/>
+
+                <div class="col-1">
+                    <p2>
+                        <img src={image} class="cbImage" />{exchange}
+                    </p2>
+                </div>
+                <div class="col-2 py-1">
+                    <h3>
+                        {/* <img src={btc} class="cbImage" /> */}
+                        BTC: {this.priceColour()}
+                    </h3>
+                </div>
+                <div class="col-2 py-1">
+                    <h3>
+                        {/* <img src={eth} class="cbImage"/> */}
+                        ETH: {this.priceColour()}
+                    </h3>
+                </div>
+                <div class="col-2 py-1">
+                    <h3>
+                        {/* <img src={ltc} class="cbImage" /> */}
+                        LTC: {this.priceColour()}
+                    </h3>
+                </div>
+
+                {/* <div class="col-3" /> */}
+            </div>
+        )
+    }
+
+
+
+
+
     render() {
         return (
-            <div className="pad-top">
-                <div className="BTCRealTimePrices">
-                    <div className="leftPadding" />
-                    <div class="stopwatchspace">
-                        <div className="pricedisplay">
-                            <h2>Bitcoin 1 Min</h2>
-                            {/* <h1>(10% <FontAwesomeIcon icon={faArrowDown}/>)</h1> */}
-                        </div>
-                    </div>
-
-                    <div className="LeftPadding" />
-
-                    <div class="stopwatchspace">
-                        <div className="pricedisplay">
-                            {this.priceColour()}
-                            {/* <h1>(10% <FontAwesomeIcon icon={faArrowDown}/>)</h1> */}
-                        </div>
-                    </div>
-
-                    <div className="LeftPadding" />
-
-                    <div class="stopwatchspace">
-                        <div className="pricedisplay">
-                            {this.percentageColour()}
-                        </div>
+            <div class="activeExchanges">
+                <div class="container">
+                    <div class="row py-2">
+                        {this.data(coinbaseLogo, "Coinbase")}
+                        {this.data(bainceLogo, "Binance")}
+                        {this.data(bitmexLogo, "Bitmex")}
                     </div>
                 </div>
-                <div className="pad-bottom" />
             </div>
-
         );
     }
 }

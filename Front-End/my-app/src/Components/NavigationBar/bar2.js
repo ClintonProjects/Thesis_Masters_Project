@@ -23,6 +23,7 @@ class Bar extends Component {
         this.signOut = this.signOut.bind(this);
         this.isVerifyUserSignedIn = this.isVerifyUserSignedIn.bind(this);
         this.redriectToPage = this.redriectToPage.bind(this);
+        this.buttonSymbol = this.buttonSymbol.bind(this);
     }
 
 
@@ -71,32 +72,28 @@ class Bar extends Component {
         this.isVerifyUserSignedIn();
     }
 
+    buttonSymbol() {
+        return (
+            <a><FontAwesomeIcon icon={faUser} /> Accounts</a>);
+    }
 
 
     render() {
         const isVerifyUserSignedIn = this.state.isVerifyUserSignedIn;
         return (
             <header class="nav-colour">
-                <div class="container py-1">
+                <div class="container py-2">
                     <a class="navbar-brand text-white" href="#">
                         <img src={pikachu} alt="HeadImage" height={"30px"} width={"30px"} />
                         <b>BTCInfo</b>
                     </a>
                     <div class="float-end">
-                        <NavDropdown
-                            id="nav-dropdown-dark-example"
-                            title="Account"
-                            menuVariant="dark"
-                            align="end">
-                            {/* <NavDropdown.Item onClick={(e) => this.toggleFlag('All')}><img src={globe} alt="HeadImage" class="euflag" /> All</NavDropdown.Item>
-                            <NavDropdown.Item onClick={(e) => this.toggleFlag('EU')}><img src={eu} alt="HeadImage" class="euflag" /> Euro</NavDropdown.Item>
-                            <NavDropdown.Item onClick={(e) => this.toggleFlag('USA')}><img src={usa} alt="HeadImage" class="euflag" /> USD</NavDropdown.Item>
-                            <NavDropdown.Divider /> */}
+                        <DropdownButton id="dropdown-button-dark-example2" variant="secondary" menuVariant="dark"
+                            title={this.buttonSymbol()}>
                             {!this.state.userActive ? <NavDropdown.Item onClick={(e) => this.redriectToPage('/Register')}>
                                 <FontAwesomeIcon icon={faUser} />
                                 &nbsp; Register
                             </NavDropdown.Item> : ''}
-
                             {!this.state.userActive ?
                                 <NavDropdown.Item onClick={(e) => this.redriectToPage('/login')}>
                                     <FontAwesomeIcon icon={faSignInAlt} />
@@ -107,13 +104,16 @@ class Bar extends Component {
                                     <FontAwesomeIcon icon={faSignInAlt} />
                                     &nbsp; Sign Out
                                 </NavDropdown.Item>}
-                        </NavDropdown>
+                        </DropdownButton>
                     </div>
                 </div>
-            </header>
+            </header >
         )
     }
 }
+
+
+
 
 export default Bar;
 

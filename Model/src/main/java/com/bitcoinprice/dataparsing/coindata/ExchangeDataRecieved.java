@@ -28,9 +28,6 @@ public class ExchangeDataRecieved {
 	public String priceInUSD = "";
 	public String priceInEUR = "";
 	public String priceInGBP = "";
-	
-	
-	
 
 	public ObjectId get_id() {
 		return _id;
@@ -90,7 +87,10 @@ public class ExchangeDataRecieved {
 	}
 
 	public void setSize(String size) {
-		this.size = size;
+		DecimalFormat df2 = new DecimalFormat("#.0000000000");
+		this.size = df2.format(Double.valueOf(size));
+		if (this.size.charAt(0) == '.')
+			this.size = 0 + this.size;
 	}
 
 	public String getSide() {
@@ -136,7 +136,7 @@ public class ExchangeDataRecieved {
 	public void setTimestamp(String timestamp) {
 		this.timestamp = timestamp;
 	}
-	
+
 	public String getPriceInUSD() {
 		return priceInUSD;
 	}
