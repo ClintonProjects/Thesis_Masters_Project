@@ -21,6 +21,7 @@ import org.springframework.stereotype.Service;
 
 import com.bitcoinprice.dataparsing.coindata.ExchangeDataRecieved;
 import com.bitcoinprice.dataparsing.coindata.RealTimeBTCData;
+import com.bitcoinprice.dataparsing.exchangeprice.ListOfExchangeDatas;
 import com.bitcoinprice.dataparsing.exchanges.AllDataList;
 import com.bitcoinprice.dataparsing.exchanges.ApiExchangeToData;
 import com.example.repository.BitcoinPriceData;
@@ -173,7 +174,7 @@ public class ServicesExample {
 			previousExchangeDataRecieved = exchangeDataRecieved;
 			return;
 		}
-		
+
 		// check if the 2 lists have all the same elemtns
 		for (int i = 0; i < previousExchangeDataRecieved.size(); i++) {
 			if (!exchangeDataRecieved.get(i).getTranactionId()
@@ -184,14 +185,43 @@ public class ServicesExample {
 		}
 	}
 
+	public ArrayList<ListOfExchangeDatas> averagePrice() {
+		ArrayList<ListOfExchangeDatas> exchangedate = new ArrayList<ListOfExchangeDatas>();
+
+		// ALL (3 EXCHANGES and CURRENCIES (USD,EUR,GBP,ALL)
+//		getRealTimeBTCData(null, "USD", "BITMEX");
+//		getRealTimeBTCData(null, "EUR", "BITMEX");
+//		getRealTimeBTCData(null, "GBP", "BITMEX");
+//		getRealTimeBTCData(null, null, "BITMEX");
+//
+//		// BTC (3 EXCHANGES and CURRENCIES (USD,EUR,GBP,ALL)
+//		getRealTimeBTCData("BTC", "USD", "binance");
+//		getRealTimeBTCData("BTC", "EUR", "binance");
+//		getRealTimeBTCData("BTC", "GBP", "binance");
+//		getRealTimeBTCData("BTC", null, "binance");
+//
+//		// LTC (3 EXCHANGES and CURRENCIES (USD,EUR,GBP,ALL)
+//		getRealTimeBTCData("LTC", "USD", "COINBASE PRO");
+//		getRealTimeBTCData("LTC", "EUR", "COINBASE PRO");
+//		getRealTimeBTCData("LTC", "GBP", "COINBASE PRO");
+//		getRealTimeBTCData("LTC", null, "COINBASE PRO");
+
+		return null;
+	}
+
 	// This is deprecated because it will replaced with another method or rewrite of
 	// this method in an comming update.
-	@Deprecated
-	public RealTimeBTCData getRealTimeBTCData() {
-		List<ExchangeDataRecieved> currentDB = bitcoinPriceData.findAll().stream()
-				.filter(/* Removes all non usd */i -> i.getCurrency().equalsIgnoreCase("usd"))
-				.filter(i -> i.cypto.equalsIgnoreCase("BTC")).collect(Collectors.toList());
-		;
+//	@Deprecated
+	public RealTimeBTCData getRealTimeBTCData(String cypto, String currency, String exchange) {
+		List<ExchangeDataRecieved> currentDB = bitcoinPriceData.findAll().stream().collect(Collectors.toList());
+		if (cypto != null)
+			currentDB = currentDB.stream().filter(i -> i.getExchange().equalsIgnoreCase(cypto)).collect(Collectors.toList());
+		if (currency != null)
+			currentDB = currentDB.stream().filter(i -> i.getCurrency().equalsIgnoreCase(currency)).collect(Collectors.toList());
+		if (exchange != null)
+			currentDB = currentDB.stream().filter(i -> exchange != null && i.getExchange().equalsIgnoreCase(exchange))
+					.collect(Collectors.toList());
+
 		List<ExchangeDataRecieved> previousMinList = new ArrayList<ExchangeDataRecieved>();
 		List<ExchangeDataRecieved> afterMinList = new ArrayList<ExchangeDataRecieved>();
 
@@ -227,15 +257,14 @@ public class ServicesExample {
 				.collect(Collectors.toList());
 		bitcoinPriceData.deleteAll(resultToClear);
 	}
-	
+
 	@Async
 	@Scheduled(fixedRate = 1000 * 125)
 	public void scheduledUpdate() throws Exception {
-		//drops the db
+		// drops the db
 		dropData();
 	}
-	
-	
-	//drop table
+
+	// drop table
 
 }
