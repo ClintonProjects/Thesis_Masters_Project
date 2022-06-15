@@ -18,19 +18,24 @@ class BTCRealTimePrices extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            items: {},
+            items: null,
+            currency: "GBP".toUpperCase(),
         };
         this.priceColour = this.priceColour.bind(this);
         this.data = this.data.bind(this);
+        this.displayResult = this.displayResult.bind(this);
+        this.displayValue = this.displayValue.bind(this);
+        this.currencySettings = this.currencySettings.bind(this);
     }
 
     componentDidMount() {
         this.connect();
-        this.interval = setInterval(() => this.getData(), 100);
+        this.interval = setInterval(() => this.getData(), 1000);
     }
 
     getData() {
         try {
+            this.currencySettings();
             this.setState({ items: JSON.parse(result) });
             // console.log(this.state.items.currentPrice);
         } catch (err) {   //should never be called, just stop the console from being spammed if backend not on 
@@ -52,6 +57,23 @@ class BTCRealTimePrices extends Component {
     };
 
 
+
+    displayResult(exchange, cypto) {
+        try {
+            if (this.state.items[exchange.toUpperCase() + "/" + cypto.toUpperCase() + "/" + this.state.currency.toUpperCase()]) {
+                for (var i in this.state.items) {
+                    if (i == exchange.toUpperCase() + "/" + cypto.toUpperCase() + "/" + this.state.currency.toUpperCase()) {
+                        if (this.state.items[i].currentPrice.toFixed(2) > 0)
+                            return this.state.items[i].currentPrice.toFixed(2);
+                    }
+                }
+            }
+        } catch (e) { }
+        return "Not Enough Data";
+    }
+
+
+
     priceColour() {
         if (this.state.items.priceChange >= 0) {
             return (<h2 className="greenTextColour">${(this.state.items.currentPrice).toFixed(2)}</h2>)
@@ -70,35 +92,49 @@ class BTCRealTimePrices extends Component {
         }
     }
 
+    displayValue(currency) {
+        if (currency.toUpperCase() == "usd".toUpperCase()) return "$";
+        if (currency.toUpperCase() == "eur".toUpperCase()) return "€";
+        if (currency.toUpperCase() == "gbp".toUpperCase()) return "£";
+    }
 
-    data(image, exchange) {
+    currencySettings() {
+        try {
+            if (localStorage.getItem('currency') !== null) {
+                this.setState({ currency: localStorage.getItem('currency').toUpperCase() });
+                return
+            }
+            this.setState({ currency: "USD" });
+        } catch (e) { }
+    }
+
+
+    data(image, exchange, cypto) {
+
         return (
             <div class="row">
                 {/* Blank Space, easier then using margin */}
-                <div class="col-3"/>
+                <div class="col-2" />
 
-                <div class="col-1">
-                    <p2>
-                        <img src={image} class="cbImage" />{exchange}
-                    </p2>
+                <div class="col-2">
+                    <p class="h6">
+                        <img src={image} class="cbImage" />&ensp;{exchange == "All" ? "Whole market" : exchange}
+                    </p>
                 </div>
                 <div class="col-2 py-1">
-                    <h3>
-                        {/* <img src={btc} class="cbImage" /> */}
-                        BTC: {this.priceColour()}
-                    </h3>
+                    <p class="h6">
+                        BTC: {this.displayValue(this.state.currency)} {this.displayResult(exchange, "BTC")}
+                    </p>
                 </div>
                 <div class="col-2 py-1">
-                    <h3>
-                        {/* <img src={eth} class="cbImage"/> */}
-                        ETH: {this.priceColour()}
-                    </h3>
+                    <p class="h6">
+                        ETH: {this.displayValue(this.state.currency)} {this.displayResult(exchange, "ETH")}
+                    </p>
                 </div>
                 <div class="col-2 py-1">
-                    <h3>
-                        {/* <img src={ltc} class="cbImage" /> */}
-                        LTC: {this.priceColour()}
-                    </h3>
+                    <p class="h6">
+                        LTC: {this.displayValue(this.state.currency)} {this.displayResult(exchange, "LTC")}
+                    </p>
                 </div>
 
                 {/* <div class="col-3" /> */}
@@ -106,18 +142,20 @@ class BTCRealTimePrices extends Component {
         )
     }
 
-
-
-
-
     render() {
         return (
             <div class="activeExchanges">
                 <div class="container">
-                    <div class="row py-2">
-                        {this.data(coinbaseLogo, "Coinbase")}
-                        {this.data(bainceLogo, "Binance")}
-                        {this.data(bitmexLogo, "Bitmex")}
+                    <div class=" no-gutters">
+                        <p class="h6 text-center">
+                            1 min moving averages
+                        </p>
+                    </div>
+                    <div class="row py-2  no-gutters">
+                        {this.data(null, "All", "BTC")}
+                        {this.data(coinbaseLogo, "COINBASE", "BTC")}
+                        {this.data(bainceLogo, "BINANCE", "BTC")}
+                        {this.data(bitmexLogo, "BITMEX", "BTC")}
                     </div>
                 </div>
             </div>

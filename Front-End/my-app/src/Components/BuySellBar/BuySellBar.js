@@ -26,7 +26,7 @@ export default class BuySellBar extends Component {
 
     componentDidMount() {
         this.connect();
-        this.interval = setInterval(() => this.getData(), 100);
+        this.interval = setInterval(() => this.getData(), 1000);
     }
 
     getData() {
@@ -43,6 +43,9 @@ export default class BuySellBar extends Component {
 
             <div class="BuySellBar">
                 <div class="container">
+                    <p class="h6 text-center">
+                        1 Min average of whole market
+                    </p>
                     <div class="row py-1">
                         {/* Blank Space, easier then using margin */}
                         <div class="col-2" />
@@ -59,7 +62,7 @@ export default class BuySellBar extends Component {
                         <div class="col-2" />
                         <div class="col-8">
                             <ProgressBar>
-                                 {/* 0.1 to fix bug were the bar wasn't filling */}
+                                {/* 0.1 to fix bug were the bar wasn't filling */}
                                 <ProgressBar striped variant="success" now={result + 0.1} key={1} />
                                 <ProgressBar variant="danger" now={100 - result} key={2} />
                             </ProgressBar>

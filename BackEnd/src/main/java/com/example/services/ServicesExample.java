@@ -8,6 +8,7 @@ import java.time.ZoneOffset;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,7 +22,6 @@ import org.springframework.stereotype.Service;
 
 import com.bitcoinprice.dataparsing.coindata.ExchangeDataRecieved;
 import com.bitcoinprice.dataparsing.coindata.RealTimeBTCData;
-import com.bitcoinprice.dataparsing.exchangeprice.ListOfExchangeDatas;
 import com.bitcoinprice.dataparsing.exchanges.AllDataList;
 import com.bitcoinprice.dataparsing.exchanges.ApiExchangeToData;
 import com.example.repository.BitcoinPriceData;
@@ -134,7 +134,7 @@ public class ServicesExample {
 					.filter(j -> j.getCurrency().equalsIgnoreCase(i.getCurrency())
 							&& j.getExchange().equalsIgnoreCase(i.getExchange())
 							&& j.getCypto().equalsIgnoreCase(i.getCypto()))
-					.limit(5000).collect(Collectors.toList()));
+					.limit(100).collect(Collectors.toList()));
 		}
 
 		resultList.sort(Comparator.comparing(ExchangeDataRecieved::getTimestamp1).reversed());
@@ -185,28 +185,63 @@ public class ServicesExample {
 		}
 	}
 
-	public ArrayList<ListOfExchangeDatas> averagePrice() {
-		ArrayList<ListOfExchangeDatas> exchangedate = new ArrayList<ListOfExchangeDatas>();
+	public HashMap<String, Object> averagePrice() {
 
-		// ALL (3 EXCHANGES and CURRENCIES (USD,EUR,GBP,ALL)
-//		getRealTimeBTCData(null, "USD", "BITMEX");
-//		getRealTimeBTCData(null, "EUR", "BITMEX");
-//		getRealTimeBTCData(null, "GBP", "BITMEX");
-//		getRealTimeBTCData(null, null, "BITMEX");
-//
-//		// BTC (3 EXCHANGES and CURRENCIES (USD,EUR,GBP,ALL)
-//		getRealTimeBTCData("BTC", "USD", "binance");
-//		getRealTimeBTCData("BTC", "EUR", "binance");
-//		getRealTimeBTCData("BTC", "GBP", "binance");
-//		getRealTimeBTCData("BTC", null, "binance");
-//
-//		// LTC (3 EXCHANGES and CURRENCIES (USD,EUR,GBP,ALL)
-//		getRealTimeBTCData("LTC", "USD", "COINBASE PRO");
-//		getRealTimeBTCData("LTC", "EUR", "COINBASE PRO");
-//		getRealTimeBTCData("LTC", "GBP", "COINBASE PRO");
-//		getRealTimeBTCData("LTC", null, "COINBASE PRO");
+		// Id data / result
+		HashMap<String, Object> exchangeData = new HashMap<String, Object>();
+		// All Data
+		exchangeData.put("ALL/BTC/USD", getRealTimeBTCData("BTC", "USD", "all"));
+		exchangeData.put("ALL/BTC/EUR", getRealTimeBTCData("BTC", "EUR", "all"));
+		exchangeData.put("ALL/BTC/GBP", getRealTimeBTCData("BTC", "GBP", "all"));
 
-		return null;
+		exchangeData.put("ALL/LTC/USD", getRealTimeBTCData("LTC", "USD", "all"));
+		exchangeData.put("ALL/LTC/EUR", getRealTimeBTCData("LTC", "EUR", "all"));
+		exchangeData.put("ALL/LTC/GBP", getRealTimeBTCData("LTC", "GBP", "all"));
+
+		exchangeData.put("ALL/ETH/USD", getRealTimeBTCData("ETH", "USD", "all"));
+		exchangeData.put("ALL/ETH/EUR", getRealTimeBTCData("ETH", "EUR", "all"));
+		exchangeData.put("ALL/ETH/GBP", getRealTimeBTCData("ETH", "GBP", "all"));
+
+		// All Bitmex Data
+		exchangeData.put("BITMEX/BTC/USD", getRealTimeBTCData("BTC", "USD", "BITMEX"));
+		exchangeData.put("BITMEX/BTC/EUR", getRealTimeBTCData("BTC", "EUR", "BITMEX"));
+		exchangeData.put("BITMEX/BTC/GBP", getRealTimeBTCData("BTC", "GBP", "BITMEX"));
+
+		exchangeData.put("BITMEX/LTC/USD", getRealTimeBTCData("LTC", "USD", "BITMEX"));
+		exchangeData.put("BITMEX/LTC/EUR", getRealTimeBTCData("LTC", "EUR", "BITMEX"));
+		exchangeData.put("BITMEX/LTC/GBP", getRealTimeBTCData("LTC", "GBP", "BITMEX"));
+
+		exchangeData.put("BITMEX/ETH/USD", getRealTimeBTCData("ETH", "USD", "BITMEX"));
+		exchangeData.put("BITMEX/ETH/EUR", getRealTimeBTCData("ETH", "EUR", "BITMEX"));
+		exchangeData.put("BITMEX/ETH/GBP", getRealTimeBTCData("ETH", "GBP", "BITMEX"));
+
+		// All Binance Data
+		exchangeData.put("BINANCE/BTC/USD", getRealTimeBTCData("BTC", "USD", "binance"));
+		exchangeData.put("BINANCE/BTC/EUR", getRealTimeBTCData("BTC", "EUR", "binance"));
+		exchangeData.put("BINANCE/BTC/GBP", getRealTimeBTCData("BTC", "GBP", "binance"));
+
+		exchangeData.put("BINANCE/LTC/USD", getRealTimeBTCData("LTC", "USD", "binance"));
+		exchangeData.put("BINANCE/LTC/EUR", getRealTimeBTCData("LTC", "EUR", "binance"));
+		exchangeData.put("BINANCE/LTC/GBP", getRealTimeBTCData("LTC", "GBP", "binance"));
+
+		exchangeData.put("BINANCE/ETH/USD", getRealTimeBTCData("ETH", "USD", "binance"));
+		exchangeData.put("BINANCE/ETH/EUR", getRealTimeBTCData("ETH", "EUR", "binance"));
+		exchangeData.put("BINANCE/ETH/GBP", getRealTimeBTCData("ETH", "GBP", "binance"));
+
+		// All Coinbase pro Data
+		exchangeData.put("COINBASE/BTC/USD", getRealTimeBTCData("BTC", "USD", "COINBASE PRO"));
+		exchangeData.put("COINBASE/BTC/EUR", getRealTimeBTCData("BTC", "EUR", "COINBASE PRO"));
+		exchangeData.put("COINBASE/BTC/GBP", getRealTimeBTCData("BTC", "GBP", "COINBASE PRO"));
+
+		exchangeData.put("COINBASE/LTC/USD", getRealTimeBTCData("LTC", "USD", "COINBASE PRO"));
+		exchangeData.put("COINBASE/LTC/EUR", getRealTimeBTCData("LTC", "EUR", "COINBASE PRO"));
+		exchangeData.put("COINBASE/LTC/GBP", getRealTimeBTCData("LTC", "GBP", "COINBASE PRO"));
+
+		exchangeData.put("COINBASE/ETH/USD", getRealTimeBTCData("ETH", "USD", "COINBASE PRO"));
+		exchangeData.put("COINBASE/ETH/EUR", getRealTimeBTCData("ETH", "EUR", "COINBASE PRO"));
+		exchangeData.put("COINBASE/ETH/GBP", getRealTimeBTCData("ETH", "GBP", "COINBASE PRO"));
+
+		return exchangeData;
 	}
 
 	// This is deprecated because it will replaced with another method or rewrite of
@@ -215,11 +250,17 @@ public class ServicesExample {
 	public RealTimeBTCData getRealTimeBTCData(String cypto, String currency, String exchange) {
 		List<ExchangeDataRecieved> currentDB = bitcoinPriceData.findAll().stream().collect(Collectors.toList());
 		if (cypto != null)
-			currentDB = currentDB.stream().filter(i -> i.getExchange().equalsIgnoreCase(cypto)).collect(Collectors.toList());
+			currentDB = currentDB.stream().filter(i -> i.getCypto().equalsIgnoreCase(cypto))
+					.collect(Collectors.toList());
+
 		if (currency != null)
-			currentDB = currentDB.stream().filter(i -> i.getCurrency().equalsIgnoreCase(currency)).collect(Collectors.toList());
-		if (exchange != null)
-			currentDB = currentDB.stream().filter(i -> exchange != null && i.getExchange().equalsIgnoreCase(exchange))
+			currentDB = currentDB.stream()
+					.filter(i -> i.getCurrency().equalsIgnoreCase(currency))
+					.collect(Collectors.toList());
+
+		if (exchange != null && !exchange.equalsIgnoreCase("all"))
+			currentDB = currentDB.stream()
+					.filter(i -> i.getExchange().equalsIgnoreCase(exchange.toUpperCase()))
 					.collect(Collectors.toList());
 
 		List<ExchangeDataRecieved> previousMinList = new ArrayList<ExchangeDataRecieved>();

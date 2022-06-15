@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './bar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faTicketAlt, faSignInAlt, faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faTicketAlt, faSignInAlt, faAngleDown, faComment } from '@fortawesome/free-solid-svg-icons';
 import pikachu from './coin.png';
 import Homepage from '../../Pages/PreloginHomepage.js';
 import { Route, BrowserRouter as Router, Switch, Link } from "react-router-dom";
@@ -82,8 +82,8 @@ class Bar extends Component {
         const isVerifyUserSignedIn = this.state.isVerifyUserSignedIn;
         return (
             <header class="nav-colour">
-                <div class="container py-2">
-                    <a class="navbar-brand text-white" href="#">
+                <div class="container py-2 no-gutters">
+                    <a class="navbar-brand text-white" href="#" onClick={(e) => this.redriectToPage('')}>
                         <img src={pikachu} alt="HeadImage" height={"30px"} width={"30px"} />
                         <b>BTCInfo</b>
                     </a>
@@ -104,6 +104,17 @@ class Bar extends Component {
                                     <FontAwesomeIcon icon={faSignInAlt} />
                                     &nbsp; Sign Out
                                 </NavDropdown.Item>}
+
+                            <NavDropdown.Item onClick={(e) => this.redriectToPage('/info')}>
+                                <FontAwesomeIcon icon={faComment} />
+                                &nbsp; Info/FAQ
+                            </NavDropdown.Item>
+
+                            <NavDropdown.Item onClick={(e) => this.redriectToPage('/info')}>
+                                <FontAwesomeIcon icon={faComment} />
+                                &nbsp; Analytics
+                            </NavDropdown.Item>
+
                         </DropdownButton>
                     </div>
                 </div>

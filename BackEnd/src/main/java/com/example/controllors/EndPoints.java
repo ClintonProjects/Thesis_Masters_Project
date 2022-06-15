@@ -32,7 +32,7 @@ public class EndPoints {
 	// http://localhost:8080/apis/btcprice
 	@GetMapping("/btcprice")
 	public RealTimeBTCData getAll() throws JSONException, IOException {
-		return servicesExample.getRealTimeBTCData();
+		return servicesExample.getRealTimeBTCData(null,null,null);
 //		return null;
 	}
 

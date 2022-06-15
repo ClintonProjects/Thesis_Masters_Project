@@ -10,6 +10,7 @@ import Login from "./Pages/Login.js";
 import AdminPannel from "./Pages/AdminPannel.js";
 import Register from "./Pages/Register.js";
 import VerifyUserLogin from "./Funuctions/HttpRequests/VerifyUserLogin.js"
+import info from "./Pages/Info.js";
 // import SockJS from "sockjs-client";
 // import Stomp from "stompjs";
 
@@ -89,6 +90,7 @@ class App extends Component {
               : <Route exact path="/" render={(props) => <PostHomepage userActive={this.state.userActive} {...props} />} />}
             <Route path="/admin" exact component={AdminPannel} />
             <Route path="/register" exact component={Register} />
+            <Route path="/info" exact component={info} />
           </Switch>
         </div>
       </Router>
