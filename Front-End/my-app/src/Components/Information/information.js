@@ -11,7 +11,7 @@ class Bar extends Component {
 
     render() {
         return (
-            <div class="infoColour">
+            <div class="infoColour no-gutters">
                 <div class="container py-2 infoColour">
                     <div class="col-12  no-gutters py-5">
                         <h3 class=" py-1">How do we get are Data?</h3>

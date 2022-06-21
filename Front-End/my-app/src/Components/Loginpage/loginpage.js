@@ -77,8 +77,8 @@ class loginpage extends Component {
 
     render() {
         return (
-            <div class="loginbody center1">
-                <div class="mainbody ">
+            <div class="loginbody center1 no-gutters">
+                <div class="mainbody no-gutters">
                     <div class="Loginbox">
                         <div class="classiclogin">
                             <div class="loginform ">

@@ -147,7 +147,7 @@ class BTCRealTimePrices extends Component {
 
     render() {
         return (
-            <div class="activeExchanges">
+            <div class="activeExchanges no-gutters">
                 <div class="container">
                     <div class=" no-gutters">
                         <p class="h6 text-center">

@@ -41,8 +41,8 @@ export default class BuySellBar extends Component {
     render() {
         return (
 
-            <div class="BuySellBar">
-                <div class="container">
+            <div class="BuySellBar no-gutters">
+                <div class="container no-gutters">
                     <p class="h6 text-center">
                         1 Min average of whole market
                     </p>

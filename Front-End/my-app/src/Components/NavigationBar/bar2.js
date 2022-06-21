@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './bar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faTicketAlt, faSignInAlt, faAngleDown, faComment, faDatabase, faStickyNote } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faTicketAlt, faSignInAlt, faAngleDown, faComment, faDatabase, faStickyNote,faHouseUser } from '@fortawesome/free-solid-svg-icons';
 import pikachu from './coin.png';
 import Homepage from '../../Pages/PreloginHomepage.js';
 import { Route, BrowserRouter as Router, Switch, Link } from "react-router-dom";
@@ -110,6 +110,11 @@ class Bar extends Component {
                     <div class="float-end">
                         <DropdownButton id="dropdown-button-dark-example2" variant="secondary" menuVariant="dark"
                             title={this.buttonSymbol()}>
+
+                            <NavDropdown.Item onClick={(e) => this.redriectToPageNoAuth('/')}>
+                                <FontAwesomeIcon icon={faHouseUser} />
+                                &nbsp; HomePage
+                            </NavDropdown.Item>
 
                             <NavDropdown.Item onClick={(e) => this.redriectToPageNoAuth('/info')}>
                                 <FontAwesomeIcon icon={faComment} />

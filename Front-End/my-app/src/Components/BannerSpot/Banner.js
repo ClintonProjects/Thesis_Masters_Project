@@ -27,7 +27,7 @@ export default class Banner extends Component {
 
     render() {
         return (
-            <div class="BannerSpotHomePage">
+            <div class="BannerSpotHomePage no-gutters">
                 <div class="container">
                     <div class="row py-1">
                         <div class="col-12  no-gutters">

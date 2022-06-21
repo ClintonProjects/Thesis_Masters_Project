@@ -19,7 +19,7 @@ export default class AdminPannelSideBar extends Component {
 
     render() {
         return (
-            <div className="AdminPannelSideBar">
+            <div className="AdminPannelSideBar no-gutters">
                 {this.button(faCog, "Dashborad")}
                 {this.button(faDollarSign, "Accounting")}
             </div>

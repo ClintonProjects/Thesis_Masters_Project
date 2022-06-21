@@ -289,7 +289,7 @@ export default class BTCPrices extends Component {
         try {
             return (
                 <div class="row text-center">
-                    <div class="col-2">
+                    <div class="col-3">
                         <p class="h6">{this.replace(inc)} {this.state.items[inc].symbol.toUpperCase()} </p>
                     </div>
                     <div class="col-1">
@@ -309,8 +309,9 @@ export default class BTCPrices extends Component {
                             <p class="h6 text-success">{this.state.items[inc].side.toUpperCase()}  </p>
                             : <p class="h6 text-danger">{this.state.items[inc].side.toUpperCase()} </p>}
                     </div>
-                    <div class="col-2">
-                        <p class="h6">{new Date(this.state.items[inc].timestamp).getUTCDate() + "/" + new Date(this.state.items[inc].timestamp).getMonth() + "/" + new Date(this.state.items[inc].timestamp).getFullYear() + " " +
+                    <div class="col-1">
+                        <p class="h6">{
+                            // new Date(this.state.items[inc].timestamp).getUTCDate() + "/" + new Date(this.state.items[inc].timestamp).getMonth() + "/" + new Date(this.state.items[inc].timestamp).getFullYear() + " " +
                             new Date(this.state.items[inc].timestamp).getHours() + ":" + new Date(this.state.items[inc].timestamp).getMinutes() + ":" + new Date(this.state.items[inc].timestamp).getSeconds()}</p>
                     </div>
                 </div>
@@ -318,7 +319,7 @@ export default class BTCPrices extends Component {
         } catch (error) {
             return (
                 <div class="row text-center">
-                    <div class="col-2">
+                    <div class="col-3">
                         <p class="h6">{"Loading..."}</p>
                     </div>
                     <div class="col-1 ">
@@ -336,7 +337,7 @@ export default class BTCPrices extends Component {
                     <div class="col-1">
                         <p class="h6">{"Loading..."}</p>
                     </div>
-                    <div class="col-2">
+                    <div class="col-1">
                         <p class="h6">{"Loading..."}</p>
                     </div>
                 </div>
@@ -346,13 +347,13 @@ export default class BTCPrices extends Component {
 
     render() {
         return (
-            <div class="bgColour py-3">
+            <div class="bgColour py-3 no-gutters">
                 <div class="container  no-gutters">
                     <p class="h6 text-center">
                         Real time sales of market
                     </p>
                     <div class="row text-center py-1">
-                        <div class="col-2">
+                        <div class="col-3">
                             <p class="h6">Symbol</p>
                         </div>
                         <div class="col-1">
@@ -370,7 +371,7 @@ export default class BTCPrices extends Component {
                         <div class="col-1">
                             <p class="h6">Side</p>
                         </div>
-                        <div class="col-2">
+                        <div class="col-1">
                             <p class="h6">Time</p>
                         </div>
                     </div>
