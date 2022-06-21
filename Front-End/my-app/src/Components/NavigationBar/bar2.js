@@ -103,7 +103,7 @@ class Bar extends Component {
         return (
             <header class="nav-colour no-gutters">
                 <div class="container py-2 no-gutters">
-                    <a class="navbar-brand text-white" href="#" onClick={(e) => this.redriectToPage('')}>
+                    <a class="navbar-brand text-white" href="#" onClick={(e) => this.redriectToPageNoAuth('')}>
                         <img src={pikachu} alt="HeadImage" height={"30px"} width={"30px"} />
                         <b>BTCInfo</b>
                     </a>

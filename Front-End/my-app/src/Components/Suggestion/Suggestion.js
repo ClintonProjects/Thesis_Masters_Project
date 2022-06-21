@@ -117,7 +117,7 @@ class Suggestion extends Component {
 
     render() {
         return (
-            <div class="SuggestionBody center1">
+            <div class="SuggestionBody center1 no-gutters">
                 <div class="container center1">
                     <div class="col-6 justify-content-center SuggestionBackgroundColour py-5">
                         <div class="center1 text-center ">
