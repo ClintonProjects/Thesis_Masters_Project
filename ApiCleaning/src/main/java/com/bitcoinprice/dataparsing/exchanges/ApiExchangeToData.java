@@ -105,7 +105,6 @@ public class ApiExchangeToData {
 					}
 
 					for (int k = 0; k < loopSize; k++) {
-
 						try {
 							JSONObject firstResult = (JSONObject) listOfData.get(k);
 
@@ -132,10 +131,8 @@ public class ApiExchangeToData {
 								exchangeDataRecieved
 										.setSide(firstResult.getString(dataConversationText.getString("side")));
 
-							exchangeDataRecieved.setTranactionId(
-									firstResult.getString(dataConversationText.getString("tranactionId")));
-							exchangeDataRecieved
-									.setPrice(firstResult.getString(dataConversationText.getString("price")));
+							exchangeDataRecieved.setTranactionId("Removed bug");
+							exchangeDataRecieved.setPrice(firstResult.getString(dataConversationText.getString("price")));
 							exchangeDataRecieved.setSize(firstResult.getString(dataConversationText.getString("size")));
 
 							if (!dataConversationText.getString("timestamp").equals("setbycode"))
@@ -153,7 +150,7 @@ public class ApiExchangeToData {
 							exchangeDataList.add(exchangeDataRecieved);
 
 						} catch (Exception e) {
-							System.out.println(e);
+							System.out.println(e + dataConversationText.getString("apiLink"));
 						}
 					}
 				}

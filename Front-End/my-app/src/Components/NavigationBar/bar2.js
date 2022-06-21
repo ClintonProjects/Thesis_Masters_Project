@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './bar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faTicketAlt, faSignInAlt, faAngleDown, faComment } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faTicketAlt, faSignInAlt, faAngleDown, faComment, faDatabase, faStickyNote } from '@fortawesome/free-solid-svg-icons';
 import pikachu from './coin.png';
 import Homepage from '../../Pages/PreloginHomepage.js';
 import { Route, BrowserRouter as Router, Switch, Link } from "react-router-dom";
@@ -9,6 +9,10 @@ import eu from './eu.png';
 import usa from './usa.png';
 import globe from './globe.png';
 import { Navbar, Nav, NavDropdown, Form, FormControl, Button, Container, Dropdown, DropdownButton } from 'react-bootstrap'
+import { TextField, validator } from 'react-textfield';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 class Bar extends Component {
 
@@ -24,6 +28,7 @@ class Bar extends Component {
         this.isVerifyUserSignedIn = this.isVerifyUserSignedIn.bind(this);
         this.redriectToPage = this.redriectToPage.bind(this);
         this.buttonSymbol = this.buttonSymbol.bind(this);
+        this.redriectToPageNoAuth = this.redriectToPageNoAuth.bind(this);
     }
 
 
@@ -47,12 +52,27 @@ class Bar extends Component {
 
     signOut() {
         localStorage.removeItem('SessionId');
-        window.location.href = "http://localhost:3000/";
+        toast.error('You have successfully signed out!', {
+            position: "bottom-center",
+            autoClose: 1500,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: false,
+        });
+        setTimeout(function () {
+            window.location.href = "http://localhost:3000/";
+        }, 2000);
     }
 
     redriectToPage(link) {
         if (!this.state.userActive)
             window.location.href = "http://localhost:3000" + link;
+    }
+
+    redriectToPageNoAuth(link) {
+        window.location.href = "http://localhost:3000" + link;
     }
 
     isVerifyUserSignedIn() {
@@ -81,7 +101,7 @@ class Bar extends Component {
     render() {
         const isVerifyUserSignedIn = this.state.isVerifyUserSignedIn;
         return (
-            <header class="nav-colour">
+            <header class="nav-colour no-gutters">
                 <div class="container py-2 no-gutters">
                     <a class="navbar-brand text-white" href="#" onClick={(e) => this.redriectToPage('')}>
                         <img src={pikachu} alt="HeadImage" height={"30px"} width={"30px"} />
@@ -90,34 +110,34 @@ class Bar extends Component {
                     <div class="float-end">
                         <DropdownButton id="dropdown-button-dark-example2" variant="secondary" menuVariant="dark"
                             title={this.buttonSymbol()}>
-                            {!this.state.userActive ? <NavDropdown.Item onClick={(e) => this.redriectToPage('/Register')}>
-                                <FontAwesomeIcon icon={faUser} />
-                                &nbsp; Register
-                            </NavDropdown.Item> : ''}
-                            {!this.state.userActive ?
-                                <NavDropdown.Item onClick={(e) => this.redriectToPage('/login')}>
-                                    <FontAwesomeIcon icon={faSignInAlt} />
-                                    &nbsp; Sign In
-                                </NavDropdown.Item>
-                                :
-                                <NavDropdown.Item onClick={(e) => this.signOut()}>
-                                    <FontAwesomeIcon icon={faSignInAlt} />
-                                    &nbsp; Sign Out
-                                </NavDropdown.Item>}
 
-                            <NavDropdown.Item onClick={(e) => this.redriectToPage('/info')}>
+                            <NavDropdown.Item onClick={(e) => this.redriectToPageNoAuth('/info')}>
                                 <FontAwesomeIcon icon={faComment} />
                                 &nbsp; Info/FAQ
                             </NavDropdown.Item>
-
-                            <NavDropdown.Item onClick={(e) => this.redriectToPage('/info')}>
-                                <FontAwesomeIcon icon={faComment} />
+                            <NavDropdown.Item onClick={(e) => this.redriectToPageNoAuth('/analytics')}>
+                                <FontAwesomeIcon icon={faDatabase} />
                                 &nbsp; Analytics
                             </NavDropdown.Item>
+
+                            {this.state.userActive ?
+                                <NavDropdown.Item onClick={(e) => this.redriectToPageNoAuth('/feedback')}>
+                                    <FontAwesomeIcon icon={faStickyNote} />
+                                    &nbsp; Feedback/Suggestion
+                                </NavDropdown.Item>
+                                : ""}
+
+                            {!this.state.userActive ?
+                                <NavDropdown.Item onClick={(e) => this.redriectToPage('/Register')}><FontAwesomeIcon icon={faUser} />&nbsp; Register </NavDropdown.Item> : ''}
+                            {!this.state.userActive ?
+                                <NavDropdown.Item onClick={(e) => this.redriectToPage('/login')}><FontAwesomeIcon icon={faSignInAlt} />&nbsp; Sign In</NavDropdown.Item>
+                                :
+                                <NavDropdown.Item onClick={(e) => this.signOut()}><FontAwesomeIcon icon={faSignInAlt} />&nbsp; Sign Out</NavDropdown.Item>}
 
                         </DropdownButton>
                     </div>
                 </div>
+                <ToastContainer />
             </header >
         )
     }

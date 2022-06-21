@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './Login.css';
 import { Route, BrowserRouter as Router, Switch, Link, Redirect } from "react-router-dom";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -61,6 +62,16 @@ class loginpage extends Component {
                 localStorage.setItem('Login email', document.getElementById('email').value);
             else localStorage.removeItem('Login email');
             window.location.href = "http://localhost:3000/";
+        } else {
+            toast.error('Incorrect username or password!', {
+                position: "bottom-center",
+                autoClose: 2500,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: false,
+            });
         }
     }
 
@@ -102,6 +113,7 @@ class loginpage extends Component {
                         </div>
                     </div>
                 </div>
+                <ToastContainer />
                 {/* <div class="SideSpacer" /> */}
             </div>
 

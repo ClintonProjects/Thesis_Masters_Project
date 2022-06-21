@@ -9,8 +9,12 @@ import PostHomepage from "./Pages/PostloginHomepage.js";
 import Login from "./Pages/Login.js";
 import AdminPannel from "./Pages/AdminPannel.js";
 import Register from "./Pages/Register.js";
+import AnalyticsPage from "./Pages/Analytics.js";
 import VerifyUserLogin from "./Funuctions/HttpRequests/VerifyUserLogin.js"
 import info from "./Pages/Info.js";
+import Feedback from "./Pages/Feedback.js";
+import { ToastContainer, toast } from 'react-toastify'; 
+import 'react-toastify/dist/ReactToastify.css';
 // import SockJS from "sockjs-client";
 // import Stomp from "stompjs";
 
@@ -91,6 +95,8 @@ class App extends Component {
             <Route path="/admin" exact component={AdminPannel} />
             <Route path="/register" exact component={Register} />
             <Route path="/info" exact component={info} />
+            <Route path="/analytics" exact component={AnalyticsPage} />
+            <Route path="/feedback" exact component={Feedback} />
           </Switch>
         </div>
       </Router>

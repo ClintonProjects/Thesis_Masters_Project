@@ -1,0 +1,24 @@
+.SuggestionBody {
+    width: 100%;
+    height: 100%;
+    background-color:  var(--secondary-bg-color);
+    position: fixed;
+    min-width: 500px;
+    min-height: 500px;
+    z-index: 0;
+}
+
+.center1 {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.SuggestionBackgroundColour {
+    background-color: rgb(25, 44, 56, 1);
+    outline-color: var(--secondary-bg-color);
+    outline-style: outset;
+}
+
+

@@ -13,14 +13,16 @@ export default class Banner extends Component {
     }
 
     isVerifyUserSignedIn() {
-        console.log("[NAV BAR] id is checked " + this.state.userActive + " " + localStorage.getItem('SessionId'));
         // || localStorage.getItem('SessionId').length === 0
         if (localStorage.getItem('SessionId') != null || localStorage.getItem('SessionId'))
-            return true;
+            this.setState({ userActive: true });
         else
-            return false;
+            this.setState({ userActive: false });
     }
 
+    componentDidMount() {
+        this.isVerifyUserSignedIn();
+    }
 
 
     render() {
@@ -30,7 +32,9 @@ export default class Banner extends Component {
                     <div class="row py-1">
                         <div class="col-12  no-gutters">
                             <img class="mx-auto d-block" src={banner} width={"50%"} />
-                            {this.isVerifyUserSignedIn ? "" : <h1 class="textUnderBanner">Sign up today for fastest realtime data</h1>}
+                            {this.state.userActive ?
+                                "" :
+                                <h1 class="textUnderBanner">Sign up today for fastest realtime data</h1>}
                         </div>
                     </div>
                 </div>

@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bitcoinprice.analytics.services.IpService;
+import com.bitcoinprice.dataparsing.analytic.Feedback;
+import com.bitcoinprice.dataparsing.user.Login;
+import com.bitcoinprice.analytics.services.FeedbackService;
 import com.google.gson.Gson;
 
 @RestController
@@ -22,6 +25,9 @@ public class IpContollors {
 
 	@Autowired
 	IpService IpService;
+	
+	@Autowired
+	FeedbackService FeedbackService;
 
 	// http://localhost:8080/AnalyticsService/getTotalViews
 	@GetMapping("/getTotalViews")
@@ -50,5 +56,11 @@ public class IpContollors {
 	public void saveTest(@RequestBody String ips) throws UnknownHostException {
 		Map<String, String> jsonJavaRootObject = new Gson().fromJson(ips, Map.class);
 			IpService.saveIp(jsonJavaRootObject);
+	}
+	
+	
+	@PostMapping(value = "/SaveFeedback")
+	public void RegisterUser(@RequestBody Feedback feedback) throws Exception {
+		FeedbackService.insertFeedback(feedback);
 	}
 }

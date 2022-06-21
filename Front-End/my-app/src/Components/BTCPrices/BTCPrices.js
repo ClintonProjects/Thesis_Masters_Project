@@ -10,6 +10,8 @@ import SockJS from "sockjs-client";
 import Stomp from "stompjs";
 import { TextField, validator } from 'react-textfield';
 import { Navbar, Nav, NavDropdown, Form, FormControl, Button, Container, Dropdown, DropdownButton } from 'react-bootstrap'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 var stompClient;
 var result;
@@ -27,6 +29,7 @@ export default class BTCPrices extends Component {
             filterAmountByCurrency: 0,
             filterAmountByCoinSize: 0,
             currencyConvert: "all",
+            BSstate: "NA"
         }
 
         this.BoxColour = this.BoxColour.bind(this);
@@ -37,6 +40,7 @@ export default class BTCPrices extends Component {
         this.setCoinFilter = this.setCoinFilter.bind(this);
         this.setCurrencyConver = this.setCurrencyConver.bind(this);
         this.setAmoutFilterByCyptoSize = this.setAmoutFilterByCyptoSize.bind(this);
+        this.BuySell = this.BuySell.bind(this);
         // this.getInitialState = this.getInitialState.bind(this);
         // this.set = this.set.bind(this);
     }
@@ -64,34 +68,97 @@ export default class BTCPrices extends Component {
             this.setState({ ethFilter: false });
             this.setState({ ltcFilter: false });
         }
+
+        toast.info('CoinFilter set to ' + flipCoin, {
+            position: "bottom-center",
+            autoClose: 2500,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: false,
+        });
     }
 
     setExchange(exchange) {
         this.setState({ exchange: exchange.toUpperCase() });
+
+        toast.info('Exchange set to ' + exchange, {
+            position: "bottom-center",
+            autoClose: 2500,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: false,
+        });
     }
 
     setCurrencyConver(currency) {
         this.setState({ currencyConvert: currency.toUpperCase() });
+
+        toast.info('Currency converter set to ' + currency.toUpperCase(), {
+            position: "bottom-center",
+            autoClose: 2500,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: false,
+        });
     }
 
     setCurrency(currency) {
         if (currency.toUpperCase() != "all".toUpperCase())
             localStorage.setItem('currency', currency.toUpperCase());
         this.setState({ cointype: currency.toUpperCase() });
+
+        toast.info('Currency set to ' + currency.toUpperCase(), {
+            position: "bottom-center",
+            autoClose: 2500,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: false,
+        });
     }
+
 
     setAmoutFilterByCyptoSize() {
         try {
-            if (document.getElementById('coinValue').value != '')
+            if (document.getElementById('coinValue').value != '') {
                 this.setState({ filterAmountByCurrency: document.getElementById('coinValue').value });
-                console.log("COINSIZE");
-        } catch (e) { }
+                toast.info('Minimum coin value set to ' + this.state.filterAmountByCurrency, {
+                    position: "bottom-center",
+                    autoClose: 2500,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: false,
+                });
+            }
+        } catch (e) {
+        }
+
         try {
-            if (document.getElementById('coinSize').value != '')
+            if (document.getElementById('coinSize').value != '') {
                 this.setState({ filterAmountByCoinSize: document.getElementById('coinSize').value });
-               // console.log("COINSIZE");
-        } catch (e) { }
-        return
+                toast.info('Minimum coin size set to ' + this.state.filterAmountByCoinSize, {
+                    position: "bottom-center",
+                    autoClose: 2500,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: false,
+                });
+            }
+        } catch (e) {
+            // boolB = false;
+        }
+
     }
 
     removeFromArray = function (array, value) {
@@ -136,6 +203,12 @@ export default class BTCPrices extends Component {
                 this.setState({ items: this.state.items.filter(i => i.exchange.toUpperCase() == "Binance".toUpperCase()) })
             if (this.state.exchange == "Coinbase Pro".toUpperCase())
                 this.setState({ items: this.state.items.filter(i => i.exchange.toUpperCase() == "Coinbase Pro".toUpperCase()) })
+            if (this.state.BSstate == "BUY".toUpperCase())
+                this.setState({ items: this.state.items.filter(i => i.side.toUpperCase() == "BUY".toUpperCase()) })
+            if (this.state.BSstate == "SELL".toUpperCase())
+                this.setState({ items: this.state.items.filter(i => i.side.toUpperCase() == "SELL".toUpperCase()) })
+
+
         } catch (err) {   //should never be called, just stop the console from being spammed if backend not on 
         }
     }
@@ -195,6 +268,23 @@ export default class BTCPrices extends Component {
             return (<p1><img src={bitmex} alt="HeadImage" className="btcImage" />Bitmex</p1>)
     }
 
+    BuySell(inc) {
+        this.setState({ BSstate: inc });
+        toast.info('Buy/Sell Filter set to ' + inc, {
+            position: "bottom-center",
+            autoClose: 2500,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: false,
+        });
+    }
+
+
+
+
+
     BoxColour(inc) {
         try {
             return (
@@ -215,7 +305,9 @@ export default class BTCPrices extends Component {
                         <p class="h6">{this.covertCurrency(this.state.items[inc])} </p>
                     </div>
                     <div class="col-1">
-                        <p class="h6">{this.state.items[inc].side.toUpperCase()} </p>
+                        {this.state.items[inc].side.toUpperCase() === "BUY".toUpperCase() ?
+                            <p class="h6 text-success">{this.state.items[inc].side.toUpperCase()}  </p>
+                            : <p class="h6 text-danger">{this.state.items[inc].side.toUpperCase()} </p>}
                     </div>
                     <div class="col-2">
                         <p class="h6">{new Date(this.state.items[inc].timestamp).getUTCDate() + "/" + new Date(this.state.items[inc].timestamp).getMonth() + "/" + new Date(this.state.items[inc].timestamp).getFullYear() + " " +
@@ -357,6 +449,20 @@ export default class BTCPrices extends Component {
                                 <Dropdown.Item onClick={() => this.setCoinFilter("ETH")}><p1>ETH</p1></Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
+
+                        <Dropdown className="d-inline mx-2" >
+                            <Dropdown.Toggle
+                                variant="secondary"
+                                menuVariant="dark"
+                                id="dropdown-autoclose-true">
+                                Buy/Sell Filter
+                            </Dropdown.Toggle>
+                            <Dropdown.Menu >
+                                <Dropdown.Item onClick={() => this.BuySell("ALL")}>No Filter</Dropdown.Item>
+                                <Dropdown.Item onClick={() => this.BuySell("BUY")}><p1>Buy</p1></Dropdown.Item>
+                                <Dropdown.Item onClick={() => this.BuySell("SELL")}><p1>Sell</p1></Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
                     </div>
 
                     <div class="row no-gutters">
@@ -387,6 +493,7 @@ export default class BTCPrices extends Component {
                         </div>
                     </div>
                 </div>
+                <ToastContainer />
             </div>
         );
     }

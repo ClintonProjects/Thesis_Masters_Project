@@ -93,9 +93,12 @@ class BTCRealTimePrices extends Component {
     }
 
     displayValue(currency) {
-        if (currency.toUpperCase() == "usd".toUpperCase()) return "$";
-        if (currency.toUpperCase() == "eur".toUpperCase()) return "€";
-        if (currency.toUpperCase() == "gbp".toUpperCase()) return "£";
+        if (currency.toUpperCase() == "usd".toUpperCase())
+            return "$";
+        if (currency.toUpperCase() == "eur".toUpperCase())
+            return "€";
+        if (currency.toUpperCase() == "gbp".toUpperCase())
+            return "£";
     }
 
     currencySettings() {

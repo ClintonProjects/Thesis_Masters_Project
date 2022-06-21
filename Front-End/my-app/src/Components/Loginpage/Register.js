@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './Login.css';
 import { Route, BrowserRouter as Router, Switch, Link } from "react-router-dom";
 import Hash from '../../Funuctions/Hash/Password.js';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class Register extends Component {
     constructor(props) {
@@ -43,6 +44,15 @@ class Register extends Component {
                 console.error('There was an error!', error);
                 this.setState({ attempts: this.state.attempts+1});
                 console.log(this.state.attempts);
+                toast.error('username already been taken!', {
+                    position: "bottom-center",
+                    autoClose: 2500,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: false,
+                });
             });
 
         console.log("ran");
@@ -82,6 +92,7 @@ class Register extends Component {
                     </div>
                 </div>
                 {/* <div class="SideSpacer" /> */}
+                <ToastContainer />
             </div>
         );
     }
