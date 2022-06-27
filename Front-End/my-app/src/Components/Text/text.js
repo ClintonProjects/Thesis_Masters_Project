@@ -1,23 +1,15 @@
 import './HeaderImage.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrademark } from '@fortawesome/free-solid-svg-icons';
 import coin from './Images/coin.png';
 import lock from './Images/lock.png';
 import stopwatch from './Images/stopwatch.png';
 import hovercoin from './Images/coin.png';
 
+//Display the page with icon and text on the hope page.
 function App() {
     return (
         <div className="TextSections">
             <div class="textdiv">
-                {/* <div class="imagescontainer">
-                    <img src={stopwatch} alt="HeadImage" class="checkmarkimage" />
-                    <img src={coin} alt="HeadImage" class="coinimage" />
-                    <img src={lock} alt="HeadImage" class="coinimage" />
-                </div> */}
-
                 <div class="spacer" />
-
                 <div class="stopwatchspace">
                     <div class="Image">
                         <img src={stopwatch} alt="HeadImage" class="checkmarkimage" />
@@ -29,21 +21,18 @@ function App() {
                         </div>
                     </div>
                 </div>
-
-                    <div class="spacerbetweenimages" />
-                    <div class="stopwatchspace">
-                        <div class="Image">
-                            <img src={coin} alt="HeadImage" class="checkmarkimage" hoverSrc={hovercoin} />
-                        </div>
-                        <div class="text">
-                            <h1>Multiple Coins Data</h1>
-                            <div class="paragraph">
-                                <p1>We get data our data for mutiple coins and currency so you can get best over view of the market.</p1>
-                            </div>
+                <div class="spacerbetweenimages" />
+                <div class="stopwatchspace">
+                    <div class="Image">
+                        <img src={coin} alt="HeadImage" class="checkmarkimage" hoverSrc={hovercoin} />
+                    </div>
+                    <div class="text">
+                        <h1>Multiple Coins Data</h1>
+                        <div class="paragraph">
+                            <p1>We get data our data for mutiple coins and currency so you can get best over view of the market.</p1>
                         </div>
                     </div>
-
-
+                </div>
                 <div class="spacerbetweenimages" />
                 <div class="stopwatchspace center">
                     <div class="Image">
@@ -56,8 +45,6 @@ function App() {
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     );

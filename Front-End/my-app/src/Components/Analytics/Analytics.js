@@ -3,7 +3,7 @@ import './information.css';
 import Map from './Map.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngry, faGrin, faGrinAlt, faMeh, faSkull } from '@fortawesome/free-solid-svg-icons';
-import { Navbar, Nav, NavDropdown, Form, FormControl, Button, Container, Dropdown, DropdownButton } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 import axios, * as others from 'axios';
 
 var result;
@@ -24,13 +24,14 @@ class Analytics extends Component {
             visitedDataCount: [],
         };
         this.FirstTable = this.FirstTable.bind(this);
-        this.textForFeedback = this.textForFeedback.bind(this);
         this.pageRoll = this.pageRoll.bind(this);
         this.colourForIndFeedback = this.colourForIndFeedback.bind(this);
         this.getIndexColourForSatRate = this.getIndexColourForSatRate.bind(this);
         this.countryData = this.countryData.bind(this);
     }
 
+
+    // Creates two lines of data this is used for locations data for example
     FirstTable(d1, d2) {
         return (
             <div class="row text-center">
@@ -40,36 +41,11 @@ class Analytics extends Component {
                 <div class="col-6">
                     <p>{d2}</p>
                 </div>
-                {/* <div class="col-3">
-                    <h5>Country</h5>
-                </div>
-                <div class="col-3">
-                    <h5>User Data Table:</h5>
-                </div> */}
             </div>
         )
     }
 
-    textForFeedback() {
-        var boolList = this.state.RadioButton;
-        var pos = 100;
-        var stringResult = this.state.RadioResults;
-
-        if (this.state.clicked != 50)
-            return stringResult[this.state.clicked];
-
-        for (let i = 0; i < boolList.length; i++) {
-            if (boolList[i] === true)
-                pos = i;
-        }
-
-        if (pos == 100)
-            return " ";
-
-        return stringResult[pos];
-    }
-
-
+    //Set the colour of the icon for the user indivual feedback.
     colourForIndFeedback(i) {
         var RadioResults = ["Very Unhappy", "Unhappy", "Ok", "Good", "Very Good"];
         var temp = 0;
@@ -81,6 +57,7 @@ class Analytics extends Component {
         return 'white';
     }
 
+    //Set the colour of the icon for the user OVERALL feedback.
     getIndexColourForSatRate() {
         var RadioResults = ["Very Unhappy", "Unhappy", "Ok", "Good", "Very Good"];
         let p = this.state.satificationData["MostCommon"];
@@ -90,22 +67,16 @@ class Analytics extends Component {
                 this.setState({ saficationColour: i });
             i++;
         }
-
-
-        // for (let value of RadioResults) {
-        //     if (p == value) {
-        //         this.setState({ saficationColour: i });
-        //     }
-        //     i++;
-        // }
     }
 
+    //Runs the code when the page starts.
     componentDidMount() {
         this.getData(this.state.currentPosForFeedback);
         this.getAnaylticDataSat();
         this.countryData(false);
     }
 
+    //Get the cvisted country data and how many times they have each country has visited the site.
     async countryData(key) {
         const res = await axios.get('http://localhost:8081/AnalyticsService/getAllUniqueCountryVisted/' + localStorage.getItem('SessionId'));
         let val = await res.data;
@@ -129,19 +100,21 @@ class Analytics extends Component {
     }
 
 
+    //Scroll through feedback
     pageRoll = (jump) => {
+        //Stop the page from jumping if no data found
         if (this.state.currentPosForFeedback + jump < 1)
             return;
 
         this.setState({ previousPosForFeedback: this.state.currentPosForFeedback });
         if (this.getData(this.state.currentPosForFeedback + jump) == null) return
         this.setState({ currentPosForFeedback: this.state.currentPosForFeedback + jump });
-        // console.log("this.state.currentPosForFeedback " + this.state.currentPosForFeedback);
         this.getData(this.state.currentPosForFeedback);
     }
 
+    //get the satification rates of each user for the overall feedback.
     async getAnaylticDataSat() {
-        const res = await axios.get('http://localhost:8081/AnalyticsService/getSatifcationRate/'  + localStorage.getItem('SessionId'));
+        const res = await axios.get('http://localhost:8081/AnalyticsService/getSatifcationRate/' + localStorage.getItem('SessionId'));
         let val = await res.data;
         this.setState({ satificationData: val });
         this.getIndexColourForSatRate();
@@ -149,9 +122,10 @@ class Analytics extends Component {
 
 
 
+    //handles the indivual feedback from getting it from the back end (by index number)
     async getData(pos) {
         if (pos < 1) return
-        const res = await axios.get('http://localhost:8081/AnalyticsService/getFeedback/'  + localStorage.getItem('SessionId') + '/' + pos);
+        const res = await axios.get('http://localhost:8081/AnalyticsService/getFeedback/' + localStorage.getItem('SessionId') + '/' + pos);
         let val = await res.data[0];
 
         if (val.text == "" && val.rating == "" && val.text == "") {
@@ -169,24 +143,6 @@ class Analytics extends Component {
             <div class="infoColour">
                 <div class="container py-2 infoColour no-gutters">
                     <Map class="py-5" />
-
-                    {/* <div class="row text-center py-4">
-                        <div class="col-12">
-                            <h4>Analytics: filters by usage</h4>
-                        </div>
-                    </div>
-
-                    <div class="row text-center ">
-                        <div class="col-2 " />
-                        <div class="col-8 feedback py-3 ">
-                            {this.FirstTable()}
-                            {this.FirstTable()}
-                            {this.FirstTable()}
-                            {this.FirstTable()}
-                            {this.FirstTable()}
-                        </div>
-                    </div> */}
-
 
                     <div class="row text-center py-4">
                         <div class="col-12">
@@ -216,11 +172,11 @@ class Analytics extends Component {
                         <div class="col-8 feedback py-3 ">
                             <div class="col-4 feedback mx-auto py-3">
                                 <p class="h-50 remove_overflow ">
-                                    <FontAwesomeIcon icon={faSkull} size='3x' color={this.state.saficationColour == 1 ? "yellow" : "white"} />
-                                    <FontAwesomeIcon icon={faAngry} size='3x' color={this.state.saficationColour == 2 ? "yellow" : "white"} />
-                                    <FontAwesomeIcon icon={faMeh} size='3x' color={this.state.saficationColour == 3 ? "yellow" : "white"} />
-                                    <FontAwesomeIcon icon={faGrin} size='3x' color={this.state.saficationColour == 4 ? "yellow" : "white"} />
-                                    <FontAwesomeIcon icon={faGrinAlt} size='3x ' color={this.state.saficationColour == 5 ? "yellow" : "white"} />
+                                    <FontAwesomeIcon icon={faSkull} size='3x' color={this.state.saficationColour == 0 ? "yellow" : "white"} />
+                                    <FontAwesomeIcon icon={faAngry} size='3x' color={this.state.saficationColour == 1 ? "yellow" : "white"} />
+                                    <FontAwesomeIcon icon={faMeh} size='3x' color={this.state.saficationColour == 2 ? "yellow" : "white"} />
+                                    <FontAwesomeIcon icon={faGrin} size='3x' color={this.state.saficationColour == 3 ? "yellow" : "white"} />
+                                    <FontAwesomeIcon icon={faGrinAlt} size='3x ' color={this.state.saficationColour == 4 ? "yellow" : "white"} />
                                 </p>
                             </div>
                             <div class="col-4 feedback mx-auto">
@@ -275,12 +231,6 @@ class Analytics extends Component {
                             </div>
                         </div>
                     </div>
-
-                    {/* <div class="col-2 fixed-bottom" />
-                    <div class="col-8 feedback py-3 fixed-bottom">
-                        <div>Type : {this.state.serverResponse.type}</div>
-                        <div>Rating : {this.state.serverResponse.rating}</div>
-                    </div> */}
 
                     <div class="row text-center">
                         <div class="col-2" />

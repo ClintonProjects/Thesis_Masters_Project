@@ -1,32 +1,34 @@
-// import React, { useState } from 'react';
-// import SockJsClient from 'react-stomp';
+//Orginal websocket attemps (Leaving this in for marks) would remove if professinal project
 
-// const SOCKET_URL = 'http://localhost:8080/ws-message';
+import React, { useState } from 'react';
+import SockJsClient from 'react-stomp';
 
-// const App = () => {
-//   const [message, setMessage] = useState('You server message here.');
+const SOCKET_URL = 'http://localhost:8080/ws-message';
 
-//   let onConnected = () => {
-//     console.log("Connected!!")
-//   }
+const App = () => {
+  const [message, setMessage] = useState('You server message here.');
 
-//   let onMessageReceived = (msg) => {
-//     setMessage(msg.message);
-//   }
+  let onConnected = () => {
+    console.log("Connected!!")
+  }
 
-//   return (
-//     <div>
-//       <SockJsClient
-//         url={SOCKET_URL}
-//         topics={['/topic/message']}
-//         onConnect={onConnected}
-//         onDisconnect={console.log("Disconnected!")}
-//         onMessage={msg => onMessageReceived(msg)}
-//         debug={false}
-//       />
-//       <div>{message}</div>
-//     </div>
-//   );
-// }
+  let onMessageReceived = (msg) => {
+    setMessage(msg.message);
+  }
 
-// export default App;
+  return (
+    <div>
+      <SockJsClient
+        url={SOCKET_URL}
+        topics={['/topic/message']}
+        onConnect={onConnected}
+        onDisconnect={console.log("Disconnected!")}
+        onMessage={msg => onMessageReceived(msg)}
+        debug={false}
+      />
+      <div>{message}</div>
+    </div>
+  );
+}
+
+export default App;

@@ -1,57 +1,59 @@
-// import React from 'react';
-// import { Client } from '@stomp/stompjs';
+//Orginal websocket attemps (Leaving this in for marks) would remove if professinal project
 
-// const SOCKET_URL = 'ws://localhost:8081/ws-message';
+import React from 'react';
+import { Client } from '@stomp/stompjs';
 
-// class App_Stomp extends React.Component {
-//   constructor() {
-//     super();
-//     this.state = {
-//       messages: 'You server message here.',
-//     };
-//   };
+const SOCKET_URL = 'ws://localhost:8081/ws-message';
 
-//   componentDidMount() {
-//     let currentComponent = this;
-//     let onConnected = () => {
-//       console.log("Connected!!")
-//       client.subscribe('/topic/message', function (msg) {
-//         if (msg.body) {
-//           var jsonBody = JSON.parse(msg.body);
-//           console.log(jsonBody);
-//           if (jsonBody.message) {
-//             currentComponent.setState({ messages: jsonBody.message })
-//             console.log(jsonBody);
-//           }
-//         }
-//       });
-//       console.log("done?");
-//     }
+class App_Stomp extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      messages: 'You server message here.',
+    };
+  };
 
-//     let onDisconnected = () => {
-//       console.log("Disconnected!!")
-//     }
+  componentDidMount() {
+    let currentComponent = this;
+    let onConnected = () => {
+      console.log("Connected!!")
+      client.subscribe('/topic/message', function (msg) {
+        if (msg.body) {
+          var jsonBody = JSON.parse(msg.body);
+          console.log(jsonBody);
+          if (jsonBody.message) {
+            currentComponent.setState({ messages: jsonBody.message })
+            console.log(jsonBody);
+          }
+        }
+      });
+      console.log("done?");
+    }
 
-//     const client = new Client({
-//       brokerURL: SOCKET_URL,
-//       reconnectDelay: 5000,
-//       heartbeatIncoming: 4000,
-//       heartbeatOutgoing: 4000,
-//       onConnect: onConnected,
-//       onDisconnect: onDisconnected
-//     });
+    let onDisconnected = () => {
+      console.log("Disconnected!!")
+    }
 
-//     client.activate();
-//   };
+    const client = new Client({
+      brokerURL: SOCKET_URL,
+      reconnectDelay: 5000,
+      heartbeatIncoming: 4000,
+      heartbeatOutgoing: 4000,
+      onConnect: onConnected,
+      onDisconnect: onDisconnected
+    });
 
-//   render() {
-//     return (
-//       <div>
-//         <div>{this.state.messages}</div>
-//       </div>
-//     );
-//   }
+    client.activate();
+  };
 
-// }
+  render() {
+    return (
+      <div>
+        <div>{this.state.messages}</div>
+      </div>
+    );
+  }
 
-// export default App_Stomp;
+}
+
+export default App_Stomp;

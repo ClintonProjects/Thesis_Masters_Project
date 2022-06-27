@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Login.css';
 import { Route, BrowserRouter as Router, Switch, Link } from "react-router-dom";
-import Hash from '../../Funuctions/Hash/Password.js';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -11,16 +10,19 @@ class Register extends Component {
         this.state = {
             attempts: 0,
         };
-        this.Login = this.Login.bind(this);
+        this.Register = this.Register.bind(this);
     }
 
-    guest () {
+    //This is basically copy andpaste of login page, just for register, I didn't want make the login super messy with alot of turner statements
+
+    //lets the user sign in as a guess
+    guest() {
         localStorage.setItem('SessionId', "guest");
         window.location.href = "http://localhost:3000/";
     };
 
-    async Login() {
-        console.log("Login");
+    //Allows the register the accounts, sends there details to back in and signs them in
+    async Register() {
         var sessionId = "";
         const requestOptions = {
             method: "POST",
@@ -42,7 +44,7 @@ class Register extends Component {
                 window.location.href = "http://localhost:3000/";
             }).catch(error => {
                 console.error('There was an error!', error);
-                this.setState({ attempts: this.state.attempts+1});
+                this.setState({ attempts: this.state.attempts + 1 });
                 console.log(this.state.attempts);
                 toast.error('username already been taken!', {
                     position: "bottom-center",
@@ -70,20 +72,14 @@ class Register extends Component {
                                 <div class="form-group">
                                     <label class="InputEmail"><b>Email address</b></label>
                                     <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email" />
-                                    {/* value={this.userEmail} */}
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1" class="passwordtexts"><b>Password</b></label>
                                     <input type="password" class="form-control" id='pass' placeholder="Password" />
-                                    {/* <p1>Forgot your password?</p1> */}
                                 </div>
-                                {/* <label>
-                                    <input type="checkbox" onClick={this.rememberMeOnChange} />
-                                    Remember my email
-                                </label> */}
                                 {this.state.attempts > 0 ? "User found or password or email is already found" : ""}
-                                <button type="submit" class="btn btn-primary LoginButton" onClick={this.Login}>Login</button>
-                                <Link onClick={ this.guest}>click here to login as guest</Link>
+                                <button type="submit" class="btn btn-primary LoginButton" onClick={this.Register}>Login</button>
+                                <Link onClick={this.guest}>click here to login as guest</Link>
                                 <Link to="/Login">
                                     <p>Sign in</p>
                                 </Link>
@@ -91,7 +87,6 @@ class Register extends Component {
                         </div>
                     </div>
                 </div>
-                {/* <div class="SideSpacer" /> */}
                 <ToastContainer />
             </div>
         );

@@ -1,6 +1,8 @@
 class Ipgrab {
 }
 
+//Grabs the user ip for the Analytics
+
 const publicIp = require('public-ip');
 
 Ipgrab.getIP = function () {

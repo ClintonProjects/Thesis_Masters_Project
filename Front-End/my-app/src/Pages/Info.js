@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import Information from '../Components/Information/information.js';
-import Nav2 from '../Components/NavigationBar/bar2.js';
+import Nav2 from '../Components/NavigationBar/bar.js';
 import Footer from '../Components/Footer/footer.js';
 
 class Info extends Component {
@@ -11,11 +11,12 @@ class Info extends Component {
         };
     }
 
+    // displayes the user info page (wall of text)
     render() {
         return (
             <div className="App">
                 <Nav2 currency={this.props.currency} />
-                <Information/>
+                <Information />
                 <Footer />
             </div>
         );

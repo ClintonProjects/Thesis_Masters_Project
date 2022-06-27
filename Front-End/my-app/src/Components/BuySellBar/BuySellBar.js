@@ -12,6 +12,7 @@ export default class BuySellBar extends Component {
         }
     }
 
+    //Connects to websock which get data for the return the moving BTC bar datas
     connect = () => {
         const socket = new SockJS("http://localhost:8080/simulator");
         stompClient = Stomp.over(socket);
@@ -24,9 +25,10 @@ export default class BuySellBar extends Component {
         });
     };
 
+    //start the websock
     componentDidMount() {
         this.connect();
-        this.interval = setInterval(() => this.getData(), 1000);
+        this.interval = setInterval(() => this.getData(), 100);
     }
 
     getData() {

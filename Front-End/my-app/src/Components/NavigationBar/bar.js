@@ -1,70 +1,170 @@
-// import React, { Component } from 'react';
-// import './bar.css';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faUser, faTicketAlt, faSignInAlt, faAngleDown } from '@fortawesome/free-solid-svg-icons';
-// import pikachu from './coin.png';
-// import Homepage from '../../Pages/PreloginHomepage.js';
-// import { Route, BrowserRouter as Router, Switch, Link } from "react-router-dom";
-// import eu from './eu.png';
-// import usa from './usa.png';
-// import globe from './globe.png';
+import React, { Component } from 'react';
+import './bar.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faTicketAlt, faSignInAlt, faAngleDown, faComment, faDatabase, faStickyNote, faHouseUser } from '@fortawesome/free-solid-svg-icons';
+import pikachu from './coin.png';
+import Homepage from '../../Pages/PreloginHomepage.js';
+import { Route, BrowserRouter as Router, Switch, Link } from "react-router-dom";
+import eu from './eu.png';
+import usa from './usa.png';
+import globe from './globe.png';
+import { Navbar, Nav, NavDropdown, Form, FormControl, Button, Container, Dropdown, DropdownButton } from 'react-bootstrap'
+import { TextField, validator } from 'react-textfield';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import axios, * as others from 'axios';
+
+class Bar extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            flag: 'All',
+            userActive: false,
+            nav: false,
+        };
+        this.displayFlagOnNav = this.displayFlagOnNav.bind(this);
+        this.toggleFlag = this.toggleFlag.bind(this);
+        this.signOut = this.signOut.bind(this);
+        this.isVerifyUserSignedIn = this.isVerifyUserSignedIn.bind(this);
+        this.redriectToPage = this.redriectToPage.bind(this);
+        this.buttonSymbol = this.buttonSymbol.bind(this);
+        this.redriectToPageNoAuth = this.redriectToPageNoAuth.bind(this);
+    }
 
 
-// class Bar extends Component {
+    //Displays a flag next in nav bar based on what user choices to display (THIS IS NOT USED IN FINAL VERSION)
+    displayFlagOnNav(flag) {
+        console.log('Display flag = ' + flag);
+        if (flag === "All") {
+            return (<a href="javascript:void(0)" onClick={this.toggleFlag('All')}><img src={globe} alt="HeadImage" class="euflag" /> All</a>);
+        } else if (flag === "EU") {
+            return (<a href="javascript:void(0)" onClick={this.toggleFlag('EU')}  ><img src={eu} alt="HeadImage" class="euflag" /> Euro</a>);
+        } else if (flag === "USA")
+            return (<a href="javascript:void(0)" onClick={this.toggleFlag('USA')}><img src={usa} alt="HeadImage" class="euflag" /> USD</a>);
+    }
 
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//             flag: 'All',
-//         };
-//         this.displayFlagOnNav = this.displayFlagOnNav.bind(this);
-//         this.toggleFlag=this.toggleFlag.bind(this);
-//     }
+    //Allows the user to change there currency (THIS IS NOT USED IN FINAL VERSION)
+    toggleFlag(flag) {
+        console.log('Update flag = ' + flag);
+        this.state.flag = flag;
+    }
+
+    //Allows the user to sign out of the application
+    signOut() {
+        localStorage.removeItem('SessionId');
+        toast.error('You have successfully signed out!', {
+            position: "bottom-center",
+            autoClose: 1500,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: false,
+        });
+        setTimeout(function () {
+            window.location.href = "http://localhost:3000/";
+        }, 2000);
+    }
+
+    //Redirect the user to a page with auth
+    redriectToPage(link) {
+        if (!this.state.userActive)
+            window.location.href = "http://localhost:3000" + link;
+    }
+
+    //Redirect the user to a page (doesn't check auth)
+    redriectToPageNoAuth(link) {
+        window.location.href = "http://localhost:3000" + link;
+    }
+
+    //verfies if the user is signed into the application.
+    isVerifyUserSignedIn() {
+        console.log("[NAV BAR] id is checked " + this.state.userActive + " " + localStorage.getItem('SessionId'));
+        // || localStorage.getItem('SessionId').length === 0
+        if (localStorage.getItem('SessionId') != null || localStorage.getItem('SessionId'))
+            this.setState({ userActive: true });
+        else
+            this.setState({ userActive: false });
+    }
+
+    //.............
+    async getAnaylticDataSat() {
+        const res = await axios.get('http://localhost:8081/AnalyticsService/AnaylticsRedirect/' + localStorage.getItem('SessionId'));
+        let val = await res.data;
+        if (val == 'a')
+            this.setState({ nav: true });
+    }
+
+    //handles process at that need to be handled at the start of the app
+    componentDidMount() {
+        this.isVerifyUserSignedIn();
+        this.getAnaylticDataSat();
+    }
 
 
-//     displayFlagOnNav(flag) {
-//         console.log('Display flag = ' + flag);
-//         if (flag === "All") {
-//             return (<a href="javascript:void(0)" class="dropbtn" onClick={this.toggleFlag('All')}><img src={globe} alt="HeadImage" class="euflag" /> All</a>);
-//         } else if (flag === "EU") {
-//             return (<a href="javascript:void(0)" class="dropbtn" onClick={this.toggleFlag('EU')}  ><img src={eu} alt="HeadImage" class="euflag" /> Euro</a>);
-//         } else if (flag === "USA")
-//             return (<a href="javascript:void(0)" class="dropbtn" onClick={this.toggleFlag('USA')}><img src={usa} alt="HeadImage" class="euflag" /> USD</a>);
-//     }
-
-//     toggleFlag(flag) {
-//         console.log('Update flag = ' + flag);
-//         this.state.flag = flag;
-//         //this.props.currency = flag;
-//     }
+    buttonSymbol() {
+        return (
+            <a><FontAwesomeIcon icon={faUser} /> Navagation</a>);
+    }
 
 
-//     render() {
-//         return (
-//             <div className="nav-colour">
-//                 <div className="smallspace" />
-//                 <div className="LeftOfNav">
-//                     <div class="nav-brand">
-//                         <Link to="/">
-//                             <h1><img src={pikachu} alt="HeadImage" class="pikachuimage" /><b>BTCInfo</b></h1>
-//                         </Link>
-//                     </div>
-//                 </div>
-//                 <div class="nav-support-button">
-//                 {/* <h1><Link to="/login">Sign Up/In</Link></h1> */}
-//                     <li class="dropdown">
-//                         <a href="javascript:void(0)" class="dropbtn">{this.displayFlagOnNav(this.state.flag)}</a>
-//                         <div class="dropdown-content">
-//                             {/* <a href="#"><img src={globe} alt="HeadImage" class="euflag" onClick={(e) => this.toggleFlag('All')}/> All</a>
-//                             <a href="#"><img src={eu} alt="HeadImage" class="euflag" onClick={(e) => this.toggleFlag('EU')}/> Euro</a>
-//                             <a href="#"><img src={usa} alt="HeadImage" class="euflag" onClick={(e) => this.toggleFlag('USA')}/> USD</a> */}
-//                         </div>
-//                     </li>
-//                 </div>
-//             </div>
-//         );
-//     }
-// }
+    render() {
+        const isVerifyUserSignedIn = this.state.isVerifyUserSignedIn;
+        return (
+            <header class="nav-colour no-gutters">
+                <div class="container py-2 no-gutters">
+                    <a class="navbar-brand text-white" href="#" onClick={(e) => this.redriectToPageNoAuth('')}>
+                        <img src={pikachu} alt="HeadImage" height={"30px"} width={"30px"} />
+                        <b>BTCInfo</b>
+                    </a>
+                    <div class="float-end">
+                        <DropdownButton id="dropdown-button-dark-example2" class="no-gutter" variant="secondary" menuVariant="dark"
+                            title={this.buttonSymbol()}>
 
-// export default Bar;
+                            <NavDropdown.Item onClick={(e) => this.redriectToPageNoAuth('/')}>
+                                <FontAwesomeIcon icon={faHouseUser} />
+                                &nbsp; HomePage
+                            </NavDropdown.Item>
+
+                            <NavDropdown.Item onClick={(e) => this.redriectToPageNoAuth('/info')}>
+                                <FontAwesomeIcon icon={faComment} />
+                                &nbsp; Info/FAQ
+                            </NavDropdown.Item>
+
+                            {
+                                this.state.nav == true ? <NavDropdown.Item onClick={(e) => this.redriectToPageNoAuth('/analytics')}>
+                                    <FontAwesomeIcon icon={faDatabase} />
+                                    &nbsp; Analytics
+                                </NavDropdown.Item> : ""
+                            }
+
+
+                            {this.state.userActive ?
+                                <NavDropdown.Item onClick={(e) => this.redriectToPageNoAuth('/feedback')}>
+                                    <FontAwesomeIcon icon={faStickyNote} />
+                                    &nbsp; Feedback/Suggestion
+                                </NavDropdown.Item>
+                                : ""}
+
+                            {!this.state.userActive ?
+                                <NavDropdown.Item onClick={(e) => this.redriectToPage('/Register')}><FontAwesomeIcon icon={faUser} />&nbsp; Register </NavDropdown.Item> : ''}
+                            {!this.state.userActive ?
+                                <NavDropdown.Item onClick={(e) => this.redriectToPage('/login')}><FontAwesomeIcon icon={faSignInAlt} />&nbsp; Sign In</NavDropdown.Item>
+                                :
+                                <NavDropdown.Item onClick={(e) => this.signOut()}><FontAwesomeIcon icon={faSignInAlt} />&nbsp; Sign Out</NavDropdown.Item>}
+
+                        </DropdownButton>
+                    </div>
+                </div>
+                <ToastContainer />
+            </header >
+        )
+    }
+}
+
+
+
+
+export default Bar;
 

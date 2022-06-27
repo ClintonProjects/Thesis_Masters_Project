@@ -27,7 +27,7 @@ public class Auth {
 		if (userSession == null)
 			return false;
 		Login user = UserLoginTable.findBy_id(userSession.getUserId());
-		if (!user.isUserAdmin())
+		if (user.isUserAdmin())
 			return true;
 		else
 			return false;
