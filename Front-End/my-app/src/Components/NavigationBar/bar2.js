@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './bar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faTicketAlt, faSignInAlt, faAngleDown, faComment, faDatabase, faStickyNote,faHouseUser } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faTicketAlt, faSignInAlt, faAngleDown, faComment, faDatabase, faStickyNote, faHouseUser } from '@fortawesome/free-solid-svg-icons';
 import pikachu from './coin.png';
 import Homepage from '../../Pages/PreloginHomepage.js';
 import { Route, BrowserRouter as Router, Switch, Link } from "react-router-dom";
@@ -12,7 +12,7 @@ import { Navbar, Nav, NavDropdown, Form, FormControl, Button, Container, Dropdow
 import { TextField, validator } from 'react-textfield';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import axios, * as others from 'axios';
 
 class Bar extends Component {
 
@@ -21,6 +21,7 @@ class Bar extends Component {
         this.state = {
             flag: 'All',
             userActive: false,
+            nav: false,
         };
         this.displayFlagOnNav = this.displayFlagOnNav.bind(this);
         this.toggleFlag = this.toggleFlag.bind(this);
@@ -84,12 +85,23 @@ class Bar extends Component {
             this.setState({ userActive: false });
     }
 
+    async getAnaylticDataSat() {
+        const res = await axios.get('http://localhost:8081/AnalyticsService/AnaylticsRedirect/' + localStorage.getItem('SessionId'));
+        let val = await res.data;
+        console.log("VAL" + val);
+        if (val == 'a')
+            this.setState({ nav: true });
+        console.log("state: " + this.state.nav);
+    }
+
+
     handleStatusChange(satus) {
         this.isVerifyUserSignedIn();
     }
 
     componentDidMount() {
         this.isVerifyUserSignedIn();
+        this.getAnaylticDataSat();
     }
 
     buttonSymbol() {
@@ -108,7 +120,7 @@ class Bar extends Component {
                         <b>BTCInfo</b>
                     </a>
                     <div class="float-end">
-                        <DropdownButton id="dropdown-button-dark-example2" variant="secondary" menuVariant="dark"
+                        <DropdownButton id="dropdown-button-dark-example2" class="no-gutter" variant="secondary" menuVariant="dark"
                             title={this.buttonSymbol()}>
 
                             <NavDropdown.Item onClick={(e) => this.redriectToPageNoAuth('/')}>
@@ -120,10 +132,14 @@ class Bar extends Component {
                                 <FontAwesomeIcon icon={faComment} />
                                 &nbsp; Info/FAQ
                             </NavDropdown.Item>
-                            <NavDropdown.Item onClick={(e) => this.redriectToPageNoAuth('/analytics')}>
-                                <FontAwesomeIcon icon={faDatabase} />
-                                &nbsp; Analytics
-                            </NavDropdown.Item>
+
+                            {
+                                this.state.nav == true ? <NavDropdown.Item onClick={(e) => this.redriectToPageNoAuth('/analytics')}>
+                                    <FontAwesomeIcon icon={faDatabase} />
+                                    &nbsp; Analytics
+                                </NavDropdown.Item> : ""
+                            }
+
 
                             {this.state.userActive ?
                                 <NavDropdown.Item onClick={(e) => this.redriectToPageNoAuth('/feedback')}>

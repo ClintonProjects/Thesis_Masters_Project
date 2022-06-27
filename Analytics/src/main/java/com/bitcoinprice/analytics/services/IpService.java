@@ -24,6 +24,9 @@ public class IpService {
 	@Autowired
 	private IpRepository exampleRepository;
 	
+	@Autowired
+	Auth auth;
+
 	public void saveIp(Map<String, String> jsonJavaRootObject2) throws UnknownHostException {
 		// Gets the IPS from the map.
 		String ipv4 = jsonJavaRootObject2.getOrDefault("ipv4", "");
@@ -38,21 +41,21 @@ public class IpService {
 		 */
 
 		if (!ipv4.isBlank() && exampleRepository.findByipv4(ipv4) != null) {
-			//System.out.println("IPV4 is presant in the database.");
+			// System.out.println("IPV4 is presant in the database.");
 			// if the IP is already in the database, then set increase the visits.
 			UserIPInformation ipObject = exampleRepository.findByipv4(ipv4);
 			ipObject.incrementVisit();
 			exampleRepository.save(ipObject);
 			return;
 		} else if (!ipv6.isBlank() && exampleRepository.findByipv6(ipv6) != null) {
-			//System.out.println("ipv6 is presant in the database.");
+			// System.out.println("ipv6 is presant in the database.");
 			// if the IP is already in the database, then set increase the visits.
 			UserIPInformation ipObject = exampleRepository.findByipv6(ipv6);
 			ipObject.incrementVisit();
 			exampleRepository.save(ipObject);
 			return;
 		} else {
-			//System.out.println("ip is not  in the database.");
+			// System.out.println("ip is not in the database.");
 			// if the IP is not in the database, then add it to the database.
 			UserIPInformation temp = new UserIPInformation(new ObjectId(), ipv4, ipv6);
 			exampleRepository.save(temp);
@@ -60,32 +63,36 @@ public class IpService {
 		}
 	}
 
-	public Map<String, Integer> getAllUniqueCountryVisted() {
-		// returns list of countries in order of visits (These are single views or
-		// unique)
-		List<String> addresses = exampleRepository.findAll().stream().map(UserIPInformation::getCountryFromLocation)
-				.sorted().collect(Collectors.toList());
-		Map<String, Integer> map = new HashMap<String, Integer>();
-		for (String i : addresses)
-			if (!map.containsKey(i))
-				map.put(i, 1);
-			else
-				map.put(i, map.get(i) + 1);
-		return map.entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())).collect(Collectors
-				.toMap(Map.Entry::getKey, Map.Entry::getValue, (oldValue, newValue) -> oldValue, LinkedHashMap::new));
+	public Map<String, Integer> getAllUniqueCountryVisted(String id) {
+		if (auth.AuthUserBySessionId(id)) {
+			// returns list of countries in order of visits (These are single views or
+			// unique)
+			List<String> addresses = exampleRepository.findAll().stream().map(UserIPInformation::getCountryFromLocation)
+					.sorted().collect(Collectors.toList());
+			Map<String, Integer> map = new HashMap<String, Integer>();
+			for (String i : addresses)
+				if (!map.containsKey(i))
+					map.put(i, 1);
+				else
+					map.put(i, map.get(i) + 1);
+			return map.entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+					.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (oldValue, newValue) -> oldValue,
+							LinkedHashMap::new));
+		} else
+			return null;
 	}
 
 	public Map<String, Integer> getAllCountryVisted() {
 		// returns list of countries in order of visits
 		List<UserIPInformation> ipObject = exampleRepository.findAll();
 		Map<String, Integer> map = new HashMap<String, Integer>();
-		
+
 		for (UserIPInformation i : ipObject)
 			if (!map.containsKey(i.getCountryFromLocation()))
 				map.put(i.getCountryFromLocation(), i.getNumberOfVisit());
 			else
 				map.put(i.getCountryFromLocation(), map.get(i.getCountryFromLocation()) + i.getNumberOfVisit());
-		
+
 		return map.entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())).collect(Collectors
 				.toMap(Map.Entry::getKey, Map.Entry::getValue, (oldValue, newValue) -> oldValue, LinkedHashMap::new));
 	}

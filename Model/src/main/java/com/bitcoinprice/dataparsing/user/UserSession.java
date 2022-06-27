@@ -1,16 +1,21 @@
 package com.bitcoinprice.dataparsing.user;
 
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 
 import org.bson.types.ObjectId;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 public class UserSession {
 
@@ -74,21 +79,17 @@ public class UserSession {
 	}
 
 	public void updateActiveSession() {
-		Calendar cal = Calendar.getInstance();
-		cal.add(Calendar.MONTH, 1);
-		Date curretTimeAddOneMonth = cal.getTime();
+		System.out.println(LocalDateTime.ofInstant(getTime().toInstant(), ZoneOffset.UTC));
+		System.out.println(LocalDateTime.ofInstant(Instant.now(), ZoneOffset.UTC).minus(30, ChronoUnit.DAYS));
 		
-		System.out.println(Calendar.getInstance().getTime());
-		System.out.println(curretTimeAddOneMonth);
-		
-	
-		
-		
-		if (Calendar.getInstance().getTime().after(curretTimeAddOneMonth))
-		setActiveSession(false);
-		else 
-		//in case of error cases
-		setActiveSession(true);
+		if (LocalDateTime.ofInstant(getTime().toInstant(), ZoneOffset.UTC)
+				.isAfter(LocalDateTime.ofInstant(Instant.now(), ZoneOffset.UTC).minus(30, ChronoUnit.DAYS))) {
+			this.activeSession = false;
+			System.out.println(false);
+		} else {
+			// in case of error cases
+			this.activeSession = true;
+			System.out.println(true);
+		}
 	}
-
 }

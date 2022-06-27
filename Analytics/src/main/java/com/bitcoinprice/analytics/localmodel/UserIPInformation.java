@@ -43,7 +43,8 @@ public class UserIPInformation {
 				+ "?fields=status,message,continent,continentCode,country,countryCode,region,regionName,city,district,zip,lat,lon,timezone,offset,currency,isp,org,as,asname,reverse,mobile,proxy,hosting,query";
 		HashMap<?, ?> e = new RestTemplate().getForObject(uri, HashMap.class);
 		location = new LocationBasedIP(e.get("continent"), e.get("country"), e.get("city"), e.get("regionName"),
-				e.get("timezone"), e.get("isp"), e.get("mobile"), e.get("proxy"), e.get("hosting"));
+				e.get("timezone"), e.get("isp"), e.get("mobile"), e.get("proxy"), e.get("hosting")
+				, e.get("lat"), e.get("lon"));
 	}
 
 	public String getCountryFromLocation() {

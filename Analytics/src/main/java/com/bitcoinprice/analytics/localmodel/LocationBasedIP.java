@@ -8,6 +8,8 @@ public class LocationBasedIP {
 	private String regionName;
 	private String timezone;
 	private String isp;
+	private Double Long;
+	private Double Lat;
 	private boolean isMobile;
 	private boolean isProxy;
 	private boolean isHosting;
@@ -16,7 +18,7 @@ public class LocationBasedIP {
 	}
 
 	public LocationBasedIP(Object object, Object object2, Object object3, Object object4, Object object5, Object object6,
-			Object object7, Object object8, Object object9) {
+			Object object7, Object object8, Object object9 , Object object10, Object object11) {
 		super();
 		this.continent = (String) object;
 		this.country = (String) object2;
@@ -27,6 +29,8 @@ public class LocationBasedIP {
 		this.isMobile = (boolean) object7;
 		this.isProxy = (boolean) object8;
 		this.isHosting = (boolean) object9;
+		this.Long = (Double) object10;
+		this.Lat = (Double) object11;
 	}
 
 	public String getContinent() {
@@ -101,4 +105,19 @@ public class LocationBasedIP {
 		this.isHosting = isHosting;
 	}
 
+	public Double getLong() {
+		return Long;
+	}
+
+	public void setLong(Double l) {
+		Long = l;
+	}
+
+	public Double getLat() {
+		return Lat;
+	}
+
+	public void setLat(Double lat) {
+		Lat = lat;
+	}
 }

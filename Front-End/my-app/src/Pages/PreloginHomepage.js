@@ -9,7 +9,8 @@ import BTCPrices from '../Components/BTCPrices/BTCPrices.js';
 import Banner from '../Components/BannerSpot/Banner.js';
 import Spacers from '../Components/Spacers/Spacer.js';
 import BTCRealTimePrices from '../Components/BTCRealTimePrices/BTCRealTimePrices.js';
-
+import { ProSidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
+import 'react-pro-sidebar/dist/css/styles.css';
 
 class PreloginHomepage extends Component {
     constructor(props) {
@@ -19,15 +20,13 @@ class PreloginHomepage extends Component {
     }
 
     render() {
-        console.log("currency: "+ this.props.currency);
+        console.log("currency: " + this.props.currency);
         return (
             <div className="App">
-                <Nav currency = {this.props.currency}/>
+                <Nav currency={this.props.currency} />
                 <TVGraph />
-                <Text/> 
-                {/* <BTCPrices currency = {this.props.currency}/> */}
-                <Banner/> 
-                {/* <BTCRealTimePrices /> */}
+                <Text />
+                <Banner />
                 <Footer />
             </div>
         );

@@ -5,6 +5,7 @@ import { faAngry, faGrin, faGrinAlt, faMeh, faSkull } from '@fortawesome/free-so
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+var result;
 class Suggestion extends Component {
     constructor(props) {
         super(props);
@@ -63,10 +64,23 @@ class Suggestion extends Component {
     }
 
     async SubmitDocument() {
-
         if (this.state.clicked == 50 || document.getElementById('comment').value == "") {
             console.log("NO VALUES FOUND");
             toast.error('You are missing required entry', {
+                position: "bottom-center",
+                autoClose: 2500,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: false,
+
+            });
+            return;
+        }
+        if (document.getElementById('comment').value.length > 200) {
+            console.log("NO VALUES FOUND");
+            toast.error('You cant enter more then 150 charaters', {
                 position: "bottom-center",
                 autoClose: 2500,
                 hideProgressBar: true,
@@ -111,9 +125,6 @@ class Suggestion extends Component {
             });
 
     }
-
-
-
 
     render() {
         return (

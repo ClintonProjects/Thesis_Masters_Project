@@ -19,7 +19,7 @@ Ipgrab.getIP = function () {
             body: JSON.stringify({ "ipv4": ipv4, "ipv6": ipv6 })
         };
 
-        fetch('http://localhost:8080/AnalyticsService/AnalyticsData', requestOptions)
+        fetch('http://localhost:8081/AnalyticsService/AnalyticsData', requestOptions)
             .then(async response => {
                 const data = await response.json();
 

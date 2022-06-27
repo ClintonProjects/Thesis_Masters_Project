@@ -60,10 +60,22 @@ export default class BTCPrices extends Component {
 
     setCoinFilter(flipCoin) {
         //displays only these coins
-        if (flipCoin == "BTC") this.setState({ btcFilter: !this.state.btcFilter });
-        if (flipCoin == "ETH") this.setState({ ethFilter: !this.state.ethFilter });
-        if (flipCoin == "LTC") this.setState({ ltcFilter: !this.state.ltcFilter });
-        if (flipCoin.toUpperCase() == "All".toUpperCase()) {
+        if (flipCoin == "BTC") { 
+            this.setState({ btcFilter: true });
+            this.setState({ ethFilter: false });
+            this.setState({ ltcFilter: false });
+         }
+        else if (flipCoin == "ETH") {
+            this.setState({ btcFilter: false });
+            this.setState({ ethFilter: true });
+            this.setState({ ltcFilter: false });
+        }
+        else if (flipCoin == "LTC") {
+            this.setState({ btcFilter: false });
+            this.setState({ ethFilter: false });
+            this.setState({ ltcFilter: true });
+        }
+        else if (flipCoin.toUpperCase() == "All".toUpperCase()) {
             this.setState({ btcFilter: false });
             this.setState({ ethFilter: false });
             this.setState({ ltcFilter: false });
@@ -95,6 +107,11 @@ export default class BTCPrices extends Component {
     }
 
     setCurrencyConver(currency) {
+        if (currency.toUpperCase() != "all".toUpperCase())
+        localStorage.setItem('currency', currency.toUpperCase());
+        else 
+        localStorage.setItem('currency', "USD".toUpperCase());
+
         this.setState({ currencyConvert: currency.toUpperCase() });
 
         toast.info('Currency converter set to ' + currency.toUpperCase(), {
@@ -109,8 +126,6 @@ export default class BTCPrices extends Component {
     }
 
     setCurrency(currency) {
-        if (currency.toUpperCase() != "all".toUpperCase())
-            localStorage.setItem('currency', currency.toUpperCase());
         this.setState({ cointype: currency.toUpperCase() });
 
         toast.info('Currency set to ' + currency.toUpperCase(), {
@@ -186,11 +201,11 @@ export default class BTCPrices extends Component {
                 this.setState({ items: this.state.items.filter(i => i.size * i.price > this.state.filterAmountByCurrency) })
 
             if (this.state.btcFilter)
-                this.setState({ items: this.state.items.filter(i => i.cypto.toUpperCase() != "BTC") })
+                this.setState({ items: this.state.items.filter(i => i.cypto.toUpperCase() == "BTC") })
             if (this.state.ltcFilter)
-                this.setState({ items: this.state.items.filter(i => i.cypto.toUpperCase() != "LTC") })
+                this.setState({ items: this.state.items.filter(i => i.cypto.toUpperCase() == "LTC") })
             if (this.state.ethFilter)
-                this.setState({ items: this.state.items.filter(i => i.cypto.toUpperCase() != "ETH") })
+                this.setState({ items: this.state.items.filter(i => i.cypto.toUpperCase() == "ETH") })
             if (this.state.cointype == "USD".toUpperCase())
                 this.setState({ items: this.state.items.filter(i => i.currency.toUpperCase() == "USD") })
             if (this.state.cointype == "EUR".toUpperCase())
@@ -201,8 +216,8 @@ export default class BTCPrices extends Component {
                 this.setState({ items: this.state.items.filter(i => i.exchange.toUpperCase() == "Bitmex".toUpperCase()) })
             if (this.state.exchange == "Binance".toUpperCase())
                 this.setState({ items: this.state.items.filter(i => i.exchange.toUpperCase() == "Binance".toUpperCase()) })
-            if (this.state.exchange == "Coinbase Pro".toUpperCase())
-                this.setState({ items: this.state.items.filter(i => i.exchange.toUpperCase() == "Coinbase Pro".toUpperCase()) })
+            if (this.state.exchange.trim() == "Coinbase Pro".trim().toUpperCase())
+                this.setState({ items: this.state.items.filter(i => i.exchange.trim().toUpperCase() == "Coinbase Pro".trim().toUpperCase()) })
             if (this.state.BSstate == "BUY".toUpperCase())
                 this.setState({ items: this.state.items.filter(i => i.side.toUpperCase() == "BUY".toUpperCase()) })
             if (this.state.BSstate == "SELL".toUpperCase())
@@ -256,11 +271,11 @@ export default class BTCPrices extends Component {
         else if (this.state.items[inc].cypto.toUpperCase() == "ETH")
             return (<p1><img src={eth} alt="HeadImage" className="btcImage" /></p1>)
         else if (this.state.items[inc].cypto.toUpperCase() == "LTC")
-            return (<p1><img src={ltc} alt="HeadImage" className="btcImage" /></p1>)
+            return (<p1><img src={ltc} alt="HeadImage" classNamSe="btcImage" /></p1>)
     }
 
     replaceExchange(inc) {
-        if (this.state.items[inc].exchange.toUpperCase() == "COINBASE PRO")
+        if (this.state.items[inc].exchange.trim().toUpperCase() == "COINBASE PRO".trim())
             return (<p1><img src={coinbase} alt="HeadImage" className="btcImage" />Coinbase</p1>)
         if (this.state.items[inc].exchange.toUpperCase() == "binance".toUpperCase())
             return (<p1><img src={binance} alt="HeadImage" className="btcImage" />Binance</p1>)

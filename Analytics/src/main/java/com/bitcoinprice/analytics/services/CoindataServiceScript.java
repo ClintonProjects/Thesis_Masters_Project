@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,7 +25,7 @@ import com.bitcoinprice.dataparsing.coindata.RealTimeBTCData;
 
 @Service
 @ComponentScan({ "com.bitcoinprice", "com.bitcoinprice.repository" })
-public class CoindataService {
+public class CoindataServiceScript {
 
 	@Autowired
 	private BitcoinPriceData bitcoinPriceData;
@@ -32,30 +33,35 @@ public class CoindataService {
 	@Autowired
 	private BardataRepository bardataRepository;
 
+	private final List<String> CYPTO = Arrays.asList("BTC", "LTC", "ETH");
+	private final List<String> EXCHANGE = Arrays.asList("COINBASE PRO", "BITMEX", "BINANCE");
+	private final List<String> CURRENCY = Arrays.asList("USD", "EUR", "GBP");
+
 	// Stores data about the bar in database.
 	public void buySellBar(String exchange, String currency, String cointype) throws Exception {
 		// could just return here, but rather have the error message.
 		if (currency == null || cointype == null || exchange == null)
 			throw new Exception("needs all 3 exchanges to not be null to work");
 		// filters the data so we only get the content we need.
-		List<ExchangeDataRecieved> previousMinList = bitcoinPriceData.findAll().stream()
-				.filter(i -> i.getCurrency().equalsIgnoreCase(currency))
-				.filter(i -> i.getCypto().equalsIgnoreCase(cointype))
-				.filter(i -> i.getExchange().equalsIgnoreCase(exchange))
+		List<ExchangeDataRecieved> previousMinList = bitcoinPriceData.findAll().stream().distinct()
+				.filter(i -> i.getCurrency().trim().equalsIgnoreCase(currency.trim()))
+				.filter(i -> i.getCypto().trim().equalsIgnoreCase(cointype.trim()))
+				.filter(i -> i.getExchange().trim().equalsIgnoreCase(exchange.trim()))
 				.filter(i -> Duration.between(LocalDateTime.ofInstant(i.getTimestamp1(), ZoneOffset.UTC),
 						LocalDateTime.ofInstant(Instant.now(), ZoneOffset.UTC)).toSeconds() <= 60)
 				.collect(Collectors.toList());
 		// Just to keep easier to read.
-		long buyCount = previousMinList.stream().filter(i -> i.getSide().equalsIgnoreCase("Buy")).count();
+		long buyCount = previousMinList.stream().distinct().filter(i -> i.getSide().equalsIgnoreCase("Buy")).count();
 		// Builder, just neater then 100 setters.
 		Bardata barData = new Bardata.Builder().exchange(exchange).currency(currency).cypto(cointype)
 				.buyPercentage((buyCount * 100.0f) / previousMinList.size())
 				.sellPercentage(100 - ((buyCount * 100.0f) / previousMinList.size()))
-				.realTimeBTCData(averagePrice(exchange, currency, cointype)).dataSize(previousMinList.size()).build();
+//				.realTimeBTCData(averagePrice(exchange, currency, cointype))
+				.dataSize(previousMinList.size()).build();
 
 //		this.totalBuys = totalBuys;
 //		this.totalSells = totalSells;
-		barData.addExchangeDataRecieved(new ArrayList<ExchangeDataRecieved>(previousMinList));
+//		barData.addExchangeDataRecieved(new ArrayList<ExchangeDataRecieved>(previousMinList));
 
 		// doesn't save if we have a count of 0, this is because we sometimes have times
 		// were low cap coins have no good data. example ltc
@@ -66,11 +72,13 @@ public class CoindataService {
 	public RealTimeBTCData averagePrice(String exchange, String currency, String cointype) throws Exception {
 		if (currency == null || cointype == null || exchange == null)
 			throw new Exception("needs all 3 exchanges to not be null to work");
-
-		List<ExchangeDataRecieved> previousMinList = bitcoinPriceData.findAll().stream()
-				.filter(i -> i.getCurrency().equalsIgnoreCase(currency))
-				.filter(i -> i.getCypto().equalsIgnoreCase(cointype))
-				.filter(i -> i.getExchange().equalsIgnoreCase(exchange))
+		List<ExchangeDataRecieved> db = bitcoinPriceData.findAll();
+		
+		
+		List<ExchangeDataRecieved> previousMinList = db.stream().distinct()
+				.filter(i -> i.getCurrency().trim().equalsIgnoreCase(currency.trim()))
+				.filter(i -> i.getCypto().trim().equalsIgnoreCase(cointype.trim()))
+				.filter(i -> i.getExchange().trim().equalsIgnoreCase(exchange.trim()))
 				.filter(i -> Duration.between(LocalDateTime.ofInstant(i.getTimestamp1(), ZoneOffset.UTC),
 						LocalDateTime.ofInstant(Instant.now(), ZoneOffset.UTC)).toSeconds() <= 60)
 				.collect(Collectors.toList());
@@ -78,10 +86,10 @@ public class CoindataService {
 		if (previousMinList.size() == 0)
 			return null;
 
-		List<ExchangeDataRecieved> afterMinList = bitcoinPriceData.findAll().stream()
-				.filter(i -> i.getCurrency().equalsIgnoreCase(currency))
-				.filter(i -> i.getCypto().equalsIgnoreCase(cointype))
-				.filter(i -> i.getExchange().equalsIgnoreCase(exchange))
+		List<ExchangeDataRecieved> afterMinList = db.stream().distinct()
+				.filter(i -> i.getCurrency().trim().equalsIgnoreCase(currency.trim()))
+				.filter(i -> i.getCypto().trim().equalsIgnoreCase(cointype.trim()))
+				.filter(i -> i.getExchange().trim().equalsIgnoreCase(exchange.trim()))
 				.filter(i -> Duration
 						.between(LocalDateTime.ofInstant(i.getTimestamp1(), ZoneOffset.UTC),
 								LocalDateTime.ofInstant(Instant.now(), ZoneOffset.UTC))
@@ -104,34 +112,17 @@ public class CoindataService {
 
 		return realTimeBTCData;
 	}
-	
-	@Async
-//	@Scheduled(fixedRate = 1000 * 15, initialDelay = 1000 * 60)
+
+	@Scheduled(fixedRate = 1000 * 60
+//			, initialDelay = 1000 * 60
+			)
 	public void scheduledUpdate() throws Exception {
 		// This data is used for analytics part of project it's more like script then
 		// anything else.
 		// Updates the currency conversation holder.
-		buySellBar("coinbase pro", "usd", "btc");
-		buySellBar("coinbase pro", "usd", "ltc");
-		buySellBar("coinbase pro", "usd", "eth");
-		buySellBar("coinbase pro", "eur", "btc");
-		buySellBar("coinbase pro", "eur", "ltc");
-		buySellBar("coinbase pro", "eur", "eth");
-		buySellBar("coinbase pro", "gbp", "btc");
-		buySellBar("coinbase pro", "gbp", "ltc");
-		buySellBar("coinbase pro", "gbp", "eth");
-		buySellBar("bitmex", "usd", "btc");
-		buySellBar("bitmex", "eur", "btc");
-		buySellBar("bitmex", "usd", "eth");
-		buySellBar("bitmex", "usd", "ltc");
-		buySellBar("binance", "usd", "btc");
-		buySellBar("binance", "usd", "eth");
-		buySellBar("binance", "usd", "ltc");
-		buySellBar("binance", "EUR", "btc");
-		buySellBar("binance", "EUR", "eth");
-		buySellBar("binance", "EUR", "ltc");
-		buySellBar("binance", "gbp", "btc");
-		buySellBar("binance", "gbp", "eth");
-		buySellBar("binance", "gbp", "ltc");
+		for (String i : EXCHANGE)
+		for (String j : CURRENCY)
+		for (String k : CYPTO)
+		buySellBar(i, j, k);
 	}
 }

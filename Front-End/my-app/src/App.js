@@ -13,8 +13,6 @@ import AnalyticsPage from "./Pages/Analytics.js";
 import VerifyUserLogin from "./Funuctions/HttpRequests/VerifyUserLogin.js"
 import info from "./Pages/Info.js";
 import Feedback from "./Pages/Feedback.js";
-import { ToastContainer, toast } from 'react-toastify'; 
-import 'react-toastify/dist/ReactToastify.css';
 // import SockJS from "sockjs-client";
 // import Stomp from "stompjs";
 
@@ -34,9 +32,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // this.livechat();
-    // Analytics.functions.getIP(); 
-    // this.connect();
+    this.livechat();
+   Analytics.functions.getIP(); 
     this.isVerifyUserSignedIn();
   }
   // Similar to componentDidMount and componentDidUpdate:
@@ -44,21 +41,6 @@ class App extends Component {
   handleStatusChange(satus) {
     this.isVerifyUserSignedIn();
   }
-
-
-  // connect = () => {
-  //   const socket = new SockJS("http://localhost:8081/simulator");
-  //   stompClient = Stomp.over(socket);
-  //   stompClient.connect({}, function (frame) {
-  //     console.log("Connected " + frame);
-  //     stompClient.subscribe("/endpoint/greeting", function (greeting) {
-  //       console.log("hi " + greeting);
-  //     });
-  //     // stompClient.send("/app/hello", {});
-  //   });
-  // };
-
-
 
   livechat() {
     var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
@@ -86,7 +68,6 @@ class App extends Component {
     return (
       <Router>
         <div>
-          {/* <Nav /> */}
           <Switch>
             <Route path="/login" component={Login} />
             {this.state.userActive ?

@@ -4,6 +4,7 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SignatureException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.bson.types.ObjectId;
@@ -52,13 +53,16 @@ public class UserLoginService {
 		}
 	}
 
-//	@Scheduled(cron = "0 1 1 * * ?")
+//	@Scheduled(fixedRate = 1000 * 60 * 60 * 24 * 30)
 	@Bean
 	public void updateActiveSessions() {
 		System.out.println("ran");
 		List<UserSession> createUserSession = SessionIdTable.findAll();
+		List<UserSession> r = new ArrayList<UserSession>();
 		for (UserSession i : createUserSession) {
 			i.updateActiveSession();
+			r.add(i);
+			System.out.println(i.isActiveSession());
 			SessionIdTable.save(i);
 		}
 	}
@@ -73,6 +77,7 @@ public class UserLoginService {
 
 		if (UserLoginTable.findByemail(email) == null) {
 			Login login = new Login(email, password);
+			login.setUserToUser();
 			UserLoginTable.insert(login);
 			return "worked";
 		} else {

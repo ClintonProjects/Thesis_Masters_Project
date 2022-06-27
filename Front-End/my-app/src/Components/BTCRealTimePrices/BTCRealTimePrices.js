@@ -60,15 +60,15 @@ class BTCRealTimePrices extends Component {
 
     displayResult(exchange, cypto) {
         try {
-            if (this.state.items[exchange.toUpperCase() + "/" + cypto.toUpperCase() + "/" + this.state.currency.toUpperCase()]) {
+            if (this.state.items[exchange.trim().toUpperCase() + "/" + cypto.trim().toUpperCase() + "/" + this.state.currency.trim().toUpperCase()]) {
                 for (var i in this.state.items) {
-                    if (i == exchange.toUpperCase() + "/" + cypto.toUpperCase() + "/" + this.state.currency.toUpperCase()) {
-                        if (this.state.items[i].currentPrice.toFixed(2) > 0)
+                    if (i.trim() == exchange.trim().toUpperCase() + "/" + cypto.trim().toUpperCase() + "/" + this.state.currency.trim().toUpperCase()) {
+                        if (this.state.items[i].currentPrice > 0)
                             return this.state.items[i].currentPrice.toFixed(2);
                     }
                 }
             }
-        } catch (e) { }
+        } catch (e) { console.log(e) }
         return "Not Enough Data";
     }
 
@@ -156,11 +156,17 @@ class BTCRealTimePrices extends Component {
                     </div>
                     <div class="row py-2  no-gutters">
                         {this.data(null, "All", "BTC")}
-                        {this.data(coinbaseLogo, "COINBASE", "BTC")}
+                        {this.data(coinbaseLogo, "COINBASE PRO", "BTC")}
                         {this.data(bainceLogo, "BINANCE", "BTC")}
                         {this.data(bitmexLogo, "BITMEX", "BTC")}
                     </div>
                 </div>
+                <p class="h6 text-center">
+                    If " Not Enough Data" mean we don't have enough data to display for this coin at this time
+                </p>
+                <p class="h6 text-center">
+                    in certain cases the conversation may not be on the exchange (Example Bitmex (Euro/LTC, GBP/BTC etc))
+                </p>
             </div>
         );
     }

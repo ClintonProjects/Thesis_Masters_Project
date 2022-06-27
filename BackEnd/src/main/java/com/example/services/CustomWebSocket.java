@@ -48,12 +48,10 @@ public class CustomWebSocket {
 			public void onTextMessage(WebSocket ws, String message)
 					throws UnsupportedOperationException, JSONException, IOException {
 				try {
-					List<String> addresses = bitcoinPriceData.findAll().stream()
-							.map(ExchangeDataRecieved::getTranactionId).collect(Collectors.toList());
 //					System.out.println("getWeb");
 					JSONArray getNotePadData = new AllDataList().getNotePadDataJsonArray();
 					ApiExchangeToData apiExchangeToData = new ApiExchangeToData();
-					System.out.println(message);
+//					System.out.println(message);
 					apiExchangeToData.BitmexAndCoinbase(getNotePadData, message, link, JsonArrayRequired);
 			//		System.out.println("apiExchangeToData size: " + apiExchangeToData.getExchangeDataList().size());
 					for (int i = 0; i < apiExchangeToData.getExchangeDataList().size(); i++) {
