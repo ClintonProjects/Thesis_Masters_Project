@@ -41,6 +41,8 @@ Ipgrab.getIP = function () {
 
 
 
-module.exports = {
-    functions: Ipgrab
-};
+// module.exports = {
+//     functions: Ipgrab
+// };
+
+export default Ipgrab;

@@ -1,5 +1,5 @@
 import './App.css';
-import Analytics from './Funuctions/InformationGather/Ipgrab.js';
+import Ipgrab from './Funuctions/InformationGather/Ipgrab.js';
 import React, { Component, PropTypes, useEffect, useState } from 'react';
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import PreHomepage from "./Pages/PreloginHomepage.js";
@@ -26,13 +26,14 @@ class App extends Component {
     //adds the livechat to webpage.
     this.livechat();
     //get the user ip for Analytics data
-    Analytics.functions.getIP();
+    Ipgrab.functions.getIP();
     //Checks if the user signed in
     this.isVerifyUserSignedIn();
   }
 
 
   livechat() {
+    //Get the live chat from the API
     var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
     (function () {
       var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
@@ -45,7 +46,7 @@ class App extends Component {
   }
 
   isVerifyUserSignedIn() {
-    console.log("id is checked " + this.state.userActive + " " + localStorage.getItem('SessionId'));
+    //Verifies weather the user is logged in via the local storage
     if (!localStorage.getItem('SessionId') || localStorage.getItem('SessionId').length === 0)
       this.setState({ userActive: true });
     else
@@ -56,6 +57,7 @@ class App extends Component {
 
   render() {
     return (
+      //Redirects the user based on what link they used for the webpage.
       <Router>
         <div>
           <Switch>
@@ -68,7 +70,7 @@ class App extends Component {
             <Route path="/info" exact component={info} />
             <Route path="/analytics" exact component={AnalyticsPage} />
             <Route path="/feedback" exact component={Feedback} />
-            <Route path="/DeplotMasster" exact component={PreHomepage} />
+            {/* <Route path="/DeplotMasster" exact component={PreHomepage} /> */}
           </Switch>
         </div>
       </Router>
