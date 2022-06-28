@@ -65,8 +65,8 @@ class App extends Component {
     return (
       //Redirects the user based on what link they used for the webpage.
       <Router>
-        <div>sfdf
-          {/* <Switch>
+        <div>
+          <Switch>
             <Route path="/login" component={Login} />
             {this.state.userActive ?
               <Route exact path="/" render={(props) => <PreHomepage userActive={this.state.userActive} {...props} />} />
@@ -76,7 +76,7 @@ class App extends Component {
             <Route path="/info" exact component={info} />
             <Route path="/analytics" exact component={AnalyticsPage} />
             <Route path="/feedback" exact component={Feedback} />
-          </Switch> */}
+          </Switch>
         </div>
       </Router>
 
