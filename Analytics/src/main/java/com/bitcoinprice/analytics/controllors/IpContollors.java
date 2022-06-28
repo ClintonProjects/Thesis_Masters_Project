@@ -71,6 +71,8 @@ public class IpContollors {
 	public void RegisterUser(@RequestBody Feedback feedback) throws Exception {
 		FeedbackService.insertFeedback(feedback);
 	}
+	
+	//s
 
 	@GetMapping("/getFeedback/{id}/{index}")
 	@ResponseBody
