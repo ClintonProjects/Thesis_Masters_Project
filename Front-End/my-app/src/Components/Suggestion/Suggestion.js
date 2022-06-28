@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngry, faGrin, faGrinAlt, faMeh, faSkull } from '@fortawesome/free-solid-svg-icons';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import server from "../../Funuctions/Server.js";
 var result;
 class Suggestion extends Component {
     constructor(props) {
@@ -120,7 +120,7 @@ class Suggestion extends Component {
                 });
 
                 setTimeout(function () {
-                    window.location.href = "http://localhost:3000";
+                    window.location.href = server;
                 }, 3000);
             });
 

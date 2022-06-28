@@ -3,6 +3,8 @@ import ProgressBar from 'react-bootstrap/ProgressBar'
 import './BuySellBar.css';
 import SockJS from "sockjs-client";
 import Stomp from "stompjs";
+import server from "../../Funuctions/Server.js";
+
 var stompClient;
 var result;
 export default class BuySellBar extends Component {

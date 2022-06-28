@@ -13,6 +13,8 @@ import { TextField, validator } from 'react-textfield';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios, * as others from 'axios';
+import server from "../../Funuctions/Server.js";
+
 
 class Bar extends Component {
 
@@ -63,21 +65,21 @@ class Bar extends Component {
             progress: false,
         });
         setTimeout(function () {
-            window.location.href = "http://localhost:3000/";
+            window.location.href = server;
         }, 2000);
     }
 
     redriectToPage(link) {
         if (!this.state.userActive)
-            window.location.href = "http://localhost:3000" + link;
+            window.location.href = server + link;
     }
 
     redriectToPageNoAuth(link) {
-        window.location.href = "http://localhost:3000" + link;
+        window.location.href = server + link;
     }
 
     isVerifyUserSignedIn() {
-        console.log("[NAV BAR] id is checked " + this.state.userActive + " " + localStorage.getItem('SessionId'));
+        // console.log("[NAV BAR] id is checked " + this.state.userActive + " " + localStorage.getItem('SessionId'));
         // || localStorage.getItem('SessionId').length === 0
         if (localStorage.getItem('SessionId') != null || localStorage.getItem('SessionId'))
             this.setState({ userActive: true });

@@ -4,6 +4,7 @@ import { Route, BrowserRouter as Router, Switch, Link } from "react-router-dom";
 import Hash from '../../Funuctions/Hash/Password.js';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import server from "../../Funuctions/Server.js";
 
 class Register extends Component {
     constructor(props) {
@@ -16,7 +17,7 @@ class Register extends Component {
 
     guest () {
         localStorage.setItem('SessionId', "guest");
-        window.location.href = "http://localhost:3000/";
+        window.location.href = server;
     };
 
     async Login() {
@@ -39,7 +40,7 @@ class Register extends Component {
             .then((response) => response.json())
             .then((messages) => {
                 localStorage.setItem('SessionId', messages.id);
-                window.location.href = "http://localhost:3000/";
+                window.location.href = server;
             }).catch(error => {
                 console.error('There was an error!', error);
                 this.setState({ attempts: this.state.attempts+1});
