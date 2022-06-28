@@ -26,7 +26,7 @@ class App extends Component {
 
   componentDidMount() {
     //adds the livechat to webpage.
-    this.livechat();
+    // this.livechat();
     //get the user ip for Analytics data
     // Analytics.functions.getIP();
     //Checks if the user signed in
