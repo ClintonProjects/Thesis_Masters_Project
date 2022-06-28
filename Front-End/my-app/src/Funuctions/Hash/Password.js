@@ -1,11 +1,9 @@
 class Hash {
 }
 
+//Hashing a string
+
 Hash.password = function () {
 }
-
-// module.exports = {
-//     functions: Hash
-// };
 
 export default Hash;

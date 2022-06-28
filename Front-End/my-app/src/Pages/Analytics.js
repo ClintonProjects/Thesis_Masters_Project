@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
-import Nav2 from '../Components/NavigationBar/bar2.js';
+import Nav2 from '../Components/NavigationBar/bar.js';
 import Footer from '../Components/Footer/footer.js';
 import Map from '../Components/Analytics/Analytics.js';
 import axios, * as others from 'axios';
@@ -12,22 +12,24 @@ class AnalyticsPage extends Component {
         };
     }
 
+    //redirect.
     async AuthUser() {
-        const res = await axios.get('https://localhost:8081/AnalyticsService/AnaylticsRedirect/' + localStorage.getItem('SessionId'));
+        const res = await axios.get('http://localhost:8081/AnalyticsService/AnaylticsRedirect/' + localStorage.getItem('SessionId'));
         let val = await res.data;
         if (val != "a")
-        window.location.href = val;
+            window.location.href = val;
     }
 
     componentDidMount() {
         this.AuthUser();
     }
 
+    // displayes the Analytics info page 
     render() {
         return (
             <div className="App">
                 <Nav2 currency={this.props.currency} />
-                <Map/>
+                <Map />
                 <Footer />
             </div>
         );

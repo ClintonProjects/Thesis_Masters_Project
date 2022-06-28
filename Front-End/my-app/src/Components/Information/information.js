@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './information.css';
 
-class Bar extends Component {
+class Information extends Component {
 
     constructor(props) {
         super(props);
@@ -85,5 +85,4 @@ class Bar extends Component {
 }
 
 
-export default Bar;
-
+export default Information;

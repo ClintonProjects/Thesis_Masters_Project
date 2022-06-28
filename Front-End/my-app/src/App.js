@@ -1,5 +1,5 @@
 import './App.css';
-// import Analytics from './Funuctions/InformationGather/Ipgrab.js';
+import getIP from './Funuctions/InformationGather/Ipgrab.js';
 import React, { Component, PropTypes, useEffect, useState } from 'react';
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import PreHomepage from "./Pages/PreloginHomepage.js";
@@ -26,13 +26,12 @@ class App extends Component {
 
   componentDidMount() {
     //adds the livechat to webpage.
-    // this.livechat();
+    this.livechat();
     //get the user ip for Analytics data
-    // Analytics.functions.getIP();
+    getIP();
     //Checks if the user signed in
     this.isVerifyUserSignedIn();
   }
-  // Similar to componentDidMount and componentDidUpdate:
 
   handleStatusChange(satus) {
     this.isVerifyUserSignedIn();

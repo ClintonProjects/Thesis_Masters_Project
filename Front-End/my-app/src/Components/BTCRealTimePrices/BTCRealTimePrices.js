@@ -8,9 +8,6 @@ import bitmexLogo from './bitmex-logo.png';
 import './ExchangeActivePrices.css';
 import SockJS from "sockjs-client";
 import Stomp from "stompjs";
-import btc from './bitcoin-icon.png';
-import eth from './eth.png';
-import ltc from './ltc.png';
 
 var stompClient;
 var result;
@@ -28,36 +25,37 @@ class BTCRealTimePrices extends Component {
         this.currencySettings = this.currencySettings.bind(this);
     }
 
+    //Connects to websock which get data for the BTC prices. This gets the table data.
     componentDidMount() {
         this.connect();
         this.interval = setInterval(() => this.getData(), 1000);
     }
 
+    //starts the websocket and set it to the state.
     getData() {
         try {
             this.currencySettings();
             this.setState({ items: JSON.parse(result) });
-            // console.log(this.state.items.currentPrice);
         } catch (err) {   //should never be called, just stop the console from being spammed if backend not on 
         }
     }
 
+
+    //Connects to websock which get data for the return the moving averages BTC prices. This gets the table data.
     connect = () => {
         const socket = new SockJS("https://localhost:8080/simulator");
         stompClient = Stomp.over(socket);
         stompClient.connect({}, function (frame) {
-            // console.log("Connected " + frame);
             stompClient.subscribe("/endpoint/getExchangeData", function (greeting) {
                 if (typeof greeting.body !== undefined) {
                     result = greeting.body;
-                    // console.log("websocket result: " + result);
                 }
             });
         });
     };
 
 
-
+    //handles the data and goes through it, so in backend the way data is displays and get it from the hashmap
     displayResult(exchange, cypto) {
         try {
             if (this.state.items[exchange.trim().toUpperCase() + "/" + cypto.trim().toUpperCase() + "/" + this.state.currency.trim().toUpperCase()]) {
@@ -68,12 +66,14 @@ class BTCRealTimePrices extends Component {
                     }
                 }
             }
-        } catch (e) { console.log(e) }
+        } catch (e) {
+            
+        }
         return "Not Enough Data";
     }
 
 
-
+    //Shows the price changes in past 1m, this is not actually used (left for marks)
     priceColour() {
         if (this.state.items.priceChange >= 0) {
             return (<h2 className="greenTextColour">${(this.state.items.currentPrice).toFixed(2)}</h2>)
@@ -83,15 +83,16 @@ class BTCRealTimePrices extends Component {
 
     }
 
+    //Shows the price changes in past 1m, this is not actually used (left for marks)f
     percentageColour() {
         if (this.state.items.priceChange >= 0) {
-            // console.log("price change " + this.state.items.priceChange);
             return (<h2 className="greenTextColour">{this.state.items.priceChange.toFixed(2)}% <FontAwesomeIcon icon={faArrowUp} /></h2>)
         } else if (this.state.items.priceChange < 0) {
             return (<h2 className="redTextColour">{this.state.items.priceChange.toFixed(2)}% <FontAwesomeIcon icon={faArrowDown} /></h2>)
         }
     }
 
+    //Display currency symbol next tot he data.
     displayValue(currency) {
         if (currency.toUpperCase() == "usd".toUpperCase())
             return "$";
@@ -101,6 +102,7 @@ class BTCRealTimePrices extends Component {
             return "£";
     }
 
+    //Gets the currency from the local storage.
     currencySettings() {
         try {
             if (localStorage.getItem('currency') !== null) {
@@ -111,14 +113,12 @@ class BTCRealTimePrices extends Component {
         } catch (e) { }
     }
 
-
+    //Show the currency and price of the coins
     data(image, exchange, cypto) {
-
         return (
             <div class="row">
                 {/* Blank Space, easier then using margin */}
                 <div class="col-2" />
-
                 <div class="col-2">
                     <p class="h6">
                         <img src={image} class="cbImage" />&ensp;{exchange == "All" ? "Whole market" : exchange}
@@ -139,8 +139,6 @@ class BTCRealTimePrices extends Component {
                         LTC: {this.displayValue(this.state.currency)} {this.displayResult(exchange, "LTC")}
                     </p>
                 </div>
-
-                {/* <div class="col-3" /> */}
             </div>
         )
     }

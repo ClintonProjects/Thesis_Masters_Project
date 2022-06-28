@@ -3,7 +3,7 @@ import './Login.css';
 import { Route, BrowserRouter as Router, Switch, Link, Redirect } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import server from "../../Funuctions/Server.js";
+
 
 
 var sessionId;
@@ -20,21 +20,26 @@ class loginpage extends Component {
     }
 
 
+    //remembers the user login details
     rememberMeOnChange() {
         this.setState({ rememberMe: !this.state.rememberMe });
     }
 
+
+    //remembers the user login details
     userEmail() {
         return localStorage.getItem('Login email');
     }
 
-    guest () {
+    //lets the user login as a guess
+    guest() {
         localStorage.setItem('SessionId', "guest");
-        window.location.href = server;
+        window.location.href = "http://localhost:3000/";
     };
 
 
 
+    //Sends the request to the login server, and set the user sesion 
     async Login() {
         console.log("Login");
         sessionId = "";
@@ -61,7 +66,7 @@ class loginpage extends Component {
             if (this.state.rememberMe)
                 localStorage.setItem('Login email', document.getElementById('email').value);
             else localStorage.removeItem('Login email');
-            window.location.href = server;
+            window.location.href = "http://localhost:3000/";
         } else {
             toast.error('Incorrect username or password!', {
                 position: "bottom-center",
@@ -87,8 +92,7 @@ class loginpage extends Component {
                                 <p>We're so excited to see you again!</p>
                                 <div class="form-group">
                                     <label class="InputEmail"><b>Email address</b></label>
-                                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email" />
-                                    {/* value={this.userEmail} */}
+                                    <input value={this.userEmail} type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email" />
                                 </div>
 
                                 <div class="form-group">
@@ -97,16 +101,16 @@ class loginpage extends Component {
                                     {/* <p1>Forgot your password?</p1> */}
                                 </div>
                                 <label>
-                                    {/* <div> <input type="checkbox" onClick={this.rememberMeOnChange} />
-                                    Remember my email</div> */}
+                                    <div> <input type="checkbox" onClick={this.rememberMeOnChange} />
+                                        Remember my email</div>
                                 </label>
                                 <button type="submit" class="btn btn-primary LoginButton" onClick={this.Login}>Login</button>
-                                <Link onClick={ this.guest}>click here to login as guest</Link>
+                                <Link onClick={this.guest}>click here to login as guest</Link>
                                 <Link to="/Register">
                                     <p>Register</p>
                                 </Link>
                                 <p>
-                               
+
                                 </p>
 
                             </div>

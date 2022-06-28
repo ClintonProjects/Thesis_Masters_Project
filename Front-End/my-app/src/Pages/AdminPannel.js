@@ -10,6 +10,11 @@ class AdminPannel extends Component {
         this.state = {
         };
     }
+
+    /*
+    Displays the AdminPannel page.
+    */
+
     render() {
         return (
             <div className="App">

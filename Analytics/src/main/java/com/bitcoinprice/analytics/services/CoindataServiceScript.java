@@ -113,9 +113,7 @@ public class CoindataServiceScript {
 		return realTimeBTCData;
 	}
 
-	@Scheduled(fixedRate = 1000 * 60
-//			, initialDelay = 1000 * 60
-			)
+//	@Scheduled(fixedRate = 1000 * 60)
 	public void scheduledUpdate() throws Exception {
 		// This data is used for analytics part of project it's more like script then
 		// anything else.
@@ -124,5 +122,7 @@ public class CoindataServiceScript {
 		for (String j : CURRENCY)
 		for (String k : CYPTO)
 		buySellBar(i, j, k);
+		
+		System.out.println("DONE");
 	}
 }
