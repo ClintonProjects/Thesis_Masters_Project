@@ -43,7 +43,7 @@ class BTCRealTimePrices extends Component {
     }
 
     connect = () => {
-        const socket = new SockJS("ws://localhost:8080/simulator");
+        const socket = new SockJS("https://localhost:8080/simulator");
         stompClient = Stomp.over(socket);
         stompClient.connect({}, function (frame) {
             // console.log("Connected " + frame);
