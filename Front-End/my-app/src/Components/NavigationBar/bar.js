@@ -3,16 +3,14 @@ import './bar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faTicketAlt, faSignInAlt, faAngleDown, faComment, faDatabase, faStickyNote, faHouseUser } from '@fortawesome/free-solid-svg-icons';
 import pikachu from './coin.png';
-import Homepage from '../../Pages/PreloginHomepage.js';
-import { Route, BrowserRouter as Router, Switch, Link } from "react-router-dom";
 import eu from './eu.png';
 import usa from './usa.png';
 import globe from './globe.png';
 import { Navbar, Nav, NavDropdown, Form, FormControl, Button, Container, Dropdown, DropdownButton } from 'react-bootstrap'
-import { TextField, validator } from 'react-textfield';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios, * as others from 'axios';
+import server from "../../Funuctions/Server.js";
 
 class Bar extends Component {
 
@@ -63,19 +61,19 @@ class Bar extends Component {
             progress: false,
         });
         setTimeout(function () {
-            window.location.href = "http://localhost:3000/";
+            window.location.href = server;
         }, 2000);
     }
 
     //Redirect the user to a page with auth
     redriectToPage(link) {
         if (!this.state.userActive)
-            window.location.href = "http://localhost:3000" + link;
+            window.location.href = server + link;
     }
 
     //Redirect the user to a page (doesn't check auth)
     redriectToPageNoAuth(link) {
-        window.location.href = "http://localhost:3000" + link;
+        window.location.href = server + link;
     }
 
     //verfies if the user is signed into the application.

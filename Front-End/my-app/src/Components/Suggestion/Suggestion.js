@@ -20,7 +20,7 @@ class Suggestion extends Component {
         this.SubmitDocument = this.SubmitDocument.bind(this);
     }
 
-
+    //Lets the user set select saficiation rate about using the app
     inputExperinceButtons(i) {
         var booleanList = [false, false, false, false, false];
 
@@ -33,6 +33,7 @@ class Suggestion extends Component {
         this.setState({ RadioButton: booleanList })
     }
 
+    //set the colour when the user hovers
     hoverColour(i) {
         if (this.state.RadioButton[i]) {
             return 'blue';
@@ -44,6 +45,7 @@ class Suggestion extends Component {
         return 'white';
     }
 
+    //displays how the user feels about app in text form (under satification rate)
     textForFeedback() {
         var boolList = this.state.RadioButton;
         var pos = 100;
@@ -63,9 +65,9 @@ class Suggestion extends Component {
         return stringResult[pos];
     }
 
+    //Displays a prompt when the user puts how they feel about the app and sends it to the backend of the app
     async SubmitDocument() {
         if (this.state.clicked == 50 || document.getElementById('comment').value == "") {
-            console.log("NO VALUES FOUND");
             toast.error('You are missing required entry', {
                 position: "bottom-center",
                 autoClose: 2500,
@@ -79,7 +81,6 @@ class Suggestion extends Component {
             return;
         }
         if (document.getElementById('comment').value.length > 200) {
-            console.log("NO VALUES FOUND");
             toast.error('You cant enter more then 150 charaters', {
                 position: "bottom-center",
                 autoClose: 2500,

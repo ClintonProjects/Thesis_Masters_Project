@@ -17,7 +17,6 @@ VerifyUserLogin.verify = function () {
             .then((messages) => {
                 result = messages.response;
             }).catch(error => {
-                console.error('There was an error!', error);
             });;
             return result;
 }

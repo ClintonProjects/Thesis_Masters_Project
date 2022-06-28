@@ -11,8 +11,6 @@ import AnalyticsPage from "./Pages/Analytics.js";
 import info from "./Pages/Info.js";
 import Feedback from "./Pages/Feedback.js";
 
-var currency = "all";
-
 class App extends Component {
 
   constructor(props) {

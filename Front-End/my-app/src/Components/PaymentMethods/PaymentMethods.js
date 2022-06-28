@@ -7,10 +7,8 @@ import visa from './images/visa.png';
 import zelle from './images/zelle.png';
 import LTC from './images/LTC.png';
 import USDT from './images/usdt.png';
-// import logo from './logo.png';
-// import logo from './logo.png';
-// import logo from './logo.png';
-// import logo from './logo.png';
+
+//This was never actually implemented into the final project, since we dicided it was not to take donation for multiple reasons.
 
 function App() {
     return (

@@ -41,7 +41,6 @@ class loginpage extends Component {
 
     //Sends the request to the login server, and set the user sesion 
     async Login() {
-        console.log("Login");
         sessionId = "";
         const requestOptions = {
             method: "POST",
@@ -59,7 +58,6 @@ class loginpage extends Component {
         await fetch('http://localhost:8085/login/login', requestOptions)
             .then((response) => response.json())
             .then((messages) => {
-                console.log(messages.id);
                 localStorage.setItem('SessionId', messages.id);
             });
         if (localStorage.getItem('SessionId') !== "") {

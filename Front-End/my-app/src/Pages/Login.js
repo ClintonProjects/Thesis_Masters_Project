@@ -14,7 +14,6 @@ class Login extends Component {
 
     // displayes the user login page
     render() {
-        console.log("currency: " + this.props.currency);
         return (
             <div className="App">
                 <Nav currency={this.props.currency} />

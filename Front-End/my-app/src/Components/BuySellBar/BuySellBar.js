@@ -3,7 +3,6 @@ import ProgressBar from 'react-bootstrap/ProgressBar'
 import './BuySellBar.css';
 import SockJS from "sockjs-client";
 import Stomp from "stompjs";
-import server from "../../Funuctions/Server.js";
 
 var stompClient;
 var result;
@@ -14,11 +13,11 @@ export default class BuySellBar extends Component {
         }
     }
 
+    //Connects to websock which get data for the return the moving BTC bar datas
     connect = () => {
         const socket = new SockJS("https://localhost:8080/simulator");
         stompClient = Stomp.over(socket);
         stompClient.connect({}, function (frame) {
-            // console.log("Connected " + frame);
             stompClient.subscribe("/endpoint/wow", function (greeting) {
                 if (typeof greeting.body !== undefined)
                     result = Math.round(greeting.body * 100) / 100;
@@ -26,14 +25,14 @@ export default class BuySellBar extends Component {
         });
     };
 
+    //start the websock
     componentDidMount() {
         this.connect();
-        this.interval = setInterval(() => this.getData(), 1000);
+        this.interval = setInterval(() => this.getData(), 100);
     }
 
+    //set the data to the state
     getData() {
-        //for currency settings.
-        // console.log(this.props.currency);
         try {
             this.setState({ items: JSON.parse(result) })
         } catch (err) {   //should never be called, just stop the console from being spammed if backend not on 

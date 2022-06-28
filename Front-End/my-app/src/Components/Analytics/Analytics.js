@@ -153,31 +153,11 @@ class Analytics extends Component {
             <div class="infoColour">
                 <div class="container py-2 infoColour no-gutters">
                     <Map class="py-5" />
-
-                    {/* <div class="row text-center py-4">
-                        <div class="col-12">
-                            <h4>Analytics: filters by usage</h4>
-                        </div>
-                    </div>
-
-                    <div class="row text-center ">
-                        <div class="col-2 " />
-                        <div class="col-8 feedback py-3 ">
-                            {this.FirstTable()}
-                            {this.FirstTable()}
-                            {this.FirstTable()}
-                            {this.FirstTable()}
-                            {this.FirstTable()}
-                        </div>
-                    </div> */}
-
-
                     <div class="row text-center py-4">
                         <div class="col-12">
                             <h4>Analytics: Countries visted by</h4>
                         </div>
                     </div>
-
                     <div class="row text-center ">
                         <div class="col-2 " />
                         <div class="col-8 feedback ">
@@ -188,13 +168,11 @@ class Analytics extends Component {
                             {this.FirstTable(this.state.visitedData[4], this.state.visitedDataCount[4])}
                         </div>
                     </div>
-
                     <div class="row text-center py-4">
                         <div class="col-12">
                             <h4>Average user satisfaction rate:</h4>
                         </div>
                     </div>
-
                     <div class="row text-center ">
                         <div class="col-2 " />
                         <div class="col-8 feedback py-3 ">
@@ -210,7 +188,6 @@ class Analytics extends Component {
                             <div class="col-4 feedback mx-auto">
                                 <p>Weighting Of Each Feedback</p>
                             </div>
-
                             <div class="col-12 feedback mx-auto">
                                 <p>{this.state.satificationData["Very Unhappy"]}% Very Unhappy
                                     &ensp; {this.state.satificationData["Unhappy"]}% Unhappy
@@ -220,20 +197,15 @@ class Analytics extends Component {
                             </div>
                         </div>
                     </div>
-
-
                     <div class="row text-center py-2">
                         <div class="col-2 " />
                     </div>
-
-
                     <div class="row text-center py-4">
                         <div class="col-2 " />
                         <div class="col-8">
                             <h4>Feedback/Suggestions:</h4>
                         </div>
                     </div>
-
                     <div class="row text-center BodyFeedbackText ">
                         <div class="col-2 " />
                         <div class="col-8 feedback py-3 ">
@@ -245,7 +217,6 @@ class Analytics extends Component {
                                     {this.state.serverResponse.text}
                                 </p>
                             </div>
-
                             <div class="col-4 feedback mx-auto py-">
                                 <p class="h-100 remove_overflow">
                                     <FontAwesomeIcon icon={faSkull} size='3x' color={this.colourForIndFeedback(0)} />
@@ -259,13 +230,6 @@ class Analytics extends Component {
                             </div>
                         </div>
                     </div>
-
-                    {/* <div class="col-2 fixed-bottom" />
-                    <div class="col-8 feedback py-3 fixed-bottom">
-                        <div>Type : {this.state.serverResponse.type}</div>
-                        <div>Rating : {this.state.serverResponse.rating}</div>
-                    </div> */}
-
                     <div class="row text-center">
                         <div class="col-2" />
                         <div class="col-4 feedback pb-3">
@@ -281,9 +245,7 @@ class Analytics extends Component {
                                 Next Feedback</Button>
                         </div>
                     </div>
-
                     <div class="py-3" />
-
                 </div >
             </div >
         )
