@@ -1,0 +1,29 @@
+class VerifyUserLogin {
+}
+
+var result = false;
+
+VerifyUserLogin.verify = function () {
+    const requestOptions = {
+        method: "GET",
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            "Access-Control-Allow-Origin": "*",
+        },
+    };
+        fetch('http://localhost:8085/login/session/' + localStorage.getItem('SessionId'), requestOptions)
+            .then((response) => response.json())
+            .then((messages) => {
+                result = messages.response;
+            }).catch(error => {
+                console.error('There was an error!', error);
+            });;
+            return result;
+}
+
+
+
+module.exports = {
+    functions: VerifyUserLogin 
+};
