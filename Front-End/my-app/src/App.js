@@ -26,7 +26,7 @@ class App extends Component {
     //adds the livechat to webpage.
     this.livechat();
     //get the user ip for Analytics data
-    s.functions.getIP();
+    // s.functions.getIP();
     //Checks if the user signed in
     this.isVerifyUserSignedIn();
   }
