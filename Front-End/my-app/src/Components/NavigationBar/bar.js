@@ -103,14 +103,12 @@ class Bar extends Component {
     }
 
 
-    //displays the button in nav
     buttonSymbol() {
         return (
             <a><FontAwesomeIcon icon={faUser} /> Navagation</a>);
     }
 
 
-    //Wasn't planning on commenting any html but this one basically checks if user signe din 
     render() {
         const isVerifyUserSignedIn = this.state.isVerifyUserSignedIn;
         return (
@@ -121,7 +119,7 @@ class Bar extends Component {
                         <b>BTCInfo</b>
                     </a>
                     <div class="float-end">
-                        <DropdownButton id="dropdown-button-dark-example2" class="no-gutter" variant="secondary" menuvariant="dark"
+                        <DropdownButton id="dropdown-button-dark-example2" class="no-gutter" variant="secondary" menuVariant="dark"
                             title={this.buttonSymbol()}>
 
                             <NavDropdown.Item onClick={(e) => this.redriectToPageNoAuth('/')}>

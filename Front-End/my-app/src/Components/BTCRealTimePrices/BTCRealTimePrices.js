@@ -31,19 +31,17 @@ class BTCRealTimePrices extends Component {
         this.interval = setInterval(() => this.getData(), 100);
     }
 
-    //starts the websocket and set it to the state.
     getData() {
         try {
             this.currencySettings();
             this.setState({ items: JSON.parse(result) });
+            // console.log(this.state.items.currentPrice);
         } catch (err) {   //should never be called, just stop the console from being spammed if backend not on 
         }
     }
 
-    //Connects to websock which get data for the return the moving averages BTC prices. This gets the table data.
     connect = () => {
         const socket = new SockJS("http://localhost:8080/simulator");
-        this.stompClient = Stomp.over(socket, { debug: false });
         stompClient = Stomp.over(socket);
         stompClient.connect({}, function (frame) {
             // console.log("Connected " + frame);
@@ -58,7 +56,6 @@ class BTCRealTimePrices extends Component {
 
 
 
-    //handles the data and goes through it, so in backend the way data is displays and get it from the hashmap
     displayResult(exchange, cypto) {
         try {
             if (this.state.items[exchange.trim().toUpperCase() + "/" + cypto.trim().toUpperCase() + "/" + this.state.currency.trim().toUpperCase()]) {
@@ -69,14 +66,12 @@ class BTCRealTimePrices extends Component {
                     }
                 }
             }
-        } catch (e) { //catches error data not
-        }
+        } catch (e) { console.log(e) }
         return "Not Enough Data";
     }
 
 
 
-    //Shows the price changes in past 1m, this is not actually used (left for marks)
     priceColour() {
         if (this.state.items.priceChange >= 0) {
             return (<h2 className="greenTextColour">${(this.state.items.currentPrice).toFixed(2)}</h2>)
@@ -86,7 +81,6 @@ class BTCRealTimePrices extends Component {
 
     }
 
-    //Shows the price changes in past 1m, this is not actually used (left for marks)
     percentageColour() {
         if (this.state.items.priceChange >= 0) {
             // console.log("price change " + this.state.items.priceChange);
@@ -96,7 +90,6 @@ class BTCRealTimePrices extends Component {
         }
     }
 
-    //Display currency symbol next tot he data.
     displayValue(currency) {
         if (currency.toUpperCase() == "usd".toUpperCase())
             return "$";
@@ -106,7 +99,6 @@ class BTCRealTimePrices extends Component {
             return "£";
     }
 
-    //Gets the currency from the local storage.
     currencySettings() {
         try {
             if (localStorage.getItem('currency') !== null) {
@@ -118,8 +110,8 @@ class BTCRealTimePrices extends Component {
     }
 
 
-    //Show the currency and price of the coins
     data(image, exchange, cypto) {
+
         return (
             <div class="row">
                 {/* Blank Space, easier then using margin */}
