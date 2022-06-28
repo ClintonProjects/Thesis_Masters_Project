@@ -7,6 +7,7 @@ import BTCPrices from '../Components/BTCPrices/BTCPrices.js';
 import Banner from '../Components/BannerSpot/Banner.js';
 import BTCRealTimePrices from '../Components/BTCRealTimePrices/BTCRealTimePrices.js';
 import BuySellBar from '../Components/BuySellBar/BuySellBar';
+import server from "../Funuctions/Server.js";
 
 class PostloginHomepage extends Component {
     constructor(props) {
@@ -15,9 +16,15 @@ class PostloginHomepage extends Component {
         };
     }
 
+    //Error handling to do with github deployment
+    // async componentDidMount() {
+    //     //This is an error check (same thing in post login)
+    //     if (localStorage.getItem('SessionId') == null)
+    //         window.location.href = server;
+    // }
+
     // displayes the user post-login home page (the page with the stats)
     render() {
-        console.log("currency: " + this.props.currency);
         return (
             <div className="App">
                 <Nav2 currency={this.props.currency} />
