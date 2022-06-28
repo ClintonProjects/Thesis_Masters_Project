@@ -46,6 +46,7 @@ export default class BTCPrices extends Component {
     //Connects to websock which get data for the BTC prices. This gets the table data.
     connect = () => {
         const socket = new SockJS("http://localhost:8080/simulator");
+        this.stompClient = Stomp.over(socket, { debug: false });
         stompClient = Stomp.over(socket);
         stompClient.connect({}, function (frame) {
             // console.log("Connected " + frame);
@@ -131,6 +132,7 @@ export default class BTCPrices extends Component {
         });
     }
 
+    //Sets the concery so show only trades in this market (example usd, etc)
     setCurrency(currency) {
         this.setState({ cointype: currency.toUpperCase() });
 
@@ -146,6 +148,7 @@ export default class BTCPrices extends Component {
     }
 
 
+    //Basically setter for setter the amount of coin a user can see, so for example 1 btc or 0.5 btc
     setAmoutFilterByCyptoSize() {
         try {
             if (document.getElementById('coinValue').value != '') {
@@ -182,6 +185,7 @@ export default class BTCPrices extends Component {
 
     }
 
+    //Removes an item from an array.
     removeFromArray = function (array, value) {
         var idx = array.indexOf(value);
         if (idx !== -1) {
@@ -190,22 +194,22 @@ export default class BTCPrices extends Component {
         return array;
     }
 
+    //handles the websocket and updates every 100m.
     componentDidMount() {
         this.connect();
-        this.interval = setInterval(() => this.getData(), 1000);
+        this.interval = setInterval(() => this.getData(), 100);
         return;
     }
 
 
+    //Set the data to the data we are getting from the websocket, and then handles all filters which we have set.
     getData() {
         try {
             this.setState({ items: JSON.parse(result) })
-
             if (this.state.filterAmountByCoinSize > 0)
                 this.setState({ items: this.state.items.filter(i => i.size > this.state.filterAmountByCoinSize) })
             if (this.state.filterAmountByCurrency > 0)
                 this.setState({ items: this.state.items.filter(i => i.size * i.price > this.state.filterAmountByCurrency) })
-
             if (this.state.btcFilter)
                 this.setState({ items: this.state.items.filter(i => i.cypto.toUpperCase() == "BTC") })
             if (this.state.ltcFilter)
@@ -254,6 +258,7 @@ export default class BTCPrices extends Component {
 
 
     displayValue(obj) {
+        //displays the currency conversation (API handled in backend)
         if (this.state.currencyConvert.toUpperCase() == "usd".toUpperCase()) return "$" + (obj.size * obj.priceInUSD.substring(1)).toFixed(2);
         if (this.state.currencyConvert.toUpperCase() == "eur".toUpperCase()) return "€" + (obj.size * obj.priceInEUR.substring(1)).toFixed(2);
         if (this.state.currencyConvert.toUpperCase() == "gbp".toUpperCase()) return "£" + (obj.size * obj.priceInGBP.substring(1)).toFixed(2);
@@ -261,6 +266,7 @@ export default class BTCPrices extends Component {
     }
 
 
+    //changes currency conversation symbol so it will display currency which the user want set.
     currSymbol(obj) {
         if (obj.currency == "gbp".toUpperCase())
             return "£";
@@ -271,6 +277,7 @@ export default class BTCPrices extends Component {
     }
 
 
+    //Displays the symbol of cypto which is being displayed only (BTC PICTURE) (LTC PICTURE)
     replace(inc) {
         if (this.state.items[inc].cypto.toUpperCase() == "BTC")
             return (<p1><img src={btc} alt="HeadImage" className="btcImage" /></p1>)
@@ -280,6 +287,7 @@ export default class BTCPrices extends Component {
             return (<p1><img src={ltc} alt="HeadImage" classNamSe="btcImage" /></p1>)
     }
 
+    //Displays the exchanges (COINABSE PRO PICTURE) (BITMEX PICTURE)
     replaceExchange(inc) {
         if (this.state.items[inc].exchange.trim().toUpperCase() == "COINBASE PRO".trim())
             return (<p1><img src={coinbase} alt="HeadImage" className="btcImage" />Coinbase</p1>)
@@ -289,6 +297,7 @@ export default class BTCPrices extends Component {
             return (<p1><img src={bitmex} alt="HeadImage" className="btcImage" />Bitmex</p1>)
     }
 
+    //Displays the buy and sell next to the cypto.
     BuySell(inc) {
         this.setState({ BSstate: inc });
         toast.info('Buy/Sell Filter set to ' + inc, {
@@ -305,7 +314,7 @@ export default class BTCPrices extends Component {
 
 
 
-
+    //Displays the table data. 
     BoxColour(inc) {
         try {
             return (
@@ -491,7 +500,7 @@ export default class BTCPrices extends Component {
                         <div class="col-4" />
                         <div class="col-2 text-center">
                             <div class="form-outline">
-                                <label class="form-label" for="form12">Filter currency value over:</label>
+                                <label class="form-label">Filter currency value over:</label>
                                 <input
                                     type="number"
                                     id="coinValue"
@@ -505,7 +514,6 @@ export default class BTCPrices extends Component {
                             <div class="form-outline">
                                 <label
                                     class="form-label"
-                                    for="form2"
                                 >Filter coin size over:</label>
                                 <input type="number" id="coinSize" class="form-control" placeholder="0" />
                             </div>
