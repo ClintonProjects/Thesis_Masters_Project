@@ -1,5 +1,4 @@
 import './App.css';
-//import Analytics from './Funuctions/InformationGather/Ipgrab.js';
 import React, { Component, PropTypes, useEffect, useState } from 'react';
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import PreHomepage from "./Pages/PreloginHomepage.js";
@@ -8,8 +7,13 @@ import Login from "./Pages/Login.js";
 import AdminPannel from "./Pages/AdminPannel.js";
 import Register from "./Pages/Register.js";
 import AnalyticsPage from "./Pages/Analytics.js";
+import VerifyUserLogin from "./Funuctions/HttpRequests/VerifyUserLogin.js"
 import info from "./Pages/Info.js";
 import Feedback from "./Pages/Feedback.js";
+// import SockJS from "sockjs-client";
+// import Stomp from "stompjs";
+
+// var stompClient;
 
 var currency = "all";
 
@@ -25,7 +29,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    //adds the livechat to webpage.
     this.livechat();
     //get the user ip for Analytics data
     //Analytics.functions.getIP();
