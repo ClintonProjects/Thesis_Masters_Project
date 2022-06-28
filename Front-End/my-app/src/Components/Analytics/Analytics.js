@@ -39,12 +39,6 @@ class Analytics extends Component {
                 <div class="col-6">
                     <p>{d2}</p>
                 </div>
-                {/* <div class="col-3">
-                    <h5>Country</h5>
-                </div>
-                <div class="col-3">
-                    <h5>User Data Table:</h5>
-                </div> */}
             </div>
         )
     }
@@ -89,14 +83,6 @@ class Analytics extends Component {
                 this.setState({ saficationColour: i });
             i++;
         }
-
-
-        // for (let value of RadioResults) {
-        //     if (p == value) {
-        //         this.setState({ saficationColour: i });
-        //     }
-        //     i++;
-        // }
     }
 
     componentDidMount() {
