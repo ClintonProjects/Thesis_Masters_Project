@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Nav from '../Components/NavigationBar/bar.js';
+import Nav from '../Components/NavigationBar/bar2.js';
 import Suggestion from '../Components/Suggestion/Suggestion.js';
 import Footer from '../Components/Footer/footer2.js';
 
@@ -10,13 +10,12 @@ class Feedback extends Component {
         };
     }
 
-    // displayes the feedback info page 
     render() {
         return (
             <div className="App">
-                <Nav />
-                <Suggestion />
-                <Footer />
+                <Nav/>
+                <Suggestion/>
+                <Footer/>
             </div>
         );
     }

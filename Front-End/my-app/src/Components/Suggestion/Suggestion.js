@@ -21,7 +21,6 @@ class Suggestion extends Component {
     }
 
 
-    //Lets the user set select saficiation rate about using the app
     inputExperinceButtons(i) {
         var booleanList = [false, false, false, false, false];
 
@@ -34,8 +33,6 @@ class Suggestion extends Component {
         this.setState({ RadioButton: booleanList })
     }
 
-
-    //set the colour when the user hovers
     hoverColour(i) {
         if (this.state.RadioButton[i]) {
             return 'blue';
@@ -47,7 +44,6 @@ class Suggestion extends Component {
         return 'white';
     }
 
-    //displays how the user feels about app in text form (under satification rate)
     textForFeedback() {
         var boolList = this.state.RadioButton;
         var pos = 100;
@@ -67,41 +63,35 @@ class Suggestion extends Component {
         return stringResult[pos];
     }
 
-
-    //Displays a prompt when the user puts how they feel about the app and sends it to the backend of the app
     async SubmitDocument() {
-        try {
-            if (this.state.clicked == 50 || document.getElementById('comment').value == "") {
-                console.log("NO VALUES FOUND");
-                toast.error('You are missing required entry', {
-                    position: "bottom-center",
-                    autoClose: 2500,
-                    hideProgressBar: true,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: false,
+        if (this.state.clicked == 50 || document.getElementById('comment').value == "") {
+            console.log("NO VALUES FOUND");
+            toast.error('You are missing required entry', {
+                position: "bottom-center",
+                autoClose: 2500,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: false,
 
-                });
-                return;
-            }
-            if (document.getElementById('comment').value.length > 200) {
-                console.log("NO VALUES FOUND");
-                toast.error('You cant enter more then 200 charaters', {
-                    position: "bottom-center",
-                    autoClose: 2500,
-                    hideProgressBar: true,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: false,
+            });
+            return;
+        }
+        if (document.getElementById('comment').value.length > 200) {
+            console.log("NO VALUES FOUND");
+            toast.error('You cant enter more then 150 charaters', {
+                position: "bottom-center",
+                autoClose: 2500,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: false,
 
-                });
-                return;
-            }
-        } catch (e) {}
-
-        console.log("s");
+            });
+            return;
+        }
 
         const requestOptions = {
             method: "POST",
@@ -116,7 +106,7 @@ class Suggestion extends Component {
                 text: document.getElementById('comment').value,
             })
         };
-        await fetch('http://localhost:8081/AnalyticsService/SaveFeedback', requestOptions)
+        await fetch('http://localhost:8080/AnalyticsService/SaveFeedback', requestOptions)
             .then((response) => response.status)
             .then((messages) => {
                 toast.success('Your feedback has been noted!', {
@@ -131,7 +121,7 @@ class Suggestion extends Component {
 
                 setTimeout(function () {
                     window.location.href = "http://localhost:3000";
-                }, 2000);
+                }, 3000);
             });
 
     }

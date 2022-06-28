@@ -8,6 +8,9 @@ import bitmexLogo from './bitmex-logo.png';
 import './ExchangeActivePrices.css';
 import SockJS from "sockjs-client";
 import Stomp from "stompjs";
+import btc from './bitcoin-icon.png';
+import eth from './eth.png';
+import ltc from './ltc.png';
 
 var stompClient;
 var result;
@@ -25,10 +28,9 @@ class BTCRealTimePrices extends Component {
         this.currencySettings = this.currencySettings.bind(this);
     }
 
-    //Connects to websock which get data for the BTC prices. This gets the table data.
     componentDidMount() {
         this.connect();
-        this.interval = setInterval(() => this.getData(), 100);
+        this.interval = setInterval(() => this.getData(), 1000);
     }
 
     getData() {

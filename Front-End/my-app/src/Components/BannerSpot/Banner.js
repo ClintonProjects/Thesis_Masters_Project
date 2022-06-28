@@ -13,7 +13,7 @@ export default class Banner extends Component {
     }
 
     isVerifyUserSignedIn() {
-        //Handles weather user logged in or not this is used for sign up text.
+        // || localStorage.getItem('SessionId').length === 0
         if (localStorage.getItem('SessionId') != null || localStorage.getItem('SessionId'))
             this.setState({ userActive: true });
         else

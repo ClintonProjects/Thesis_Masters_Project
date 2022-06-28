@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import Nav from '../Components/NavigationBar/bar.js';
-import AdminPannelSideBar from '../Components/AdminPanelSideBar/AdminPannelSideBar';
+import AdminPannelSideBar from'../Components/AdminPanelSideBar/AdminPannelSideBar';
 
 
 class AdminPannel extends Component {
@@ -10,13 +10,11 @@ class AdminPannel extends Component {
         this.state = {
         };
     }
-
-    // displayes the Admin page (this was later replaced with the Anaylitic page)
     render() {
         return (
             <div className="App">
                 <Nav />
-                <AdminPannelSideBar />
+                <AdminPannelSideBar/>
             </div>
         );
     }

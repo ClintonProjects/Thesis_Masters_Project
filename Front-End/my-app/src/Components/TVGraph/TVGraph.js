@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import './TVGraph.css';
+import backgroundImage from './Images/hellhound.jpg';
+import { Button } from 'react-bootstrap';
+import {Helmet} from "react-helmet";
 import TradingViewWidget, { Themes } from 'react-tradingview-widget';
 
-
-//Displays the team viewer graph
 class TVGraph extends Component {
     constructor(props) {
         super(props);

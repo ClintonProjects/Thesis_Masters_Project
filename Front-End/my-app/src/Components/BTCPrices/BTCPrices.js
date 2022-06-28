@@ -41,9 +41,10 @@ export default class BTCPrices extends Component {
         this.setCurrencyConver = this.setCurrencyConver.bind(this);
         this.setAmoutFilterByCyptoSize = this.setAmoutFilterByCyptoSize.bind(this);
         this.BuySell = this.BuySell.bind(this);
+        // this.getInitialState = this.getInitialState.bind(this);
+        // this.set = this.set.bind(this);
     }
 
-    //Connects to websock which get data for the BTC prices. This gets the table data.
     connect = () => {
         const socket = new SockJS("http://localhost:8080/simulator");
         stompClient = Stomp.over(socket);
@@ -57,16 +58,13 @@ export default class BTCPrices extends Component {
         });
     };
 
-
-
-    //Allows the user to filter weather they want to only see bitcoin, litecoin or eth
     setCoinFilter(flipCoin) {
         //displays only these coins
-        if (flipCoin == "BTC") {
+        if (flipCoin == "BTC") { 
             this.setState({ btcFilter: true });
             this.setState({ ethFilter: false });
             this.setState({ ltcFilter: false });
-        }
+         }
         else if (flipCoin == "ETH") {
             this.setState({ btcFilter: false });
             this.setState({ ethFilter: true });
@@ -83,7 +81,6 @@ export default class BTCPrices extends Component {
             this.setState({ ltcFilter: false });
         }
 
-        //This display alert
         toast.info('CoinFilter set to ' + flipCoin, {
             position: "bottom-center",
             autoClose: 2500,
@@ -95,11 +92,9 @@ export default class BTCPrices extends Component {
         });
     }
 
-    //Sets the exchange (basically like setter in java)
     setExchange(exchange) {
         this.setState({ exchange: exchange.toUpperCase() });
 
-        //This display alertF
         toast.info('Exchange set to ' + exchange, {
             position: "bottom-center",
             autoClose: 2500,
@@ -111,12 +106,11 @@ export default class BTCPrices extends Component {
         });
     }
 
-    //Sets the concery conversation (basically like setter in java)
     setCurrencyConver(currency) {
         if (currency.toUpperCase() != "all".toUpperCase())
-            localStorage.setItem('currency', currency.toUpperCase());
-        else
-            localStorage.setItem('currency', "USD".toUpperCase());
+        localStorage.setItem('currency', currency.toUpperCase());
+        else 
+        localStorage.setItem('currency', "USD".toUpperCase());
 
         this.setState({ currencyConvert: currency.toUpperCase() });
 

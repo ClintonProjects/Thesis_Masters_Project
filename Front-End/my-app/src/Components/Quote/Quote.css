@@ -2,7 +2,7 @@
     height: 8vh;
     min-height: 60px;
     width: 100%;
-    background-color: var(--secondary-bg-color);
+    background-color: var(--bg-color);
 }
 
 .Quote>.spacer {
@@ -64,51 +64,42 @@ button>span {
         width: 100%;
         min-height: 50px;
     }
-
     .Quote>.spacer {
         height: 0vh;
         width: 0%;
     }
-
     .Quote>.spacer2 {
         height: 0vh;
         width: 0%;
         float: left;
     }
-
     .VerticalSpace>.button {
         margin-top: 0vh;
     }
-
     .Quote>.VerticalSpace {
         height: 0vh;
         width: 0%;
         float: left;
         text-align: center;
     }
-
     .secondHolder {
         height: 0vh;
         width: 0%;
         float: left;
         text-align: center;
     }
-
     .VerticalSpace>.textcontainer {
         margin-top: 0vh;
     }
-
     .textcontainer>h1 {
         font-size: 0em;
     }
-
     button>span {
         margin-left: 0;
         margin-right: 0;
         /* margin-top: 10px;
         margin-bottom: 10px; */
     }
-
     .Quote>.VerticalSpace2 {
         /* margin-top: 3vh; */
         height: 3vh;
@@ -125,49 +116,40 @@ button>span {
         width: 100%;
         min-height: 50px;
     }
-
     .Quote>.spacer {
         height: 0vh;
         width: 0%;
     }
-
     .Quote>.spacer2 {
         height: 0vh;
         width: 0%;
         float: left;
     }
-
     .VerticalSpace>.button {
         margin-top: 0vh;
     }
-
     .Quote>.VerticalSpace {
         height: 0vh;
         width: 0%;
         float: left;
         text-align: center;
     }
-
     .secondHolder {
         height: 0vh;
         width: 0%;
         float: left;
         text-align: center;
     }
-
     .VerticalSpace>.textcontainer {
         margin-top: 0vh;
     }
-
     .textcontainer>h1 {
         font-size: 0em;
     }
-
     button>span {
         margin-left: 0;
         margin-right: 0;
     }
-
     .Quote>.VerticalSpace2 {
         height: 3vh;
         width: 100%;
@@ -181,7 +163,6 @@ button>span {
     .textcontainer>h1 {
         font-size: 0.7em;
     }
-
     .Quote>.spacer {
         height: 8vh;
         width: 12%;
@@ -195,5 +176,5 @@ button>span {
         /* background-color: wheat; */
         float: left;
     }
-
+    
 }
