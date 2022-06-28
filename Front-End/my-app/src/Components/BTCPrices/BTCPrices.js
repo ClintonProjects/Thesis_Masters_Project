@@ -186,7 +186,7 @@ export default class BTCPrices extends Component {
 
     componentDidMount() {
         this.connect();
-        this.interval = setInterval(() => this.getData(), 1000);
+        this.interval = setInterval(() => this.getData(), 100);
         return;
     }
 
