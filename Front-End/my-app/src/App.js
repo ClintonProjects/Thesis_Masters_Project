@@ -1,5 +1,5 @@
 import './App.css';
-import Ipgrab from './Funuctions/InformationGather/Ipgrab.js';
+import s from './Funuctions/InformationGather/Ipgrab.js';
 import React, { Component, PropTypes, useEffect, useState } from 'react';
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import PreHomepage from "./Pages/PreloginHomepage.js";
@@ -26,7 +26,7 @@ class App extends Component {
     //adds the livechat to webpage.
     this.livechat();
     //get the user ip for Analytics data
-    Ipgrab.functions.getIP();
+    s.functions.getIP();
     //Checks if the user signed in
     this.isVerifyUserSignedIn();
   }
@@ -70,7 +70,7 @@ class App extends Component {
             <Route path="/info" exact component={info} />
             <Route path="/analytics" exact component={AnalyticsPage} />
             <Route path="/feedback" exact component={Feedback} />
-            {/* <Route path="/DeplotMasster" exact component={PreHomepage} /> */}
+            <Route path="/DeplotMasster" exact component={PreHomepage} />
           </Switch>
         </div>
       </Router>
