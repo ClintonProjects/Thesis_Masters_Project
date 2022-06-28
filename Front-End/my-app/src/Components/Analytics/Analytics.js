@@ -107,7 +107,7 @@ class Analytics extends Component {
     }
 
     async countryData(key) {
-        const res = await axios.get('http://localhost:8081/AnalyticsService/getAllUniqueCountryVisted/' + localStorage.getItem('SessionId'));
+        const res = await axios.get('https://localhost:8081/AnalyticsService/getAllUniqueCountryVisted/' + localStorage.getItem('SessionId'));
         let val = await res.data;
 
         let index = 0;

@@ -13,7 +13,7 @@ class AnalyticsPage extends Component {
     }
 
     async AuthUser() {
-        const res = await axios.get('http://localhost:8081/AnalyticsService/AnaylticsRedirect/' + localStorage.getItem('SessionId'));
+        const res = await axios.get('https://localhost:8081/AnalyticsService/AnaylticsRedirect/' + localStorage.getItem('SessionId'));
         let val = await res.data;
         if (val != "a")
         window.location.href = val;
