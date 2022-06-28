@@ -23,7 +23,9 @@ VerifyUserLogin.verify = function () {
 }
 
 
+export default VerifyUserLogin;
 
-module.exports = {
-    functions: VerifyUserLogin 
-};
+// module.exports = {
+//     functions: VerifyUserLogin 
+// };
+
