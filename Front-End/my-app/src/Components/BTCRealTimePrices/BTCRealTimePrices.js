@@ -37,6 +37,7 @@ class BTCRealTimePrices extends Component {
         try {
             this.currencySettings();
             this.setState({ items: JSON.parse(result) });
+            // console.log(this.state.items.currentPrice);
         } catch (err) {   //should never be called, just stop the console from being spammed if backend not on 
         }
     }
