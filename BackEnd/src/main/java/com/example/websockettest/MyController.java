@@ -33,7 +33,7 @@ public class MyController {
 	private ServicesExample servicesExample;
 
 //	@Async
-	@Scheduled(fixedRate = 750)
+	@Scheduled(fixedRate = 100)
 	public void scheduledUpdate() {
 //		System.out.println("scheduled");
 		servicesExample.checkForNewEntries();
@@ -41,7 +41,7 @@ public class MyController {
 	}
 	
 //	@Async
-	@Scheduled(fixedRate = 750)
+	@Scheduled(fixedRate = 100)
 	public void BuyandSellBarPercentage() {
 		//This is for live buy and sell bar
 //		System.out.println(servicesExample.buySellBar());
@@ -54,7 +54,7 @@ public class MyController {
 	}
 	
 //	@Async
-	@Scheduled(fixedRate = 750)
+	@Scheduled(fixedRate = 100)
 	public void getExchangeData() {
 		//Send back all the exchange data.
 		this.template.convertAndSend("/endpoint/getExchangeData", servicesExample.averagePrice());
