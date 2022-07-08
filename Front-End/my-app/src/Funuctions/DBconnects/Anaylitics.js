@@ -1,6 +1,6 @@
 //Server configuration
 
-var AnalyticsLink = "http://analyticsbtcprice.herokuapp.com";
-//var AnalyticsLink = "http://localhost:8081";
+var AnalyticsLink = "https://analyticsbtcprice.herokuapp.com";
+// var AnalyticsLink = "http://localhost:3000";
 
 export default AnalyticsLink;

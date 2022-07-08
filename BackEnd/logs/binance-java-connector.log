@@ -3561,3 +3561,29 @@ Caused by: java.net.SocketException: Connection reset
 2022-07-08 09:23:12.640[1657268592640] | INFO  | OkHttp https://stream.binance.com:9443/... | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:8, serverValue:29}] to localhost:27017
 2022-07-08 09:23:12.641[1657268592641] | INFO  | OkHttp https://stream.binance.com:9443/... | org.mongodb.driver.connection        - Opened connection [connectionId{localValue:9, serverValue:30}] to localhost:27017
 2022-07-08 09:23:50.106[1657268630106] | INFO  | MessageBroker-14 | o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[3 current WS(3)-HttpStream(0)-HttpPoll(0), 3 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(3)-CONNECTED(3)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 18, active threads = 0, queued tasks = 0, completed tasks = 18], outboundChannel[pool size = 32, active threads = 0, queued tasks = 0, completed tasks = 790], sockJsScheduler[pool size = 16, active threads = 3, queued tasks = 6, completed tasks = 1189]
+2022-07-08 09:36:31.626[1657269391626] | INFO  | http-nio-8080-exec-2 | o.a.coyote.http11.Http11Processor    - Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x020x000x010x000x010xfc0x030x030x890xeeT50xbbp<GZ0xd30xcb0xc10xabG0x990x970xe4l0x83z0xb6l0xc40xb80xdaLe0xc50x0e0xf0k0xd7 ]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:419)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:269)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:831)
+2022-07-08 09:36:31.626[1657269391626] | INFO  | http-nio-8080-exec-1 | o.a.coyote.http11.Http11Processor    - Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x020x000x010x000x010xfc0x030x030x020xd8T0x830xbd0xed0xdb00xbc0xc9Z0xf10xd440x830x020xc10xd50x0cEnp20x000xc40x1a0x0e0xc70x9a&0x17r ]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:419)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:269)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:831)
