@@ -120,9 +120,9 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.bitcoinprice</groupId>
+			<groupId>com.github.ClintonProjects</groupId>
 			<artifactId>MasterProjectModel</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>640f8b12af</version>
 		</dependency>
 
 
@@ -139,13 +139,24 @@
 		</dependency>
 	</dependencies>
 
+	<repositories>
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
 			</plugin>
 		</plugins>
+
 	</build>
 
 </project>

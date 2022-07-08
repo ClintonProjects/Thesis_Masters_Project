@@ -8,6 +8,7 @@ import bitmexLogo from './bitmex-logo.png';
 import './ExchangeActivePrices.css';
 import SockJS from "sockjs-client";
 import Stomp from "stompjs";
+import coindataLink from '../../Funuctions/DBconnects/coindata.js'
 
 var stompClient;
 var result;
@@ -28,7 +29,7 @@ class BTCRealTimePrices extends Component {
     //Connects to websock which get data for the BTC prices. This gets the table data.
     componentDidMount() {
         this.connect();
-        this.interval = setInterval(() => this.getData(), 1000);
+        this.interval = setInterval(() => this.getData(), 250);
     }
 
     //starts the websocket and set it to the state.
@@ -43,7 +44,7 @@ class BTCRealTimePrices extends Component {
 
     //Connects to websock which get data for the return the moving averages BTC prices. This gets the table data.
     connect = () => {
-        const socket = new SockJS("https://localhost:8080/simulator");
+        const socket = new SockJS(coindataLink + "/simulator");
         stompClient = Stomp.over(socket);
         stompClient.connect({}, function (frame) {
             stompClient.subscribe("/endpoint/getExchangeData", function (greeting) {

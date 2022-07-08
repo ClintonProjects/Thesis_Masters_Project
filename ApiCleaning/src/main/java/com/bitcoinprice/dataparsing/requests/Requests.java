@@ -28,7 +28,7 @@ public class Requests {
 			String line;
 			while ((line = in.readLine()) != null) {
 //				System.out.println(line);
-				if (!line.isBlank() || !line.isEmpty())
+				if (line != null && !line.isEmpty())
 				result += line;
 			}
 		}

@@ -10,7 +10,8 @@ import { Navbar, Nav, NavDropdown, Form, FormControl, Button, Container, Dropdow
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios, * as others from 'axios';
-import server from "../../Funuctions/Server.js";
+import server from "../../Funuctions/DBconnects/Server.js"
+import AnalyticsLink from '../../Funuctions/DBconnects/Anaylitics.js'
 
 class Bar extends Component {
 
@@ -88,7 +89,7 @@ class Bar extends Component {
 
     //.............
     async getAnaylticDataSat() {
-        const res = await axios.get('http://localhost:8081/AnalyticsService/AnaylticsRedirect/' + localStorage.getItem('SessionId'));
+        const res = await axios.get(AnalyticsLink + '/AnalyticsService/AnaylticsRedirect/' + localStorage.getItem('SessionId'));
         let val = await res.data;
         if (val == 'a')
             this.setState({ nav: true });

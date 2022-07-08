@@ -3,6 +3,8 @@ import './Login.css';
 import { Route, BrowserRouter as Router, Switch, Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import LoginServerLink from '../../Funuctions/DBconnects/LoginServer.js'
+import server from "../../Funuctions/DBconnects/Server.js"
 
 class Register extends Component {
     constructor(props) {
@@ -18,7 +20,7 @@ class Register extends Component {
     //lets the user sign in as a guess
     guest() {
         localStorage.setItem('SessionId', "guest");
-        window.location.href = "http://localhost:3000/";
+        window.location.href = server;
     };
 
     //Allows the register the accounts, sends there details to back in and signs them in
@@ -37,11 +39,11 @@ class Register extends Component {
             })
         };
 
-        await fetch('http://localhost:8085/login/Register', requestOptions)
+        await fetch(LoginServerLink + '/login/Register', requestOptions)
             .then((response) => response.json())
             .then((messages) => {
                 localStorage.setItem('SessionId', messages.id);
-                window.location.href = "http://localhost:3000/";
+                window.location.href = server;
             }).catch(error => {
                 console.error('There was an error!', error);
                 this.setState({ attempts: this.state.attempts + 1 });

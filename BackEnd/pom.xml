@@ -102,17 +102,18 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.bitcoinprice</groupId>
+			<groupId>com.github.ClintonProjects</groupId>
 			<artifactId>MasterProjectModel</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>640f8b12af</version>
 		</dependency>
-		
+
 		<dependency>
-			<groupId>com.bitcoinprice</groupId>
-			<artifactId>MasterProjectApiCallsAndSort</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<groupId>com.github.ClintonProjects</groupId>
+			<artifactId>ApiCleaning</artifactId>
+			<version>640f8b12afw13</version>
 		</dependency>
-		
+
+
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>webjars-locator-core</artifactId>
@@ -150,7 +151,12 @@
 
 	</dependencies>
 
-
+	<repositories>
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+	</repositories>
 
 	<build>
 		<plugins>

@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngry, faGrin, faGrinAlt, faMeh, faSkull } from '@fortawesome/free-solid-svg-icons';
 import { Button } from 'react-bootstrap'
 import axios, * as others from 'axios';
+import AnalyticsLink from '../../Funuctions/DBconnects/Anaylitics.js'
 
 class Analytics extends Component {
 
@@ -92,7 +93,7 @@ class Analytics extends Component {
     }
 
     async countryData(key) {
-        const res = await axios.get('http://localhost:8081/AnalyticsService/getAllUniqueCountryVisted/' + localStorage.getItem('SessionId'));
+        const res = await axios.get(AnalyticsLink + '/AnalyticsService/getAllUniqueCountryVisted/' + localStorage.getItem('SessionId'));
         let val = await res.data;
 
         let index = 0;
@@ -125,7 +126,7 @@ class Analytics extends Component {
     }
 
     async getAnaylticDataSat() {
-        const res = await axios.get('http://localhost:8081/AnalyticsService/getSatifcationRate/' + localStorage.getItem('SessionId'));
+        const res = await axios.get(AnalyticsLink + '/AnalyticsService/getSatifcationRate/' + localStorage.getItem('SessionId'));
         let val = await res.data;
         this.setState({ satificationData: val });
         this.getIndexColourForSatRate();
@@ -135,7 +136,7 @@ class Analytics extends Component {
 
     async getData(pos) {
         if (pos < 1) return
-        const res = await axios.get('http://localhost:8081/AnalyticsService/getFeedback/' + localStorage.getItem('SessionId') + '/' + pos);
+        const res = await axios.get(AnalyticsLink + '/AnalyticsService/getFeedback/' + localStorage.getItem('SessionId') + '/' + pos);
         let val = await res.data[0];
 
         if (val.text == "" && val.rating == "" && val.text == "") {

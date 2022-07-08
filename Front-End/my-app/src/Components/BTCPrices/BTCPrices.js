@@ -11,6 +11,8 @@ import Stomp from "stompjs";
 import { Dropdown } from 'react-bootstrap'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import coindataLink from '../../Funuctions/DBconnects/coindata.js'
+
 
 var stompClient;
 var result;
@@ -43,7 +45,7 @@ export default class BTCPrices extends Component {
 
     //Connects to websock which get data for the BTC prices. This gets the table data.
     connect = () => {
-        const socket = new SockJS("https://localhost:8080/simulator");
+        const socket = new SockJS(coindataLink + "/simulator");
         stompClient = Stomp.over(socket);
         stompClient.connect({}, function (frame) {
             stompClient.subscribe("/endpoint/greeting", function (greeting) {

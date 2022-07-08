@@ -3,25 +3,15 @@ package com.bitcoinprice.analytics.services;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.OptionalDouble;
-
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
-
 import com.bitcoinprice.analytics.repository.FeedbackRepository;
-import com.bitcoinprice.analytics.repository.UserLoginTable;
 import com.bitcoinprice.dataparsing.analytic.Feedback;
-import com.bitcoinprice.dataparsing.user.Login;
 
 @Service
 @ComponentScan({ "com.bitcoinprice", "com.bitcoinprice.repository" })
 public class FeedbackService {
-
-	@Autowired
-	private UserLoginTable UserLoginTable;
 
 	@Autowired
 	private FeedbackRepository FeedbackRepository;
@@ -50,7 +40,6 @@ public class FeedbackService {
 	}
 
 	public HashMap<String, Object> satifcationRate(String sessionId) {
-
 		if (auth.AuthUserBySessionId(sessionId)) {
 			HashMap<String, Object> satifcationRate = new HashMap<String, Object>();
 			List<Feedback> feedback = FeedbackRepository.findAll();
@@ -83,9 +72,20 @@ public class FeedbackService {
 			satifcationRate.put("Good", okCount);
 			satifcationRate.put("Very Good", veryGoodCount);
 
-			List<Double> list = List.of(VeryUnhappyCount, unHappyCount, okCount, goodCount, veryGoodCount);
-			List<String> feedbackStuff = List.of("Very Unhappy", "Unhappy", "Ok", "Good", "Very Good");
-
+			ArrayList<Double> list = new ArrayList<Double>();						
+			list.add(VeryUnhappyCount);
+			list.add(unHappyCount);
+			list.add(okCount);
+			list.add(goodCount);
+			list.add(veryGoodCount);
+			
+			ArrayList<String> feedbackStuff = new ArrayList<String>();						
+			feedbackStuff.add("Very Unhappy");
+			feedbackStuff.add("Unhappy");
+			feedbackStuff.add("Ok");
+			feedbackStuff.add("Good");
+			feedbackStuff.add("Very Good");
+			
 			double highestValue = list.stream().mapToDouble(v -> v).max().orElse(0);
 			satifcationRate.put("MostCommon", feedbackStuff.get(list.indexOf(highestValue)));
 			satifcationRate.entrySet().stream().forEach(e -> System.out.println("Map: " + e));
