@@ -1,8 +1,5 @@
 package com.bitcoinprice.analytics.services;
 
-import java.util.Optional;
-
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
@@ -24,13 +21,10 @@ public class Auth {
 	public boolean AuthUserBySessionId(String userId) {
 		UserSession userSession = sessionIdTable.findById(userId).orElse(null);
 		System.out.println("userSession: " + userSession);
-		if (userSession == null)
+		if (userSession == null || userId.isEmpty())
 			return false;
 		Login user = UserLoginTable.findBy_id(userSession.getUserId());
-		if (!user.isUserAdmin())
-			return true;
-		else
-			return false;
+		return user.isUserAdmin();
 	}
 
 }

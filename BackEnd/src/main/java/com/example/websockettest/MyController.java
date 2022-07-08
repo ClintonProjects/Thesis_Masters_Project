@@ -7,6 +7,7 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,13 +32,15 @@ public class MyController {
 	@Autowired
 	private ServicesExample servicesExample;
 
+//	@Async
 	@Scheduled(fixedRate = 100)
 	public void scheduledUpdate() {
 //		System.out.println("scheduled");
 		servicesExample.checkForNewEntries();
 		this.template.convertAndSend("/endpoint/greeting", ServicesExample.previousExchangeDataRecieved);
 	}
-
+	
+//	@Async
 	@Scheduled(fixedRate = 100)
 	public void BuyandSellBarPercentage() {
 		//This is for live buy and sell bar
@@ -50,6 +53,7 @@ public class MyController {
 		this.template.convertAndSend("/endpoint/coinbaseprice", servicesExample.buySellBar());
 	}
 	
+//	@Async
 	@Scheduled(fixedRate = 100)
 	public void getExchangeData() {
 		//Send back all the exchange data.

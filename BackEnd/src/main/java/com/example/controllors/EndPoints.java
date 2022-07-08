@@ -7,18 +7,10 @@ import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.socket.TextMessage;
-import org.springframework.web.socket.WebSocketMessage;
-import org.springframework.web.socket.WebSocketSession;
-import org.springframework.web.socket.handler.TextWebSocketHandler;
-
 import com.bitcoinprice.dataparsing.coindata.RealTimeBTCData;
 import com.bitcoinprice.dataparsing.coindata.ExchangeDataRecieved;
-import com.bitcoinprice.dataparsing.exchanges.AllDataList;
-import com.example.model.ExampleObject;
 import com.example.services.ServicesExample;
 
 @RestController

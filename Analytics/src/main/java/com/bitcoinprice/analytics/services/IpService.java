@@ -11,7 +11,6 @@ import java.util.stream.Collectors;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import com.bitcoinprice.analytics.localmodel.UserIPInformation;
@@ -40,14 +39,14 @@ public class IpService {
 		 * cases were they can be present or not which we do below
 		 */
 
-		if (!ipv4.isBlank() && exampleRepository.findByipv4(ipv4) != null) {
+		if (!ipv4.isEmpty() && exampleRepository.findByipv4(ipv4) != null) {
 			// System.out.println("IPV4 is presant in the database.");
 			// if the IP is already in the database, then set increase the visits.
 			UserIPInformation ipObject = exampleRepository.findByipv4(ipv4);
 			ipObject.incrementVisit();
 			exampleRepository.save(ipObject);
 			return;
-		} else if (!ipv6.isBlank() && exampleRepository.findByipv6(ipv6) != null) {
+		} else if (!ipv6.isEmpty() && exampleRepository.findByipv6(ipv6) != null) {
 			// System.out.println("ipv6 is presant in the database.");
 			// if the IP is already in the database, then set increase the visits.
 			UserIPInformation ipObject = exampleRepository.findByipv6(ipv6);

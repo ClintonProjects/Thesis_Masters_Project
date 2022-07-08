@@ -4,7 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngry, faGrin, faGrinAlt, faMeh, faSkull } from '@fortawesome/free-solid-svg-icons';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import server from "../../Funuctions/Server.js";
+import server from "../../Funuctions/DBconnects/Server.js"
+import AnalyticsLink from '../../Funuctions/DBconnects/Anaylitics.js'
+
 var result;
 class Suggestion extends Component {
     constructor(props) {
@@ -107,7 +109,7 @@ class Suggestion extends Component {
                 text: document.getElementById('comment').value,
             })
         };
-        await fetch('http://localhost:8080/AnalyticsService/SaveFeedback', requestOptions)
+        await fetch(AnalyticsLink + '/AnalyticsService/SaveFeedback', requestOptions)
             .then((response) => response.status)
             .then((messages) => {
                 toast.success('Your feedback has been noted!', {

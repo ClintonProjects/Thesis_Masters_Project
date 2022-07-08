@@ -17,7 +17,7 @@ public class CurrencyService {
 	@Autowired
 	private BitcoinPriceData bitcoinPriceData;
 	
-	@Scheduled(fixedRate = 1000 * 60 * 2)
+//	@Scheduled(fixedRate = 1000 * 60 * 2)
 	public void scheduledUpdate() throws Exception {
 		//Updates the currency conversation holder.
 		new Currency().getCurrencyValues();	

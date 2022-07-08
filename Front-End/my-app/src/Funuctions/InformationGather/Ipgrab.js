@@ -1,3 +1,5 @@
+import AnalyticsLink from '../DBconnects/Anaylitics.js';
+
 class Ipgrab {
 }
 //Grabs the user ip for the Analytics
@@ -21,7 +23,7 @@ function getIP() {
             body: JSON.stringify({ "ipv4": ipv4, "ipv6": ipv6 })
         };
 
-        fetch('http://localhost:8081/AnalyticsService/AnalyticsData', requestOptions)
+        fetch(AnalyticsLink + '/AnalyticsService/AnalyticsData', requestOptions)
             .then(async response => {
                 const data = await response.json();
                 if (!response.ok) {

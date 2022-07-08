@@ -4,6 +4,8 @@ import Nav2 from '../Components/NavigationBar/bar.js';
 import Footer from '../Components/Footer/footer.js';
 import Map from '../Components/Analytics/Analytics.js';
 import axios, * as others from 'axios';
+import AnalyticsLink from "../Funuctions/DBconnects/Anaylitics.js"
+
 
 class AnalyticsPage extends Component {
     constructor(props) {
@@ -14,7 +16,7 @@ class AnalyticsPage extends Component {
 
     //redirect.
     async AuthUser() {
-        const res = await axios.get('http://localhost:8081/AnalyticsService/AnaylticsRedirect/' + localStorage.getItem('SessionId'));
+        const res = await axios.get(AnalyticsLink + '/AnalyticsService/AnaylticsRedirect/' + localStorage.getItem('SessionId'));
         let val = await res.data;
         if (val != "a")
             window.location.href = val;
