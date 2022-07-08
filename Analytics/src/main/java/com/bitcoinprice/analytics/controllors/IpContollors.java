@@ -38,12 +38,6 @@ public class IpContollors {
 	Auth auth;
 
 	// http://localhost:8080/AnalyticsService/getTotalViews
-	@GetMapping("/t")
-	public String t() {
-		return "test";
-	}
-
-	// http://localhost:8080/AnalyticsService/getTotalViews
 	@GetMapping("/getTotalViews")
 	public int getAll() {
 		return IpService.getTotalViewers();
@@ -77,8 +71,8 @@ public class IpContollors {
 	public void RegisterUser(@RequestBody Feedback feedback) throws Exception {
 		FeedbackService.insertFeedback(feedback);
 	}
-
-	// s
+	
+	//s
 
 	@GetMapping("/getFeedback/{id}/{index}")
 	@ResponseBody
@@ -87,7 +81,7 @@ public class IpContollors {
 		feedback.add(FeedbackService.getFeedback(id, index));
 		return feedback;
 	}
-//
+
 	@GetMapping("/getSatifcationRate/{id}")
 	public HashMap<String, Object> getSatifcationRatethrows(@PathVariable String id) throws Exception {
 		return FeedbackService.satifcationRate(id);
@@ -98,7 +92,14 @@ public class IpContollors {
 	public String getAnaylticsNav(@PathVariable String id) throws Exception {
 		if (auth.AuthUserBySessionId(id))
 			return "a";
-		else
+		else 
 			return "http://localhost:3000/";
 	}
+	
+	
+	
+	
+	
+	
+
 }

@@ -12,7 +12,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import com.bitcoinprice.dataparsing.coindata.ExchangeDataRecieved;
 import com.bitcoinprice.dataparsing.exchanges.AllDataList;
@@ -42,7 +41,6 @@ public class CustomWebSocket {
 	}
 
 //	@PostConstruct
-	@Async
 	public void getWebSocket(String link, boolean JsonArrayRequired, String message) throws WebSocketException, IOException {
 //		System.out.println("getWeb");
 		new WebSocketFactory().createSocket(link).addListener(new WebSocketAdapter() {

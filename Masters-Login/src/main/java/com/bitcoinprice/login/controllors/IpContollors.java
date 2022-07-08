@@ -36,11 +36,6 @@ public class IpContollors {
 
 	@Autowired
 	UserLoginService userLoginService;
-	
-	@GetMapping(value = "/t")
-	public String t() {
-		return "test";
-	}
 
 	@PostMapping(value = "/login")
 	public response Login(@RequestBody Login login)

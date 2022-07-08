@@ -60,16 +60,12 @@ public class ServicesExample {
 	@Bean
 	public void addWebSocketDataToDB() throws JSONException, IOException, WebSocketException {
 		customWebSocket.getWebSocket("wss://ws-feed.pro.coinbase.com/", false,
-		"{\"type\": \"subscribe\", \"channels\": [{\"name\":\"matches\",\"product_ids\":[\"BTC-GBP\" , \"BTC-EUR\", \"ETH-GBP\" ,  \"ETH-EUR\"  , \"LTC-USD\" , \"LTC-GBP\" , \"LTC-EUR\"]}]}");
-		
-//		customWebSocket.getWebSocket("wss://ws-feed.pro.coinbase.com/", false,
-//				"{\"type\": \"subscribe\", \"channels\": [{\"name\":\"matches\",\"product_ids\":[\"BTC-USD\", \"BTC-GBP\" , \"BTC-EUR\", \"ETH-GBP\" , \"ETH-USD\"  ,  \"ETH-EUR\"  , \"LTC-USD\" , \"LTC-GBP\" , \"LTC-EUR\"]}]}");
-
-//		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTUSD", true, "");
+				"{\"type\": \"subscribe\", \"channels\": [{\"name\":\"matches\",\"product_ids\":[\"BTC-USD\", \"BTC-GBP\" , \"BTC-EUR\", \"ETH-GBP\" , \"ETH-USD\"  ,  \"ETH-EUR\"  , \"LTC-USD\" , \"LTC-GBP\" , \"LTC-EUR\"]}]}");
+		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTUSD", true, "");
 		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTEUR", true, "");
-//		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:ETHUSD", true, "");
+		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:ETHUSD", true, "");
 		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:LTCUSD", true, "");
-//		bainaceWebsocket.getData(6, "btcusdt");
+		bainaceWebsocket.getData(6, "btcusdt");
 		bainaceWebsocket.getData(7, "ethusdt");
 		bainaceWebsocket.getData(8, "ltcusdt");
 		bainaceWebsocket.getData(9, "btceur");
@@ -91,7 +87,7 @@ public class ServicesExample {
 			Instant instant = Instant.parse(i.getTimestamp());
 			LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, ZoneOffset.UTC);
 
-			if (Duration.between(localDateTime, minAgo).getSeconds() <= 60)
+			if (Duration.between(localDateTime, minAgo).toSeconds() <= 60)
 				previousMinList.add(i);
 		}
 
@@ -199,6 +195,7 @@ public class ServicesExample {
 	}
 
 	public HashMap<String, Object> averagePrice() {
+
 		// Id data / result
 		HashMap<String, Object> exchangeData = new HashMap<String, Object>();
 		final List<String> EXCHANGE = Arrays.asList("ALL", "COINBASE PRO".trim(), "BITMEX", "BINANCE");
@@ -228,16 +225,16 @@ public class ServicesExample {
 					for (Double l : SIZE) {
 						if (l == 0.0)
 							continue;
-						returnList.addAll(all.stream().filter(m -> !returnListObjList.contains(m.get_id()))
+						returnList.addAll(all.stream()
+								.filter(m -> !returnListObjList.contains(m.get_id()))
 								.filter(m -> m.getCypto().trim().equalsIgnoreCase(i.trim()))
 								.filter(m -> m.getExchange().trim().equalsIgnoreCase(j.trim()))
 								.filter(m -> m.getCurrency().trim().equalsIgnoreCase(k.trim()))
 								.filter(m -> Double.valueOf(m.size) < l)
 								.filter(m -> Double.valueOf(m.size) >= SIZE.get(temp))
 								.sorted(Comparator.comparing(ExchangeDataRecieved::getTimestamp1).reversed()).limit(100)
-								.collect(Collectors.toList()));
-						returnListObjList = returnList.stream().map(ExchangeDataRecieved::get_id)
-								.collect(Collectors.toList());
+								.toList());
+						returnListObjList = returnList.stream().map(ExchangeDataRecieved::get_id).toList();
 					}
 		}
 
@@ -256,33 +253,31 @@ public class ServicesExample {
 			currentDB = currentDB.stream().filter(i -> cypto != null && i.getCypto().equalsIgnoreCase(cypto))
 					.filter(i -> currency != null && i.getCurrency().equalsIgnoreCase(currency))
 					.filter(i -> i.getCurrency().equalsIgnoreCase(currency.trim()))
-					.filter(i -> exchange != null && i.getExchange().trim().equalsIgnoreCase(exchange))
-					.collect(Collectors.toList());
+					.filter(i -> exchange != null && i.getExchange().trim().equalsIgnoreCase(exchange)).toList();
 		else
-			currentDB = currentDB.stream().filter(i -> cypto != null && i.getCypto().equalsIgnoreCase(cypto))
+			currentDB = currentDB.stream()
+					.filter(i -> cypto != null && i.getCypto().equalsIgnoreCase(cypto))
 					.filter(i -> currency != null && i.getCurrency().equalsIgnoreCase(currency))
-					.filter(i -> i.getCurrency().equalsIgnoreCase(currency)).collect(Collectors.toList());
+					.filter(i -> i.getCurrency().equalsIgnoreCase(currency)).toList();
 
 		// Checks for tranactions that happened less then 1 min ago
 		List<ExchangeDataRecieved> previousMinList = currentDB.stream()
 				.filter(i -> Duration
 						.between(LocalDateTime.ofInstant(Instant.parse(i.getTimestamp()), ZoneOffset.UTC),
 								LocalDateTime.ofInstant(Instant.now(), ZoneOffset.UTC).minus(1, ChronoUnit.MINUTES))
-						.getSeconds() <= 60)
-				.collect(Collectors.toList());
+						.toSeconds() <= 60).toList();
 
-		// Checks for tranaction's that happened less then 60 seconds and 120 seconds
-		// ago
+		// Checks for tranactions that happened less then 60 seconds and 120 seconds ago
 		List<ExchangeDataRecieved> afterMinList = currentDB.stream()
 				.filter(i -> Duration
 						.between(LocalDateTime.ofInstant(Instant.parse(i.getTimestamp()), ZoneOffset.UTC),
 								LocalDateTime.ofInstant(Instant.now(), ZoneOffset.UTC).minus(1, ChronoUnit.MINUTES))
-						.getSeconds() >= 60)
+						.toSeconds() >= 60)
 				.filter(i -> Duration
 						.between(LocalDateTime.ofInstant(Instant.parse(i.getTimestamp()), ZoneOffset.UTC),
 								LocalDateTime.ofInstant(Instant.now(), ZoneOffset.UTC).minus(1, ChronoUnit.MINUTES))
-						.getSeconds() <= 120)
-				.collect(Collectors.toList());
+						.toSeconds() <= 120)
+				.toList();
 
 		double cuurentMinPrice = previousMinList.stream().mapToDouble(i -> Double.parseDouble(i.getPrice())).sum()
 				/ previousMinList.size();
@@ -294,26 +289,16 @@ public class ServicesExample {
 		return realTimeBTCData;
 	}
 
-	// drops the db
 	public void dropData() {
-		try {
-			LocalDateTime now = LocalDateTime.ofInstant(Instant.now(), ZoneOffset.UTC);
-			List<ExchangeDataRecieved> resultToClear = bitcoinPriceData
-					.findAll().stream().filter(i -> Duration
-							.between(LocalDateTime.ofInstant(i.getTimestamp1(), ZoneOffset.UTC), now).getSeconds() > 120)
-					.collect(Collectors.toList());
-
-//			.map(ExchangeDataRecieved::get_id)
-			System.out.println("DROP SIZE " + resultToClear.size());
-			bitcoinPriceData.deleteAll(resultToClear);
-			System.out.println("DONE");
-		} catch (Exception e) {
-			System.out.println(e);
-		}
+		LocalDateTime now = LocalDateTime.ofInstant(Instant.now(), ZoneOffset.UTC);
+		List<ExchangeDataRecieved> resultToClear = bitcoinPriceData.findAll().stream().filter(
+				i -> Duration.between(LocalDateTime.ofInstant(i.getTimestamp1(), ZoneOffset.UTC), now).toMinutes() > 3)
+				.collect(Collectors.toList());
+		bitcoinPriceData.deleteAll(resultToClear);
 	}
 
 	@Async
-	@Scheduled(fixedRate = 1000 * 60)
+	@Scheduled(fixedRate = 1000 * 125)
 	public void scheduledUpdate() throws Exception {
 		dropData();
 	}

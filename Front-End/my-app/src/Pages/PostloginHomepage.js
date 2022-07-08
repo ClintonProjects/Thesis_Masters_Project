@@ -7,7 +7,7 @@ import BTCPrices from '../Components/BTCPrices/BTCPrices.js';
 import Banner from '../Components/BannerSpot/Banner.js';
 import BTCRealTimePrices from '../Components/BTCRealTimePrices/BTCRealTimePrices.js';
 import BuySellBar from '../Components/BuySellBar/BuySellBar';
-import server from "../Funuctions/DBconnects/Server.js"
+import server from "../Funuctions/Server.js";
 
 class PostloginHomepage extends Component {
     constructor(props) {
