@@ -58,15 +58,18 @@ public class ServicesExample {
 	}
 
 	@Bean
-	public void addWebSocketDataToDB() throws JSONException, IOException, WebSocketException {	
+	public void addWebSocketDataToDB() throws JSONException, IOException, WebSocketException {
 		customWebSocket.getWebSocket("wss://ws-feed.pro.coinbase.com/", false,
-				"{\"type\": \"subscribe\", \"channels\": [{\"name\":\"matches\",\"product_ids\":[\"BTC-USD\", \"BTC-GBP\" , \"BTC-EUR\", \"ETH-GBP\" , \"ETH-USD\"  ,  \"ETH-EUR\"  , \"LTC-USD\" , \"LTC-GBP\" , \"LTC-EUR\"]}]}");
-		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTUSD", true, "");
+				"{\"type\": \"subscribe\", \"channels\": [{\"name\":\"matches\",\"product_ids\":[\"BTC-GBP\" , \"BTC-EUR\", \"ETH-GBP\" ,  \"ETH-EUR\"  , \"LTC-USD\" , \"LTC-GBP\" , \"LTC-EUR\"]}]}");
+
+		customWebSocket.getWebSocket("wss://ws-feed.pro.coinbase.com/", false,
+				"{\"type\": \"subscribe\", \"channels\":  [{\"name\":\"matches\",\"product_ids\":[\"BTC-USD\", \"BTC-GBP\" ,\"BTC-EUR\", \"ETH-GBP\" , \"ETH-USD\" , \"ETH-EUR\" , \"LTC-USD\" ,  \"LTC-GBP\" , \"LTC-EUR\"]}]}");
+		 customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTUSD", true, "");
 		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:XBTEUR", true, "");
 		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:ETHUSD", true, "");
 		customWebSocket.getWebSocket("wss://ws.bitmex.com/realtime?subscribe=trade:LTCUSD", true, "");
-		bainaceWebsocket.getData(6, "btcusdt");
-		bainaceWebsocket.getData(7, "ethusdt");
+		 bainaceWebsocket.getData(6, "btcusdt");
+		 bainaceWebsocket.getData(7, "ethusdt");
 		bainaceWebsocket.getData(8, "ltcusdt");
 		bainaceWebsocket.getData(9, "btceur");
 		bainaceWebsocket.getData(10, "etheur");
@@ -290,13 +293,13 @@ public class ServicesExample {
 		return realTimeBTCData;
 	}
 
-	// drops the db
+	@Async
+	@Scheduled(fixedRate = 1000 * 30)
 	public void dropData() {
 		try {
 			LocalDateTime now = LocalDateTime.ofInstant(Instant.now(), ZoneOffset.UTC);
-			List<ExchangeDataRecieved> resultToClear = bitcoinPriceData
-					.findAll().stream().filter(i -> Duration
-							.between(LocalDateTime.ofInstant(i.getTimestamp1(), ZoneOffset.UTC), now).getSeconds() > 180)
+			List<ExchangeDataRecieved> resultToClear = bitcoinPriceData.findAll().stream().filter(i -> Duration
+					.between(LocalDateTime.ofInstant(i.getTimestamp1(), ZoneOffset.UTC), now).getSeconds() > 120)
 					.collect(Collectors.toList());
 
 //			.map(ExchangeDataRecieved::get_id)
@@ -308,9 +311,10 @@ public class ServicesExample {
 		}
 	}
 
-	@Async
-	@Scheduled(fixedRate = 1000 * 60)
-	public void scheduledUpdate() throws Exception {
-		dropData();
-	}
+	// only use in live demo version
+//	@Async
+//	@Scheduled(fixedRate = 1000 * 2400)
+//	public void scheduledUpdate() throws Exception {
+//		bitcoinPriceData.deleteAll();
+//	}
 }
