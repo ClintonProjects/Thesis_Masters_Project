@@ -105,7 +105,7 @@ class Bar extends Component {
     //displays the button in nav
     buttonSymbol() {
         return (
-            <a><FontAwesomeIcon icon={faUser} /> Navagation</a>);
+            <a><FontAwesomeIcon icon={faUser} /> Navigation</a>);
     }
 
 
