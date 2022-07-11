@@ -18,6 +18,10 @@ public class Bardata {
 	private RealTimeBTCData realTimeBTCData;
 	public String timestamp = "";
 	private long dataSize;
+	private double priceChange;
+	
+	private Bardata() {
+	}
 
 	private Bardata(Builder builder) {
 		this.exchange = builder.exchange;
@@ -28,6 +32,7 @@ public class Bardata {
 		this.realTimeBTCData = builder.realTimeBTCData;
 		this.timestamp = Instant.now().toString();
 		this.dataSize = builder.dataSize;
+		this.priceChange = builder.priceChange;
 	}
 
 	public String getExchange() {
@@ -69,6 +74,11 @@ public class Bardata {
 	public long getDataSize() {
 		return dataSize;
 	}
+	
+	public double getPriceChange() {
+		return priceChange;
+	}
+
 
 	public static class Builder {
 		private String exchange = "";
@@ -78,6 +88,7 @@ public class Bardata {
 		private double sellPercentage;
 		private RealTimeBTCData realTimeBTCData;
 		private long dataSize;
+		private double priceChange;
 
 		public Builder exchange(final String exchange) {
 			this.exchange = exchange;
@@ -104,10 +115,10 @@ public class Bardata {
 			return this;
 		}
 
-//		public Builder avgPrice(final double avgPrice) {
-//			this.avgPrice = avgPrice;
-//			return this;
-//		}
+		public Builder priceChange(final double priceChange) {
+			this.priceChange = priceChange;
+			return this;
+		}
 
 		public Builder realTimeBTCData(RealTimeBTCData realTimeBTCData) {
 			this.realTimeBTCData = realTimeBTCData;

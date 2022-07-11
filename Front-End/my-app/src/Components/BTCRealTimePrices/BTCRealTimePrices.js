@@ -29,7 +29,7 @@ class BTCRealTimePrices extends Component {
     //Connects to websock which get data for the BTC prices. This gets the table data.
     componentDidMount() {
         this.connect();
-        this.interval = setInterval(() => this.getData(), 250);
+        this.interval = setInterval(() => this.getData(), 100);
     }
 
     //starts the websocket and set it to the state.

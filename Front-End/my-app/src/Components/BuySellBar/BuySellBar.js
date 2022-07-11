@@ -29,7 +29,7 @@ export default class BuySellBar extends Component {
     //start the websock
     componentDidMount() {
         this.connect();
-        this.interval = setInterval(() => this.getData(), 250);
+        this.interval = setInterval(() => this.getData(), 100);
     }
 
     //set the data to the state
