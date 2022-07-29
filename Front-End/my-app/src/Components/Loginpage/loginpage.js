@@ -3,8 +3,8 @@ import './Login.css';
 import { Route, BrowserRouter as Router, Switch, Link, Redirect } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-
+import LoginServerLink from '../../Funuctions/DBconnects/LoginServer.js'
+import server from "../../Funuctions/DBconnects/Server.js"
 
 var sessionId;
 class loginpage extends Component {
@@ -34,7 +34,7 @@ class loginpage extends Component {
     //lets the user login as a guess
     guest() {
         localStorage.setItem('SessionId', "guest");
-        window.location.href = "http://localhost:3000/";
+        window.location.href = LoginServerLink;
     };
 
 
@@ -55,7 +55,7 @@ class loginpage extends Component {
                 // password:document.getElementById('pass').value,
             })
         };
-        await fetch('http://localhost:8085/login/login', requestOptions)
+        await fetch(LoginServerLink +  '/login/login', requestOptions)
             .then((response) => response.json())
             .then((messages) => {
                 localStorage.setItem('SessionId', messages.id);
@@ -64,7 +64,7 @@ class loginpage extends Component {
             if (this.state.rememberMe)
                 localStorage.setItem('Login email', document.getElementById('email').value);
             else localStorage.removeItem('Login email');
-            window.location.href = "http://localhost:3000/";
+            window.location.href = server;
         } else {
             toast.error('Incorrect username or password!', {
                 position: "bottom-center",
