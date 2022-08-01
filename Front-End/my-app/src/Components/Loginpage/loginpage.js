@@ -34,7 +34,7 @@ class loginpage extends Component {
     //lets the user login as a guess
     guest() {
         localStorage.setItem('SessionId', "guest");
-        window.location.href = LoginServerLink;
+        window.location.href = server;
     };
 
 
